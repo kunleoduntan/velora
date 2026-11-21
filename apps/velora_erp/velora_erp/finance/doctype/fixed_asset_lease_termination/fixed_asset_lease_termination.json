@@ -1,0 +1,227 @@
+{
+  "name": "Fixed Asset Lease Termination",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled IFRS 16 lessee full termination and partial scope reduction with proportional ROU and liability derecognition.",
+  "fields": [
+    {
+      "fieldname": "lease",
+      "fieldtype": "Link",
+      "label": "Lease Contract",
+      "options": "Fixed Asset Lease",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "termination_type",
+      "fieldtype": "Select",
+      "label": "Event Type",
+      "options": [
+        "Full Termination",
+        "Partial Scope Reduction"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Effective Date",
+      "required": true
+    },
+    {
+      "fieldname": "scope_reduction_percent",
+      "fieldtype": "Float",
+      "label": "Scope Reduction (%)",
+      "default": 100
+    },
+    {
+      "fieldname": "lease_liability_before",
+      "fieldtype": "Currency",
+      "label": "Lease Liability Before",
+      "read_only": true
+    },
+    {
+      "fieldname": "lease_liability_derecognised",
+      "fieldtype": "Currency",
+      "label": "Lease Liability Derecognised",
+      "read_only": true
+    },
+    {
+      "fieldname": "rou_carrying_amount_before",
+      "fieldtype": "Currency",
+      "label": "ROU Carrying Amount Before",
+      "read_only": true
+    },
+    {
+      "fieldname": "rou_carrying_amount_derecognised",
+      "fieldtype": "Currency",
+      "label": "ROU Carrying Amount Derecognised",
+      "read_only": true
+    },
+    {
+      "fieldname": "settlement_amount",
+      "fieldtype": "Currency",
+      "label": "Termination Settlement Paid",
+      "default": 0
+    },
+    {
+      "fieldname": "settlement_account",
+      "fieldtype": "Link",
+      "label": "Settlement Bank / Cash Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "gain_account",
+      "fieldtype": "Link",
+      "label": "Lease Termination Gain Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "loss_account",
+      "fieldtype": "Link",
+      "label": "Lease Termination Loss Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "gain_loss",
+      "fieldtype": "Currency",
+      "label": "Gain / (Loss)",
+      "read_only": true
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason and Supporting Evidence",
+      "required": true
+    },
+    {
+      "fieldname": "revaluation_surplus_transfer_account",
+      "fieldtype": "Link",
+      "label": "Revaluation Surplus Transfer Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "autoname": "series:FALT-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "cancel": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "submit": false,
+      "cancel": false,
+      "export": true,
+      "print": true
+    }
+  ]
+}

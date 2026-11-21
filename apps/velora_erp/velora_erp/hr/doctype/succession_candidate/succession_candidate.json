@@ -1,0 +1,113 @@
+{
+ "name": "Succession Candidate",
+ "module": "HR",
+ "track_changes": true,
+ "description": "Employee nominated for a critical position with documented readiness and development requirements.",
+ "fields": [
+  {
+   "fieldname": "critical_position",
+   "fieldtype": "Link",
+   "label": "Critical Position",
+   "options": "Critical Position",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Successor Candidate",
+   "options": "Employee",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": true,
+   "fetch_from": "employee.employee_name",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "readiness",
+   "fieldtype": "Select",
+   "label": "Readiness",
+   "options": [
+    "Ready Now",
+    "Ready in 1 Year",
+    "Ready in 2 Years",
+    "Long Term",
+    "Not Assessed"
+   ],
+   "default": "Not Assessed",
+   "required": true
+  },
+  {
+   "fieldname": "readiness_score",
+   "fieldtype": "Float",
+   "label": "Readiness Score"
+  },
+  {
+   "fieldname": "strengths",
+   "fieldtype": "Text",
+   "label": "Strengths"
+  },
+  {
+   "fieldname": "development_gaps",
+   "fieldtype": "Text",
+   "label": "Development Gaps"
+  },
+  {
+   "fieldname": "development_plan",
+   "fieldtype": "Link",
+   "label": "Career Development Plan",
+   "options": "Career Development Plan"
+  },
+  {
+   "fieldname": "confidentiality_level",
+   "fieldtype": "Select",
+   "label": "Confidentiality",
+   "options": [
+    "HR Restricted",
+    "Executive Restricted"
+   ],
+   "default": "HR Restricted"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Proposed",
+    "Approved",
+    "In Development",
+    "Ready",
+    "Withdrawn"
+   ],
+   "default": "Proposed",
+   "required": true,
+   "in_list_view": true
+  }
+ ],
+ "title_field": "employee_name",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "HR Manager",
+   "read": true,
+   "write": 1,
+   "create": 1,
+   "delete": false,
+   "export": 1,
+   "print": 1
+  }
+ ]
+}

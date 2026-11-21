@@ -1,0 +1,67 @@
+{
+  "name": "Landed Cost Allocation",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "label": "Item Code",
+      "fieldtype": "Link",
+      "required": true,
+      "options": "Inventory Item",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_name",
+      "fieldtype": "Data",
+      "label": "Item Name",
+      "read_only": true,
+      "fetch_from": "item_code.item_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Item Description",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "source_line",
+      "label": "Purchase Receipt Line",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "quantity",
+      "label": "Received Quantity",
+      "fieldtype": "Float",
+      "default": 0,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_value",
+      "label": "Item Value",
+      "fieldtype": "Currency",
+      "default": 0
+    },
+    {
+      "fieldname": "weight",
+      "label": "Weight",
+      "fieldtype": "Float",
+      "default": 0
+    },
+    {
+      "fieldname": "volume",
+      "label": "Volume",
+      "fieldtype": "Float",
+      "default": 0
+    },
+    {
+      "fieldname": "allocated_amount",
+      "label": "Allocated Landed Cost",
+      "fieldtype": "Currency",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": []
+}

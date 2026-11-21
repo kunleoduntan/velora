@@ -1,0 +1,341 @@
+{
+  "name": "Inventory Settings",
+  "module": "Finance",
+  "autoname": "field:settings_name",
+  "track_changes": true,
+  "description": "Inventory valuation and accounting integration configuration for this legal entity.",
+  "fields": [
+    {
+      "fieldname": "settings_name",
+      "label": "Settings Profile",
+      "fieldtype": "Data",
+      "required": true,
+      "default": "Primary Inventory Settings",
+      "read_only": true,
+      "unique": true
+    },
+    {
+      "fieldname": "default_inventory_asset_account",
+      "label": "Default Inventory Asset Account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "goods_received_not_invoiced_account",
+      "label": "Goods Received Not Invoiced Account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_of_goods_sold_account",
+      "label": "Cost of Goods Sold Account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "stock_adjustment_gain_account",
+      "label": "Stock Adjustment Gain Account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "stock_adjustment_loss_account",
+      "label": "Stock Adjustment Loss Account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "purchase_price_variance_account",
+      "label": "Purchase Price Variance Account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "required": false,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "opening_balance_clearing_account",
+      "label": "Opening Stock Clearing Account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "required": false,
+      "description": "Equity clearing account used when importing opening inventory balances.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "stock_revaluation_gain_account",
+      "label": "Stock Revaluation Gain Account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "required": false,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "stock_revaluation_loss_account",
+      "label": "Stock Revaluation Loss Account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "required": false,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "selling_pricing_section",
+      "fieldtype": "Section Break",
+      "label": "Selling Price and Cost Protection"
+    },
+    {
+      "fieldname": "selling_cost_basis",
+      "fieldtype": "Select",
+      "label": "Selling Cost Basis",
+      "options": [
+        "Last Purchase Cost",
+        "Current Inventory Valuation"
+      ],
+      "default": "Last Purchase Cost",
+      "required": true,
+      "description": "Last Purchase Cost follows the latest submitted goods receipt, including landed costs. Current Inventory Valuation uses the current Stock Ledger carrying rate."
+    },
+    {
+      "fieldname": "enable_cost_based_selling_price",
+      "fieldtype": "Check",
+      "label": "Enable Cost Based Selling Price",
+      "default": 0,
+      "description": "Automatically calculate selling prices from inventory cost and configured margins."
+    },
+    {
+      "fieldname": "block_selling_below_cost",
+      "fieldtype": "Check",
+      "label": "Block Selling Below Cost",
+      "default": 1,
+      "description": "Reject sales documents when the net selling rate after discounts is below inventory cost."
+    },
+    {
+      "fieldname": "require_cost_for_stock_sales",
+      "fieldtype": "Check",
+      "label": "Require Cost Before Selling Stock Items",
+      "default": 1
+    },
+    {
+      "fieldname": "default_selling_margin_percent",
+      "fieldtype": "Float",
+      "label": "Default Selling Margin (%)",
+      "default": 0
+    },
+    {
+      "fieldname": "selling_price_basis",
+      "fieldtype": "Select",
+      "label": "Margin Calculation Basis",
+      "options": [
+        "Markup on Cost",
+        "Margin on Selling Price"
+      ],
+      "default": "Markup on Cost",
+      "required": true
+    },
+    {
+      "fieldname": "price_rounding_step",
+      "fieldtype": "Currency",
+      "label": "Price Rounding Step",
+      "default": 0,
+      "description": "Optional rounding increment, for example 5. Leave zero for currency precision."
+    },
+    {
+      "fieldname": "allow_manual_selling_price",
+      "fieldtype": "Check",
+      "label": "Allow Manual Selling Price",
+      "default": 1,
+      "description": "Manual prices remain subject to the cost floor."
+    },
+    {
+      "fieldname": "strict_selling_price",
+      "fieldtype": "Check",
+      "label": "Require Configured Selling Price",
+      "default": 0,
+      "description": "When enabled, block stock sales if no Customer Group, Item or Default selling price can be calculated."
+    },
+    {
+      "fieldname": "require_purchase_receipt_for_stock_invoices",
+      "fieldtype": "Check",
+      "label": "Require Purchase Receipt for Stock Invoices",
+      "default": "0",
+      "description": "Off (default): a supplier invoice may be entered without a receipt, either expensed or with Update Stock. On: stock items must be invoiced from a Purchase Receipt."
+    },
+    {
+      "fieldname": "stock_control_section",
+      "fieldtype": "Section Break",
+      "label": "Stock control"
+    },
+    {
+      "fieldname": "reservations_protect_stock",
+      "fieldtype": "Check",
+      "label": "Reserved stock cannot be issued to anyone else",
+      "default": 1
+    },
+    {
+      "fieldname": "block_issue_of_expired_batches",
+      "fieldtype": "Check",
+      "label": "Block delivering or transferring expired batches",
+      "default": 1,
+      "description": "Expired stock can still be moved to a quarantine warehouse or scrapped."
+    },
+    {
+      "fieldname": "expiry_alert_days",
+      "fieldtype": "Int",
+      "label": "Warn about batches expiring within (days)",
+      "default": 60
+    },
+    {
+      "fieldname": "transit_alert_days",
+      "fieldtype": "Int",
+      "label": "Warn about goods in transit for more than (days)",
+      "default": 7
+    },
+    {
+      "fieldname": "cycle_count_days_a",
+      "fieldtype": "Int",
+      "label": "Count A items every (days)",
+      "default": 30
+    },
+    {
+      "fieldname": "cycle_count_days_b",
+      "fieldtype": "Int",
+      "label": "Count B items every (days)",
+      "default": 90
+    },
+    {
+      "fieldname": "cycle_count_days_c",
+      "fieldtype": "Int",
+      "label": "Count C and unclassified items every (days)",
+      "default": 180
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true
+    }
+  ],
+  "title_field": "settings_name"
+}

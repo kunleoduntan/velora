@@ -1,0 +1,166 @@
+{
+  "name": "Accrual",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Period-end accrual journal with controlled approval and optional automatic reversal.",
+  "fields": [
+    {
+      "fieldname": "reporting_date",
+      "fieldtype": "Date",
+      "label": "Accrual Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Accrual Description",
+      "required": true
+    },
+    {
+      "fieldname": "lines_section",
+      "fieldtype": "Section Break",
+      "label": "Accrual Lines",
+      "collapsible": true
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Accrual Lines",
+      "options": "Accrual Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_accrual",
+      "fieldtype": "Currency",
+      "label": "Total Accrual",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "auto_reverse",
+      "fieldtype": "Check",
+      "label": "Automatically Reverse",
+      "default": 1
+    },
+    {
+      "fieldname": "reversal_date",
+      "fieldtype": "Date",
+      "label": "Reversal Date",
+      "depends_on": "eval:doc.auto_reverse == 1"
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "reversal_batch",
+      "fieldtype": "Data",
+      "label": "Reversal Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Posted",
+        "Reversed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "default": 1,
+      "required": true
+    }
+  ],
+  "autoname": "series:ACC-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

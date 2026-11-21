@@ -1,0 +1,211 @@
+{
+  "name": "Fixed Asset Component",
+  "module": "Finance",
+  "track_changes": false,
+  "description": "Significant component of a fixed asset with a separately depreciated useful life.",
+  "fields": [
+    {
+      "fieldname": "asset_line_name",
+      "fieldtype": "Data",
+      "label": "Asset Line Name",
+      "description": "Used on asset acquisition documents to associate component rows with a specific asset line."
+    },
+    {
+      "fieldname": "component_code",
+      "fieldtype": "Data",
+      "label": "Component Code",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "component_name",
+      "fieldtype": "Data",
+      "label": "Component Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "acquisition_cost",
+      "fieldtype": "Currency",
+      "label": "Component Cost",
+      "required": true
+    },
+    {
+      "fieldname": "residual_value",
+      "fieldtype": "Currency",
+      "label": "Residual Value",
+      "default": 0
+    },
+    {
+      "fieldname": "useful_life_months",
+      "fieldtype": "Int",
+      "label": "Useful Life (Months)",
+      "required": true
+    },
+    {
+      "fieldname": "depreciation_method",
+      "fieldtype": "Select",
+      "label": "Depreciation Method",
+      "options": [
+        "Straight Line",
+        "Reducing Balance",
+        "Units of Production"
+      ],
+      "default": "Straight Line",
+      "required": true
+    },
+    {
+      "fieldname": "depreciation_rate",
+      "fieldtype": "Float",
+      "label": "Reducing Balance Rate (%)",
+      "depends_on": "eval:doc.depreciation_method == \"Reducing Balance\""
+    },
+    {
+      "fieldname": "depreciation_start_date",
+      "fieldtype": "Date",
+      "label": "Depreciation Start Date"
+    },
+    {
+      "fieldname": "carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Carrying Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "accumulated_depreciation",
+      "fieldtype": "Currency",
+      "label": "Accumulated Depreciation",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "depreciation_expense_account",
+      "fieldtype": "Link",
+      "label": "Depreciation Expense Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accumulated_depreciation_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Depreciation Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "last_depreciation_date",
+      "fieldtype": "Date",
+      "label": "Last Depreciation Date",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_units_of_production",
+      "fieldtype": "Float",
+      "label": "Estimated Total Production Units",
+      "depends_on": "eval:doc.depreciation_method == \"Units of Production\""
+    },
+    {
+      "fieldname": "units_produced_to_date",
+      "fieldtype": "Float",
+      "label": "Units Produced to Date",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Component Status",
+      "options": [
+        "Active",
+        "Disposed"
+      ],
+      "default": "Active",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "impairment_loss",
+      "fieldtype": "Currency",
+      "label": "Accumulated Impairment",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "revaluation_adjustment",
+      "fieldtype": "Currency",
+      "label": "Revaluation Adjustment",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "revaluation_surplus",
+      "fieldtype": "Currency",
+      "label": "Revaluation Surplus",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "impairment_ceiling_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Impairment Reversal Ceiling",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "impairment_against_revaluation_surplus",
+      "fieldtype": "Currency",
+      "label": "Impairment Against Revaluation Surplus",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "impairment_charged_to_expense",
+      "fieldtype": "Currency",
+      "label": "Impairment Charged to Expense",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "retirement_date",
+      "fieldtype": "Date",
+      "label": "Retirement Date",
+      "read_only": true
+    },
+    {
+      "fieldname": "retirement_reference",
+      "fieldtype": "Data",
+      "label": "Retirement Reference",
+      "read_only": true
+    },
+    {
+      "fieldname": "revaluation_loss_balance",
+      "fieldtype": "Currency",
+      "label": "Unreversed Revaluation Loss",
+      "default": 0,
+      "read_only": true
+    }
+  ],
+  "istable": true
+}

@@ -1,0 +1,141 @@
+{
+  "name": "Job Position",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Approved organisational position independent of the person occupying it.",
+  "fields": [
+    {
+      "fieldname": "position_code",
+      "fieldtype": "Data",
+      "label": "Position Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 40
+    },
+    {
+      "fieldname": "position_title",
+      "fieldtype": "Data",
+      "label": "Position Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department",
+      "required": true
+    },
+    {
+      "fieldname": "designation",
+      "fieldtype": "Link",
+      "label": "Designation",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "job_grade",
+      "fieldtype": "Link",
+      "label": "Job Grade",
+      "options": "Job Grade"
+    },
+    {
+      "fieldname": "job_band",
+      "fieldtype": "Link",
+      "label": "Job Band",
+      "options": "Job Band"
+    },
+    {
+      "fieldname": "work_location",
+      "fieldtype": "Link",
+      "label": "Work Location",
+      "options": "Work Location"
+    },
+    {
+      "fieldname": "reports_to_position",
+      "fieldtype": "Link",
+      "label": "Reports To Position",
+      "options": "Job Position"
+    },
+    {
+      "fieldname": "position_status",
+      "fieldtype": "Select",
+      "label": "Position Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Frozen",
+        "Closed"
+      ],
+      "default": "Draft",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "headcount",
+      "fieldtype": "Int",
+      "label": "Approved Headcount",
+      "default": 1
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Position Description"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": false,
+      "create": false
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": false,
+      "create": false
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": false,
+      "create": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false
+    }
+  ],
+  "autoname": "field:position_code",
+  "title_field": "position_title"
+}

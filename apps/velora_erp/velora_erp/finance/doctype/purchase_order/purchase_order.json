@@ -1,0 +1,171 @@
+{
+  "name": "Purchase Order",
+  "module": "Finance",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "document_date",
+      "label": "Order Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party",
+      "label": "Supplier",
+      "fieldtype": "Link",
+      "options": "Supplier",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "supplier_name",
+      "label": "Supplier Name",
+      "fieldtype": "Data",
+      "fetch_from": "party.supplier_name",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "label": "Source Document Type",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_document",
+      "label": "Source Document",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "length": 3,
+      "required": true,
+      "default": "NGN",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "label": "Exchange Rate",
+      "fieldtype": "Float",
+      "required": true,
+      "default": 1
+    },
+    {
+      "fieldname": "lines",
+      "label": "Order Lines",
+      "fieldtype": "Table",
+      "options": "Purchase Order Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_amount",
+      "fieldtype": "Currency",
+      "label": "Order Total",
+      "read_only": true
+    },
+    {
+      "fieldname": "tax_amount",
+      "fieldtype": "Currency",
+      "label": "Tax",
+      "read_only": true
+    },
+    {
+      "fieldname": "grand_total",
+      "fieldtype": "Currency",
+      "label": "Order Grand Total",
+      "read_only": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "base_total_amount",
+      "fieldtype": "Currency",
+      "label": "Order Total (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "narration",
+      "label": "Narration",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "document_status",
+      "label": "Document Status",
+      "fieldtype": "Select",
+      "options": [
+        "Open",
+        "Partially Processed",
+        "Completed",
+        "Closed"
+      ],
+      "default": "Open",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "per_received",
+      "fieldtype": "Float",
+      "label": "Received %",
+      "read_only": true,
+      "default": "0",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "per_billed",
+      "fieldtype": "Float",
+      "label": "Billed %",
+      "read_only": true,
+      "default": "0",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "material_request",
+      "fieldtype": "Link",
+      "label": "Material Request",
+      "options": "Material Request",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "is_submittable": true,
+  "autoname": "series:PO-.########",
+  "description": "Non-posting supplier order. Creates goods receipt and invoice instructions; financial recognition occurs through Purchase Invoice."
+}

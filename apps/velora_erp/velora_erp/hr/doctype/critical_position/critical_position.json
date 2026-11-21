@@ -1,0 +1,89 @@
+{
+ "name": "Critical Position",
+ "module": "HR",
+ "track_changes": true,
+ "description": "Position designated as critical for business continuity and succession coverage.",
+ "fields": [
+  {
+   "fieldname": "position_title",
+   "fieldtype": "Data",
+   "label": "Position Title",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "job_position",
+   "fieldtype": "Link",
+   "label": "Job Position",
+   "options": "Job Position"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "incumbent",
+   "fieldtype": "Link",
+   "label": "Current Incumbent",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "criticality",
+   "fieldtype": "Select",
+   "label": "Criticality",
+   "options": [
+    "Critical",
+    "High",
+    "Medium"
+   ],
+   "default": "High",
+   "required": true
+  },
+  {
+   "fieldname": "vacancy_impact",
+   "fieldtype": "Text",
+   "label": "Vacancy Impact"
+  },
+  {
+   "fieldname": "target_coverage",
+   "fieldtype": "Int",
+   "label": "Target Successor Coverage",
+   "default": 2
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Active",
+    "Inactive"
+   ],
+   "default": "Active",
+   "required": true,
+   "in_list_view": true
+  }
+ ],
+ "title_field": "position_title",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "HR Manager",
+   "read": true,
+   "write": 1,
+   "create": 1,
+   "delete": false,
+   "export": 1,
+   "print": 1
+  }
+ ]
+}

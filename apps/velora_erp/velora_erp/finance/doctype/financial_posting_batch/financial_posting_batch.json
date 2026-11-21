@@ -1,0 +1,216 @@
+{
+  "name": "Financial Posting Batch",
+  "module": "Finance",
+  "hide_from_menu": true,
+  "autoname": "series:FPB-.########",
+  "is_submittable": true,
+  "track_changes": true,
+  "description": "Immutable, auditable posting envelope submitted to the central Financial Posting Engine.",
+  "fields": [
+    {
+      "fieldname": "source_section",
+      "fieldtype": "Section Break",
+      "label": "Source Transaction"
+    },
+    {
+      "fieldname": "source_doctype",
+      "fieldtype": "Data",
+      "label": "Source Document Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_name",
+      "fieldtype": "Data",
+      "label": "Source Document",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_event",
+      "fieldtype": "Select",
+      "label": "Posting Event",
+      "options": [
+        "Original",
+        "Adjustment",
+        "Opening Balance"
+      ],
+      "default": "Original",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_key",
+      "fieldtype": "Data",
+      "label": "Source Event Key",
+      "length": 64,
+      "unique": true,
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "label": "Idempotency Key",
+      "length": 255,
+      "unique": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "currency_section",
+      "fieldtype": "Section Break",
+      "label": "Currency and Period"
+    },
+    {
+      "fieldname": "financial_year",
+      "fieldtype": "Link",
+      "label": "Financial Year",
+      "options": "Financial Year",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "financial_period",
+      "fieldtype": "Link",
+      "label": "Financial Period",
+      "options": "Financial Period",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Transaction Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Currency",
+      "label": "Exchange Rate to Base Currency",
+      "required": true,
+      "default": 1
+    },
+    {
+      "fieldname": "base_currency",
+      "fieldtype": "Link",
+      "label": "Base Currency",
+      "length": 3,
+      "required": true,
+      "read_only": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "lines_section",
+      "fieldtype": "Section Break",
+      "label": "Posting Lines"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Lines",
+      "options": "Financial Posting Line",
+      "required": true
+    },
+    {
+      "fieldname": "totals_section",
+      "fieldtype": "Section Break",
+      "label": "Posting Totals"
+    },
+    {
+      "fieldname": "total_debit",
+      "fieldtype": "Currency",
+      "label": "Total Debit (Transaction Currency)",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "total_credit",
+      "fieldtype": "Currency",
+      "label": "Total Credit (Transaction Currency)",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "total_base_debit",
+      "fieldtype": "Currency",
+      "label": "Total Debit (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_base_credit",
+      "fieldtype": "Currency",
+      "label": "Total Credit (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_status",
+      "fieldtype": "Select",
+      "label": "Posting Status",
+      "options": [
+        "Draft",
+        "Posted"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_hash",
+      "fieldtype": "Data",
+      "label": "Posting Content Hash",
+      "length": 64,
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Posting Remarks"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "create": true,
+      "export": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ],
+  "title_field": "source_name"
+}

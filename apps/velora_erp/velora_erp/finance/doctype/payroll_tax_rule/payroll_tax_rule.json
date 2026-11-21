@@ -1,0 +1,152 @@
+{
+  "name": "Payroll Tax Rule",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Effective-dated, approved, data-driven progressive payroll tax rules for jurisdiction localisation.",
+  "fields": [
+    {
+      "fieldname": "rule_code",
+      "fieldtype": "Data",
+      "label": "Rule Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "rule_name",
+      "fieldtype": "Data",
+      "label": "Rule Name",
+      "required": true
+    },
+    {
+      "fieldname": "jurisdiction",
+      "fieldtype": "Link",
+      "label": "Jurisdiction",
+      "options": "Payroll Tax Jurisdiction",
+      "required": true
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From",
+      "required": true
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "calculation_basis",
+      "fieldtype": "Select",
+      "label": "Calculation Basis",
+      "options": [
+        "Annualised Period Income",
+        "Period Taxable Income",
+        "Cumulative YTD"
+      ],
+      "default": "Annualised Period Income"
+    },
+    {
+      "fieldname": "bands",
+      "fieldtype": "Table",
+      "label": "Tax Bands",
+      "options": "Payroll Tax Band",
+      "required": true
+    },
+    {
+      "fieldname": "annual_relief",
+      "fieldtype": "Currency",
+      "label": "Annual Relief",
+      "default": 0
+    },
+    {
+      "fieldname": "rounding_precision",
+      "fieldtype": "Int",
+      "label": "Rounding Precision",
+      "default": 2
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "version",
+      "fieldtype": "Int",
+      "label": "Rule Version",
+      "default": 1
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "delete": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "is_submittable": true,
+  "title_field": "rule_name"
+}

@@ -1,0 +1,124 @@
+{
+  "name": "Onboarding Task",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Assigned and due-dated onboarding checklist item with evidence and completion tracking.",
+  "fields": [
+    {
+      "fieldname": "onboarding_plan",
+      "fieldtype": "Link",
+      "label": "Onboarding Plan",
+      "options": "Onboarding Plan",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "task_title",
+      "fieldtype": "Data",
+      "label": "Task Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "task_category",
+      "fieldtype": "Select",
+      "label": "Task Category",
+      "options": [
+        "Documentation",
+        "IT Access",
+        "Equipment",
+        "Payroll Setup",
+        "Policy",
+        "Orientation",
+        "Departmental Induction",
+        "Training",
+        "Compliance",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Data",
+      "label": "Assigned To"
+    },
+    {
+      "fieldname": "responsible_department",
+      "fieldtype": "Link",
+      "label": "Responsible Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "required": true
+    },
+    {
+      "fieldname": "completed_on",
+      "fieldtype": "Datetime",
+      "label": "Completed On"
+    },
+    {
+      "fieldname": "mandatory",
+      "fieldtype": "Check",
+      "label": "Mandatory",
+      "default": 1
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence / Document Reference"
+    },
+    {
+      "fieldname": "completion_notes",
+      "fieldtype": "Text",
+      "label": "Completion Notes"
+    },
+    {
+      "fieldname": "task_status",
+      "fieldtype": "Select",
+      "label": "Task Status",
+      "options": [
+        "Not Started",
+        "In Progress",
+        "Blocked",
+        "Completed",
+        "Waived"
+      ],
+      "default": "Not Started",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ]
+}

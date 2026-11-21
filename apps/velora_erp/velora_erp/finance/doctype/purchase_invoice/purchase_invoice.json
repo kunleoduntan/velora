@@ -1,0 +1,596 @@
+{
+  "name": "Purchase Invoice",
+  "module": "Finance",
+  "autoname": "series:PI-.########",
+  "is_submittable": true,
+  "track_changes": true,
+  "description": "Purchase Invoice posts through the central Financial Posting Engine and creates immutable Account Ledger records.",
+  "fields": [
+    {
+      "fieldname": "details_section",
+      "fieldtype": "Section Break",
+      "label": "Invoice Details"
+    },
+    {
+      "fieldname": "invoice_date",
+      "fieldtype": "Date",
+      "label": "Invoice Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Link",
+      "label": "Supplier",
+      "options": "Supplier",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "supplier_name",
+      "label": "Supplier Name",
+      "fieldtype": "Data",
+      "fetch_from": "party.supplier_name",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "label": "Source Document Type",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_document",
+      "label": "Source Document",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "party_reference",
+      "fieldtype": "Data",
+      "label": "Supplier Invoice Number",
+      "length": 100
+    },
+    {
+      "fieldname": "update_stock",
+      "fieldtype": "Check",
+      "label": "Update Stock",
+      "description": "Tick when this invoice also receives the goods (no Purchase Receipt). Stock-item lines then debit the item's inventory account and add to stock."
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Warehouse",
+      "options": "Warehouse",
+      "depends_on": "eval:doc.update_stock"
+    },
+    {
+      "fieldname": "currency_section",
+      "fieldtype": "Section Break",
+      "label": "Currency"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Transaction Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate to Base Currency",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "lines_section",
+      "fieldtype": "Section Break",
+      "label": "Invoice Lines"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Lines",
+      "options": "Purchase Invoice Line",
+      "required": true
+    },
+    {
+      "fieldname": "cost_treatment_section",
+      "fieldtype": "Section Break",
+      "label": "Amortised Cost"
+    },
+    {
+      "fieldname": "is_amortised_cost",
+      "fieldtype": "Check",
+      "label": "Is Amortised Cost",
+      "default": 0,
+      "description": "Recognise the expense over time instead of expensing the full net amount on the invoice date."
+    },
+    {
+      "fieldname": "amortisation_frequency",
+      "fieldtype": "Select",
+      "label": "Frequency",
+      "options": [
+        "Monthly",
+        "Quarterly",
+        "Half-yearly",
+        "Yearly"
+      ],
+      "default": "Monthly",
+      "depends_on": "eval:doc.is_amortised_cost == 1",
+      "mandatory_depends_on": "eval:doc.is_amortised_cost == 1"
+    },
+    {
+      "fieldname": "amortisation_start_date",
+      "fieldtype": "Date",
+      "label": "Start Date",
+      "depends_on": "eval:doc.is_amortised_cost == 1",
+      "mandatory_depends_on": "eval:doc.is_amortised_cost == 1"
+    },
+    {
+      "fieldname": "amortisation_end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "depends_on": "eval:doc.is_amortised_cost == 1",
+      "mandatory_depends_on": "eval:doc.is_amortised_cost == 1"
+    },
+    {
+      "fieldname": "prepayment_account",
+      "fieldtype": "Link",
+      "label": "Prepayment Account",
+      "options": "Account",
+      "depends_on": "eval:doc.is_amortised_cost == 1",
+      "mandatory_depends_on": "eval:doc.is_amortised_cost == 1",
+      "description": "Asset account holding the unamortised balance.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "amortisation_preview",
+      "fieldtype": "Table",
+      "label": "Amortisation Schedule Preview",
+      "options": "Purchase Invoice Amortisation Preview",
+      "read_only": true,
+      "depends_on": "eval:doc.is_amortised_cost == 1"
+    },
+    {
+      "fieldname": "shared_cost_section",
+      "fieldtype": "Section Break",
+      "label": "Shared Cost"
+    },
+    {
+      "fieldname": "is_shared_cost",
+      "fieldtype": "Check",
+      "label": "Is Shared Cost",
+      "default": 0,
+      "description": "Allocate the invoice cost across cost centres, business units or affiliated legal entities."
+    },
+    {
+      "fieldname": "distribution_rule",
+      "fieldtype": "Link",
+      "label": "Distribution Rule",
+      "options": "Cost Distribution Rule",
+      "depends_on": "eval:doc.is_shared_cost == 1",
+      "description": "Percentages come from the Cost Distribution table in Finance Settings. Leave empty to enter Cost Allocation rows by hand (needed for Business Unit or Intercompany sharing)."
+    },
+    {
+      "fieldname": "cost_allocations",
+      "fieldtype": "Table",
+      "label": "Cost Allocation",
+      "options": "Purchase Invoice Cost Allocation",
+      "depends_on": "eval:doc.is_shared_cost == 1",
+      "mandatory_depends_on": "eval:doc.is_shared_cost == 1 && !doc.distribution_rule"
+    },
+    {
+      "fieldname": "totals_section",
+      "fieldtype": "Section Break",
+      "label": "Invoice Totals"
+    },
+    {
+      "fieldname": "net_amount",
+      "fieldtype": "Currency",
+      "label": "Net Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "tax_amount",
+      "fieldtype": "Currency",
+      "label": "Tax Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "grand_total",
+      "fieldtype": "Currency",
+      "label": "Invoice Total",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "base_net_amount",
+      "fieldtype": "Currency",
+      "label": "Net Amount (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "base_tax_amount",
+      "fieldtype": "Currency",
+      "label": "Tax (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "base_grand_total",
+      "fieldtype": "Currency",
+      "label": "Total (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "amount_settled",
+      "fieldtype": "Currency",
+      "label": "Amount Settled",
+      "read_only": true,
+      "default": 0
+    },
+    {
+      "fieldname": "payment_status",
+      "fieldtype": "Select",
+      "label": "Payment Status",
+      "read_only": true,
+      "default": "Unpaid",
+      "options": [
+        "Unpaid",
+        "Partly Paid",
+        "Paid"
+      ],
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_comments",
+      "fieldtype": "Text",
+      "label": "Approval Comments"
+    },
+    {
+      "fieldname": "narration_section",
+      "fieldtype": "Section Break",
+      "label": "Narration"
+    },
+    {
+      "fieldname": "narration",
+      "fieldtype": "Text",
+      "label": "Narration",
+      "required": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "asset_components_section",
+      "fieldtype": "Section Break",
+      "label": "Asset Component Details",
+      "collapsible": true
+    },
+    {
+      "fieldname": "asset_components",
+      "fieldtype": "Table",
+      "label": "Asset Components",
+      "options": "Fixed Asset Component",
+      "description": "Enter significant components by matching Asset Line Name to the asset line name. Component costs and residual values must reconcile per asset."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "layout": {
+    "tabs": [
+      {
+        "label": "Invoice",
+        "sections": [
+          {
+            "label": "Invoice Details",
+            "collapsible": false,
+            "rows": [
+              [
+                {
+                  "field": "invoice_date",
+                  "span": 3
+                },
+                {
+                  "field": "posting_date",
+                  "span": 3
+                },
+                {
+                  "field": "due_date",
+                  "span": 3
+                },
+                {
+                  "field": "party",
+                  "span": 3
+                }
+              ],
+              [
+                {
+                  "field": "source_doctype",
+                  "span": 3
+                },
+                {
+                  "field": "source_document",
+                  "span": 3
+                },
+                {
+                  "field": "party_reference",
+                  "span": 6
+                }
+              ]
+            ]
+          },
+          {
+            "label": "Currency",
+            "collapsible": true,
+            "rows": [
+              [
+                {
+                  "field": "currency",
+                  "span": 6
+                },
+                {
+                  "field": "exchange_rate",
+                  "span": 6
+                }
+              ]
+            ]
+          },
+          {
+            "label": "Invoice Lines",
+            "collapsible": false,
+            "rows": [
+              [
+                {
+                  "field": "lines",
+                  "span": 12
+                }
+              ]
+            ]
+          },
+          {
+            "label": "Cost Treatment",
+            "collapsible": true,
+            "rows": [
+              [
+                {
+                  "field": "is_amortised_cost",
+                  "span": 6
+                },
+                {
+                  "field": "is_shared_cost",
+                  "span": 6
+                }
+              ]
+            ]
+          },
+          {
+            "label": "Amortisation Details",
+            "collapsible": true,
+            "rows": [
+              [
+                {
+                  "field": "amortisation_frequency",
+                  "span": 3
+                },
+                {
+                  "field": "amortisation_start_date",
+                  "span": 3
+                },
+                {
+                  "field": "amortisation_end_date",
+                  "span": 3
+                },
+                {
+                  "field": "prepayment_account",
+                  "span": 3
+                }
+              ],
+              [
+                {
+                  "field": "amortisation_preview",
+                  "span": 12
+                }
+              ]
+            ]
+          },
+          {
+            "label": "Shared Cost Allocation",
+            "collapsible": true,
+            "rows": [
+              [
+                {
+                  "field": "cost_allocations",
+                  "span": 12
+                }
+              ]
+            ]
+          },
+          {
+            "label": "Invoice Totals",
+            "collapsible": false,
+            "rows": [
+              [
+                {
+                  "field": "net_amount",
+                  "span": 4
+                },
+                {
+                  "field": "tax_amount",
+                  "span": 4
+                },
+                {
+                  "field": "grand_total",
+                  "span": 4
+                }
+              ]
+            ]
+          },
+          {
+            "label": "Approval",
+            "collapsible": true,
+            "rows": [
+              [
+                {
+                  "field": "approval_status",
+                  "span": 3
+                },
+                {
+                  "field": "approved_by",
+                  "span": 3
+                },
+                {
+                  "field": "approved_on",
+                  "span": 3
+                },
+                {
+                  "field": "rejected_by",
+                  "span": 3
+                }
+              ],
+              [
+                {
+                  "field": "rejected_on",
+                  "span": 3
+                },
+                {
+                  "field": "approval_comments",
+                  "span": 9
+                }
+              ]
+            ]
+          },
+          {
+            "label": "Narration and Posting",
+            "collapsible": true,
+            "rows": [
+              [
+                {
+                  "field": "narration",
+                  "span": 8
+                },
+                {
+                  "field": "posting_batch",
+                  "span": 4
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

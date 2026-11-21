@@ -1,0 +1,140 @@
+{
+  "name": "Schedule Recognition",
+  "module": "Finance",
+  "autoname": "series:SR-.########",
+  "is_submittable": true,
+  "track_changes": true,
+  "description": "One monthly accounting recognition event generated from an approved submitted Recognition Schedule.",
+  "fields": [
+    {
+      "fieldname": "schedule",
+      "fieldtype": "Link",
+      "label": "Recognition Schedule",
+      "options": "Recognition Schedule",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "schedule_type",
+      "fieldtype": "Data",
+      "label": "Schedule Type",
+      "read_only": true
+    },
+    {
+      "fieldname": "period_number",
+      "fieldtype": "Int",
+      "label": "Period Number",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "recognition_date",
+      "fieldtype": "Date",
+      "label": "Recognition Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Recognition Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "read_only": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "read_only": true
+    },
+    {
+      "fieldname": "balance_account",
+      "fieldtype": "Link",
+      "label": "Balance Account",
+      "read_only": true,
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "recognition_account",
+      "fieldtype": "Link",
+      "label": "Recognition Account",
+      "read_only": true,
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "name": "Dimension Value",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled values for an Accounting Dimension configured to use Dimension Values.",
+  "fields": [
+    {
+      "fieldname": "dimension",
+      "fieldtype": "Link",
+      "label": "Accounting Dimension",
+      "options": "Accounting Dimension",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "value_code",
+      "fieldtype": "Data",
+      "label": "Value Code",
+      "required": true,
+      "in_list_view": true,
+      "length": 60
+    },
+    {
+      "fieldname": "value_name",
+      "fieldtype": "Data",
+      "label": "Value Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "parent_value",
+      "fieldtype": "Link",
+      "label": "Parent Value",
+      "options": "Dimension Value"
+    },
+    {
+      "fieldname": "is_group",
+      "fieldtype": "Check",
+      "label": "Can Contain Child Values",
+      "default": 0
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true
+    }
+  ],
+  "title_field": "value_name"
+}

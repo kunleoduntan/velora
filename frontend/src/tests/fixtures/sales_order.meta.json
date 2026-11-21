@@ -1,0 +1,55 @@
+{
+ "spec_version": 1,
+ "name": "Sales Order",
+ "module": "Demo",
+ "app": "velora_demo",
+ "autoname": "series:SO-.#####",
+ "title_field": null,
+ "is_submittable": true,
+ "istable": false,
+ "track_changes": true,
+ "sort_field": "modified",
+ "sort_order": "desc",
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "order_date",
+   "fieldtype": "Date",
+   "label": "Order Date",
+   "default": "Today",
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Sales Order Item",
+   "required": true
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "read_only": true,
+   "in_list_view": true
+  }
+ ],
+ "permissions": {
+  "read": true,
+  "write": true,
+  "create": true,
+  "delete": false,
+  "submit": true,
+  "cancel": false,
+  "export": true
+ }
+}

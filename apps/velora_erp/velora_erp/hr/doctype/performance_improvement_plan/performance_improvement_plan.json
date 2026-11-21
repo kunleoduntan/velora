@@ -1,0 +1,160 @@
+{
+  "name": "Performance Improvement Plan",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Structured, time-bound and evidence-based performance improvement plans with measurable outcomes and follow-up actions.",
+  "fields": [
+    {
+      "fieldname": "pip_code",
+      "fieldtype": "Data",
+      "label": "PIP Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "review",
+      "fieldtype": "Link",
+      "label": "Performance Review",
+      "options": "Performance Review"
+    },
+    {
+      "fieldname": "manager",
+      "fieldtype": "Link",
+      "label": "Manager",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date",
+      "required": true
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "required": true
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason for Plan",
+      "required": true
+    },
+    {
+      "fieldname": "expected_outcomes",
+      "fieldtype": "Text",
+      "label": "Expected Outcomes",
+      "required": true
+    },
+    {
+      "fieldname": "success_measure",
+      "fieldtype": "Text",
+      "label": "Success Measures",
+      "required": true
+    },
+    {
+      "fieldname": "review_frequency",
+      "fieldtype": "Select",
+      "label": "Review Frequency",
+      "options": [
+        "Weekly",
+        "Fortnightly",
+        "Monthly"
+      ],
+      "default": "Weekly"
+    },
+    {
+      "fieldname": "actions",
+      "fieldtype": "Table",
+      "label": "Action Plan",
+      "options": "Performance Development Action"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Active",
+        "Successfully Completed",
+        "Extended",
+        "Unsuccessful",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_response",
+      "fieldtype": "Text",
+      "label": "Employee Response"
+    },
+    {
+      "fieldname": "outcome",
+      "fieldtype": "Text",
+      "label": "Final Outcome"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "istable": false,
+  "autoname": "field:pip_code",
+  "title_field": "employee_name"
+}

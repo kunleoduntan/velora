@@ -1,0 +1,121 @@
+{
+  "name": "Opening Stock Entry",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled migration of opening inventory quantities, costs, warehouses, batches and serial numbers.",
+  "fields": [
+    {
+      "fieldname": "posting_date",
+      "label": "Opening Balance Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "items",
+      "label": "Opening Stock Lines",
+      "fieldtype": "Table",
+      "options": "Opening Stock Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_quantity",
+      "label": "Total Opening Quantity",
+      "fieldtype": "Float",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_value",
+      "label": "Total Opening Value",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime",
+      "read_only": true
+    },
+    {
+      "fieldname": "inventory_posting_batch",
+      "label": "Inventory Posting Batch",
+      "fieldtype": "Link",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "remarks",
+      "label": "Remarks",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "autoname": "series:OPE-.########",
+  "is_submittable": true
+}

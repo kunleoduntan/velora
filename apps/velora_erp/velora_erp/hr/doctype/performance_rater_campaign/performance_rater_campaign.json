@@ -1,0 +1,116 @@
+{
+  "name": "Performance Rater Campaign",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Managed 360-degree feedback campaign with nomination and completion tracking.",
+  "fields": [
+    {
+      "fieldname": "campaign_name",
+      "fieldtype": "Data",
+      "label": "Campaign Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cycle",
+      "fieldtype": "Link",
+      "label": "Performance Cycle",
+      "options": "Performance Cycle",
+      "required": true
+    },
+    {
+      "fieldname": "review",
+      "fieldtype": "Link",
+      "label": "Performance Review",
+      "options": "Performance Review"
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "campaign_type",
+      "fieldtype": "Select",
+      "label": "Campaign Type",
+      "options": [
+        "360 Degree",
+        "Peer Feedback"
+      ],
+      "default": "360 Degree"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Open",
+        "Paused",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Draft"
+    },
+    {
+      "fieldname": "opens_on",
+      "fieldtype": "Date",
+      "label": "Opens On"
+    },
+    {
+      "fieldname": "closes_on",
+      "fieldtype": "Date",
+      "label": "Closes On"
+    },
+    {
+      "fieldname": "minimum_raters",
+      "fieldtype": "Int",
+      "label": "Minimum Raters",
+      "default": 3
+    },
+    {
+      "fieldname": "nominations",
+      "fieldtype": "Table",
+      "label": "Rater Nominations",
+      "options": "Performance Rater Nomination"
+    },
+    {
+      "fieldname": "completion_percent",
+      "fieldtype": "Float",
+      "label": "Completion (%)",
+      "default": 0
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "istable": false,
+  "title_field": "campaign_name"
+}

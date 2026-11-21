@@ -1,0 +1,63 @@
+{
+  "name": "Exit Clearance Item",
+  "module": "HR",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "clearance_area",
+      "fieldtype": "Select",
+      "label": "Clearance Area",
+      "options": [
+        "Department",
+        "Finance",
+        "IT",
+        "Administration",
+        "Security",
+        "Human Resources",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "responsible_person",
+      "fieldtype": "Data",
+      "label": "Responsible Person",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "clearance_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Pending",
+        "In Progress",
+        "Cleared",
+        "Not Applicable"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date"
+    },
+    {
+      "fieldname": "completed_on",
+      "fieldtype": "Date",
+      "label": "Completed On"
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    }
+  ]
+}

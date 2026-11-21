@@ -1,0 +1,270 @@
+{
+  "name": "Employee Loan",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Employee loan receivable with approved disbursement, amortisation schedule and controlled repayment tracking.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "loan_date",
+      "fieldtype": "Date",
+      "label": "Loan Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "first_repayment_date",
+      "fieldtype": "Date",
+      "label": "First Repayment Date",
+      "required": true
+    },
+    {
+      "fieldname": "principal_amount",
+      "fieldtype": "Currency",
+      "label": "Principal Amount",
+      "required": true
+    },
+    {
+      "fieldname": "annual_interest_rate",
+      "fieldtype": "Float",
+      "label": "Annual Interest Rate",
+      "default": 0
+    },
+    {
+      "fieldname": "term_months",
+      "fieldtype": "Int",
+      "label": "Term (Months)",
+      "required": true
+    },
+    {
+      "fieldname": "repayment_method",
+      "fieldtype": "Select",
+      "label": "Repayment Method",
+      "options": [
+        "Equal Instalment",
+        "Equal Principal"
+      ],
+      "default": "Equal Instalment",
+      "required": true
+    },
+    {
+      "fieldname": "loan_account",
+      "fieldtype": "Link",
+      "label": "Employee Loan Receivable Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Disbursement Bank / Cash Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "schedule",
+      "fieldtype": "Table",
+      "label": "Repayment Schedule",
+      "options": "Employee Loan Schedule Line"
+    },
+    {
+      "fieldname": "total_interest",
+      "fieldtype": "Currency",
+      "label": "Total Interest",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_repayment",
+      "fieldtype": "Currency",
+      "label": "Total Repayment",
+      "read_only": true
+    },
+    {
+      "fieldname": "outstanding_principal",
+      "fieldtype": "Currency",
+      "label": "Outstanding Principal",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Approved",
+        "Disbursed",
+        "Settled",
+        "Rejected",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "loan_type",
+      "fieldtype": "Link",
+      "label": "Employee Loan Type",
+      "options": "Employee Loan Type"
+    },
+    {
+      "fieldname": "loan_application",
+      "fieldtype": "Link",
+      "label": "Loan Application",
+      "options": "Employee Loan Application"
+    },
+    {
+      "fieldname": "interest_income_account",
+      "fieldtype": "Link",
+      "label": "Interest Income Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    }
+  ],
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Employee Finance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "export": false,
+      "print": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "employee_name"
+}

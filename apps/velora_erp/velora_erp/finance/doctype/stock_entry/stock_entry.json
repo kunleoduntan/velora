@@ -1,0 +1,184 @@
+{
+  "name": "Stock Entry",
+  "module": "Finance",
+  "autoname": "series:SE-.######",
+  "is_submittable": true,
+  "track_changes": true,
+  "description": "Receive stock without a purchase, issue it for internal use, or write it off as scrap. Approval is by the GUI workflow.",
+  "fields": [
+    {
+      "fieldname": "stock_entry_type",
+      "fieldtype": "Select",
+      "label": "Stock Entry Type",
+      "options": [
+        "Material Receipt",
+        "Material Issue",
+        "Scrap"
+      ],
+      "default": "Material Issue",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Warehouse",
+      "options": "Warehouse",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "material_request",
+      "fieldtype": "Link",
+      "label": "Material Request",
+      "options": "Material Request",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_account",
+      "fieldtype": "Link",
+      "label": "Source Account",
+      "options": "Account",
+      "depends_on": "eval:doc.stock_entry_type=='Material Receipt'",
+      "description": "Credit side of a receipt (the stock adjustment gain account when empty).",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "entry_status",
+      "fieldtype": "Select",
+      "label": "Entry Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Draft",
+      "in_standard_filter": true,
+      "description": "Controlled by the approval workflow once one is configured."
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Lines",
+      "options": "Stock Entry Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_value",
+      "fieldtype": "Currency",
+      "label": "Total Value",
+      "read_only": true
+    },
+    {
+      "fieldname": "inventory_posting_batch",
+      "fieldtype": "Link",
+      "label": "Inventory Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1,
+      "submit": 1,
+      "cancel": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1,
+      "submit": 1,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1,
+      "submit": 1,
+      "cancel": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1,
+      "submit": 1,
+      "cancel": true
+    },
+    {
+      "role": "Auditor",
+      "read": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Accountant",
+      "read": 1,
+      "export": 1,
+      "print": 1
+    }
+  ]
+}

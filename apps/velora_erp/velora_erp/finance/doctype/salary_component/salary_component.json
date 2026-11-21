@@ -1,0 +1,362 @@
+{
+  "name": "Salary Component",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Reusable earning, deduction, employer contribution, loan recovery and advance recovery rules owned by Finance.",
+  "fields": [
+    {
+      "fieldname": "component_code",
+      "fieldtype": "Data",
+      "label": "Component Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 40
+    },
+    {
+      "fieldname": "component_name",
+      "fieldtype": "Data",
+      "label": "Component Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "component_type",
+      "fieldtype": "Select",
+      "label": "Component Type",
+      "options": [
+        "Earning",
+        "Deduction",
+        "Employer Contribution",
+        "Loan Repayment",
+        "Advance Recovery",
+        "Loan Interest Recovery"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "calculation_type",
+      "fieldtype": "Select",
+      "label": "Calculation Type",
+      "options": [
+        "Fixed",
+        "Percentage of Base",
+        "Percentage of Gross",
+        "Percentage of Pensionable Gross",
+        "Formula",
+        "Input",
+        "Progressive Tax",
+        "Scheduled Loan Deduction",
+        "Scheduled Loan Interest"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Fixed Amount"
+    },
+    {
+      "fieldname": "rate",
+      "fieldtype": "Float",
+      "label": "Rate"
+    },
+    {
+      "fieldname": "formula",
+      "fieldtype": "Text",
+      "label": "Formula"
+    },
+    {
+      "fieldname": "sequence",
+      "fieldtype": "Int",
+      "label": "Calculation Sequence",
+      "default": 100
+    },
+    {
+      "fieldname": "prorate_by_attendance",
+      "fieldtype": "Check",
+      "label": "Prorate by Attendance",
+      "default": 0
+    },
+    {
+      "fieldname": "taxable",
+      "fieldtype": "Check",
+      "label": "Taxable",
+      "default": 0
+    },
+    {
+      "fieldname": "pensionable",
+      "fieldtype": "Check",
+      "label": "Pensionable",
+      "default": 0
+    },
+    {
+      "fieldname": "reduces_taxable_income",
+      "fieldtype": "Check",
+      "label": "Reduces Taxable Income",
+      "default": 0,
+      "depends_on": "eval:doc.component_type == 'Deduction'",
+      "description": "Statutory relief such as employee pension, NHF or NHIS: the amount is taken off taxable pay before PAYE. Sequence it before the Progressive Tax component."
+    },
+    {
+      "fieldname": "hide_on_payslip",
+      "fieldtype": "Check",
+      "label": "Hide on Payslip",
+      "default": 0,
+      "description": "Keep the amount in the calculation and the ledger but do not show it to the employee on the payslip, e.g. employer pension expense and its liability."
+    },
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "description": "Single account mapping. Posting direction is derived from the component type.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "employer_expense_account",
+      "fieldtype": "Link",
+      "label": "Employer Contribution Expense Account",
+      "options": "Account",
+      "description": "Required expense debit mapping for employer statutory contributions.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "employer_payable_account",
+      "fieldtype": "Link",
+      "label": "Employer Contribution Payable Account",
+      "options": "Account",
+      "description": "Required statutory liability credit mapping for employer contributions.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "statutory_scheme",
+      "fieldtype": "Data",
+      "label": "Statutory Scheme / Contribution Code",
+      "description": "Optional jurisdiction-specific scheme identifier used by statutory reporting."
+    },
+    {
+      "fieldname": "debit_account",
+      "fieldtype": "Link",
+      "label": "Expense Account",
+      "options": "Account",
+      "hidden": true,
+      "read_only": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "credit_account",
+      "fieldtype": "Link",
+      "label": "Settlement / Liability Account",
+      "options": "Account",
+      "hidden": true,
+      "read_only": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    },
+    {
+      "fieldname": "input_fieldname",
+      "fieldtype": "Data",
+      "label": "Salary Slip Input Fieldname",
+      "length": 64
+    },
+    {
+      "fieldname": "input_label",
+      "fieldtype": "Data",
+      "label": "Input Label"
+    },
+    {
+      "fieldname": "input_location",
+      "fieldtype": "Select",
+      "label": "Input Location",
+      "options": [
+        "Salary Slip",
+        "Employee",
+        "Both",
+        "Payroll Run"
+      ],
+      "default": "Salary Slip"
+    },
+    {
+      "fieldname": "input_required",
+      "fieldtype": "Check",
+      "label": "Input Required",
+      "default": 0
+    },
+    {
+      "fieldname": "input_default",
+      "fieldtype": "Float",
+      "label": "Default Input Value"
+    },
+    {
+      "fieldname": "input_unit",
+      "fieldtype": "Select",
+      "label": "Input Unit",
+      "options": [
+        "Currency",
+        "Number",
+        "Hours",
+        "Days",
+        "Percentage",
+        "Boolean"
+      ],
+      "default": "Currency"
+    },
+    {
+      "fieldname": "condition",
+      "fieldtype": "Text",
+      "label": "Calculation Condition"
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Default Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Default Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "tax_category",
+      "fieldtype": "Data",
+      "label": "Tax Category"
+    },
+    {
+      "fieldname": "tax_rule_code",
+      "fieldtype": "Data",
+      "label": "Tax Rule Code"
+    },
+    {
+      "fieldname": "tax_rule",
+      "fieldtype": "Link",
+      "label": "Default Tax Rule",
+      "options": "Payroll Tax Rule"
+    },
+    {
+      "fieldname": "periods_per_year",
+      "fieldtype": "Int",
+      "label": "Periods Per Year"
+    },
+    {
+      "fieldname": "annual_relief",
+      "fieldtype": "Currency",
+      "label": "Annual Relief Override",
+      "default": 0
+    },
+    {
+      "fieldname": "loan_type",
+      "fieldtype": "Link",
+      "label": "Employee Loan Type",
+      "options": "Employee Loan Type"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": false,
+      "print": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "component_name"
+}

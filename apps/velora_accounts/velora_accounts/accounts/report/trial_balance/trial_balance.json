@@ -1,0 +1,26 @@
+{
+  "name": "Trial Balance",
+  "module": "Accounts",
+  "type": "script",
+  "ref_doctype": "GL Entry",
+  "roles": [
+    "System Manager",
+    "Accounts Manager",
+    "Accountant",
+    "Accounts User"
+  ],
+  "filters": [
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date",
+      "default": "Year Start"
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date",
+      "default": "Today"
+    }
+  ]
+}

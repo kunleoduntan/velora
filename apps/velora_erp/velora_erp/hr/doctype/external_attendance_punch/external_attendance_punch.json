@@ -1,0 +1,164 @@
+{
+  "name": "External Attendance Punch",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Immutable inbox for normalised device punches; idempotent by external event key.",
+  "fields": [
+    {
+      "fieldname": "external_event_key",
+      "fieldtype": "Data",
+      "label": "External Event Key",
+      "required": true,
+      "unique": true,
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "integration",
+      "fieldtype": "Link",
+      "label": "Integration",
+      "options": "Attendance Integration",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "device",
+      "fieldtype": "Link",
+      "label": "Device",
+      "options": "Attendance Device",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "serial_number",
+      "fieldtype": "Data",
+      "label": "Device Serial Number",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "external_user_id",
+      "fieldtype": "Data",
+      "label": "External User ID",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "punch_datetime",
+      "fieldtype": "Datetime",
+      "label": "Punch Date and Time",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "punch_state",
+      "fieldtype": "Data",
+      "label": "Punch State"
+    },
+    {
+      "fieldname": "verify_type",
+      "fieldtype": "Data",
+      "label": "Verification Type"
+    },
+    {
+      "fieldname": "source_event_id",
+      "fieldtype": "Data",
+      "label": "Provider Event ID"
+    },
+    {
+      "fieldname": "processing_status",
+      "fieldtype": "Select",
+      "label": "Processing Status",
+      "options": [
+        "Received",
+        "Unmapped",
+        "Ready",
+        "Processed",
+        "Duplicate",
+        "Conflict",
+        "Needs Review",
+        "Rejected"
+      ],
+      "default": "Received",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "attendance",
+      "fieldtype": "Link",
+      "label": "Generated Attendance",
+      "options": "Attendance",
+      "read_only": true
+    },
+    {
+      "fieldname": "raw_payload",
+      "fieldtype": "JSON",
+      "label": "Raw Provider Payload"
+    },
+    {
+      "fieldname": "received_on",
+      "fieldtype": "Datetime",
+      "label": "Received On",
+      "read_only": true
+    },
+    {
+      "fieldname": "processing_notes",
+      "fieldtype": "Text",
+      "label": "Processing Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "employee_name"
+}

@@ -1,0 +1,176 @@
+{
+  "name": "Fixed Asset Lease Modification",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled IFRS 16 lessee remeasurement for non-scope modifications and lease-term extensions. Scope reductions, shortening and termination are not supported in this release.",
+  "fields": [
+    {
+      "fieldname": "lease",
+      "fieldtype": "Link",
+      "label": "Lease Contract",
+      "options": "Fixed Asset Lease",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Modification Effective Date",
+      "required": true
+    },
+    {
+      "fieldname": "modification_reason",
+      "fieldtype": "Select",
+      "label": "Modification Reason",
+      "options": [
+        "Change in Lease Consideration",
+        "Change in Lease Term",
+        "Change in Discount Rate",
+        "Other Non-scope Modification"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "reason_details",
+      "fieldtype": "Text",
+      "label": "Reason Details",
+      "required": true
+    },
+    {
+      "fieldname": "revised_lease_end_date",
+      "fieldtype": "Date",
+      "label": "Revised Lease End Date",
+      "depends_on": "eval:doc.modification_reason == \"Change in Lease Term\""
+    },
+    {
+      "fieldname": "discount_rate",
+      "fieldtype": "Float",
+      "label": "Revised Annual Discount Rate (%)",
+      "required": true
+    },
+    {
+      "fieldname": "payments_section",
+      "fieldtype": "Section Break",
+      "label": "Revised Remaining Payments",
+      "collapsible": true
+    },
+    {
+      "fieldname": "payments",
+      "fieldtype": "Table",
+      "label": "Revised Payment Schedule",
+      "options": "Fixed Asset Lease Modification Payment",
+      "required": true
+    },
+    {
+      "fieldname": "calculation_section",
+      "fieldtype": "Section Break",
+      "label": "Remeasurement Calculation",
+      "collapsible": true
+    },
+    {
+      "fieldname": "liability_before",
+      "fieldtype": "Currency",
+      "label": "Lease Liability Before",
+      "read_only": true
+    },
+    {
+      "fieldname": "remeasured_liability",
+      "fieldtype": "Currency",
+      "label": "Remeasured Lease Liability",
+      "read_only": true
+    },
+    {
+      "fieldname": "liability_adjustment",
+      "fieldtype": "Currency",
+      "label": "Liability Adjustment",
+      "read_only": true
+    },
+    {
+      "fieldname": "rou_adjustment",
+      "fieldtype": "Currency",
+      "label": "Right-of-use Asset Adjustment",
+      "read_only": true
+    },
+    {
+      "fieldname": "gain_on_remeasurement",
+      "fieldtype": "Currency",
+      "label": "Gain on Remeasurement",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_section",
+      "fieldtype": "Section Break",
+      "label": "Approval and Posting",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "autoname": "series:FALM-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

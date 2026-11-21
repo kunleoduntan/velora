@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Velora v0.27 Security Tutorial</title><style>body{font:16px/1.6 system-ui,sans-serif;max-width:940px;margin:40px auto;padding:0 22px;color:#172033}h1,h2{color:#153d70}pre{background:#101b2c;color:#e7efff;padding:18px;border-radius:10px;overflow:auto}.note{background:#fff4d6;border-left:4px solid #d99a18;padding:14px 18px;border-radius:6px}</style></head><body><h1>Velora v0.27 — Security, Identity &amp; Access Control</h1><p>This tutorial introduces the SQLite-backed security engine: users, roles, company grants, DocType permissions, field access, sessions, API tokens and audit events.</p><h2>1. Create the security manager</h2><pre><code>from pathlib import Path
+from velora.security import SecurityManager
+
+security = SecurityManager(Path("platform") / "security.db")</code></pre><h2>2. Create a user and assign a role</h2><pre><code>security.create_role("Accounts User")
+user = security.create_user(
+    "accounts@example.com",
+    "Accounts User",
+    "Use-A-Long-Unique-Passphrase-2026"
+)
+security.assign_role(user["user_id"], "Accounts User")
+security.grant_company(user["user_id"], "company_001")</code></pre><h2>3. Configure permissions</h2><pre><code>security.set_permission("Accounts User", "Sales Invoice", "read", True)
+security.set_permission("Accounts User", "Sales Invoice", "write", False)
+security.set_field_access("Accounts User", "Sales Invoice", "grand_total", "read_only")</code></pre><h2>4. Authenticate and resolve a session</h2><pre><code>login = security.authenticate(
+    "accounts@example.com",
+    "Use-A-Long-Unique-Passphrase-2026"
+)
+identity = security.resolve_session(login["token"])
+# Store the token securely; never log it or put it in a URL.</code></pre><h2>5. Authorize every server-side action</h2><pre><code>allowed = security.authorize(
+    user["user_id"], "company_001", "Sales Invoice", "read"
+)
+if not allowed:
+    raise PermissionError("Not permitted")</code></pre><h2>6. Issue a scoped integration token</h2><pre><code>token = security.issue_api_token(
+    user["user_id"], "Billing Integration", ["invoice:read"]
+)
+identity = security.verify_api_token(token["token"], "invoice:read")
+security.revoke_api_token(token["token_id"])</code></pre><div class="note"><strong>Production boundary:</strong> v0.27 supplies security primitives and persistence. FastAPI authentication middleware, ControlPlane integration, MFA/SSO and administration screens remain separate integration work. Do not expose a production service using developer-header authentication.</div><h2>7. Run tests</h2><pre><code>pytest -q tests/test_security_v027.py tests/test_app_admin_v026.py</code></pre><p>See <code>docs/v0_27.md</code> for the complete security boundary and deployment notes.</p></body></html>

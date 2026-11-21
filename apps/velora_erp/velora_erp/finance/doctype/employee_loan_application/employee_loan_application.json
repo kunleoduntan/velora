@@ -1,0 +1,197 @@
+{
+  "name": "Employee Loan Application",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Employee loan application with policy eligibility, approval and generation of a controlled Employee Loan disbursement record.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "loan_type",
+      "fieldtype": "Link",
+      "label": "Employee Loan Type",
+      "options": "Employee Loan Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "application_date",
+      "fieldtype": "Date",
+      "label": "Application Date",
+      "required": true
+    },
+    {
+      "fieldname": "requested_amount",
+      "fieldtype": "Currency",
+      "label": "Requested Amount",
+      "required": true
+    },
+    {
+      "fieldname": "approved_amount",
+      "fieldtype": "Currency",
+      "label": "Approved Amount"
+    },
+    {
+      "fieldname": "purpose",
+      "fieldtype": "Text",
+      "label": "Purpose",
+      "required": true
+    },
+    {
+      "fieldname": "requested_term_months",
+      "fieldtype": "Int",
+      "label": "Requested Term (Months)",
+      "required": true
+    },
+    {
+      "fieldname": "approved_term_months",
+      "fieldtype": "Int",
+      "label": "Approved Term (Months)"
+    },
+    {
+      "fieldname": "first_repayment_date",
+      "fieldtype": "Date",
+      "label": "First Repayment Date",
+      "required": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Disbursement Bank Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "generated_loan",
+      "fieldtype": "Link",
+      "label": "Employee Loan",
+      "options": "Employee Loan",
+      "read_only": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected",
+        "Loan Generated",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "delete": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "is_submittable": true,
+  "title_field": "employee_name"
+}

@@ -1,0 +1,86 @@
+{
+  "name": "Department Staff Budget Line",
+  "module": "HR",
+  "istable": true,
+  "description": "Budgeted headcount for one designation within a department staff budget.",
+  "fields": [
+    {
+      "fieldname": "designation",
+      "fieldtype": "Link",
+      "label": "Designation",
+      "options": "Designation",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "job_grade",
+      "fieldtype": "Link",
+      "label": "Job Grade",
+      "options": "Job Grade",
+      "fetch_from": "designation.job_grade",
+      "read_only": true
+    },
+    {
+      "fieldname": "employment_type",
+      "fieldtype": "Select",
+      "label": "Employment Type",
+      "options": [
+        "Permanent",
+        "Contract",
+        "Temporary",
+        "Director",
+        "Other"
+      ],
+      "default": "Permanent"
+    },
+    {
+      "fieldname": "budgeted_headcount",
+      "fieldtype": "Int",
+      "label": "Budgeted Headcount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "monthly_cost_per_head",
+      "fieldtype": "Currency",
+      "label": "Monthly Cost Per Head",
+      "in_list_view": true,
+      "description": "Planned total monthly cost of one person in this role (salary and employer costs)."
+    },
+    {
+      "fieldname": "annual_cost",
+      "fieldtype": "Currency",
+      "label": "Annual Cost",
+      "read_only": true,
+      "description": "Headcount x monthly cost x months in the budget period."
+    },
+    {
+      "fieldname": "filled",
+      "fieldtype": "Int",
+      "label": "Filled",
+      "read_only": true,
+      "description": "People currently employed in this department with this designation."
+    },
+    {
+      "fieldname": "committed",
+      "fieldtype": "Int",
+      "label": "Committed",
+      "read_only": true,
+      "description": "Open positions on pending or approved Job Requisitions."
+    },
+    {
+      "fieldname": "vacant",
+      "fieldtype": "Int",
+      "label": "Vacant",
+      "read_only": true,
+      "in_list_view": true,
+      "description": "Budgeted headcount not yet filled or committed."
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Data",
+      "label": "Notes"
+    }
+  ],
+  "permissions": []
+}

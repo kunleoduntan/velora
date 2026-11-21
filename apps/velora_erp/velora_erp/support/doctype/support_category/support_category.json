@@ -1,0 +1,78 @@
+{
+ "name": "Support Category",
+ "module": "Support",
+ "autoname": "field:category_name",
+ "title_field": "category_name",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "category_name",
+   "fieldtype": "Data",
+   "label": "Category",
+   "required": true,
+   "unique": true,
+   "in_list_view": true,
+   "length": 120
+  },
+  {
+   "fieldname": "default_team",
+   "fieldtype": "Link",
+   "label": "Handled by",
+   "options": "Support Team",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "default_priority",
+   "fieldtype": "Select",
+   "label": "Usual priority",
+   "options": [
+    "",
+    "Low",
+    "Medium",
+    "High",
+    "Urgent"
+   ]
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled",
+   "default": 0
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Support Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true
+  },
+  {
+   "role": "Sales Manager",
+   "read": true,
+   "export": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "export": true
+  }
+ ]
+}

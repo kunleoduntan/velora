@@ -1,0 +1,138 @@
+{
+  "name": "Employee HR Profile",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Restricted HR-owned one-to-one extension to the canonical Employee master. Store only necessary personal data.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "profile_image",
+      "fieldtype": "Data",
+      "label": "Profile Image"
+    },
+    {
+      "fieldname": "preferred_name",
+      "fieldtype": "Data",
+      "label": "Preferred Name"
+    },
+    {
+      "fieldname": "date_of_birth",
+      "fieldtype": "Date",
+      "label": "Date of Birth"
+    },
+    {
+      "fieldname": "gender",
+      "fieldtype": "Select",
+      "label": "Gender",
+      "options": [
+        "",
+        "Female",
+        "Male",
+        "Non-binary",
+        "Prefer not to say"
+      ]
+    },
+    {
+      "fieldname": "nationality",
+      "fieldtype": "Data",
+      "label": "Nationality"
+    },
+    {
+      "fieldname": "personal_email",
+      "fieldtype": "Data",
+      "label": "Personal Email"
+    },
+    {
+      "fieldname": "personal_phone",
+      "fieldtype": "Data",
+      "label": "Personal Phone"
+    },
+    {
+      "fieldname": "residential_address",
+      "fieldtype": "Text",
+      "label": "Residential Address"
+    },
+    {
+      "fieldname": "city",
+      "fieldtype": "Data",
+      "label": "City"
+    },
+    {
+      "fieldname": "state_region",
+      "fieldtype": "Data",
+      "label": "State / Region"
+    },
+    {
+      "fieldname": "country",
+      "fieldtype": "Data",
+      "label": "Country"
+    },
+    {
+      "fieldname": "emergency_contact_name",
+      "fieldtype": "Data",
+      "label": "Emergency Contact Name"
+    },
+    {
+      "fieldname": "emergency_contact_relationship",
+      "fieldtype": "Data",
+      "label": "Relationship"
+    },
+    {
+      "fieldname": "emergency_contact_phone",
+      "fieldtype": "Data",
+      "label": "Emergency Contact Phone"
+    },
+    {
+      "fieldname": "profile_notes",
+      "fieldtype": "Text",
+      "label": "HR Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "autoname": "field:employee",
+  "title_field": "employee_name"
+}

@@ -1,0 +1,87 @@
+{
+ "name": "Investment Schedule Line",
+ "module": "Investments",
+ "istable": true,
+ "fields": [
+  {
+   "fieldname": "period_no",
+   "fieldtype": "Int",
+   "label": "No.",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "period_start",
+   "fieldtype": "Date",
+   "label": "From",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "period_end",
+   "fieldtype": "Date",
+   "label": "To",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Expected on",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Int",
+   "label": "Days",
+   "read_only": true
+  },
+  {
+   "fieldname": "gross_interest",
+   "fieldtype": "Currency",
+   "label": "Gross income",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "wht_amount",
+   "fieldtype": "Currency",
+   "label": "Withholding tax",
+   "read_only": true
+  },
+  {
+   "fieldname": "fee_amount",
+   "fieldtype": "Currency",
+   "label": "Fee",
+   "read_only": true
+  },
+  {
+   "fieldname": "net_interest",
+   "fieldtype": "Currency",
+   "label": "Net cash",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "received_amount",
+   "fieldtype": "Currency",
+   "label": "Gross received",
+   "read_only": true
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Scheduled",
+    "Part received",
+    "Received",
+    "Overdue"
+   ],
+   "default": "Scheduled",
+   "in_list_view": true,
+   "read_only": true
+  }
+ ]
+}

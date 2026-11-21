@@ -1,0 +1,15 @@
+{
+  "name": "Stock Ledger",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Stock Ledger Record",
+  "roles": ["System Manager", "Finance Manager", "Inventory Manager", "Storekeeper", "Auditor"],
+  "description": "Every stock movement with running quantity and value, filterable by item, warehouse, voucher and period.",
+  "filters": [
+    {"fieldname":"item_code","label":"Item","fieldtype":"Link","options":"Inventory Item"},
+    {"fieldname":"warehouse","label":"Warehouse","fieldtype":"Link","options":"Warehouse"},
+    {"fieldname":"from_date","label":"From Date","fieldtype":"Date"},
+    {"fieldname":"to_date","label":"To Date","fieldtype":"Date"},
+    {"fieldname":"voucher_type","label":"Voucher Type","fieldtype":"Data"}
+  ]
+}

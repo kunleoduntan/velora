@@ -1,0 +1,41 @@
+{
+  "name": "RFQ Supplier",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "supplier",
+      "fieldtype": "Link",
+      "label": "Supplier",
+      "options": "Supplier",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email",
+      "fetch_from": "supplier.email",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "response",
+      "fieldtype": "Select",
+      "label": "Response",
+      "options": [
+        "Awaiting",
+        "Quoted",
+        "Declined"
+      ],
+      "default": "Awaiting",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "quotation",
+      "fieldtype": "Link",
+      "label": "Quotation",
+      "options": "Supplier Quotation",
+      "read_only": true
+    }
+  ]
+}

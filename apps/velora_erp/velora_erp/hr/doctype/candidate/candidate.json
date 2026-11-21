@@ -1,0 +1,152 @@
+{
+  "name": "Candidate",
+  "module": "HR",
+  "autoname": "series:CAN-.####",
+  "track_changes": true,
+  "description": "Candidate master for recruitment. Candidate records remain separate from Employee until an authorised conversion is completed.",
+  "fields": [
+    {
+      "fieldname": "candidate_name",
+      "fieldtype": "Data",
+      "label": "Candidate Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "phone",
+      "fieldtype": "Data",
+      "label": "Phone"
+    },
+    {
+      "fieldname": "alternate_phone",
+      "fieldtype": "Data",
+      "label": "Alternate Phone"
+    },
+    {
+      "fieldname": "current_employer",
+      "fieldtype": "Data",
+      "label": "Current Employer"
+    },
+    {
+      "fieldname": "current_designation",
+      "fieldtype": "Link",
+      "label": "Current Designation",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "years_experience",
+      "fieldtype": "Float",
+      "label": "Years of Experience"
+    },
+    {
+      "fieldname": "highest_qualification",
+      "fieldtype": "Data",
+      "label": "Highest Qualification"
+    },
+    {
+      "fieldname": "professional_summary",
+      "fieldtype": "Text",
+      "label": "Professional Summary"
+    },
+    {
+      "fieldname": "resume_file",
+      "fieldtype": "Data",
+      "label": "Resume File"
+    },
+    {
+      "fieldname": "portfolio_url",
+      "fieldtype": "Data",
+      "label": "Portfolio / LinkedIn URL"
+    },
+    {
+      "fieldname": "source",
+      "fieldtype": "Select",
+      "label": "Candidate Source",
+      "options": [
+        "Careers Page",
+        "Employee Referral",
+        "Recruitment Agency",
+        "Job Board",
+        "Social Media",
+        "Walk In",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "consent_status",
+      "fieldtype": "Select",
+      "label": "Data Processing Consent",
+      "options": [
+        "Not Captured",
+        "Granted",
+        "Withdrawn"
+      ],
+      "default": "Not Captured",
+      "required": true
+    },
+    {
+      "fieldname": "consent_date",
+      "fieldtype": "Date",
+      "label": "Consent Date"
+    },
+    {
+      "fieldname": "candidate_status",
+      "fieldtype": "Select",
+      "label": "Candidate Status",
+      "options": [
+        "New",
+        "Active",
+        "Hired",
+        "Not Selected",
+        "Withdrawn",
+        "Talent Pool"
+      ],
+      "default": "New",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "converted_employee",
+      "fieldtype": "Link",
+      "label": "Converted Employee",
+      "options": "Employee"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "title_field": "candidate_name"
+}

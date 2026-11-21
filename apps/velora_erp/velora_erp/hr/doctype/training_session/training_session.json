@@ -1,0 +1,102 @@
+{
+  "name": "Training Session",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Scheduled delivery instance for an approved training programme.",
+  "fields": [
+    {
+      "fieldname": "program",
+      "fieldtype": "Link",
+      "label": "Training Program",
+      "options": "Training Program",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "session_title",
+      "fieldtype": "Data",
+      "label": "Session Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "start_datetime",
+      "fieldtype": "Datetime",
+      "label": "Start Date and Time",
+      "required": true
+    },
+    {
+      "fieldname": "end_datetime",
+      "fieldtype": "Datetime",
+      "label": "End Date and Time",
+      "required": true
+    },
+    {
+      "fieldname": "facilitator",
+      "fieldtype": "Data",
+      "label": "Facilitator"
+    },
+    {
+      "fieldname": "venue",
+      "fieldtype": "Data",
+      "label": "Venue"
+    },
+    {
+      "fieldname": "capacity",
+      "fieldtype": "Int",
+      "label": "Capacity"
+    },
+    {
+      "fieldname": "session_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Planned",
+        "Open for Enrolment",
+        "In Progress",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Planned",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "attendance_recorded",
+      "fieldtype": "Check",
+      "label": "Attendance Recorded",
+      "default": 0
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "istable": false,
+  "title_field": "session_title"
+}

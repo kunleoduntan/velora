@@ -1,0 +1,88 @@
+{
+ "name": "Support Team",
+ "module": "Support",
+ "autoname": "field:team_name",
+ "title_field": "team_name",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "team_name",
+   "fieldtype": "Data",
+   "label": "Team",
+   "required": true,
+   "unique": true,
+   "in_list_view": true,
+   "length": 120
+  },
+  {
+   "fieldname": "team_lead",
+   "fieldtype": "Data",
+   "label": "Team lead (user)",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "assignment",
+   "fieldtype": "Select",
+   "label": "New tickets are given to",
+   "options": [
+    "Nobody (the team picks)",
+    "Round robin",
+    "Least loaded"
+   ],
+   "default": "Round robin"
+  },
+  {
+   "fieldname": "members",
+   "fieldtype": "Table",
+   "label": "Members",
+   "options": "Support Team Member"
+  },
+  {
+   "fieldname": "last_assigned",
+   "fieldtype": "Data",
+   "label": "Last assigned",
+   "read_only": true
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled",
+   "default": 0
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Support Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true
+  },
+  {
+   "role": "Sales Manager",
+   "read": true,
+   "export": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "export": true
+  }
+ ]
+}

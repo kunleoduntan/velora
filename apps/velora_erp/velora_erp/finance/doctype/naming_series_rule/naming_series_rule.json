@@ -1,0 +1,66 @@
+{
+  "name": "Naming Series Rule",
+  "module": "Finance",
+  "autoname": "field:document_type",
+  "track_changes": true,
+  "description": "Chooses how a document type is numbered, e.g. PAY-.YYYY.-.#####  gives PAY-2026-00001 and restarts every year. Tokens: .YYYY. .YY. .MM. .DD. followed by .##### (3 to 12 digits).",
+  "fields": [
+    {
+      "fieldname": "document_type",
+      "fieldtype": "Link",
+      "label": "Document",
+      "required": true,
+      "in_list_view": true,
+      "description": "Pick the document this numbering applies to.",
+      "options": "DocType"
+    },
+    {
+      "fieldname": "pattern",
+      "fieldtype": "Data",
+      "label": "Naming Pattern",
+      "required": true,
+      "in_list_view": true,
+      "description": "Example: SI-.YYYY.-.#####"
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": 1,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "example",
+      "fieldtype": "Data",
+      "label": "Next Name Preview",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true
+    }
+  ]
+}

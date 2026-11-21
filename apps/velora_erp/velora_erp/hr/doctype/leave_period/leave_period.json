@@ -1,0 +1,90 @@
+{
+  "name": "Leave Period",
+  "module": "HR",
+  "autoname": "field:period_code",
+  "track_changes": true,
+  "description": "Company-specific period for leave entitlement allocation, carry-forward and balance reporting.",
+  "fields": [
+    {
+      "fieldname": "period_code",
+      "fieldtype": "Data",
+      "label": "Period Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "period_name",
+      "fieldtype": "Data",
+      "label": "Period Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "from_date",
+      "fieldtype": "Date",
+      "label": "From Date",
+      "required": true
+    },
+    {
+      "fieldname": "to_date",
+      "fieldtype": "Date",
+      "label": "To Date",
+      "required": true
+    },
+    {
+      "fieldname": "holiday_list",
+      "fieldtype": "Link",
+      "label": "Holiday List",
+      "options": "Holiday List"
+    },
+    {
+      "fieldname": "period_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Open",
+        "Closed"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "title_field": "period_name"
+}

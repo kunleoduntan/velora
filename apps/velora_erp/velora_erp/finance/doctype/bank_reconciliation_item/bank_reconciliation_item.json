@@ -1,0 +1,52 @@
+{
+  "name": "Bank Reconciliation Item",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Reconciling item captured when a Bank Reconciliation is finalised.",
+  "fields": [
+    {
+      "fieldname": "category",
+      "fieldtype": "Select",
+      "label": "Category",
+      "options": [
+        "Deposit in Transit",
+        "Outstanding Payment",
+        "Unrecorded Bank Receipt",
+        "Unrecorded Bank Payment"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_date",
+      "fieldtype": "Date",
+      "label": "Item Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reference",
+      "fieldtype": "Data",
+      "label": "Reference",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source",
+      "fieldtype": "Data",
+      "label": "Source Record"
+    }
+  ],
+  "permissions": [],
+  "istable": true
+}

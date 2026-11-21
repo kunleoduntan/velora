@@ -1,0 +1,376 @@
+{
+  "name": "Receipt",
+  "module": "Finance",
+  "autoname": "series:REC-.########",
+  "is_submittable": true,
+  "track_changes": true,
+  "description": "Universal receipt transaction. Posts through the central Financial Posting Engine; all purposes share the same controlled cash document.",
+  "fields": [
+    {
+      "fieldname": "transaction_section",
+      "fieldtype": "Section Break",
+      "label": "Receipt Details"
+    },
+    {
+      "fieldname": "receipt_date",
+      "fieldtype": "Date",
+      "label": "Receipt Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "purpose",
+      "fieldtype": "Select",
+      "label": "Receipt Purpose",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true,
+      "options": [
+        "Customer Receipt",
+        "Customer Refund Recovery",
+        "Other Income",
+        "Supplier Refund",
+        "Loan Received",
+        "Capital Introduced",
+        "Tax Refund",
+        "Customer Advance",
+        "Deferred Income",
+        "Employee Repayment",
+        "Other Receipt"
+      ]
+    },
+    {
+      "fieldname": "transaction_type",
+      "fieldtype": "Link",
+      "options": "Transaction Type",
+      "label": "Transaction Type",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "currency_section",
+      "fieldtype": "Section Break",
+      "label": "Currency and Settlement"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Transaction Currency",
+      "required": true,
+      "length": 3,
+      "default": "NGN",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate to Base Currency",
+      "required": true,
+      "default": 1
+    },
+    {
+      "fieldname": "payment_method",
+      "fieldtype": "Select",
+      "label": "Payment Method",
+      "options": [
+        "Bank Transfer",
+        "Cash",
+        "Cheque",
+        "Card",
+        "Direct Debit",
+        "Mobile Money",
+        "Other"
+      ],
+      "default": "Bank Transfer",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "instrument_reference",
+      "fieldtype": "Data",
+      "label": "Cheque / Instrument Reference",
+      "length": 120
+    },
+    {
+      "fieldname": "received_from",
+      "fieldtype": "Data",
+      "label": "Received From",
+      "length": 180
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank Account",
+      "options": "Bank Account",
+      "in_standard_filter": true,
+      "description": "Choose the bank account; its ledger account is filled in automatically."
+    },
+    {
+      "fieldname": "cash_account",
+      "fieldtype": "Link",
+      "label": "Bank or Cash Account (GL)",
+      "options": "Account",
+      "in_list_view": true,
+      "fetch_from": "bank_account.gl_account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "source_section",
+      "fieldtype": "Section Break",
+      "label": "Source Document"
+    },
+    {
+      "fieldname": "source_doctype",
+      "fieldtype": "Data",
+      "label": "Source Document Type",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_document",
+      "fieldtype": "Data",
+      "label": "Source Document",
+      "read_only": true
+    },
+    {
+      "fieldname": "external_reference",
+      "fieldtype": "Data",
+      "label": "External Reference",
+      "length": 120
+    },
+    {
+      "fieldname": "value_date",
+      "fieldtype": "Date",
+      "label": "Bank Value Date"
+    },
+    {
+      "fieldname": "narration_section",
+      "fieldtype": "Section Break",
+      "label": "Narration"
+    },
+    {
+      "fieldname": "is_shared_cost",
+      "fieldtype": "Check",
+      "label": "Share Across Cost Centres",
+      "default": 0
+    },
+    {
+      "fieldname": "distribution_rule",
+      "fieldtype": "Link",
+      "label": "Distribution Rule",
+      "options": "Cost Distribution Rule",
+      "depends_on": "eval:doc.is_shared_cost == 1",
+      "mandatory_depends_on": "eval:doc.is_shared_cost == 1",
+      "description": "Percentages come from the Cost Distribution table in Finance Settings."
+    },
+    {
+      "fieldname": "is_amortised_cost",
+      "fieldtype": "Check",
+      "label": "Recognise Over Time",
+      "default": 0,
+      "description": "Deferred Income receipts only: release the income over the period."
+    },
+    {
+      "fieldname": "amortisation_frequency",
+      "fieldtype": "Select",
+      "label": "Frequency",
+      "options": [
+        "Monthly",
+        "Quarterly",
+        "Half-yearly",
+        "Yearly"
+      ],
+      "default": "Monthly",
+      "depends_on": "eval:doc.is_amortised_cost == 1"
+    },
+    {
+      "fieldname": "amortisation_start_date",
+      "fieldtype": "Date",
+      "label": "Start Date",
+      "depends_on": "eval:doc.is_amortised_cost == 1"
+    },
+    {
+      "fieldname": "amortisation_end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "depends_on": "eval:doc.is_amortised_cost == 1"
+    },
+    {
+      "fieldname": "recognition_account",
+      "fieldtype": "Link",
+      "label": "Income Account",
+      "options": "Account",
+      "depends_on": "eval:doc.is_amortised_cost == 1",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "narration",
+      "fieldtype": "Text",
+      "label": "Narration",
+      "required": true
+    },
+    {
+      "fieldname": "lines_section",
+      "fieldtype": "Section Break",
+      "label": "Transaction Lines"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Receipt Lines",
+      "options": "Receipt Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_accounting_amount",
+      "fieldtype": "Currency",
+      "label": "Gross Transaction Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_amount",
+      "fieldtype": "Currency",
+      "label": "Total Received",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Independent Approval"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_comments",
+      "fieldtype": "Text",
+      "label": "Approval Comments"
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "reversal_section",
+      "fieldtype": "Section Break",
+      "label": "Settlement"
+    },
+    {
+      "fieldname": "allocation_status",
+      "fieldtype": "Select",
+      "label": "Invoice Allocation Status",
+      "read_only": true,
+      "options": [
+        "Applied",
+        "Released"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

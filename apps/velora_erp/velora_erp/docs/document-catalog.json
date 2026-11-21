@@ -1,0 +1,400 @@
+{
+  "version": "1.3",
+  "status": "partially_implemented",
+  "policy": "Use familiar business document names; document presence in this catalogue is a design commitment, not a claim that the DocType is implemented.",
+  "documents": [
+    {
+      "name": "Financial Posting Batch",
+      "area": "Financial Processing",
+      "kind": "posting_control",
+      "sequence": 5
+    },
+    {
+      "name": "Financial Posting Line",
+      "area": "Financial Processing",
+      "kind": "posting_line",
+      "sequence": 6
+    },
+    {
+      "name": "Account Ledger Record",
+      "area": "Financial Processing",
+      "kind": "authoritative_ledger_record",
+      "sequence": 7
+    },
+    {
+      "name": "Sales Quotation",
+      "area": "Sales",
+      "kind": "transaction",
+      "sequence": 10
+    },
+    {
+      "name": "Sales Order",
+      "area": "Sales",
+      "kind": "transaction",
+      "sequence": 20
+    },
+    {
+      "name": "Delivery Note",
+      "area": "Sales",
+      "kind": "transaction",
+      "sequence": 30
+    },
+    {
+      "name": "Waybill",
+      "area": "Logistics",
+      "kind": "transport_document",
+      "sequence": 35
+    },
+    {
+      "name": "Sales Invoice",
+      "area": "Sales",
+      "kind": "financial_transaction",
+      "sequence": 40
+    },
+    {
+      "name": "Sales Return",
+      "area": "Sales",
+      "kind": "financial_return",
+      "sequence": 50
+    },
+    {
+      "name": "Receipt",
+      "area": "Receivables",
+      "kind": "financial_transaction",
+      "sequence": 70
+    },
+    {
+      "name": "Customer Allocation",
+      "area": "Receivables",
+      "kind": "allocation",
+      "sequence": 80
+    },
+    {
+      "name": "Purchase Requisition",
+      "area": "Purchasing",
+      "kind": "transaction",
+      "sequence": 100
+    },
+    {
+      "name": "Request for Quotation",
+      "area": "Purchasing",
+      "kind": "transaction",
+      "sequence": 110
+    },
+    {
+      "name": "Supplier Quotation",
+      "area": "Purchasing",
+      "kind": "transaction",
+      "sequence": 120
+    },
+    {
+      "name": "Purchase Order",
+      "area": "Purchasing",
+      "kind": "transaction",
+      "sequence": 130
+    },
+    {
+      "name": "Purchase Receipt",
+      "area": "Purchasing",
+      "kind": "inventory_transaction",
+      "sequence": 140
+    },
+    {
+      "name": "Service Confirmation",
+      "area": "Purchasing",
+      "kind": "service_acceptance",
+      "sequence": 150
+    },
+    {
+      "name": "Purchase Invoice",
+      "area": "Payables",
+      "kind": "financial_transaction",
+      "sequence": 160
+    },
+    {
+      "name": "Purchase Return",
+      "area": "Payables",
+      "kind": "financial_return",
+      "sequence": 170
+    },
+    {
+      "name": "Payment",
+      "area": "Cash and Banking",
+      "kind": "financial_transaction",
+      "sequence": 190
+    },
+    {
+      "name": "Supplier Allocation",
+      "area": "Payables",
+      "kind": "allocation",
+      "sequence": 200
+    },
+    {
+      "name": "Bank Transfer",
+      "area": "Cash and Banking",
+      "kind": "financial_transaction",
+      "sequence": 210
+    },
+    {
+      "name": "Bank Statement",
+      "area": "Cash and Banking",
+      "kind": "statement",
+      "sequence": 220
+    },
+    {
+      "name": "Bank Reconciliation",
+      "area": "Cash and Banking",
+      "kind": "reconciliation",
+      "sequence": 230
+    },
+    {
+      "name": "Financial Voucher",
+      "area": "Financial Processing",
+      "kind": "controlled_adjustment",
+      "sequence": 240
+    },
+    {
+      "name": "Financial Voucher Line",
+      "area": "Financial Processing",
+      "kind": "child_transaction_line",
+      "sequence": 241
+    },
+    {
+      "name": "Opening Balance Entry",
+      "area": "Financial Processing",
+      "kind": "controlled_migration_transaction",
+      "sequence": 245
+    },
+    {
+      "name": "Recurring Transaction Schedule",
+      "area": "Financial Processing",
+      "kind": "schedule",
+      "sequence": 250
+    },
+    {
+      "name": "Prepayment Schedule",
+      "area": "Financial Processing",
+      "kind": "schedule",
+      "sequence": 260
+    },
+    {
+      "name": "Accrual Schedule",
+      "area": "Financial Processing",
+      "kind": "schedule",
+      "sequence": 270
+    },
+    {
+      "name": "Foreign Currency Revaluation",
+      "area": "Multi-Currency",
+      "kind": "financial_transaction",
+      "sequence": 280
+    },
+    {
+      "name": "Period Closing Run",
+      "area": "Financial Periods",
+      "kind": "controlled_process",
+      "sequence": 290
+    },
+    {
+      "name": "Financial Year Closing Run",
+      "area": "Financial Periods",
+      "kind": "controlled_process",
+      "sequence": 300
+    },
+    {
+      "name": "Fixed Asset",
+      "area": "Fixed Assets",
+      "kind": "master",
+      "sequence": 310
+    },
+    {
+      "name": "Asset Acquisition",
+      "area": "Fixed Assets",
+      "kind": "financial_transaction",
+      "sequence": 320
+    },
+    {
+      "name": "Depreciation Run",
+      "area": "Fixed Assets",
+      "kind": "controlled_process",
+      "sequence": 330
+    },
+    {
+      "name": "Asset Transfer",
+      "area": "Fixed Assets",
+      "kind": "transaction",
+      "sequence": 340
+    },
+    {
+      "name": "Asset Revaluation",
+      "area": "Fixed Assets",
+      "kind": "financial_transaction",
+      "sequence": 350
+    },
+    {
+      "name": "Asset Impairment",
+      "area": "Fixed Assets",
+      "kind": "financial_transaction",
+      "sequence": 360
+    },
+    {
+      "name": "Asset Disposal",
+      "area": "Fixed Assets",
+      "kind": "financial_transaction",
+      "sequence": 370
+    },
+    {
+      "name": "Asset Verification",
+      "area": "Fixed Assets",
+      "kind": "control",
+      "sequence": 380
+    },
+    {
+      "name": "Inventory Item",
+      "area": "Inventory",
+      "kind": "master",
+      "sequence": 400
+    },
+    {
+      "name": "Warehouse",
+      "area": "Inventory",
+      "kind": "master",
+      "sequence": 410
+    },
+    {
+      "name": "Batch",
+      "area": "Inventory",
+      "kind": "master",
+      "sequence": 420
+    },
+    {
+      "name": "Serial Number",
+      "area": "Inventory",
+      "kind": "master",
+      "sequence": 430
+    },
+    {
+      "name": "Stock Ledger Record",
+      "area": "Inventory",
+      "kind": "authoritative_ledger_record",
+      "sequence": 440
+    },
+    {
+      "name": "Stock Reconciliation",
+      "area": "Inventory",
+      "kind": "control",
+      "sequence": 450
+    },
+    {
+      "name": "Stock Transfer",
+      "area": "Inventory",
+      "kind": "transaction",
+      "sequence": 460
+    },
+    {
+      "name": "Opening Stock Entry",
+      "area": "Inventory",
+      "kind": "migration_transaction",
+      "sequence": 470
+    },
+    {
+      "name": "Stock Revaluation",
+      "area": "Inventory",
+      "kind": "financial_transaction",
+      "sequence": 480
+    },
+    {
+      "name": "Inventory Valuation Closing",
+      "area": "Inventory",
+      "kind": "controlled_process",
+      "sequence": 490
+    },
+    {
+      "name": "Landed Cost Voucher",
+      "area": "Inventory",
+      "kind": "financial_transaction",
+      "sequence": 500
+    },
+    {
+      "name": "Inventory Settings",
+      "area": "Inventory",
+      "kind": "configuration",
+      "sequence": 510
+    }
+  ],
+  "implemented_in_v0_2_0": [
+    "Account Type",
+    "Account Group",
+    "Account",
+    "Cost Centre",
+    "Accounting Dimension",
+    "Dimension Value",
+    "Financial Statement Row",
+    "Account Statement Mapping"
+  ],
+  "implementation_note": "Sales Invoice and Purchase Invoice remain the financial recognition documents. Sales Return and Purchase Return are the only commercial return DocTypes. VeloraERP v0.14.0 adds FIFO, perpetual Moving Average and periodic Weighted Average valuation, Opening Stock Entry, Stock Revaluation and approved Inventory Valuation Closing. Weighted Average issues are provisionally costed during the period and reconciled to the final period average at close. Stock Ledger Records remain append-only and authoritative. VeloraERP v0.15.0 adds Inventory Item cost-based selling prices, Customer Group margin inheritance, server-enforced below-cost controls on Sales Order and Sales Invoice, actual issue-cost validation on Delivery Note, last-purchase-cost snapshots including landed costs, and stock-UOM conversion through inventory movements.",
+  "implemented_in_v0_3_0": [
+    "Financial Posting Batch",
+    "Financial Posting Line",
+    "Account Ledger Record"
+  ],
+  "implemented_in_v0_4_0": [
+    "Financial Voucher",
+    "Financial Voucher Line",
+    "Opening Balance Entry",
+    "Trial Balance report",
+    "Account Ledger report",
+    "Income Statement financial report layout",
+    "Statement of Financial Position financial report layout",
+    "Finance company workspace",
+    "VeloraERP financial reporting provider integration"
+  ],
+  "implemented_in_v0_10_0": [
+    "Sales Order",
+    "Sales Order Line",
+    "Delivery Note",
+    "Delivery Note Line",
+    "Waybill",
+    "Waybill Line",
+    "Purchase Order",
+    "Purchase Order Line",
+    "Purchase Receipt",
+    "Purchase Receipt Line",
+    "Partial quantity conversion",
+    "Framework document-flow REST endpoints"
+  ],
+  "implemented_in_v0_11_0": [
+    "Sales Return",
+    "Sales Return Line",
+    "Purchase Return",
+    "Purchase Return Line",
+    "Invoice-linked return conversion",
+    "Cumulative return value validation",
+    "Landed Cost Voucher",
+    "Landed Cost Charge",
+    "Landed Cost Allocation",
+    "Landed cost allocation by value, quantity, weight, volume and equal share"
+  ],
+  "implemented_in_v0_14_0": [
+    "Inventory Item valuation policy: Moving Average, FIFO and Weighted Average",
+    "FIFO cost-layer reconstruction and oldest-layer issue costing",
+    "FIFO layer preservation during warehouse transfers",
+    "Periodic Weighted Average valuation calculation and approved period closing",
+    "Closed-period protection for stock movements",
+    "Opening Stock Entry with opening balance clearing account",
+    "Stock Revaluation with quantity-neutral value adjustments",
+    "Inventory workspace valuation controls"
+  ],
+  "implemented_in_v0_15_0": [
+    "Inventory Item pricing mode, margin and fixed selling rate",
+    "Inventory Item Last Purchase Cost snapshot and purchase reference",
+    "Customer Group selling margin with parent-group inheritance",
+    "Inventory Settings selling-cost basis, margin basis, rounding and cost-floor controls",
+    "Sales Order and Sales Invoice Price Basis and candidate selling prices",
+    "Sales Order and Sales Invoice server-side below-cost validation",
+    "Delivery Note actual warehouse issue-cost and FIFO layer validation",
+    "Landed-cost-inclusive Last Purchase Cost refresh",
+    "Stock UOM conversion factors through receipts, deliveries and returns",
+    "Framework document-pricing provider endpoint and native Desk source integration"
+  ]
+}

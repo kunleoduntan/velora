@@ -1,0 +1,281 @@
+{
+  "name": "Employee Loan Type",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Policy definition for employee loan eligibility, limits, repayment and accounting treatment.",
+  "fields": [
+    {
+      "fieldname": "loan_type_code",
+      "fieldtype": "Data",
+      "label": "Loan Type Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 30
+    },
+    {
+      "fieldname": "loan_type_name",
+      "fieldtype": "Data",
+      "label": "Loan Type Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "minimum_amount",
+      "fieldtype": "Currency",
+      "label": "Minimum Amount",
+      "default": 0
+    },
+    {
+      "fieldname": "maximum_amount",
+      "fieldtype": "Currency",
+      "label": "Maximum Amount",
+      "required": true
+    },
+    {
+      "fieldname": "maximum_term_months",
+      "fieldtype": "Int",
+      "label": "Maximum Term (Months)",
+      "required": true
+    },
+    {
+      "fieldname": "annual_interest_rate",
+      "fieldtype": "Float",
+      "label": "Annual Interest Rate",
+      "default": 0
+    },
+    {
+      "fieldname": "repayment_method",
+      "fieldtype": "Select",
+      "label": "Repayment Method",
+      "options": [
+        "Equal Instalment",
+        "Equal Principal"
+      ],
+      "default": "Equal Instalment"
+    },
+    {
+      "fieldname": "maximum_concurrent_loans",
+      "fieldtype": "Int",
+      "label": "Maximum Concurrent Loans",
+      "default": 1
+    },
+    {
+      "fieldname": "minimum_service_months",
+      "fieldtype": "Int",
+      "label": "Minimum Service (Months)",
+      "default": 0
+    },
+    {
+      "fieldname": "loan_account",
+      "fieldtype": "Link",
+      "label": "Loan Receivable Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "default_bank_account",
+      "fieldtype": "Link",
+      "label": "Default Disbursement Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "interest_income_account",
+      "fieldtype": "Link",
+      "label": "Interest Income Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "deduction_component",
+      "fieldtype": "Link",
+      "label": "Payroll Deduction Component",
+      "options": "Salary Component"
+    },
+    {
+      "fieldname": "allow_early_settlement",
+      "fieldtype": "Check",
+      "label": "Allow Early Settlement",
+      "default": 1
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": 1
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From",
+      "required": true
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "recovery_method",
+      "fieldtype": "Select",
+      "label": "Recovery Method",
+      "options": [
+        "Payroll Deduction",
+        "Manual Repayment",
+        "Either"
+      ],
+      "default": "Payroll Deduction",
+      "required": true
+    },
+    {
+      "fieldname": "maximum_deduction_percent_of_net_pay",
+      "fieldtype": "Float",
+      "label": "Loan Type Maximum (% of Net Pay Before Loan Recovery)",
+      "default": 0,
+      "description": "Optional stricter cap for this loan type. Zero inherits the Finance Settings overall cap."
+    },
+    {
+      "fieldname": "deduction_priority",
+      "fieldtype": "Int",
+      "label": "Payroll Recovery Priority",
+      "default": 100,
+      "description": "Lower number is recovered first when available net-pay capacity is limited."
+    },
+    {
+      "fieldname": "allocation_method",
+      "fieldtype": "Select",
+      "label": "Recovery Allocation Method",
+      "options": [
+        "Use Finance Default",
+        "Oldest Due First",
+        "Highest Interest First",
+        "Lowest Balance First",
+        "Pro Rata"
+      ],
+      "default": "Use Finance Default"
+    },
+    {
+      "fieldname": "allow_partial_recovery",
+      "fieldtype": "Check",
+      "label": "Allow Partial Recovery",
+      "default": 1
+    },
+    {
+      "fieldname": "interest_deduction_component",
+      "fieldtype": "Link",
+      "label": "Loan Interest Recovery Component",
+      "options": "Salary Component"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "delete": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "is_submittable": true,
+  "title_field": "loan_type_name"
+}

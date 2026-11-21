@@ -1,0 +1,51 @@
+{
+  "name": "Fixed Asset CGU Impairment Reversal Line",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "asset",
+      "fieldtype": "Link",
+      "label": "Fixed Asset",
+      "options": "Fixed Asset",
+      "required": true
+    },
+    {
+      "fieldname": "previous_impairment",
+      "fieldtype": "Link",
+      "label": "Original CGU Impairment",
+      "options": "Fixed Asset CGU Impairment"
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Reversal Amount",
+      "required": true
+    },
+    {
+      "fieldname": "carrying_amount_before",
+      "fieldtype": "Currency",
+      "label": "Carrying Amount Before",
+      "read_only": true
+    },
+    {
+      "fieldname": "maximum_reversal",
+      "fieldtype": "Currency",
+      "label": "Maximum Permitted Reversal",
+      "read_only": true
+    },
+    {
+      "fieldname": "reversal_to_profit_or_loss",
+      "fieldtype": "Currency",
+      "label": "P&L Reversal",
+      "read_only": true
+    },
+    {
+      "fieldname": "reversal_to_revaluation_surplus",
+      "fieldtype": "Currency",
+      "label": "Revaluation Surplus Reversal",
+      "read_only": true
+    }
+  ],
+  "permissions": []
+}

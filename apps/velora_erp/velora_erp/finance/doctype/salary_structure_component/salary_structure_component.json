@@ -1,0 +1,309 @@
+{
+  "name": "Salary Structure Component",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Ordered salary calculation rule within a Salary Structure.",
+  "fields": [
+    {
+      "fieldname": "salary_component",
+      "fieldtype": "Link",
+      "label": "Salary Component",
+      "options": "Salary Component",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "component_code",
+      "fieldtype": "Data",
+      "label": "Component Code",
+      "read_only": true
+    },
+    {
+      "fieldname": "component_name",
+      "fieldtype": "Data",
+      "label": "Component Name",
+      "read_only": true
+    },
+    {
+      "fieldname": "component_type",
+      "fieldtype": "Data",
+      "label": "Component Type",
+      "read_only": true
+    },
+    {
+      "fieldname": "calculation_type",
+      "fieldtype": "Data",
+      "label": "Calculation Type",
+      "read_only": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Fixed Amount"
+    },
+    {
+      "fieldname": "rate",
+      "fieldtype": "Float",
+      "label": "Rate"
+    },
+    {
+      "fieldname": "formula",
+      "fieldtype": "Text",
+      "label": "Formula"
+    },
+    {
+      "fieldname": "sequence",
+      "fieldtype": "Int",
+      "label": "Sequence"
+    },
+    {
+      "fieldname": "prorate_by_attendance",
+      "fieldtype": "Check",
+      "label": "Prorate by Attendance",
+      "default": 0
+    },
+    {
+      "fieldname": "taxable",
+      "fieldtype": "Check",
+      "label": "Taxable",
+      "default": 0
+    },
+    {
+      "fieldname": "pensionable",
+      "fieldtype": "Check",
+      "label": "Pensionable",
+      "default": 0
+    },
+    {
+      "fieldname": "reduces_taxable_income",
+      "fieldtype": "Check",
+      "label": "Reduces Taxable Income",
+      "default": 0,
+      "depends_on": "eval:doc.component_type == 'Deduction'",
+      "description": "Statutory relief such as employee pension, NHF or NHIS: the amount is taken off taxable pay before PAYE. Sequence it before the Progressive Tax component."
+    },
+    {
+      "fieldname": "hide_on_payslip",
+      "fieldtype": "Check",
+      "label": "Hide on Payslip",
+      "default": 0,
+      "description": "Keep the amount in the calculation and the ledger but do not show it to the employee on the payslip, e.g. employer pension expense and its liability."
+    },
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "description": "Single account mapping. Posting direction is derived from the component type.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "employer_expense_account",
+      "fieldtype": "Link",
+      "label": "Employer Contribution Expense Account",
+      "options": "Account",
+      "description": "Required expense debit mapping for employer statutory contributions.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "employer_payable_account",
+      "fieldtype": "Link",
+      "label": "Employer Contribution Payable Account",
+      "options": "Account",
+      "description": "Required statutory liability credit mapping for employer contributions.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "statutory_scheme",
+      "fieldtype": "Data",
+      "label": "Statutory Scheme / Contribution Code",
+      "description": "Optional jurisdiction-specific scheme identifier used by statutory reporting."
+    },
+    {
+      "fieldname": "debit_account",
+      "fieldtype": "Link",
+      "label": "Debit Account",
+      "options": "Account",
+      "hidden": true,
+      "read_only": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "credit_account",
+      "fieldtype": "Link",
+      "label": "Credit Account",
+      "options": "Account",
+      "hidden": true,
+      "read_only": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "input_fieldname",
+      "fieldtype": "Data",
+      "label": "Input Fieldname",
+      "length": 64
+    },
+    {
+      "fieldname": "input_label",
+      "fieldtype": "Data",
+      "label": "Input Label"
+    },
+    {
+      "fieldname": "input_location",
+      "fieldtype": "Data",
+      "label": "Input Location"
+    },
+    {
+      "fieldname": "input_required",
+      "fieldtype": "Check",
+      "label": "Input Required",
+      "default": 0
+    },
+    {
+      "fieldname": "input_default",
+      "fieldtype": "Float",
+      "label": "Default Input Value"
+    },
+    {
+      "fieldname": "input_unit",
+      "fieldtype": "Data",
+      "label": "Input Unit"
+    },
+    {
+      "fieldname": "condition",
+      "fieldtype": "Text",
+      "label": "Calculation Condition"
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "tax_category",
+      "fieldtype": "Data",
+      "label": "Tax Category"
+    },
+    {
+      "fieldname": "tax_rule",
+      "fieldtype": "Link",
+      "label": "Tax Rule",
+      "options": "Payroll Tax Rule"
+    },
+    {
+      "fieldname": "periods_per_year",
+      "fieldtype": "Int",
+      "label": "Periods Per Year"
+    },
+    {
+      "fieldname": "annual_relief",
+      "fieldtype": "Currency",
+      "label": "Annual Relief Override",
+      "default": 0
+    },
+    {
+      "fieldname": "loan_type",
+      "fieldtype": "Link",
+      "label": "Employee Loan Type",
+      "options": "Employee Loan Type"
+    }
+  ],
+  "istable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

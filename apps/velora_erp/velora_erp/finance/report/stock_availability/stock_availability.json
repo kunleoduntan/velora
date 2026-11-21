@@ -1,0 +1,3 @@
+{"name": "Stock Availability", "module": "Finance", "type": "script", "ref_doctype": "Stock Reservation", "roles": ["System Manager", "Finance Manager", "Inventory Manager", "Storekeeper", "Sales Manager", "Auditor"],
+ "description": "On hand, reserved and available to promise, per item and warehouse.",
+ "filters": [{"fieldname":"warehouse","label":"Warehouse","fieldtype":"Link","options":"Warehouse"},{"fieldname":"item_code","label":"Item","fieldtype":"Link","options":"Inventory Item"}]}

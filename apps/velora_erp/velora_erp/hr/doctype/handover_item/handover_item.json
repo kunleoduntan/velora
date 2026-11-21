@@ -1,0 +1,84 @@
+{
+  "name": "Handover Item",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Individual responsibility and knowledge transfer items within a leave or separation handover.",
+  "fields": [
+    {
+      "fieldname": "task",
+      "label": "Handover Task",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "category",
+      "label": "Category",
+      "fieldtype": "Select",
+      "options": [
+        "Responsibilities",
+        "Open Transactions",
+        "Projects",
+        "Customers",
+        "Suppliers",
+        "Systems Access",
+        "Assets",
+        "Documents",
+        "Other"
+      ],
+      "default": "Other",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_to",
+      "label": "Receiving Person",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "due_date",
+      "label": "Due Date",
+      "fieldtype": "Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "handover_status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Pending",
+        "In Progress",
+        "Submitted",
+        "Accepted",
+        "Rejected",
+        "Not Applicable"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "evidence_reference",
+      "label": "Evidence Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "recipient_comments",
+      "label": "Recipient Comments",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "completed_on",
+      "label": "Completed On",
+      "fieldtype": "Datetime"
+    }
+  ],
+  "istable": true
+}

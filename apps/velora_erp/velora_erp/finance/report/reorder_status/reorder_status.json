@@ -1,0 +1,12 @@
+{
+  "name": "Reorder Status",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Inventory Item",
+  "roles": ["System Manager", "Finance Manager", "Inventory Manager", "Storekeeper", "Auditor"],
+  "description": "Items at or below their reorder level, with stock on hand, quantity already on order or requested, and what to order now.",
+  "filters": [
+    {"fieldname":"item_group","label":"Item Group","fieldtype":"Link","options":"Item Group"},
+    {"fieldname":"show_all","label":"Show All Items With A Reorder Level","fieldtype":"Check"}
+  ]
+}

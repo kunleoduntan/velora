@@ -1,0 +1,171 @@
+{
+  "name": "Job Requisition",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Controlled request to recruit against an approved headcount and budget. Approval is restricted to HR management.",
+  "fields": [
+    {
+      "fieldname": "requisition_title",
+      "fieldtype": "Data",
+      "label": "Requisition Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "designation",
+      "fieldtype": "Link",
+      "label": "Designation",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "job_position",
+      "fieldtype": "Link",
+      "label": "Approved Job Position",
+      "options": "Job Position"
+    },
+    {
+      "fieldname": "employment_type",
+      "fieldtype": "Select",
+      "label": "Employment Type",
+      "options": [
+        "Permanent",
+        "Fixed Term",
+        "Contract",
+        "Temporary",
+        "Internship",
+        "Part Time"
+      ]
+    },
+    {
+      "fieldname": "vacancy_count",
+      "fieldtype": "Int",
+      "label": "Number of Vacancies",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "replacement_for",
+      "fieldtype": "Link",
+      "label": "Replacement For",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "reports_to",
+      "fieldtype": "Link",
+      "label": "Reports To",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "work_location",
+      "fieldtype": "Link",
+      "label": "Work Location",
+      "options": "Work Location"
+    },
+    {
+      "fieldname": "target_start_date",
+      "fieldtype": "Date",
+      "label": "Target Start Date"
+    },
+    {
+      "fieldname": "salary_minimum",
+      "fieldtype": "Currency",
+      "label": "Salary Range Minimum"
+    },
+    {
+      "fieldname": "salary_maximum",
+      "fieldtype": "Currency",
+      "label": "Salary Range Maximum"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "business_justification",
+      "fieldtype": "Text",
+      "label": "Business Justification",
+      "required": true
+    },
+    {
+      "fieldname": "budget_reference",
+      "fieldtype": "Link",
+      "label": "Approved Budget Reference",
+      "options": "Department Staff Budget",
+      "read_only": true,
+      "description": "Filled from the approved Department Staff Budget that covers this request."
+    },
+    {
+      "fieldname": "requisition_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected",
+        "On Hold",
+        "Closed"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "requested_by",
+      "fieldtype": "Data",
+      "label": "Requested By"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "title_field": "requisition_title"
+}

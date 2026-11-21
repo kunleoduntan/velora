@@ -1,0 +1,312 @@
+{
+  "name": "Investment Transaction",
+  "module": "Investments",
+  "autoname": "series:INVT-.########",
+  "is_submittable": true,
+  "track_changes": true,
+  "description": "One event on an investment: income accrued or received, dividends, rent, a top-up, a revaluation, a sale or maturity. Each posts to the ledger once; a wrong one is cancelled and posted again.",
+  "fields": [
+    {
+      "fieldname": "investment",
+      "fieldtype": "Link",
+      "label": "Investment",
+      "options": "Investment",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "transaction_type",
+      "fieldtype": "Select",
+      "label": "Transaction",
+      "options": [
+        "Income Accrual",
+        "Upfront Income Received",
+        "Interest Received",
+        "Dividend Received",
+        "Rental Received",
+        "Property Expense",
+        "Fee Paid",
+        "Additional Purchase",
+        "Bonus Issue",
+        "Revaluation",
+        "Part Disposal",
+        "Maturity",
+        "Full Disposal"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "transaction_date",
+      "fieldtype": "Date",
+      "label": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Posted",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "column_break_main",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "investment_name",
+      "fieldtype": "Data",
+      "label": "Investment Name",
+      "fetch_from": "investment.investment_name",
+      "read_only": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "fetch_from": "investment.currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "fetch_from": "investment.exchange_rate",
+      "read_only": true
+    },
+    {
+      "fieldname": "amount_section",
+      "fieldtype": "Section Break",
+      "label": "Amounts"
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "in_list_view": true,
+      "description": "Gross income, dividend or rent, the expense, or the gross sale proceeds. Left empty, income and maturity amounts are filled in for you.",
+      "depends_on": "eval:doc.transaction_type != 'Income Accrual' && doc.transaction_type != 'Bonus Issue'"
+    },
+    {
+      "fieldname": "units",
+      "fieldtype": "Float",
+      "label": "Units",
+      "depends_on": "eval:['Additional Purchase','Bonus Issue','Part Disposal'].includes(doc.transaction_type)"
+    },
+    {
+      "fieldname": "price_per_unit",
+      "fieldtype": "Currency",
+      "label": "Price Per Unit / New Price",
+      "depends_on": "eval:['Additional Purchase','Part Disposal','Revaluation'].includes(doc.transaction_type)"
+    },
+    {
+      "fieldname": "column_break_amounts",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "wht_amount",
+      "fieldtype": "Currency",
+      "label": "Withholding Tax",
+      "description": "Left empty, it is worked out from the investment's tax rate.",
+      "depends_on": "eval:['Upfront Income Received','Interest Received','Dividend Received','Rental Received','Maturity','Full Disposal','Part Disposal'].includes(doc.transaction_type)"
+    },
+    {
+      "fieldname": "fee_amount",
+      "fieldtype": "Currency",
+      "label": "Fees / Charges",
+      "depends_on": "eval:['Interest Received','Part Disposal','Maturity','Full Disposal','Additional Purchase'].includes(doc.transaction_type)"
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank Account",
+      "options": "Bank Account",
+      "depends_on": "eval:doc.transaction_type != 'Income Accrual' && doc.transaction_type != 'Bonus Issue' && doc.transaction_type != 'Revaluation'"
+    },
+    {
+      "fieldname": "narration",
+      "fieldtype": "Text",
+      "label": "Narration"
+    },
+    {
+      "fieldname": "effects_tab",
+      "fieldtype": "Section Break",
+      "label": "Effect (filled in when you save)",
+      "collapsible": true
+    },
+    {
+      "fieldname": "income_accrued_now",
+      "fieldtype": "Currency",
+      "label": "Income Recognised By This Entry",
+      "read_only": true
+    },
+    {
+      "fieldname": "net_cash",
+      "fieldtype": "Currency",
+      "label": "Net Cash",
+      "read_only": true
+    },
+    {
+      "fieldname": "carrying_released",
+      "fieldtype": "Currency",
+      "label": "Carrying Amount Released",
+      "read_only": true
+    },
+    {
+      "fieldname": "gain_loss",
+      "fieldtype": "Currency",
+      "label": "Realised / Unrealised Gain (Loss)",
+      "read_only": true
+    },
+    {
+      "fieldname": "column_break_effects",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "d_units",
+      "fieldtype": "Float",
+      "label": "Change in Units",
+      "read_only": true
+    },
+    {
+      "fieldname": "d_cost",
+      "fieldtype": "Currency",
+      "label": "Change in Cost Held",
+      "read_only": true
+    },
+    {
+      "fieldname": "d_fair_value",
+      "fieldtype": "Currency",
+      "label": "Change in Revaluation",
+      "read_only": true
+    },
+    {
+      "fieldname": "d_accrued",
+      "fieldtype": "Currency",
+      "label": "Change in Income Recognised",
+      "read_only": true
+    },
+    {
+      "fieldname": "d_received",
+      "fieldtype": "Currency",
+      "label": "Gross Income Received",
+      "read_only": true
+    },
+    {
+      "fieldname": "d_wht",
+      "fieldtype": "Currency",
+      "label": "Tax Withheld",
+      "read_only": true
+    },
+    {
+      "fieldname": "d_realised",
+      "fieldtype": "Currency",
+      "label": "Realised Gain (Loss)",
+      "read_only": true
+    },
+    {
+      "fieldname": "control_tab",
+      "fieldtype": "Section Break",
+      "label": "Control",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Posting",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "submit": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "submit": true,
+      "cancel": true
+    },
+    {
+      "role": "Investment Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "submit": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

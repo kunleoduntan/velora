@@ -1,0 +1,214 @@
+{
+  "name": "Bank Statement Line",
+  "module": "Finance",
+  "autoname": "series:BSL-.########",
+  "track_changes": true,
+  "description": "One line of a bank statement. Lines persist until matched, so nothing is lost between statements or periods.",
+  "fields": [
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank Account",
+      "options": "Bank Account",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Date",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "value_date",
+      "fieldtype": "Date",
+      "label": "Value Date"
+    },
+    {
+      "fieldname": "direction",
+      "fieldtype": "Select",
+      "label": "Direction",
+      "options": [
+        "Receipt",
+        "Payment"
+      ],
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true,
+      "description": "Receipt = money into the account (bank credit). Payment = money out (bank debit)."
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "reference",
+      "fieldtype": "Data",
+      "label": "Bank Reference",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "counterparty",
+      "fieldtype": "Data",
+      "label": "Counterparty"
+    },
+    {
+      "fieldname": "running_balance",
+      "fieldtype": "Currency",
+      "label": "Balance per Statement"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Unmatched",
+        "Suggested",
+        "Matched",
+        "Ignored"
+      ],
+      "default": "Unmatched",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "match_group",
+      "fieldtype": "Data",
+      "label": "Match Group",
+      "read_only": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "ignore_reason",
+      "fieldtype": "Data",
+      "label": "Ignore Reason"
+    },
+    {
+      "fieldname": "proposed_account",
+      "fieldtype": "Link",
+      "label": "Proposed Account",
+      "options": "Account",
+      "description": "Offset account proposed by a coding rule for lines that have no ledger counterpart.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "proposed_party_type",
+      "fieldtype": "Data",
+      "label": "Proposed Party Type"
+    },
+    {
+      "fieldname": "proposed_party",
+      "fieldtype": "Data",
+      "label": "Proposed Party"
+    },
+    {
+      "fieldname": "proposed_cost_centre",
+      "fieldtype": "Link",
+      "label": "Proposed Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "coding_rule",
+      "fieldtype": "Link",
+      "label": "Coding Rule",
+      "options": "Bank Transaction Coding Rule",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Posting Batch",
+      "options": "Batch Bank Transaction",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "reconciliation",
+      "fieldtype": "Link",
+      "label": "Reconciliation",
+      "options": "Bank Reconciliation",
+      "read_only": true,
+      "description": "Set when the line is locked by a submitted Bank Reconciliation."
+    },
+    {
+      "fieldname": "import_batch",
+      "fieldtype": "Data",
+      "label": "Import Batch",
+      "read_only": true
+    },
+    {
+      "fieldname": "line_hash",
+      "fieldtype": "Data",
+      "label": "Line Hash",
+      "unique": true,
+      "read_only": true,
+      "description": "Fingerprint that makes re-importing the same statement safe."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "submit": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "submit": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "submit": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true
+    }
+  ]
+}

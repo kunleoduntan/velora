@@ -1,0 +1,151 @@
+{
+  "name": "Employment Contract",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Employment agreement register. Contract pay values remain in the existing Payroll and Finance configuration.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "contract_reference",
+      "fieldtype": "Data",
+      "label": "Contract Reference",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "contract_type",
+      "fieldtype": "Select",
+      "label": "Contract Type",
+      "options": [
+        "Permanent",
+        "Fixed Term",
+        "Temporary",
+        "Consultancy",
+        "Internship",
+        "Probationary",
+        "Other"
+      ],
+      "required": true,
+      "default": "Permanent"
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "probation_end_date",
+      "fieldtype": "Date",
+      "label": "Probation End Date"
+    },
+    {
+      "fieldname": "work_schedule",
+      "fieldtype": "Select",
+      "label": "Work Schedule",
+      "options": [
+        "Full Time",
+        "Part Time",
+        "Shift Based",
+        "Flexible",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "weekly_hours",
+      "fieldtype": "Float",
+      "label": "Weekly Hours"
+    },
+    {
+      "fieldname": "signed_date",
+      "fieldtype": "Date",
+      "label": "Signed Date"
+    },
+    {
+      "fieldname": "contract_document",
+      "fieldtype": "Data",
+      "label": "Signed Contract File"
+    },
+    {
+      "fieldname": "contract_status",
+      "fieldtype": "Select",
+      "label": "Contract Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Expired",
+        "Terminated",
+        "Superseded"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "renewal_reminder_days",
+      "fieldtype": "Int",
+      "label": "Renewal Reminder Days",
+      "default": 30
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "HR Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "title_field": "employee_name"
+}

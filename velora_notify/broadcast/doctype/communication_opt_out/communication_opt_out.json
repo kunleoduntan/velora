@@ -1,0 +1,81 @@
+{
+ "name": "Communication Opt-Out",
+ "module": "Notify",
+ "autoname": "series:OPT-.######",
+ "title_field": "address",
+ "track_changes": true,
+ "description": "People who must not receive broadcasts. Checked before every broadcast message.",
+ "fields": [
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Email or phone number",
+   "required": true,
+   "in_list_view": true,
+   "length": 254
+  },
+  {
+   "fieldname": "channel",
+   "fieldtype": "Select",
+   "label": "Stops",
+   "options": [
+    "All channels",
+    "Email",
+    "SMS",
+    "WhatsApp"
+   ],
+   "default": "All channels",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "How it was recorded",
+   "options": [
+    "Entered by staff",
+    "Unsubscribe link",
+    "Replied STOP",
+    "Bounced",
+    "Imported"
+   ],
+   "default": "Entered by staff",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Text",
+   "label": "Note"
+  },
+  {
+   "fieldname": "opted_out_on",
+   "fieldtype": "Datetime",
+   "label": "Recorded",
+   "read_only": true
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Broadcast Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true
+  }
+ ]
+}

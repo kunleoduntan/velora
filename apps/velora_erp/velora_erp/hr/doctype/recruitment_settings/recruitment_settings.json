@@ -1,0 +1,85 @@
+{
+  "name": "Recruitment Settings",
+  "module": "HR",
+  "issingle": true,
+  "track_changes": true,
+  "description": "Tenant-configurable recruitment pipeline, communication and AI integration settings.",
+  "fields": [
+    {
+      "fieldname": "pipeline_section",
+      "fieldtype": "Section Break",
+      "label": "Recruitment Pipeline"
+    },
+    {
+      "fieldname": "pipeline_stages",
+      "fieldtype": "JSON",
+      "label": "Pipeline Stages",
+      "description": "Ordered stage definitions used by recruitment workflow configuration."
+    },
+    {
+      "fieldname": "default_interview_duration",
+      "fieldtype": "Int",
+      "label": "Default Interview Duration (Minutes)"
+    },
+    {
+      "fieldname": "notification_reminder_hours",
+      "fieldtype": "Int",
+      "label": "Interview Reminder Lead Time (Hours)"
+    },
+    {
+      "fieldname": "ai_section",
+      "fieldtype": "Section Break",
+      "label": "AI Assistance (Optional)"
+    },
+    {
+      "fieldname": "ai_enabled",
+      "fieldtype": "Check",
+      "label": "Enable AI Assistance",
+      "default": 0
+    },
+    {
+      "fieldname": "ai_provider",
+      "fieldtype": "Data",
+      "label": "AI Provider Identifier"
+    },
+    {
+      "fieldname": "ai_model",
+      "fieldtype": "Data",
+      "label": "AI Model Identifier"
+    },
+    {
+      "fieldname": "ai_credential_reference",
+      "fieldtype": "Data",
+      "label": "Credential Vault Reference",
+      "description": "Reference to a secret in the configured credential vault. Never enter an API key here."
+    },
+    {
+      "fieldname": "ai_features",
+      "fieldtype": "JSON",
+      "label": "Enabled AI Features",
+      "description": "Explicitly enabled features such as resume extraction, job matching and interview question assistance."
+    },
+    {
+      "fieldname": "require_department_staff_budget",
+      "fieldtype": "Check",
+      "label": "Require Approved Staff Budget For Requisitions",
+      "description": "When on, a Job Requisition cannot be submitted for approval unless an approved Department Staff Budget covers its department and designation."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true
+    }
+  ]
+}

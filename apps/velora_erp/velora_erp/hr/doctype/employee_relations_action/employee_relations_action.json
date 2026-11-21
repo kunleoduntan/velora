@@ -1,0 +1,52 @@
+{
+  "name": "Employee Relations Action",
+  "module": "HR",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "action_date",
+      "fieldtype": "Date",
+      "label": "Action Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "action_type",
+      "fieldtype": "Select",
+      "label": "Action Type",
+      "options": [
+        "Meeting",
+        "Interview",
+        "Investigation",
+        "Mediation",
+        "Evidence Review",
+        "Decision",
+        "Follow Up",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "action_owner",
+      "fieldtype": "Data",
+      "label": "Action Owner"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "confidential",
+      "fieldtype": "Check",
+      "label": "Confidential",
+      "default": 1
+    }
+  ]
+}

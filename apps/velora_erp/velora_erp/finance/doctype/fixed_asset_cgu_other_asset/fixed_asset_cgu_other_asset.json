@@ -1,0 +1,175 @@
+{
+  "name": "Fixed Asset CGU Other Asset",
+  "module": "Finance",
+  "istable": true,
+  "track_changes": true,
+  "description": "Non-fixed-asset CGU items such as goodwill and intangible assets included in IAS 36 impairment testing.",
+  "fields": [
+    {
+      "fieldname": "reference_code",
+      "fieldtype": "Data",
+      "label": "Asset Reference",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description",
+      "required": true
+    },
+    {
+      "fieldname": "asset_type",
+      "fieldtype": "Select",
+      "label": "Asset Type",
+      "options": [
+        "Goodwill",
+        "Intangible Asset",
+        "Other Asset"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Carrying Amount",
+      "required": false,
+      "read_only": true
+    },
+    {
+      "fieldname": "accumulated_impairment",
+      "fieldtype": "Currency",
+      "label": "Accumulated Impairment",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "individual_recoverable_floor",
+      "fieldtype": "Currency",
+      "label": "Individual Recoverable Amount Floor",
+      "default": 0
+    },
+    {
+      "fieldname": "impairment_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Impairment Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "impairment_expense_account",
+      "fieldtype": "Link",
+      "label": "Impairment Expense Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "revaluation_surplus",
+      "fieldtype": "Currency",
+      "label": "Revaluation Surplus",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "revaluation_surplus_account",
+      "fieldtype": "Link",
+      "label": "Revaluation Surplus Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "opening_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Opening Carrying Amount",
+      "required": true
+    },
+    {
+      "fieldname": "opening_revaluation_surplus",
+      "fieldtype": "Currency",
+      "label": "Opening Revaluation Surplus",
+      "default": 0
+    },
+    {
+      "fieldname": "impairment_ceiling_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Impairment Reversal Ceiling",
+      "read_only": true,
+      "default": 0
+    },
+    {
+      "fieldname": "impairment_against_revaluation_surplus",
+      "fieldtype": "Currency",
+      "label": "Impairment Against Revaluation Surplus",
+      "read_only": true,
+      "default": 0
+    },
+    {
+      "fieldname": "impairment_charged_to_expense",
+      "fieldtype": "Currency",
+      "label": "Impairment Charged to Expense",
+      "read_only": true,
+      "default": 0
+    },
+    {
+      "fieldname": "impairment_reversal_account",
+      "fieldtype": "Link",
+      "label": "Impairment Reversal Income Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    }
+  ],
+  "permissions": []
+}

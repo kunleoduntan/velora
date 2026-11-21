@@ -1,0 +1,78 @@
+{
+  "name": "Payroll Tax Band",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Progressive tax band configuration.",
+  "fields": [
+    {
+      "fieldname": "band_sequence",
+      "fieldtype": "Int",
+      "label": "Sequence",
+      "required": true
+    },
+    {
+      "fieldname": "lower_limit",
+      "fieldtype": "Currency",
+      "label": "Lower Limit",
+      "default": 0
+    },
+    {
+      "fieldname": "upper_limit",
+      "fieldtype": "Currency",
+      "label": "Upper Limit"
+    },
+    {
+      "fieldname": "rate",
+      "fieldtype": "Float",
+      "label": "Tax Rate",
+      "required": true
+    },
+    {
+      "fieldname": "fixed_tax",
+      "fieldtype": "Currency",
+      "label": "Fixed Tax at Band Start",
+      "default": 0
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "delete": false
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "delete": false
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "delete": false
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "delete": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "istable": true
+}

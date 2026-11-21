@@ -1,0 +1,242 @@
+{
+  "name": "Payroll Run",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled payroll batch with employee-level calculations, independent approval and central-engine posting.",
+  "fields": [
+    {
+      "fieldname": "run_title",
+      "fieldtype": "Data",
+      "label": "Payroll Run Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "pay_frequency",
+      "fieldtype": "Select",
+      "label": "Pay Frequency",
+      "options": [
+        "Weekly",
+        "Biweekly",
+        "Semi-monthly",
+        "Monthly",
+        "Quarterly",
+        "Annual"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "period_start",
+      "fieldtype": "Date",
+      "label": "Period Start",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "period_end",
+      "fieldtype": "Date",
+      "label": "Period End",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true
+    },
+    {
+      "fieldname": "payment_due_date",
+      "fieldtype": "Date",
+      "label": "Payment Due Date"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Payroll Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "payroll_payable_account",
+      "fieldtype": "Link",
+      "label": "Net Salary Payable Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Default Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "employees",
+      "fieldtype": "Table",
+      "label": "Employees",
+      "options": "Payroll Run Employee",
+      "required": true
+    },
+    {
+      "fieldname": "total_employees",
+      "fieldtype": "Int",
+      "label": "Employee Count",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_gross",
+      "fieldtype": "Currency",
+      "label": "Total Gross Earnings",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_deductions",
+      "fieldtype": "Currency",
+      "label": "Total Deductions",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_employer_contributions",
+      "fieldtype": "Currency",
+      "label": "Employer Contributions",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_net_pay",
+      "fieldtype": "Currency",
+      "label": "Total Net Pay",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_employer_cost",
+      "fieldtype": "Currency",
+      "label": "Total Employer Cost",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Run Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Posted",
+        "Rejected",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": false,
+      "print": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "run_title"
+}

@@ -1,0 +1,109 @@
+{
+  "name": "Expense Batch",
+  "module": "Accounts",
+  "autoname": "series:EXB-.#####",
+  "is_submittable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "label": "Title",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "batch_date",
+      "fieldtype": "Date",
+      "label": "Batch Date",
+      "default": "Today",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "petty_cash_account",
+      "fieldtype": "Link",
+      "label": "Petty Cash / Bank Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "post_inflows",
+      "fieldtype": "Check",
+      "label": "Also post money-in rows",
+      "description": "Off = only expenses (money out) are posted, so petty-cash top-ups recorded elsewhere are not double-booked."
+    },
+    {
+      "fieldname": "create_as",
+      "fieldtype": "Select",
+      "label": "Create Receipts/Payments as",
+      "options": [
+        "Draft",
+        "Submitted"
+      ],
+      "default": "Draft",
+      "description": "Draft = they wait for approval in Receipts/Payments. Submitted = posted to the ledger when this batch is submitted."
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Transactions",
+      "options": "Batch Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_inflow",
+      "fieldtype": "Currency",
+      "label": "Total Money In",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "total_outflow",
+      "fieldtype": "Currency",
+      "label": "Total Money Out",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "export": true
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "name": "Leave Type",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Policy master for annual, sick, maternity, paternity, compassionate, unpaid and other leave categories.",
+  "fields": [
+    {
+      "fieldname": "leave_type_name",
+      "fieldtype": "Data",
+      "label": "Leave Type Name",
+      "required": true,
+      "in_list_view": true,
+      "unique": true
+    },
+    {
+      "fieldname": "leave_category",
+      "fieldtype": "Select",
+      "label": "Leave Category",
+      "options": [
+        "Annual",
+        "Sick",
+        "Maternity",
+        "Paternity",
+        "Compassionate",
+        "Study",
+        "Unpaid",
+        "Other"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "is_paid",
+      "fieldtype": "Check",
+      "label": "Paid Leave",
+      "default": 1
+    },
+    {
+      "fieldname": "include_weekends",
+      "fieldtype": "Check",
+      "label": "Count Weekends",
+      "default": 0
+    },
+    {
+      "fieldname": "allow_half_day",
+      "fieldtype": "Check",
+      "label": "Allow Half Day",
+      "default": 1
+    },
+    {
+      "fieldname": "requires_attachment",
+      "fieldtype": "Check",
+      "label": "Requires Supporting Document",
+      "default": 0
+    },
+    {
+      "fieldname": "allow_negative_balance",
+      "fieldtype": "Check",
+      "label": "Allow Negative Balance",
+      "default": 0
+    },
+    {
+      "fieldname": "max_consecutive_days",
+      "fieldtype": "Int",
+      "label": "Maximum Consecutive Days"
+    },
+    {
+      "fieldname": "minimum_notice_days",
+      "fieldtype": "Int",
+      "label": "Minimum Notice Days"
+    },
+    {
+      "fieldname": "carry_forward_allowed",
+      "fieldtype": "Check",
+      "label": "Allow Carry Forward",
+      "default": 0
+    },
+    {
+      "fieldname": "maximum_carry_forward_days",
+      "fieldtype": "Float",
+      "label": "Maximum Carry Forward Days"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "title_field": "leave_type_name"
+}

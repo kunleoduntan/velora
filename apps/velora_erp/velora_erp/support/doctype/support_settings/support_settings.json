@@ -1,0 +1,80 @@
+{
+ "name": "Support Settings",
+ "module": "Support",
+ "autoname": "field:settings_name",
+ "title_field": "settings_name",
+ "track_changes": true,
+ "description": "How tickets are received, assigned and closed.",
+ "fields": [
+  {
+   "fieldname": "settings_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "required": true,
+   "unique": true,
+   "default": "Default",
+   "length": 60
+  },
+  {
+   "fieldname": "default_priority",
+   "fieldtype": "Select",
+   "label": "Priority when none is chosen",
+   "options": [
+    "Low",
+    "Medium",
+    "High",
+    "Urgent"
+   ],
+   "default": "Medium"
+  },
+  {
+   "fieldname": "default_team",
+   "fieldtype": "Link",
+   "label": "Team that receives tickets with no category team",
+   "options": "Support Team"
+  },
+  {
+   "fieldname": "auto_close_days",
+   "fieldtype": "Int",
+   "label": "Close resolved tickets after (days)",
+   "default": 7,
+   "description": "A resolved ticket the customer has not reopened is closed automatically. 0 turns this off."
+  },
+  {
+   "fieldname": "escalation_user",
+   "fieldtype": "Data",
+   "label": "Escalate breached tickets to (user)",
+   "description": "The person a ticket is passed to when it breaches its service level and its SLA names nobody."
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Support Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Support Agent",
+   "read": true,
+   "export": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true
+  }
+ ]
+}

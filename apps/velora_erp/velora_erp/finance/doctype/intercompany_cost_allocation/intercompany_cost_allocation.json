@@ -1,0 +1,187 @@
+{
+  "name": "Intercompany Cost Allocation",
+  "module": "Finance",
+  "autoname": "series:ICA-.########",
+  "track_changes": true,
+  "description": "Auditable outbox instruction created by a shared-cost Purchase Invoice. It records the source entity due-from posting and the receiving-entity expense/prepayment instruction. Counterparty posting requires the authorised cross-database intercompany service.",
+  "fields": [
+    {
+      "fieldname": "source_section",
+      "fieldtype": "Section Break",
+      "label": "Source Transaction"
+    },
+    {
+      "fieldname": "source_invoice",
+      "fieldtype": "Link",
+      "label": "Source Purchase Invoice",
+      "options": "Purchase Invoice",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_line",
+      "fieldtype": "Data",
+      "label": "Source Invoice Line",
+      "required": true
+    },
+    {
+      "fieldname": "target_company",
+      "fieldtype": "Data",
+      "label": "Receiving Company",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Receiving Expense Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "due_from_account",
+      "fieldtype": "Link",
+      "label": "Source Due From Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "amount_section",
+      "fieldtype": "Section Break",
+      "label": "Allocation Amount"
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Allocated Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "required": true
+    },
+    {
+      "fieldname": "is_amortised_cost",
+      "fieldtype": "Check",
+      "label": "Is Amortised Cost",
+      "default": 0
+    },
+    {
+      "fieldname": "frequency",
+      "fieldtype": "Select",
+      "label": "Frequency",
+      "options": [
+        "Monthly",
+        "Quarterly",
+        "Half-yearly",
+        "Yearly"
+      ],
+      "depends_on": "eval:doc.is_amortised_cost == 1"
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date",
+      "depends_on": "eval:doc.is_amortised_cost == 1"
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "depends_on": "eval:doc.is_amortised_cost == 1"
+    },
+    {
+      "fieldname": "status_section",
+      "fieldtype": "Section Break",
+      "label": "Processing Status"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Pending Counterparty Posting",
+        "Sent",
+        "Acknowledged",
+        "Posted",
+        "Failed"
+      ],
+      "default": "Pending Counterparty Posting",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "counterparty_reference",
+      "fieldtype": "Data",
+      "label": "Counterparty Document Reference",
+      "read_only": true
+    },
+    {
+      "fieldname": "error_message",
+      "fieldtype": "Text",
+      "label": "Processing Error",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true
+    }
+  ]
+}

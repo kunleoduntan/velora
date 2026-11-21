@@ -1,0 +1,33 @@
+{
+  "name": "Performance Rating Distribution",
+  "module": "HR",
+  "type": "script",
+  "ref_doctype": "Performance Review",
+  "roles": [
+    "System Manager",
+    "HR Manager",
+    "HR User",
+    "Auditor"
+  ],
+  "description": "Overall ratings by department for a cycle with average and calibrated scores, to spot rating inflation.",
+  "filters": [
+    {
+      "fieldname": "cycle",
+      "label": "Performance Cycle",
+      "fieldtype": "Link",
+      "options": "Performance Cycle"
+    },
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "branch",
+      "label": "Branch",
+      "fieldtype": "Link",
+      "options": "Branch"
+    }
+  ]
+}

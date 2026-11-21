@@ -1,0 +1,157 @@
+{
+  "name": "Delivery Note",
+  "module": "Finance",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "document_date",
+      "label": "Delivery Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party",
+      "label": "Customer",
+      "fieldtype": "Link",
+      "options": "Customer",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "customer_name",
+      "label": "Customer Name",
+      "fieldtype": "Data",
+      "fetch_from": "party.customer_name",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "label": "Source Document Type",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_document",
+      "label": "Source Document",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "length": 3,
+      "required": true,
+      "default": "NGN",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "label": "Exchange Rate",
+      "fieldtype": "Float",
+      "required": true,
+      "default": 1
+    },
+    {
+      "fieldname": "lines",
+      "label": "Delivery Lines",
+      "fieldtype": "Table",
+      "options": "Delivery Note Line",
+      "required": true
+    },
+    {
+      "fieldname": "delivery_address",
+      "label": "Delivery Address",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "dispatch_reference",
+      "label": "Dispatch Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "narration",
+      "label": "Narration",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "document_status",
+      "label": "Document Status",
+      "fieldtype": "Select",
+      "options": [
+        "Open",
+        "Partially Processed",
+        "Completed",
+        "Closed"
+      ],
+      "default": "Open",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "per_billed",
+      "fieldtype": "Float",
+      "label": "Billed %",
+      "read_only": true,
+      "default": "0",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "warehouse",
+      "label": "Dispatch Warehouse",
+      "fieldtype": "Link",
+      "options": "Warehouse",
+      "required": false,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "inventory_posting_batch",
+      "label": "Inventory Posting Batch",
+      "fieldtype": "Link",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "is_submittable": true,
+  "autoname": "series:DN-.########",
+  "description": "Operational delivery confirmation. This release does not post inventory or accounting entries."
+}

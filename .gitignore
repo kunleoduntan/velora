@@ -1,0 +1,26 @@
+# Velora source repository.
+# Build tools and caches
+node_modules/
+frontend/dist/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Secrets and local data: never commit these
+.env
+.env.*
+*.key
+*.vbackup
+*.db
+*.sqlite
+*.sqlite3
+
+# IMPORTANT: velora/desk/ is the BUILT web interface (made by scripts/build-desk.sh) and MUST be committed:
+# without it an install from git has no Desk. Do not add it here.

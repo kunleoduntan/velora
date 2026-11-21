@@ -1,0 +1,129 @@
+{
+  "name": "Request for Quotation",
+  "module": "Finance",
+  "track_changes": true,
+  "autoname": "series:RFQ-.######",
+  "description": "Asks several suppliers to price the same items. Record each supplier's quotation, compare them side by side and order from the best one.",
+  "fields": [
+    {
+      "fieldname": "transaction_date",
+      "fieldtype": "Date",
+      "label": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "quote_by",
+      "fieldtype": "Date",
+      "label": "Quotations Wanted By"
+    },
+    {
+      "fieldname": "required_by",
+      "fieldtype": "Date",
+      "label": "Goods Required By"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Sent",
+        "Quotations Received",
+        "Awarded",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_list_view": true,
+      "description": "Set to Sent when the request goes out. Recording a quotation and ordering from one move it on by themselves."
+    },
+    {
+      "fieldname": "material_request",
+      "fieldtype": "Link",
+      "label": "Material Request",
+      "options": "Material Request",
+      "read_only": true
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "label": "Items to Quote",
+      "options": "RFQ Item",
+      "required": true
+    },
+    {
+      "fieldname": "suppliers",
+      "fieldtype": "Table",
+      "label": "Suppliers Asked",
+      "options": "RFQ Supplier",
+      "required": true
+    },
+    {
+      "fieldname": "message",
+      "fieldtype": "Text",
+      "label": "Message to Suppliers"
+    },
+    {
+      "fieldname": "awarded_quotation",
+      "fieldtype": "Link",
+      "label": "Awarded To",
+      "options": "Supplier Quotation",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Procurement Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

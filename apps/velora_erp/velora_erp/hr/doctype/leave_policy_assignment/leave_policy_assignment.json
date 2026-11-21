@@ -1,0 +1,163 @@
+{
+ "name": "Leave Policy Assignment",
+ "module": "HR",
+ "autoname": "hash",
+ "track_changes": true,
+ "is_submittable": true,
+ "description": "Controlled bulk application of an approved Leave Policy to eligible employees, creating one Leave Allocation per policy entitlement and employee.",
+ "fields": [
+  {
+   "fieldname": "policy",
+   "fieldtype": "Link",
+   "label": "Leave Policy",
+   "options": "Leave Policy",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "assignment_date",
+   "fieldtype": "Date",
+   "label": "Assignment Date",
+   "required": true
+  },
+  {
+   "fieldname": "period_start",
+   "fieldtype": "Date",
+   "label": "Leave Period Start",
+   "read_only": true
+  },
+  {
+   "fieldname": "leave_period",
+   "fieldtype": "Link",
+   "label": "Leave Period",
+   "options": "Leave Period",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "period_end",
+   "fieldtype": "Date",
+   "label": "Leave Period End",
+   "read_only": true
+  },
+  {
+   "fieldname": "selection_mode",
+   "fieldtype": "Select",
+   "label": "Employee Selection",
+   "options": [
+    "All Eligible Employees",
+    "Selected Employees"
+   ],
+   "default": "All Eligible Employees",
+   "required": true
+  },
+  {
+   "fieldname": "selected_employees",
+   "fieldtype": "Table",
+   "label": "Selected Employees",
+   "options": "Leave Policy Selected Employee"
+  },
+  {
+   "fieldname": "override_eligibility",
+   "fieldtype": "Check",
+   "label": "Override Policy Eligibility",
+   "default": 0
+  },
+  {
+   "fieldname": "override_reason",
+   "fieldtype": "Text",
+   "label": "Override Reason"
+  },
+  {
+   "fieldname": "preview_employee_count",
+   "fieldtype": "Int",
+   "label": "Preview Eligible Employees",
+   "read_only": true,
+   "default": 0
+  },
+  {
+   "fieldname": "generated_allocation_count",
+   "fieldtype": "Int",
+   "label": "Generated Allocations",
+   "read_only": true,
+   "default": 0
+  },
+  {
+   "fieldname": "skipped_allocation_count",
+   "fieldtype": "Int",
+   "label": "Skipped Allocations",
+   "read_only": true,
+   "default": 0
+  },
+  {
+   "fieldname": "result_details",
+   "fieldtype": "JSON",
+   "label": "Assignment Results",
+   "read_only": true
+  },
+  {
+   "fieldname": "assignment_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Draft",
+    "Submitted",
+    "Completed",
+    "Completed with Exceptions"
+   ],
+   "default": "Draft",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "approval_notes",
+   "fieldtype": "Text",
+   "label": "Approval Notes"
+  },
+  {
+   "fieldname": "submitted_by",
+   "fieldtype": "Data",
+   "label": "Submitted By",
+   "read_only": true
+  },
+  {
+   "fieldname": "submitted_on",
+   "fieldtype": "Datetime",
+   "label": "Submitted On",
+   "read_only": true
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true,
+   "submit": true,
+   "cancel": true
+  },
+  {
+   "role": "HR Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "print": true,
+   "submit": true,
+   "cancel": true
+  },
+  {
+   "role": "HR Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": false,
+   "print": true
+  }
+ ]
+}

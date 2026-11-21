@@ -1,0 +1,123 @@
+{
+  "name": "Expense Batch Line",
+  "module": "Finance",
+  "istable": true,
+  "description": "One expense in an Expense Batch.",
+  "fields": [
+    {
+      "fieldname": "expense_date",
+      "fieldtype": "Date",
+      "label": "Expense Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Expense Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "payee",
+      "fieldtype": "Data",
+      "label": "Payee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description",
+      "required": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Gross Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "wht_rate",
+      "fieldtype": "Float",
+      "label": "WHT Rate (%)",
+      "default": 0
+    },
+    {
+      "fieldname": "reference",
+      "fieldtype": "Data",
+      "label": "Receipt / Reference No."
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "dimensions",
+      "fieldtype": "JSON",
+      "label": "Additional Accounting Dimensions"
+    },
+    {
+      "fieldname": "allow_duplicate",
+      "fieldtype": "Check",
+      "label": "Allow Duplicate",
+      "default": 0
+    }
+  ],
+  "grid_columns": [
+    {
+      "field": "expense_date",
+      "width": 2
+    },
+    {
+      "field": "expense_account",
+      "width": 3
+    },
+    {
+      "field": "payee",
+      "width": 3
+    },
+    {
+      "field": "description",
+      "width": 4
+    },
+    {
+      "field": "amount",
+      "width": 2
+    },
+    {
+      "field": "wht_rate",
+      "width": 1
+    },
+    {
+      "field": "reference",
+      "width": 2
+    },
+    {
+      "field": "cost_centre",
+      "width": 2
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Velora framework data patches. One dotted module path per line; each module defines execute().
+# They run once per database during `velora upgrade`, inside a transaction.
+[pre_model_sync]
+# patches that must run BEFORE the schema is synced (e.g. rename a column's data out of the way)
+
+[post_model_sync]
+# patches that run AFTER the schema is synced (the usual place: backfill new columns, convert data)

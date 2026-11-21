@@ -1,0 +1,4 @@
+# Data patches for velora_search.
+[pre_model_sync]
+
+[post_model_sync]

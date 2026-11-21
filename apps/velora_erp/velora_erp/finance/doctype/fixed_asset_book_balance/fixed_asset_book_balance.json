@@ -1,0 +1,185 @@
+{
+  "name": "Fixed Asset Book Balance",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Asset carrying value and depreciation basis for a non-financial or separately governed depreciation book.",
+  "fields": [
+    {
+      "fieldname": "asset",
+      "fieldtype": "Link",
+      "label": "Fixed Asset",
+      "options": "Fixed Asset",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "depreciation_book",
+      "fieldtype": "Link",
+      "label": "Depreciation Book",
+      "options": "Fixed Asset Depreciation Book",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "opening_section",
+      "fieldtype": "Section Break",
+      "label": "Book Opening and Cost",
+      "collapsible": true
+    },
+    {
+      "fieldname": "acquisition_cost",
+      "fieldtype": "Currency",
+      "label": "Book Acquisition Cost",
+      "required": true
+    },
+    {
+      "fieldname": "residual_value",
+      "fieldtype": "Currency",
+      "label": "Book Residual Value",
+      "default": 0
+    },
+    {
+      "fieldname": "accumulated_depreciation",
+      "fieldtype": "Currency",
+      "label": "Accumulated Depreciation",
+      "default": 0
+    },
+    {
+      "fieldname": "accumulated_impairment",
+      "fieldtype": "Currency",
+      "label": "Accumulated Impairment",
+      "default": 0
+    },
+    {
+      "fieldname": "carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Book Carrying Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "policy_section",
+      "fieldtype": "Section Break",
+      "label": "Book Depreciation Policy",
+      "collapsible": true
+    },
+    {
+      "fieldname": "depreciation_method",
+      "fieldtype": "Select",
+      "label": "Depreciation Method",
+      "options": [
+        "Straight Line",
+        "Reducing Balance",
+        "Units of Production"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "depreciation_rate",
+      "fieldtype": "Float",
+      "label": "Reducing Balance Rate (%)",
+      "depends_on": "eval:doc.depreciation_method == \"Reducing Balance\""
+    },
+    {
+      "fieldname": "useful_life_months",
+      "fieldtype": "Int",
+      "label": "Useful Life (Months)",
+      "required": true
+    },
+    {
+      "fieldname": "total_units_of_production",
+      "fieldtype": "Float",
+      "label": "Estimated Total Production Units",
+      "depends_on": "eval:doc.depreciation_method == \"Units of Production\""
+    },
+    {
+      "fieldname": "units_produced_to_date",
+      "fieldtype": "Float",
+      "label": "Units Produced to Date",
+      "default": 0
+    },
+    {
+      "fieldname": "depreciation_start_date",
+      "fieldtype": "Date",
+      "label": "Depreciation Start Date",
+      "required": true
+    },
+    {
+      "fieldname": "last_depreciation_date",
+      "fieldtype": "Date",
+      "label": "Last Depreciation Date",
+      "read_only": true
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Depreciation Expense Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accumulated_depreciation_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Depreciation Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    }
+  ],
+  "autoname": "series:FABB-.########",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

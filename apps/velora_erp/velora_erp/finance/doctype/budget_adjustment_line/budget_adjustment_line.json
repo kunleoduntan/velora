@@ -1,0 +1,95 @@
+{
+  "name": "Budget Adjustment Line",
+  "module": "Finance",
+  "istable": true,
+  "description": "Signed change to one account/month allocation of a Financial Budget.",
+  "fields": [
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "period_start",
+      "fieldtype": "Date",
+      "label": "Period Start",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "period_end",
+      "fieldtype": "Date",
+      "label": "Period End",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "change_amount",
+      "fieldtype": "Currency",
+      "label": "Change (+ adds, - removes)",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "branch",
+      "fieldtype": "Link",
+      "label": "Branch",
+      "length": 140,
+      "options": "Branch"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "length": 140,
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "project",
+      "fieldtype": "Link",
+      "label": "Project",
+      "length": 140,
+      "options": "Project"
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "length": 140,
+      "options": "Department"
+    },
+    {
+      "fieldname": "line_notes",
+      "fieldtype": "Text",
+      "label": "Line Notes"
+    }
+  ],
+  "grid_columns": [
+    {
+      "field": "account",
+      "width": 2
+    },
+    {
+      "field": "period_start",
+      "width": 1
+    },
+    {
+      "field": "change_amount",
+      "width": 2
+    },
+    {
+      "field": "cost_centre",
+      "width": 2
+    }
+  ]
+}

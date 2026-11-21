@@ -1,0 +1,162 @@
+{
+  "name": "Employee Asset Assignment",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Controlled custody record for equipment and other organisation property issued to an employee.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "asset_reference",
+      "fieldtype": "Data",
+      "label": "Asset Reference",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "fixed_asset",
+      "fieldtype": "Link",
+      "label": "Finance Fixed Asset",
+      "options": "Fixed Asset"
+    },
+    {
+      "fieldname": "asset_description",
+      "fieldtype": "Data",
+      "label": "Asset Description",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "asset_category",
+      "fieldtype": "Select",
+      "label": "Asset Category",
+      "options": "Computer Equipment\nMobile Device\nAccess Card\nFurniture\nVehicle\nTools and Equipment\nOther",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "serial_number",
+      "fieldtype": "Data",
+      "label": "Serial Number"
+    },
+    {
+      "fieldname": "assigned_on",
+      "fieldtype": "Date",
+      "label": "Assigned On",
+      "required": true
+    },
+    {
+      "fieldname": "expected_return_date",
+      "fieldtype": "Date",
+      "label": "Expected Return Date"
+    },
+    {
+      "fieldname": "condition_on_issue",
+      "fieldtype": "Select",
+      "label": "Condition on Issue",
+      "options": "New\nGood\nFair\nNeeds Repair",
+      "required": true
+    },
+    {
+      "fieldname": "issued_by",
+      "fieldtype": "Data",
+      "label": "Issued By",
+      "required": true
+    },
+    {
+      "fieldname": "employee_acknowledged",
+      "fieldtype": "Check",
+      "label": "Employee Acknowledged"
+    },
+    {
+      "fieldname": "assignment_status",
+      "fieldtype": "Select",
+      "label": "Assignment Status",
+      "options": "Draft\nIssued\nReturned\nLost\nWritten Off",
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "returned_on",
+      "fieldtype": "Date",
+      "label": "Returned On"
+    },
+    {
+      "fieldname": "condition_on_return",
+      "fieldtype": "Select",
+      "label": "Condition on Return",
+      "options": "New\nGood\nFair\nDamaged\nNot Returned"
+    },
+    {
+      "fieldname": "received_by",
+      "fieldtype": "Data",
+      "label": "Received By"
+    },
+    {
+      "fieldname": "return_notes",
+      "fieldtype": "Text",
+      "label": "Return Notes"
+    },
+    {
+      "fieldname": "separation",
+      "fieldtype": "Link",
+      "label": "Related Employee Separation",
+      "options": "Employee Separation"
+    },
+    {
+      "fieldname": "custody_notes",
+      "fieldtype": "Text",
+      "label": "Custody Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false
+    },
+    {
+      "role": "Employee",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false
+    }
+  ],
+  "title_field": "employee_name"
+}

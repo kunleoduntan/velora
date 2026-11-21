@@ -1,0 +1,30 @@
+{
+  "name": "Authority Policy Row",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "action",
+      "fieldtype": "Data",
+      "label": "Key",
+      "read_only": true,
+      "hidden": true,
+      "length": 80
+    },
+    {
+      "fieldname": "power",
+      "fieldtype": "Data",
+      "label": "Power",
+      "read_only": true,
+      "in_list_view": true,
+      "length": 140
+    },
+    {
+      "fieldname": "roles",
+      "fieldtype": "Data",
+      "label": "Restrict to roles (comma separated; leave empty for anyone with permission)",
+      "in_list_view": true,
+      "length": 300
+    }
+  ]
+}

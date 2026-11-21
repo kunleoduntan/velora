@@ -1,0 +1,70 @@
+{
+  "name": "Stock Transfer Line",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "label": "Item",
+      "fieldtype": "Link",
+      "options": "Inventory Item",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_name",
+      "label": "Item Name",
+      "fieldtype": "Data",
+      "fetch_from": "item_code.item_name",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "quantity",
+      "label": "Transfer Quantity",
+      "fieldtype": "Float",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "received_quantity",
+      "fieldtype": "Float",
+      "label": "Received So Far",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "batch",
+      "label": "Batch",
+      "fieldtype": "Link",
+      "options": "Batch"
+    },
+    {
+      "fieldname": "serial_number",
+      "label": "Serial Number",
+      "fieldtype": "Link",
+      "options": "Serial Number"
+    },
+    {
+      "fieldname": "uom",
+      "label": "Unit of Measure",
+      "fieldtype": "Data",
+      "in_list_view": true,
+      "fetch_from": "item_code.stock_uom"
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "source_line",
+      "fieldtype": "Data",
+      "label": "Source Line",
+      "read_only": true
+    }
+  ],
+  "permissions": [],
+  "istable": true
+}

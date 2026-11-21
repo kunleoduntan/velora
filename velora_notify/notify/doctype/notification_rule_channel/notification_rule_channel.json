@@ -1,0 +1,31 @@
+{
+  "name": "Notification Rule Channel",
+  "module": "Notify",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "channel",
+      "fieldtype": "Select",
+      "label": "Channel",
+      "options": [
+        "In-App",
+        "Email",
+        "Webhook",
+        "SMS",
+        "WhatsApp",
+        "Telegram",
+        "Slack"
+      ],
+      "required": true,
+      "in_list_view": true,
+      "description": "Email, Webhook and In-App are built in; the others need a sender registered by an app (velora_notify.channels.register)."
+    },
+    {
+      "fieldname": "webhook_url",
+      "fieldtype": "Data",
+      "label": "Webhook URL",
+      "description": "https only; the receiver can verify the X-Velora-Signature header.",
+      "in_list_view": true
+    }
+  ]
+}

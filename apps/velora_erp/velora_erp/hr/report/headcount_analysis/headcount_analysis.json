@@ -1,0 +1,49 @@
+{
+  "name": "Headcount Analysis",
+  "module": "HR",
+  "type": "script",
+  "ref_doctype": "Employee",
+  "roles": [
+    "System Manager",
+    "HR Manager",
+    "HR User",
+    "Auditor"
+  ],
+  "description": "Headcount, joiners, leavers and turnover grouped by department, designation, branch, grade or type.",
+  "filters": [
+    {
+      "fieldname": "group_by",
+      "label": "Group By",
+      "fieldtype": "Select",
+      "options": [
+        "Department",
+        "Designation",
+        "Branch",
+        "Grade",
+        "Employee Type"
+      ]
+    },
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "branch",
+      "label": "Branch",
+      "fieldtype": "Link",
+      "options": "Branch"
+    }
+  ]
+}

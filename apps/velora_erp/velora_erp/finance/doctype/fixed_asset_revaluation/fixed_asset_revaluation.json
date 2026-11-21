@@ -1,0 +1,199 @@
+{
+  "name": "Fixed Asset Revaluation",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Revaluation of an active asset carrying amount with valuation evidence and central ledger posting.",
+  "fields": [
+    {
+      "fieldname": "asset",
+      "fieldtype": "Link",
+      "label": "Fixed Asset",
+      "options": "Fixed Asset",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "revaluation_date",
+      "fieldtype": "Date",
+      "label": "Revaluation Date",
+      "required": true,
+      "default": "Today"
+    },
+    {
+      "fieldname": "valuation_method",
+      "fieldtype": "Select",
+      "label": "Valuation Method",
+      "options": [
+        "Fair Value",
+        "Market Comparable",
+        "Replacement Cost",
+        "Professional Valuation"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "appraiser",
+      "fieldtype": "Data",
+      "label": "Appraiser / Valuer"
+    },
+    {
+      "fieldname": "valuation_reference",
+      "fieldtype": "Data",
+      "label": "Valuation Report Reference"
+    },
+    {
+      "fieldname": "previous_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Previous Carrying Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "new_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "New Carrying Amount",
+      "required": true
+    },
+    {
+      "fieldname": "movement",
+      "fieldtype": "Currency",
+      "label": "Revaluation Movement",
+      "read_only": true
+    },
+    {
+      "fieldname": "revaluation_surplus_account",
+      "fieldtype": "Link",
+      "label": "Revaluation Surplus Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "revaluation_gain_account",
+      "fieldtype": "Link",
+      "label": "Revaluation Gain Reversal Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "revaluation_loss_account",
+      "fieldtype": "Link",
+      "label": "Revaluation Loss Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason / Supporting Notes",
+      "required": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "autoname": "series:FIX-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

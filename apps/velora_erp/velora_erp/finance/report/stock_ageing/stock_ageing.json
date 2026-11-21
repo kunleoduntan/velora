@@ -1,0 +1,13 @@
+{
+  "name": "Stock Ageing",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Stock Ledger Record",
+  "roles": ["System Manager", "Finance Manager", "Inventory Manager", "Storekeeper", "Auditor"],
+  "description": "How long on-hand stock has been held, in age bands, assuming the newest receipts are the stock still on the shelf. Highlights slow-moving value.",
+  "filters": [
+    {"fieldname":"warehouse","label":"Warehouse","fieldtype":"Link","options":"Warehouse"},
+    {"fieldname":"item_code","label":"Item","fieldtype":"Link","options":"Inventory Item"},
+    {"fieldname":"as_of","label":"As Of","fieldtype":"Date"}
+  ]
+}

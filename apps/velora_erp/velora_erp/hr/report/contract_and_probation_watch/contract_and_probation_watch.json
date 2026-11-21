@@ -1,0 +1,38 @@
+{
+  "name": "Contract and Probation Watch",
+  "module": "HR",
+  "type": "script",
+  "ref_doctype": "Employment Contract",
+  "roles": [
+    "System Manager",
+    "HR Manager",
+    "HR User",
+    "Auditor"
+  ],
+  "description": "Contracts and probation periods ending soon or already lapsed, so renewals and confirmations are not missed.",
+  "filters": [
+    {
+      "fieldname": "within_days",
+      "label": "Within (Days)",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "branch",
+      "label": "Branch",
+      "fieldtype": "Link",
+      "options": "Branch"
+    },
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "name": "Unit of Measure",
+  "module": "Finance",
+  "autoname": "field:uom_name",
+  "description": "Units used to stock, buy and sell items.",
+  "fields": [
+    {
+      "fieldname": "uom_name",
+      "fieldtype": "Data",
+      "label": "Uom Name",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "must_be_whole_number",
+      "fieldtype": "Check",
+      "label": "Must Be Whole Number",
+      "description": "Quantities in this unit cannot have decimals (for example Nos)."
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Inventory Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Finance Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Storekeeper",
+      "read": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Accountant",
+      "read": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Auditor",
+      "read": 1,
+      "export": 1,
+      "print": 1
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+ "name": "Notification Rule Recipient",
+ "module": "Notify",
+ "istable": true,
+ "fields": [
+  {
+   "fieldname": "recipient_type",
+   "fieldtype": "Select",
+   "label": "Who",
+   "options": [
+    "Field",
+    "Role",
+    "User",
+    "Email",
+    "Expression",
+    "Phone Field",
+    "Phone",
+    "CC Field",
+    "CC Email",
+    "BCC Field",
+    "BCC Email"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "value",
+   "fieldtype": "Data",
+   "label": "Value",
+   "required": true,
+   "in_list_view": true,
+   "description": "Field: a field holding a user or email. Role: every user with it. User/Email: a fixed one. Expression: e.g. doc.customer_email"
+  }
+ ]
+}

@@ -1,0 +1,137 @@
+{
+  "name": "Employee Document",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Employee document register with verification and expiry controls.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "document_type",
+      "fieldtype": "Select",
+      "label": "Document Type",
+      "options": [
+        "Identity",
+        "Employment Contract",
+        "Qualification",
+        "Professional Licence",
+        "Work Permit",
+        "Medical Fitness",
+        "Policy Acknowledgement",
+        "Disciplinary",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "document_title",
+      "fieldtype": "Data",
+      "label": "Document Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reference_number",
+      "fieldtype": "Data",
+      "label": "Reference Number"
+    },
+    {
+      "fieldname": "issue_date",
+      "fieldtype": "Date",
+      "label": "Issue Date"
+    },
+    {
+      "fieldname": "expiry_date",
+      "fieldtype": "Date",
+      "label": "Expiry Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "attachment",
+      "fieldtype": "Data",
+      "label": "Attachment",
+      "required": true
+    },
+    {
+      "fieldname": "verification_status",
+      "fieldtype": "Select",
+      "label": "Verification Status",
+      "options": [
+        "Pending",
+        "Verified",
+        "Rejected",
+        "Expired"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "verified_by",
+      "fieldtype": "Data",
+      "label": "Verified By"
+    },
+    {
+      "fieldname": "verified_on",
+      "fieldtype": "Datetime",
+      "label": "Verified On"
+    },
+    {
+      "fieldname": "confidential",
+      "fieldtype": "Check",
+      "label": "Confidential",
+      "default": 0
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "title_field": "employee_name"
+}

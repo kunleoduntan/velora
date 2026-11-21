@@ -1,0 +1,174 @@
+{
+  "name": "Batch Bank Transaction",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled batch of classified bank movements. Submission posts a balanced set of lines through the Financial Posting Engine.",
+  "fields": [
+    {
+      "fieldname": "bank",
+      "fieldtype": "Link",
+      "options": "Bank Account",
+      "label": "Bank Account",
+      "in_list_view": true,
+      "description": "Pick the bank account: its ledger account, currency and company are filled in for you."
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank GL Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "fetch_from": "bank.gl_account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency",
+      "fetch_from": "bank.currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "reference",
+      "fieldtype": "Data",
+      "label": "Batch Reference"
+    },
+    {
+      "fieldname": "lines_section",
+      "fieldtype": "Section Break",
+      "label": "Bank Transactions",
+      "collapsible": true
+    },
+    {
+      "fieldname": "transactions",
+      "fieldtype": "Table",
+      "label": "Transactions",
+      "options": "Bank Transaction Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_receipts",
+      "fieldtype": "Currency",
+      "label": "Total Receipts",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_payments",
+      "fieldtype": "Currency",
+      "label": "Total Payments",
+      "read_only": true
+    },
+    {
+      "fieldname": "net_movement",
+      "fieldtype": "Currency",
+      "label": "Net Movement",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "autoname": "series:BAT-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

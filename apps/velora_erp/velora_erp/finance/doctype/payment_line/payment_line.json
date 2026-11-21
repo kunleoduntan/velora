@@ -1,0 +1,125 @@
+{
+  "name": "Payment Line",
+  "module": "Finance",
+  "istable": true,
+  "track_changes": false,
+  "description": "Classified accounting line for a payment.",
+  "fields": [
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "entry_side",
+      "fieldtype": "Select",
+      "label": "Entry Side",
+      "options": [
+        "Debit",
+        "Credit"
+      ],
+      "default": "Debit",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "required": true,
+      "default": 0,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party_type",
+      "fieldtype": "Select",
+      "label": "Party Type",
+      "options": [
+        "",
+        "Customer",
+        "Supplier",
+        "Employee"
+      ]
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "label": "Party"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Line Description",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "dimensions",
+      "fieldtype": "JSON",
+      "label": "Accounting Dimensions"
+    },
+    {
+      "fieldname": "settlement_reference",
+      "fieldtype": "Data",
+      "label": "Settlement Reference",
+      "length": 120
+    },
+    {
+      "fieldname": "tax_code",
+      "fieldtype": "Data",
+      "label": "Tax Code"
+    },
+    {
+      "fieldname": "tax_rate",
+      "fieldtype": "Float",
+      "label": "Tax Rate"
+    },
+    {
+      "fieldname": "taxable_amount",
+      "fieldtype": "Currency",
+      "label": "Taxable Amount"
+    },
+    {
+      "fieldname": "tax_amount",
+      "fieldtype": "Currency",
+      "label": "Tax Amount"
+    },
+    {
+      "fieldname": "tax_jurisdiction",
+      "fieldtype": "Data",
+      "label": "Tax Jurisdiction"
+    },
+    {
+      "fieldname": "invoice_reference",
+      "fieldtype": "Data",
+      "label": "Invoice / Source Reference",
+      "length": 140
+    },
+    {
+      "fieldname": "allocation_amount",
+      "fieldtype": "Currency",
+      "label": "Allocated Amount",
+      "default": 0
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "name": "Deferred Tax Assessment",
+  "module": "Finance",
+  "track_changes": true,
+  "autoname": "series:DTA-.########",
+  "fields": [
+    {
+      "fieldname": "assessment_date",
+      "fieldtype": "Date",
+      "label": "Assessment Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "default_tax_rate_basis",
+      "fieldtype": "Data",
+      "label": "Tax Rate Enactment Reference",
+      "depends_on": "eval:doc.auto_populate_fixed_asset_books == 1"
+    },
+    {
+      "fieldname": "default_tax_rate",
+      "fieldtype": "Float",
+      "label": "Default Tax Rate (%)",
+      "depends_on": "eval:doc.auto_populate_fixed_asset_books == 1"
+    },
+    {
+      "fieldname": "tax_depreciation_book",
+      "fieldtype": "Link",
+      "label": "Tax Depreciation Book",
+      "options": "Fixed Asset Depreciation Book",
+      "depends_on": "eval:doc.auto_populate_fixed_asset_books == 1"
+    },
+    {
+      "fieldname": "auto_populate_fixed_asset_books",
+      "fieldtype": "Check",
+      "label": "Populate Fixed Asset Differences from Books",
+      "default": 0
+    },
+    {
+      "fieldname": "accounting_framework",
+      "fieldtype": "Data",
+      "label": "Accounting Framework"
+    },
+    {
+      "fieldname": "section_accounts",
+      "fieldtype": "Section Break",
+      "label": "Deferred Tax Accounts",
+      "collapsible": true
+    },
+    {
+      "fieldname": "deferred_tax_asset_account",
+      "fieldtype": "Link",
+      "label": "Deferred Tax Asset Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "deferred_tax_liability_account",
+      "fieldtype": "Link",
+      "label": "Deferred Tax Liability Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "deferred_tax_expense_account",
+      "fieldtype": "Link",
+      "label": "Deferred Tax Expense Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "deferred_tax_benefit_account",
+      "fieldtype": "Link",
+      "label": "Deferred Tax Benefit Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "section_lines",
+      "fieldtype": "Section Break",
+      "label": "Temporary Differences"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Temporary Differences",
+      "options": "Deferred Tax Assessment Line",
+      "required": true
+    },
+    {
+      "fieldname": "section_totals",
+      "fieldtype": "Section Break",
+      "label": "Assessment Summary",
+      "collapsible": true
+    },
+    {
+      "fieldname": "taxable_temporary_differences",
+      "fieldtype": "Currency",
+      "label": "Taxable Temporary Differences",
+      "read_only": true
+    },
+    {
+      "fieldname": "deductible_temporary_differences",
+      "fieldtype": "Currency",
+      "label": "Deductible Temporary Differences",
+      "read_only": true
+    },
+    {
+      "fieldname": "deferred_tax_liability",
+      "fieldtype": "Currency",
+      "label": "Deferred Tax Liability",
+      "read_only": true
+    },
+    {
+      "fieldname": "deferred_tax_asset",
+      "fieldtype": "Currency",
+      "label": "Deferred Tax Asset",
+      "read_only": true
+    },
+    {
+      "fieldname": "net_deferred_tax_liability",
+      "fieldtype": "Currency",
+      "label": "Net Deferred Tax Liability",
+      "read_only": true
+    },
+    {
+      "fieldname": "previous_deferred_tax_asset",
+      "fieldtype": "Currency",
+      "label": "Previous Deferred Tax Asset",
+      "read_only": true
+    },
+    {
+      "fieldname": "previous_deferred_tax_liability",
+      "fieldtype": "Currency",
+      "label": "Previous Deferred Tax Liability",
+      "read_only": true
+    },
+    {
+      "fieldname": "previous_net_liability",
+      "fieldtype": "Currency",
+      "label": "Previous Net Deferred Tax Liability",
+      "read_only": true
+    },
+    {
+      "fieldname": "movement",
+      "fieldtype": "Currency",
+      "label": "Deferred Tax Movement",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "posting_inbox",
+      "fieldtype": "Link",
+      "label": "Deferred Tax Posting Inbox",
+      "options": "Deferred Tax Posting Inbox",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Pending Review",
+        "Approved",
+        "Rejected",
+        "Posted",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "is_submittable": false
+}

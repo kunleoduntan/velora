@@ -1,0 +1,43 @@
+{
+  "name": "Payment Line",
+  "module": "Accounts",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party_type",
+      "fieldtype": "Select",
+      "label": "Party Type",
+      "options": [
+        "",
+        "Customer",
+        "Supplier",
+        "Employee"
+      ]
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "label": "Party"
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "narration",
+      "fieldtype": "Data",
+      "label": "Narration"
+    }
+  ]
+}

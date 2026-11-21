@@ -1,0 +1,39 @@
+{
+  "name": "Cost Distribution Rule",
+  "module": "Finance",
+  "autoname": "field:rule_name",
+  "description": "Maintained automatically from the Cost Distribution table in Finance Settings; select a rule on a Payment or Receipt to share its cost across cost centres.",
+  "fields": [
+    {
+      "fieldname": "rule_name",
+      "fieldtype": "Data",
+      "label": "Rule",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true
+    },
+    {
+      "role": "Auditor",
+      "read": true
+    }
+  ]
+}

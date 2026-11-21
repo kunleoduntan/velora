@@ -1,0 +1,68 @@
+{
+  "name": "Financial Budget Scenario",
+  "module": "Finance",
+  "istable": true,
+  "description": "What-if case for a budget: a percentage change on the base plan, with probability. Analysis only - never changes the approved budget.",
+  "fields": [
+    {
+      "fieldname": "scenario_name",
+      "fieldtype": "Data",
+      "label": "Scenario",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "scenario_type",
+      "fieldtype": "Select",
+      "label": "Type",
+      "options": [
+        "Best Case",
+        "Worst Case",
+        "Most Likely",
+        "Optimistic",
+        "Pessimistic",
+        "Conservative",
+        "Aggressive",
+        "Custom"
+      ],
+      "default": "Most Likely",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "adjustment_percent",
+      "fieldtype": "Float",
+      "label": "Change %",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "probability",
+      "fieldtype": "Float",
+      "label": "Probability %",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1
+    },
+    {
+      "fieldname": "total_budget",
+      "fieldtype": "Currency",
+      "label": "Scenario Total",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "variance_from_base",
+      "fieldtype": "Currency",
+      "label": "Variance from Base",
+      "read_only": true
+    },
+    {
+      "fieldname": "assumptions",
+      "fieldtype": "Text",
+      "label": "Assumptions and Risks"
+    }
+  ]
+}

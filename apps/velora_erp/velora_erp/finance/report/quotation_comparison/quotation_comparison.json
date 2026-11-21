@@ -1,0 +1,3 @@
+{"name": "Quotation Comparison", "module": "Finance", "type": "script", "ref_doctype": "Request for Quotation", "roles": ["System Manager", "Finance Manager", "Inventory Manager", "Storekeeper", "Auditor"],
+ "description": "Supplier quotations for one Request for Quotation side by side, item by item, ranked by price (1 is cheapest).",
+ "filters": [{"fieldname":"request_for_quotation","label":"Request for Quotation","fieldtype":"Link","options":"Request for Quotation","reqd":1}]}

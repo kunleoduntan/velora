@@ -1,0 +1,97 @@
+{
+  "name": "Warehouse",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Physical or logical inventory location.",
+  "fields": [
+    {
+      "fieldname": "warehouse_name",
+      "label": "Warehouse Name",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "parent_warehouse",
+      "label": "Parent Warehouse",
+      "fieldtype": "Link",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "is_group",
+      "label": "Is Group",
+      "fieldtype": "Check",
+      "default": 0
+    },
+    {
+      "fieldname": "disabled",
+      "label": "Disabled",
+      "fieldtype": "Check",
+      "default": 0
+    },
+    {
+      "fieldname": "is_quarantine_warehouse",
+      "label": "Quarantine Warehouse",
+      "fieldtype": "Check",
+      "default": 0,
+      "description": "Warehouse is restricted to goods under inspection or otherwise not available for sale."
+    },
+    {
+      "fieldname": "is_transit",
+      "fieldtype": "Check",
+      "label": "Transit warehouse (goods on the way between warehouses)",
+      "description": "Stock sits here while it travels. Use it as the transit warehouse of a Stock Transfer; the receiving warehouse takes it in with a Stock Transfer Receipt."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "autoname": "series:WH-.########",
+  "title_field": "warehouse_name"
+}

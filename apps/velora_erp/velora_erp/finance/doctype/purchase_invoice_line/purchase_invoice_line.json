@@ -1,0 +1,284 @@
+{
+  "name": "Purchase Invoice Line",
+  "module": "Finance",
+  "istable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "label": "Item Code",
+      "fieldtype": "Link",
+      "options": "Inventory Item",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_name",
+      "fieldtype": "Data",
+      "label": "Item Name",
+      "read_only": true,
+      "fetch_from": "item_code.item_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "purchase_receipt",
+      "label": "Purchase Receipt",
+      "fieldtype": "Link",
+      "options": "Purchase Receipt"
+    },
+    {
+      "fieldname": "purchase_receipt_line",
+      "label": "Purchase Receipt Line",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "matched_quantity",
+      "label": "GRNI Matched Quantity",
+      "fieldtype": "Float",
+      "default": 0
+    },
+    {
+      "fieldname": "quantity",
+      "label": "Invoiced Quantity",
+      "fieldtype": "Float",
+      "default": 0,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "rate",
+      "fieldtype": "Currency",
+      "label": "Unit Rate",
+      "default": 0,
+      "in_list_view": true,
+      "description": "When entered, Net Amount is worked out as quantity x rate less discounts."
+    },
+    {
+      "fieldname": "discount_percentage",
+      "fieldtype": "Float",
+      "label": "Discount %",
+      "default": 0
+    },
+    {
+      "fieldname": "discount_amount",
+      "fieldtype": "Currency",
+      "label": "Discount per Unit",
+      "default": 0
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Warehouse",
+      "options": "Warehouse",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "uom",
+      "label": "Unit of Measure",
+      "fieldtype": "Data",
+      "fetch_from": "item_code.stock_uom"
+    },
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Expense Account",
+      "options": "Account",
+      "required": false,
+      "fetch_from": "item_code.expense_account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description",
+      "required": true,
+      "fetch_from": "item_code.item_name"
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Net Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "base_rate",
+      "fieldtype": "Currency",
+      "label": "Rate (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "base_amount",
+      "fieldtype": "Currency",
+      "label": "Amount (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "tax_account",
+      "fieldtype": "Link",
+      "label": "Input VAT Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "tax_code",
+      "fieldtype": "Data",
+      "label": "Tax Code",
+      "length": 60
+    },
+    {
+      "fieldname": "tax_rate",
+      "fieldtype": "Float",
+      "label": "Tax Rate (%)",
+      "default": 0
+    },
+    {
+      "fieldname": "tax_amount",
+      "fieldtype": "Currency",
+      "label": "Tax Amount",
+      "default": 0
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre",
+      "fetch_from": "item_code.default_cost_centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "batch",
+      "label": "Batch",
+      "fieldtype": "Link",
+      "options": "Batch"
+    },
+    {
+      "fieldname": "serial_number",
+      "label": "Serial Number",
+      "fieldtype": "Link",
+      "options": "Serial Number"
+    },
+    {
+      "fieldname": "valuation_rate",
+      "label": "Inventory Valuation Rate",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "conversion_factor",
+      "fieldtype": "Float",
+      "label": "Stock UOM Conversion Factor",
+      "default": 1
+    },
+    {
+      "fieldname": "is_fixed_asset",
+      "fieldtype": "Check",
+      "label": "Is Fixed Asset",
+      "default": 0
+    },
+    {
+      "fieldname": "asset_category",
+      "fieldtype": "Link",
+      "label": "Asset Category",
+      "options": "Fixed Asset Category",
+      "depends_on": "eval:doc.is_fixed_asset == 1",
+      "mandatory_depends_on": "eval:doc.is_fixed_asset == 1"
+    },
+    {
+      "fieldname": "asset_name",
+      "fieldtype": "Data",
+      "label": "Asset Name",
+      "depends_on": "eval:doc.is_fixed_asset == 1",
+      "mandatory_depends_on": "eval:doc.is_fixed_asset == 1"
+    },
+    {
+      "fieldname": "useful_life_months",
+      "fieldtype": "Int",
+      "label": "Useful Life (Months)",
+      "default": 60,
+      "depends_on": "eval:doc.is_fixed_asset == 1",
+      "mandatory_depends_on": "eval:doc.is_fixed_asset == 1"
+    },
+    {
+      "fieldname": "residual_value",
+      "fieldtype": "Currency",
+      "label": "Residual Value per Asset",
+      "default": 0,
+      "depends_on": "eval:doc.is_fixed_asset == 1"
+    },
+    {
+      "fieldname": "created_assets",
+      "fieldtype": "Text",
+      "label": "Created Fixed Assets",
+      "read_only": true
+    },
+    {
+      "fieldname": "depreciation_method",
+      "fieldtype": "Select",
+      "label": "Depreciation Method",
+      "options": [
+        "Straight Line",
+        "Reducing Balance",
+        "Units of Production"
+      ],
+      "depends_on": "eval:doc.is_fixed_asset == 1"
+    },
+    {
+      "fieldname": "depreciation_rate",
+      "fieldtype": "Float",
+      "label": "Reducing Balance Rate (%)",
+      "depends_on": "eval:doc.depreciation_method == \"Reducing Balance\""
+    },
+    {
+      "fieldname": "total_units_of_production",
+      "fieldtype": "Float",
+      "label": "Estimated Total Production Units",
+      "depends_on": "eval:doc.depreciation_method == \"Units of Production\""
+    },
+    {
+      "fieldname": "source_line",
+      "fieldtype": "Data",
+      "label": "Source Line",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "fieldtype": "Data",
+      "label": "Source Type",
+      "read_only": true,
+      "description": "Filled when the line was pulled from another document."
+    },
+    {
+      "fieldname": "source_document",
+      "fieldtype": "Data",
+      "label": "Source Document",
+      "read_only": true
+    }
+  ],
+  "permissions": []
+}

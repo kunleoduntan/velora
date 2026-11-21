@@ -1,0 +1,13 @@
+{
+  "name": "Sales by Customer Group",
+  "module": "Demo",
+  "type": "script",
+  "ref_doctype": "Sales Order",
+  "description": "Sales order value grouped by customer group, with subtotals and a grand total.",
+  "roles": ["System Manager", "Sales User"],
+  "filters": [
+    {"fieldname": "from_date", "label": "From Date", "fieldtype": "Date", "default": "Year Start"},
+    {"fieldname": "to_date", "label": "To Date", "fieldtype": "Date", "default": "Today"},
+    {"fieldname": "customer_group", "label": "Customer Group", "fieldtype": "Link", "options": "Customer Group"}
+  ]
+}

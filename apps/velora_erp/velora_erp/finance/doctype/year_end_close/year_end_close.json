@@ -1,0 +1,240 @@
+{
+  "name": "Year End Close",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Independent approval, posting and controlled closure of a financial year.",
+  "autoname": "series:YEC-.########",
+  "fields": [
+    {
+      "fieldname": "financial_year",
+      "fieldtype": "Link",
+      "label": "Financial Year",
+      "options": "Financial Year",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Closing Journal Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "retained_earnings_account",
+      "fieldtype": "Link",
+      "label": "Retained Earnings Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Base Currency",
+      "length": 3,
+      "read_only": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "review_section",
+      "fieldtype": "Section Break",
+      "label": "Year End Review Checklist"
+    },
+    {
+      "fieldname": "checklist",
+      "fieldtype": "Table",
+      "label": "Review Checklist",
+      "options": "Year End Close Checklist",
+      "required": true
+    },
+    {
+      "fieldname": "proposal_section",
+      "fieldtype": "Section Break",
+      "label": "Closing Proposal",
+      "collapsible": true
+    },
+    {
+      "fieldname": "net_profit",
+      "fieldtype": "Currency",
+      "label": "Net Profit / (Loss)",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_debit",
+      "fieldtype": "Currency",
+      "label": "Proposed Total Debit",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_credit",
+      "fieldtype": "Currency",
+      "label": "Proposed Total Credit",
+      "read_only": true
+    },
+    {
+      "fieldname": "proposal_fingerprint",
+      "fieldtype": "Data",
+      "label": "Proposal Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "proposal_snapshot",
+      "fieldtype": "JSON",
+      "label": "Closing Journal Snapshot",
+      "read_only": true
+    },
+    {
+      "fieldname": "trial_balance_difference",
+      "fieldtype": "Currency",
+      "label": "Trial Balance Difference",
+      "read_only": true
+    },
+    {
+      "fieldname": "unresolved_deferred_tax_proposals",
+      "fieldtype": "Int",
+      "label": "Unresolved Deferred Tax Proposals",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_ledger_fingerprint",
+      "fieldtype": "Data",
+      "label": "Source Ledger Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "system_checks_passed",
+      "fieldtype": "Check",
+      "label": "Automated Year End Controls Passed",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Independent Approval"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "close_notes",
+      "fieldtype": "Text",
+      "label": "Closing Notes"
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Approved",
+        "Rejected",
+        "Closed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

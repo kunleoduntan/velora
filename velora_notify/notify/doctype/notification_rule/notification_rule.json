@@ -1,0 +1,173 @@
+{
+ "name": "Notification Rule",
+ "module": "Notify",
+ "autoname": "field:rule_name",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "label": "Rule Name",
+   "required": true,
+   "unique": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": 1,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "ref_doctype",
+   "fieldtype": "Data",
+   "label": "DocType",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "event",
+   "fieldtype": "Select",
+   "label": "When",
+   "options": [
+    "New",
+    "Save",
+    "Value Change",
+    "Submit",
+    "Cancel",
+    "Days Before",
+    "Days After",
+    "Custom"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "custom_event",
+   "fieldtype": "Data",
+   "label": "Custom Event Name"
+  },
+  {
+   "fieldname": "value_field",
+   "fieldtype": "Data",
+   "label": "Field",
+   "description": "Value Change: the field watched. Days Before/After: the date field."
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Int",
+   "label": "Days"
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Text",
+   "label": "Only if",
+   "description": "e.g. doc.status == \"Approved\" and doc.grand_total > 1000000"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": [
+    "Low",
+    "Normal",
+    "High",
+    "Urgent"
+   ],
+   "default": "Normal",
+   "description": "Urgent ignores quiet hours and digests."
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject",
+   "required": true
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Text",
+   "label": "Message",
+   "required": true
+  },
+  {
+   "fieldname": "message_format",
+   "fieldtype": "Select",
+   "label": "Message format",
+   "options": [
+    "Plain text",
+    "HTML"
+   ],
+   "default": "Plain text",
+   "description": "HTML is used for email; other channels receive the text version."
+  },
+  {
+   "fieldname": "channels",
+   "fieldtype": "Table",
+   "label": "Send through",
+   "options": "Notification Rule Channel",
+   "required": true
+  },
+  {
+   "fieldname": "recipients",
+   "fieldtype": "Table",
+   "label": "Send to",
+   "options": "Notification Rule Recipient"
+  },
+  {
+   "fieldname": "exclude_actor",
+   "fieldtype": "Check",
+   "label": "Do not notify the person who made the change",
+   "default": 1
+  },
+  {
+   "fieldname": "throttle_minutes",
+   "fieldtype": "Int",
+   "label": "Do not repeat within (minutes)"
+  },
+  {
+   "fieldname": "escalate_after",
+   "fieldtype": "Int",
+   "label": "Escalate if unread after (minutes)"
+  },
+  {
+   "fieldname": "escalate_to_type",
+   "fieldtype": "Select",
+   "label": "Escalate to",
+   "options": [
+    "",
+    "Role",
+    "User"
+   ]
+  },
+  {
+   "fieldname": "escalate_to",
+   "fieldtype": "Data",
+   "label": "Escalate to (role or user)"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true
+  },
+  {
+   "role": "Notification Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true
+  }
+ ]
+}

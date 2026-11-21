@@ -1,0 +1,127 @@
+{
+  "name": "Purchase Invoice",
+  "module": "Accounts",
+  "autoname": "series:PINV-.#####",
+  "is_submittable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "supplier",
+      "fieldtype": "Link",
+      "label": "Supplier",
+      "options": "Supplier",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "supplier_invoice_no",
+      "fieldtype": "Data",
+      "label": "Supplier Invoice No.",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Date",
+      "default": "Today",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "label": "Items",
+      "options": "Purchase Invoice Item",
+      "required": true
+    },
+    {
+      "fieldname": "net_total",
+      "fieldtype": "Currency",
+      "label": "Net Total",
+      "read_only": true
+    },
+    {
+      "fieldname": "tax_total",
+      "fieldtype": "Currency",
+      "label": "Tax",
+      "read_only": true
+    },
+    {
+      "fieldname": "grand_total",
+      "fieldtype": "Currency",
+      "label": "Total",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "outstanding",
+      "fieldtype": "Currency",
+      "label": "Outstanding",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Unpaid",
+        "Partly Paid",
+        "Paid",
+        "Cancelled"
+      ],
+      "default": "Unpaid",
+      "read_only": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "export": true
+    }
+  ]
+}

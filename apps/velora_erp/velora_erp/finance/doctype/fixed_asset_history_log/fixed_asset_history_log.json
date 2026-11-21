@@ -1,0 +1,94 @@
+{
+  "name": "Fixed Asset History Log",
+  "module": "Finance",
+  "track_changes": false,
+  "description": "Append-only fixed asset movement and selected lifecycle history. Created only by trusted asset transaction handlers.",
+  "fields": [
+    {
+      "fieldname": "asset",
+      "fieldtype": "Link",
+      "label": "Fixed Asset",
+      "options": "Fixed Asset",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "event_type",
+      "fieldtype": "Select",
+      "label": "Event Type",
+      "options": [
+        "Transfer",
+        "Acquisition",
+        "Depreciation",
+        "Revaluation",
+        "Impairment",
+        "Disposal",
+        "Lease Commencement",
+        "Lease Modification",
+        "Lease Termination"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "event_date",
+      "fieldtype": "Date",
+      "label": "Event Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "fieldtype": "Data",
+      "label": "Source Document Type"
+    },
+    {
+      "fieldname": "source_name",
+      "fieldtype": "Data",
+      "label": "Source Document"
+    },
+    {
+      "fieldname": "from_values",
+      "fieldtype": "JSON",
+      "label": "Previous Values"
+    },
+    {
+      "fieldname": "to_values",
+      "fieldtype": "JSON",
+      "label": "New Values"
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason"
+    }
+  ],
+  "autoname": "series:FAH-.########",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "source_name"
+}

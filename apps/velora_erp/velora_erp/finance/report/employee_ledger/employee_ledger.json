@@ -1,0 +1,41 @@
+{
+  "name": "Employee Ledger",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Employee",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Accountant",
+    "Auditor"
+  ],
+  "description": "Employee account activity across employee advances, loans, reimbursements, payroll liabilities and other party-tracked accounts, sourced from immutable Account Ledger Records.",
+  "filters": [
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "required": true
+    },
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date",
+      "required": false
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date",
+      "default": "Today",
+      "required": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "label": "Cost Centre",
+      "fieldtype": "Link",
+      "options": "Cost Centre"
+    }
+  ]
+}

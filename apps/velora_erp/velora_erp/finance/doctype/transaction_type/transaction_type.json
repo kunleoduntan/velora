@@ -1,0 +1,91 @@
+{
+  "name": "Transaction Type",
+  "module": "Finance",
+  "autoname": "field:type_name",
+  "title_field": "type_name",
+  "description": "A business category for payments and receipts (e.g. Salary, Tax Remittance, Customer Receipt), used to group and report cash movements.",
+  "fields": [
+    {
+      "fieldname": "type_name",
+      "fieldtype": "Data",
+      "label": "Transaction Type",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "applies_to",
+      "fieldtype": "Select",
+      "label": "Applies To",
+      "options": [
+        "Payment",
+        "Receipt",
+        "Both"
+      ],
+      "default": "Both",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "default_account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "label": "Default Offset Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true
+    },
+    {
+      "role": "Auditor",
+      "read": true
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "name": "Financial Posting Line",
+  "module": "Finance",
+  "hide_from_menu": true,
+  "istable": true,
+  "track_changes": false,
+  "description": "A balanced debit or credit instruction within a Financial Posting Batch.",
+  "fields": [
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "debit",
+      "fieldtype": "Currency",
+      "label": "Debit (Transaction Currency)",
+      "default": 0,
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "credit",
+      "fieldtype": "Currency",
+      "label": "Credit (Transaction Currency)",
+      "default": 0,
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "base_debit",
+      "fieldtype": "Currency",
+      "label": "Debit (Base Currency)",
+      "default": 0,
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "base_credit",
+      "fieldtype": "Currency",
+      "label": "Credit (Base Currency)",
+      "default": 0,
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party_type",
+      "fieldtype": "Data",
+      "label": "Party Type",
+      "length": 80
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "label": "Party",
+      "length": 255
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "dimensions",
+      "fieldtype": "JSON",
+      "label": "Accounting Dimensions"
+    },
+    {
+      "fieldname": "line_description",
+      "fieldtype": "Text",
+      "label": "Line Description"
+    },
+    {
+      "fieldname": "transaction_date",
+      "fieldtype": "Date",
+      "label": "Transaction Date"
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date"
+    },
+    {
+      "fieldname": "value_date",
+      "fieldtype": "Date",
+      "label": "Value Date"
+    },
+    {
+      "fieldname": "source_line_reference",
+      "fieldtype": "Data",
+      "label": "Source Line Reference",
+      "length": 120
+    },
+    {
+      "fieldname": "external_reference",
+      "fieldtype": "Data",
+      "label": "External Reference",
+      "length": 120
+    },
+    {
+      "fieldname": "settlement_reference",
+      "fieldtype": "Data",
+      "label": "Settlement Reference",
+      "length": 120
+    },
+    {
+      "fieldname": "tax_code",
+      "fieldtype": "Data",
+      "label": "Tax Code",
+      "length": 80
+    },
+    {
+      "fieldname": "tax_rate",
+      "fieldtype": "Float",
+      "label": "Tax Rate"
+    },
+    {
+      "fieldname": "taxable_amount",
+      "fieldtype": "Currency",
+      "label": "Taxable Amount",
+      "default": 0
+    },
+    {
+      "fieldname": "tax_amount",
+      "fieldtype": "Currency",
+      "label": "Tax Amount",
+      "default": 0
+    },
+    {
+      "fieldname": "item",
+      "fieldtype": "Data",
+      "label": "Item Reference",
+      "length": 140
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Data",
+      "label": "Warehouse Reference",
+      "length": 140
+    },
+    {
+      "fieldname": "asset",
+      "fieldtype": "Data",
+      "label": "Fixed Asset Reference",
+      "length": 140
+    },
+    {
+      "fieldname": "project",
+      "fieldtype": "Data",
+      "label": "Project Reference",
+      "length": 140
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Data",
+      "label": "Business Unit",
+      "length": 140
+    },
+    {
+      "fieldname": "branch",
+      "fieldtype": "Data",
+      "label": "Branch",
+      "length": 140
+    },
+    {
+      "fieldname": "base_taxable_amount",
+      "fieldtype": "Currency",
+      "label": "Taxable Amount (Base Currency)",
+      "default": 0
+    },
+    {
+      "fieldname": "base_tax_amount",
+      "fieldtype": "Currency",
+      "label": "Tax Amount (Base Currency)",
+      "default": 0
+    },
+    {
+      "fieldname": "tax_jurisdiction",
+      "fieldtype": "Data",
+      "label": "Tax Jurisdiction",
+      "length": 100
+    }
+  ]
+}

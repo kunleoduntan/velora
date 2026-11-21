@@ -1,0 +1,46 @@
+{
+  "name": "Payment Invoice",
+  "module": "Accounts",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "invoice",
+      "fieldtype": "Link",
+      "label": "Purchase Invoice",
+      "options": "Purchase Invoice",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "invoice_date",
+      "fieldtype": "Date",
+      "label": "Invoice Date",
+      "read_only": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "read_only": true
+    },
+    {
+      "fieldname": "outstanding",
+      "fieldtype": "Currency",
+      "label": "Outstanding",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "allocated",
+      "fieldtype": "Currency",
+      "label": "Settle",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "discount",
+      "fieldtype": "Currency",
+      "label": "Settlement Discount",
+      "description": "Written off this invoice in addition to the money settled."
+    }
+  ]
+}

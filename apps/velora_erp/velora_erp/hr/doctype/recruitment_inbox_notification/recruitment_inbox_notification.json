@@ -1,0 +1,115 @@
+{
+  "name": "Recruitment Inbox Notification",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Recruitment inbox item for candidate, application, interview and offer events.",
+  "fields": [
+    {
+      "fieldname": "recipient",
+      "fieldtype": "Data",
+      "label": "Recipient User",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "message",
+      "fieldtype": "Text",
+      "label": "Message",
+      "required": true
+    },
+    {
+      "fieldname": "event_type",
+      "fieldtype": "Data",
+      "label": "Event Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "candidate",
+      "fieldtype": "Link",
+      "label": "Candidate",
+      "options": "Candidate"
+    },
+    {
+      "fieldname": "job_application",
+      "fieldtype": "Link",
+      "label": "Job Application",
+      "options": "Job Application"
+    },
+    {
+      "fieldname": "interview",
+      "fieldtype": "Link",
+      "label": "Interview",
+      "options": "Interview"
+    },
+    {
+      "fieldname": "job_offer",
+      "fieldtype": "Link",
+      "label": "Job Offer",
+      "options": "Job Offer"
+    },
+    {
+      "fieldname": "due_at",
+      "fieldtype": "Datetime",
+      "label": "Due At"
+    },
+    {
+      "fieldname": "read_at",
+      "fieldtype": "Datetime",
+      "label": "Read At"
+    },
+    {
+      "fieldname": "notification_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Unread",
+        "Read",
+        "Actioned",
+        "Dismissed"
+      ],
+      "default": "Unread",
+      "required": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false
+    },
+    {
+      "role": "Interviewer",
+      "read": true,
+      "write": true,
+      "create": false,
+      "delete": false
+    }
+  ],
+  "title_field": "subject"
+}

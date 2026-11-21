@@ -1,0 +1,156 @@
+{
+  "name": "Batch Line",
+  "module": "Accounts",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "trans_type",
+      "fieldtype": "Select",
+      "label": "Type",
+      "options": [
+        "",
+        "Receipt",
+        "Payment",
+        "Transfer"
+      ],
+      "description": "Blank = Receipt for money in, Payment for money out. Transfer moves money between your own bank/cash accounts."
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank / Cash Account",
+      "options": "Account",
+      "description": "Blank = the batch's account."
+    },
+    {
+      "fieldname": "inflow",
+      "fieldtype": "Currency",
+      "label": "Money In",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "outflow",
+      "fieldtype": "Currency",
+      "label": "Money Out",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "in_list_view": true,
+      "description": "The other side: income/expense/etc. (Transfer: the other bank/cash account). Blank with a party = settle the party's account."
+    },
+    {
+      "fieldname": "party_type",
+      "fieldtype": "Select",
+      "label": "Party Type",
+      "options": [
+        "",
+        "Customer",
+        "Supplier",
+        "Employee"
+      ]
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "label": "Party"
+    },
+    {
+      "fieldname": "narration",
+      "fieldtype": "Data",
+      "label": "Narration"
+    },
+    {
+      "fieldname": "reference_no",
+      "fieldtype": "Data",
+      "label": "Reference"
+    },
+    {
+      "fieldname": "method",
+      "fieldtype": "Select",
+      "label": "Method",
+      "options": [
+        "",
+        "Cash",
+        "Bank Transfer",
+        "Cheque",
+        "Card",
+        "Gateway"
+      ]
+    },
+    {
+      "fieldname": "wht_rate",
+      "fieldtype": "Float",
+      "label": "WHT %"
+    },
+    {
+      "fieldname": "fee_amount",
+      "fieldtype": "Currency",
+      "label": "Fee",
+      "description": "Gateway/bank fee deducted from a receipt."
+    },
+    {
+      "fieldname": "amortise",
+      "fieldtype": "Check",
+      "label": "Amortise",
+      "description": "Payment rows only: spread this cost over several months."
+    },
+    {
+      "fieldname": "spread_periods",
+      "fieldtype": "Int",
+      "label": "Spread Over (months)"
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Expense Account",
+      "options": "Account",
+      "description": "Where each month's share is charged."
+    },
+    {
+      "fieldname": "amortise_from",
+      "fieldtype": "Date",
+      "label": "Amortise From"
+    },
+    {
+      "fieldname": "allow_duplicate",
+      "fieldtype": "Check",
+      "label": "Allow Duplicate"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Pending",
+        "Created",
+        "Skipped",
+        "Cancelled"
+      ],
+      "default": "Pending",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "created_type",
+      "fieldtype": "Data",
+      "label": "Created Type",
+      "read_only": true
+    },
+    {
+      "fieldname": "created_ref",
+      "fieldtype": "Data",
+      "label": "Created Document",
+      "read_only": true
+    }
+  ]
+}

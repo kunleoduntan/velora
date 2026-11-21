@@ -1,0 +1,60 @@
+{
+  "name": "Purchase Invoice Amortisation Preview",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "period_number",
+      "fieldtype": "Int",
+      "label": "Period",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "recognition_date",
+      "fieldtype": "Date",
+      "label": "Recognition Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Expense Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "target_company",
+      "fieldtype": "Data",
+      "label": "Receiving Company"
+    }
+  ]
+}

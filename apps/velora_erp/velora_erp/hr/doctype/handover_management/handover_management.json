@@ -1,0 +1,168 @@
+{
+  "name": "Handover Management",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Controlled handover workflow for employee leave and separation. Tracks tasks, receiving employee acceptance, evidence, due dates and completion.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "handover_type",
+      "label": "Handover Type",
+      "fieldtype": "Select",
+      "options": [
+        "Leave",
+        "Separation"
+      ],
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "source_reference",
+      "label": "Source Reference",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "label": "Source Document Type",
+      "fieldtype": "Select",
+      "options": [
+        "Leave Application",
+        "Employee Separation"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "start_date",
+      "label": "Handover Start Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "end_date",
+      "label": "Handover End Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "receiving_employee",
+      "label": "Primary Receiving Employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "handover_owner",
+      "label": "Handover Coordinator",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "handover_meeting_date",
+      "label": "Handover Meeting",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "handover_items",
+      "label": "Handover Items",
+      "fieldtype": "Table",
+      "options": "Handover Item"
+    },
+    {
+      "fieldname": "handover_status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "In Progress",
+        "Submitted",
+        "Partially Accepted",
+        "Accepted",
+        "Returned for Correction",
+        "Cancelled",
+        "Closed"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "submitted_by",
+      "label": "Submitted By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "submitted_on",
+      "label": "Submitted On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "accepted_by",
+      "label": "Accepted By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "accepted_on",
+      "label": "Accepted On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "outstanding_count",
+      "label": "Outstanding Items",
+      "fieldtype": "Int",
+      "default": 0
+    },
+    {
+      "fieldname": "handover_notes",
+      "label": "Handover Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "title_field": "employee_name"
+}

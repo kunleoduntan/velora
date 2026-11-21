@@ -1,0 +1,95 @@
+{
+  "name": "Portal Account",
+  "module": "Finance",
+  "autoname": "field:email",
+  "title_field": "full_name",
+  "track_changes": true,
+  "description": "Gives one customer or supplier contact a sign-in to the company portal. The portal only ever shows that party's own records.",
+  "fields": [
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 254
+    },
+    {
+      "fieldname": "full_name",
+      "fieldtype": "Data",
+      "label": "Full Name",
+      "required": true,
+      "in_list_view": true,
+      "length": 180
+    },
+    {
+      "fieldname": "portal_type",
+      "fieldtype": "Select",
+      "label": "Portal",
+      "options": [
+        "Customer",
+        "Supplier"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "label": "Customer",
+      "options": "Customer",
+      "depends_on": "eval:doc.portal_type == \"Customer\"",
+      "mandatory_depends_on": "eval:doc.portal_type == \"Customer\"",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "supplier",
+      "fieldtype": "Link",
+      "label": "Supplier",
+      "options": "Supplier",
+      "depends_on": "eval:doc.portal_type == \"Supplier\"",
+      "mandatory_depends_on": "eval:doc.portal_type == \"Supplier\"",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Active",
+        "Suspended"
+      ],
+      "default": "Active",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "last_invited",
+      "fieldtype": "Datetime",
+      "label": "Last Invited or Reset",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true
+    },
+    {
+      "role": "Accountant",
+      "read": true
+    }
+  ]
+}

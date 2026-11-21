@@ -1,0 +1,165 @@
+{
+  "name": "Supplier",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Supplier master and party-level payables control account assignment.",
+  "autoname": "field:supplier_code",
+  "fields": [
+    {
+      "fieldname": "supplier_code",
+      "fieldtype": "Data",
+      "label": "Supplier Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "in_standard_filter": true,
+      "length": 40
+    },
+    {
+      "fieldname": "supplier_name",
+      "fieldtype": "Data",
+      "label": "Supplier Name",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "supplier_group",
+      "fieldtype": "Link",
+      "label": "Supplier Group",
+      "options": "Supplier Group",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "supplier_type",
+      "fieldtype": "Select",
+      "label": "Supplier Type",
+      "options": [
+        "Company",
+        "Individual"
+      ],
+      "default": "Company",
+      "required": true
+    },
+    {
+      "fieldname": "tax_registration_number",
+      "fieldtype": "Data",
+      "label": "Tax Registration Number",
+      "length": 60
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email Address"
+    },
+    {
+      "fieldname": "phone",
+      "fieldtype": "Data",
+      "label": "Telephone"
+    },
+    {
+      "fieldname": "billing_address",
+      "fieldtype": "Text",
+      "label": "Billing Address"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Default Transaction Currency",
+      "length": 3,
+      "description": "Optional default currency; blank uses company base currency.",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "payment_terms",
+      "fieldtype": "Link",
+      "label": "Payment Terms",
+      "options": "Payment Terms"
+    },
+    {
+      "fieldname": "control_account",
+      "fieldtype": "Link",
+      "label": "Payables Control Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "advance_account",
+      "fieldtype": "Link",
+      "label": "Supplier Advance Account",
+      "options": "Account",
+      "description": "Optional party-tracked advance account used for customer or supplier advances.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Internal Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true
+    }
+  ],
+  "title_field": "supplier_name"
+}

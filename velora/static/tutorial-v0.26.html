@@ -1,0 +1,13 @@
+<!doctype html><n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Velora v0.26 Tutorial</title><style>body{font:16px/1.65 system-ui,sans-serif;max-width:920px;margin:40px auto;padding:0 22px;color:#1f2937}h1,h2{color:#173b70}code,pre{background:#f1f5f9;border-radius:6px}code{padding:2px 5px}pre{padding:16px;overflow:auto}.note{border-left:4px solid #e4a12b;padding:12px 16px;background:#fff8e8}</style></head><body><h1>Velora v0.26 — Enterprise Application Administration</h1><p>This tutorial introduces the application catalog and company-scoped installation records.</p><h2>1. What changes?</h2><p>Velora can now maintain a central catalog of available applications while recording which applications are installed for each tenant/company. The registry is separate from the company's transactional database.</p><h2>2. Create the registry</h2><pre><code>from pathlib import Path
+from velora.app_admin import ApplicationAdmin
+admin = ApplicationAdmin(Path("platform") / "application_registry.db")</code></pre><h2>3. Register an application</h2><pre><code>admin.register(
+    name="accounts",
+    title="Accounts",
+    version="1.0.0",
+    min_velora_version="0.26.0",
+    dependencies={},
+)</code></pre><h2>4. Check compatibility for a company</h2><pre><code>result = admin.compatibility("accounts", "0.26.0", "company_001")
+if not result["compatible"]:
+    print(result["problems"])</code></pre><h2>5. Record a successful installation</h2><div class="note"><strong>Important:</strong> first invoke the existing trusted application lifecycle installer in the selected company's context. Only after it succeeds should the completed installation be recorded below.</div><pre><code>admin.install_record("company_001", "accounts", "Administrator")</code></pre><h2>6. Review installed apps and history</h2><pre><code>admin.tenant_apps("company_001")
+admin.migration_history("company_001")
+admin.audit_log("company_001")</code></pre><h2>7. Upgrade and uninstall</h2><p>Update the catalog version after validating the new package. Run the existing upgrade lifecycle operation, then record success with <code>operation="upgrade"</code>. For uninstall, run the trusted uninstall process first, then call <code>uninstall_record()</code>.</p><h2>8. Test</h2><pre><code>pytest tests/test_app_admin_v026.py</code></pre><p>Next: graphical Application Manager and API integration, then marketplace and operational health checks.</p></body></html>

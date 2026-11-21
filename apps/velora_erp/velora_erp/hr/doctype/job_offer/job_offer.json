@@ -1,0 +1,167 @@
+{
+  "name": "Job Offer",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Employment offer with independent internal approval and candidate acceptance. Acceptance does not automatically create an Employee.",
+  "fields": [
+    {
+      "fieldname": "application",
+      "fieldtype": "Link",
+      "label": "Job Application",
+      "options": "Job Application",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "candidate",
+      "fieldtype": "Link",
+      "label": "Candidate",
+      "options": "Candidate",
+      "required": true
+    },
+    {
+      "fieldname": "requisition",
+      "fieldtype": "Link",
+      "label": "Job Requisition",
+      "options": "Job Requisition",
+      "required": true
+    },
+    {
+      "fieldname": "offer_date",
+      "fieldtype": "Date",
+      "label": "Offer Date",
+      "required": true
+    },
+    {
+      "fieldname": "proposed_start_date",
+      "fieldtype": "Date",
+      "label": "Proposed Start Date",
+      "required": true
+    },
+    {
+      "fieldname": "employment_type",
+      "fieldtype": "Select",
+      "label": "Employment Type",
+      "options": [
+        "Permanent",
+        "Fixed Term",
+        "Contract",
+        "Temporary",
+        "Internship",
+        "Part Time"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "designation",
+      "fieldtype": "Link",
+      "label": "Designation",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "work_location",
+      "fieldtype": "Link",
+      "label": "Work Location",
+      "options": "Work Location"
+    },
+    {
+      "fieldname": "gross_compensation",
+      "fieldtype": "Currency",
+      "label": "Proposed Gross Compensation"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "offer_expiry_date",
+      "fieldtype": "Date",
+      "label": "Offer Expiry Date"
+    },
+    {
+      "fieldname": "offer_document",
+      "fieldtype": "Data",
+      "label": "Offer Document"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Draft",
+      "required": true
+    },
+    {
+      "fieldname": "decision",
+      "fieldtype": "Select",
+      "label": "Candidate Decision",
+      "options": [
+        "Pending",
+        "Accepted",
+        "Declined",
+        "Expired"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    },
+    {
+      "fieldname": "converted_employee",
+      "fieldtype": "Link",
+      "label": "Created Employee",
+      "options": "Employee"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "name": "Finance Request Policy",
+  "module": "Finance",
+  "autoname": "field:policy_name",
+  "track_changes": true,
+  "description": "Company-scoped configuration for Finance eRequest categories, roles, approval thresholds, workflow and transaction references. No policy values are embedded in application logic.",
+  "fields": [
+    {
+      "fieldname": "policy_name",
+      "fieldtype": "Data",
+      "label": "Policy Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": 1
+    },
+    {
+      "fieldname": "default_currency",
+      "fieldtype": "Link",
+      "label": "Default Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "finance_roles",
+      "fieldtype": "JSON",
+      "label": "Finance Roles JSON",
+      "required": true,
+      "description": "Store a JSON array. Approval rules use minimum_amount, maximum_amount and approver_roles."
+    },
+    {
+      "fieldname": "manager_roles",
+      "fieldtype": "JSON",
+      "label": "Final Approver Roles JSON",
+      "required": true,
+      "description": "Store a JSON array. Approval rules use minimum_amount, maximum_amount and approver_roles."
+    },
+    {
+      "fieldname": "request_types",
+      "fieldtype": "JSON",
+      "label": "Request Types JSON",
+      "required": true,
+      "description": "Store a JSON array. Approval rules use minimum_amount, maximum_amount and approver_roles."
+    },
+    {
+      "fieldname": "priorities",
+      "fieldtype": "JSON",
+      "label": "Priorities JSON",
+      "required": true,
+      "description": "Store a JSON array. Approval rules use minimum_amount, maximum_amount and approver_roles."
+    },
+    {
+      "fieldname": "transaction_types",
+      "fieldtype": "JSON",
+      "label": "Permitted Transaction Types JSON",
+      "required": true,
+      "description": "Store a JSON array. Approval rules use minimum_amount, maximum_amount and approver_roles."
+    },
+    {
+      "fieldname": "approval_rules",
+      "fieldtype": "JSON",
+      "label": "Amount Based Approval Rules JSON",
+      "required": true,
+      "description": "Store a JSON array. Approval rules use minimum_amount, maximum_amount and approver_roles."
+    },
+    {
+      "fieldname": "workflow_definition",
+      "fieldtype": "Data",
+      "label": "Workflow Definition"
+    },
+    {
+      "fieldname": "finance_actions",
+      "fieldtype": "JSON",
+      "label": "Finance Actions JSON",
+      "required": true,
+      "description": "JSON array of action names authorised to Finance roles."
+    }
+  ],
+  "title_field": "policy_name"
+}

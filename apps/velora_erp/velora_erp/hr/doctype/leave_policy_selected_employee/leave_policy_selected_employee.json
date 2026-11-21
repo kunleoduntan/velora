@@ -1,0 +1,28 @@
+{
+  "name": "Leave Policy Selected Employee",
+  "module": "HR",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": false
+    },
+    {
+      "fieldname": "selection_note",
+      "fieldtype": "Data",
+      "label": "Selection Note"
+    }
+  ]
+}

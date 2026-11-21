@@ -1,0 +1,103 @@
+{
+  "name": "Job Band",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Career band grouping for job grades and workforce planning.",
+  "fields": [
+    {
+      "fieldname": "band_code",
+      "fieldtype": "Data",
+      "label": "Band Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 30
+    },
+    {
+      "fieldname": "band_name",
+      "fieldtype": "Data",
+      "label": "Band Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "minimum_grade",
+      "fieldtype": "Link",
+      "label": "Minimum Grade",
+      "options": "Job Grade"
+    },
+    {
+      "fieldname": "maximum_grade",
+      "fieldtype": "Link",
+      "label": "Maximum Grade",
+      "options": "Job Grade"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0,
+      "in_standard_filter": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": false,
+      "create": false
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": false,
+      "create": false
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": false,
+      "create": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false
+    }
+  ],
+  "autoname": "field:band_code",
+  "title_field": "band_name"
+}

@@ -1,0 +1,137 @@
+{
+  "name": "Employee Competency Assessment",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Evidence-based employee competency assessments and skills-gap records.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "competency",
+      "fieldtype": "Link",
+      "label": "Competency",
+      "options": "Competency",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "framework",
+      "fieldtype": "Link",
+      "label": "Competency Framework",
+      "options": "Competency Framework"
+    },
+    {
+      "fieldname": "cycle",
+      "fieldtype": "Link",
+      "label": "Performance Cycle",
+      "options": "Performance Cycle"
+    },
+    {
+      "fieldname": "assessed_by",
+      "fieldtype": "Link",
+      "label": "Assessed By",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "assessment_date",
+      "fieldtype": "Date",
+      "label": "Assessment Date",
+      "required": true
+    },
+    {
+      "fieldname": "current_level",
+      "fieldtype": "Int",
+      "label": "Current Proficiency Level",
+      "required": true
+    },
+    {
+      "fieldname": "required_level",
+      "fieldtype": "Int",
+      "label": "Required Proficiency Level"
+    },
+    {
+      "fieldname": "gap_level",
+      "fieldtype": "Int",
+      "label": "Skills Gap"
+    },
+    {
+      "fieldname": "evidence",
+      "fieldtype": "Text",
+      "label": "Evidence / Examples"
+    },
+    {
+      "fieldname": "development_priority",
+      "fieldtype": "Select",
+      "label": "Development Priority",
+      "options": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "default": "Medium"
+    },
+    {
+      "fieldname": "recommended_action",
+      "fieldtype": "Data",
+      "label": "Recommended Development Action"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Submitted",
+        "Confirmed",
+        "Superseded"
+      ],
+      "default": "Draft"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "istable": false,
+  "title_field": "employee_name"
+}

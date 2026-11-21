@@ -1,0 +1,149 @@
+{
+  "name": "Delivery Note Line",
+  "module": "Finance",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "source_line",
+      "label": "Source Order Line",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "item_code",
+      "label": "Item Code",
+      "fieldtype": "Link",
+      "options": "Inventory Item",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_name",
+      "fieldtype": "Data",
+      "label": "Item Name",
+      "read_only": true,
+      "fetch_from": "item_code.item_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Data",
+      "required": true,
+      "fetch_from": "item_code.item_name"
+    },
+    {
+      "fieldname": "quantity",
+      "label": "Delivered Quantity",
+      "fieldtype": "Float",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "uom",
+      "label": "Unit of Measure",
+      "fieldtype": "Data",
+      "fetch_from": "item_code.stock_uom"
+    },
+    {
+      "fieldname": "batch",
+      "label": "Batch",
+      "fieldtype": "Link",
+      "options": "Batch"
+    },
+    {
+      "fieldname": "serial_number",
+      "label": "Serial Number",
+      "fieldtype": "Link",
+      "options": "Serial Number"
+    },
+    {
+      "fieldname": "valuation_rate",
+      "label": "Valuation Rate",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "conversion_factor",
+      "fieldtype": "Float",
+      "label": "Stock UOM Conversion Factor",
+      "default": 1,
+      "read_only": true
+    },
+    {
+      "fieldname": "rate",
+      "fieldtype": "Currency",
+      "label": "Agreed Selling Rate",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "discount_percentage",
+      "fieldtype": "Float",
+      "label": "Discount Percentage (%)",
+      "default": 0
+    },
+    {
+      "fieldname": "discount_amount",
+      "fieldtype": "Currency",
+      "label": "Discount Amount per Unit",
+      "default": 0
+    },
+    {
+      "fieldname": "price_basis",
+      "fieldtype": "Select",
+      "label": "Price Basis",
+      "options": [
+        "Automatic",
+        "Customer Group",
+        "Item",
+        "Default",
+        "Manual"
+      ],
+      "default": "Automatic"
+    },
+    {
+      "fieldname": "cost_rate",
+      "fieldtype": "Currency",
+      "label": "Cost Rate",
+      "read_only": true
+    },
+    {
+      "fieldname": "cost_source",
+      "fieldtype": "Data",
+      "label": "Cost Source",
+      "read_only": true
+    },
+    {
+      "fieldname": "price_note",
+      "fieldtype": "Data",
+      "label": "Price Applied",
+      "read_only": true
+    },
+    {
+      "fieldname": "issue_cost_rate",
+      "label": "Actual Issue Cost Rate",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "issue_cost_amount",
+      "label": "Actual Issue Cost Amount",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "fieldtype": "Data",
+      "label": "Source Type",
+      "read_only": true,
+      "description": "Filled when the line was pulled from another document."
+    },
+    {
+      "fieldname": "source_document",
+      "fieldtype": "Data",
+      "label": "Source Document",
+      "read_only": true
+    }
+  ],
+  "permissions": [],
+  "istable": true
+}

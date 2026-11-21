@@ -1,0 +1,122 @@
+{
+  "name": "Onboarding Plan",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Employee onboarding journey linked to a real Employee record and optionally to its source candidate and accepted offer.",
+  "fields": [
+    {
+      "fieldname": "plan_title",
+      "fieldtype": "Data",
+      "label": "Plan Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "candidate",
+      "fieldtype": "Link",
+      "label": "Source Candidate",
+      "options": "Candidate"
+    },
+    {
+      "fieldname": "job_offer",
+      "fieldtype": "Link",
+      "label": "Accepted Job Offer",
+      "options": "Job Offer"
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Employment Start Date",
+      "required": true
+    },
+    {
+      "fieldname": "target_completion_date",
+      "fieldtype": "Date",
+      "label": "Target Completion Date"
+    },
+    {
+      "fieldname": "template_name",
+      "fieldtype": "Data",
+      "label": "Onboarding Template"
+    },
+    {
+      "fieldname": "onboarding_owner",
+      "fieldtype": "Data",
+      "label": "Onboarding Owner"
+    },
+    {
+      "fieldname": "plan_status",
+      "fieldtype": "Select",
+      "label": "Plan Status",
+      "options": [
+        "Draft",
+        "Active",
+        "On Hold",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "completion_percentage",
+      "fieldtype": "Float",
+      "label": "Completion Percentage",
+      "default": 0
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "title_field": "employee_name"
+}

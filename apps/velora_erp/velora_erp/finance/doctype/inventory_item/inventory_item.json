@@ -1,0 +1,365 @@
+{
+  "name": "Inventory Item",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Inventory master for stock-managed goods. Valuation is maintained by the Stock Ledger.",
+  "fields": [
+    {
+      "fieldname": "item_name",
+      "label": "Item Name",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_group",
+      "label": "Item Group",
+      "fieldtype": "Link",
+      "options": "Item Group"
+    },
+    {
+      "fieldname": "stock_uom",
+      "label": "Stock Unit of Measure",
+      "fieldtype": "Link",
+      "required": true,
+      "options": "Unit of Measure"
+    },
+    {
+      "fieldname": "tracking_mode",
+      "label": "Tracking Mode",
+      "fieldtype": "Select",
+      "options": [
+        "None",
+        "Serial Number",
+        "Batch"
+      ],
+      "default": "None",
+      "required": true
+    },
+    {
+      "fieldname": "valuation_method",
+      "label": "Valuation Method",
+      "fieldtype": "Select",
+      "options": [
+        "Moving Average",
+        "FIFO",
+        "Weighted Average"
+      ],
+      "default": "Moving Average",
+      "required": true,
+      "description": "Moving Average is perpetual weighted average; FIFO consumes oldest cost layers; Weighted Average is periodic and requires period close."
+    },
+    {
+      "fieldname": "standard_rate",
+      "label": "Standard Cost Rate",
+      "fieldtype": "Currency",
+      "default": 0,
+      "description": "Fallback cost per stock unit when no purchase cost or stock ledger valuation is available."
+    },
+    {
+      "fieldname": "is_stock_item",
+      "label": "Maintain Stock",
+      "fieldtype": "Check",
+      "default": 1
+    },
+    {
+      "fieldname": "disabled",
+      "label": "Disabled",
+      "fieldtype": "Check",
+      "default": 0
+    },
+    {
+      "fieldname": "stock_asset_account",
+      "label": "Inventory Asset Account Override",
+      "fieldtype": "Link",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accounting_section",
+      "fieldtype": "Section Break",
+      "label": "Accounting Defaults"
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Expense Account",
+      "options": "Account",
+      "description": "Default expense or consumption account; transaction-level account overrides remain available.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "income_account",
+      "fieldtype": "Link",
+      "label": "Income Account",
+      "options": "Account",
+      "description": "Default sales income account for this item.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_of_sales_account",
+      "fieldtype": "Link",
+      "label": "Cost of Sales Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "default_cost_centre",
+      "fieldtype": "Link",
+      "label": "Default Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "pricing_section",
+      "fieldtype": "Section Break",
+      "label": "Selling Price Policy"
+    },
+    {
+      "fieldname": "pricing_mode",
+      "fieldtype": "Select",
+      "label": "Pricing Mode",
+      "options": [
+        "Margin Based",
+        "Fixed Price"
+      ],
+      "default": "Margin Based",
+      "required": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "selling_margin_percent",
+      "fieldtype": "Float",
+      "label": "Selling Margin (%)",
+      "default": 0,
+      "description": "Item-level margin used when the Customer Group has no margin.",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "standard_selling_rate",
+      "fieldtype": "Currency",
+      "label": "Standard Selling Rate",
+      "default": 0,
+      "description": "Fixed selling price per stock unit when Pricing Mode is Fixed Price.",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "calculated_selling_price",
+      "label": "Selling Price (from cost and margin)",
+      "fieldtype": "Currency",
+      "read_only": 1,
+      "in_list_view": 1,
+      "description": "Worked out from the cost and the margin above, using the Selling Price Basis in Inventory Settings. For a fixed-price item it is the fixed price."
+    },
+    {
+      "fieldname": "last_purchase_cost",
+      "fieldtype": "Currency",
+      "label": "Last Purchase Cost",
+      "read_only": true,
+      "description": "Latest submitted Purchase Receipt cost per stock unit, including allocated landed costs.",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "last_purchase_date",
+      "fieldtype": "Date",
+      "label": "Last Purchase Date",
+      "read_only": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "last_purchase_reference",
+      "fieldtype": "Data",
+      "label": "Last Purchase Reference",
+      "read_only": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "cost_source",
+      "fieldtype": "Data",
+      "label": "Cost Source",
+      "read_only": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "reorder_level",
+      "fieldtype": "Float",
+      "label": "Reorder Level",
+      "description": "Raise a request when stock in any warehouse falls to this quantity."
+    },
+    {
+      "fieldname": "reorder_qty",
+      "fieldtype": "Float",
+      "label": "Reorder Qty",
+      "description": "Quantity to order when the reorder level is reached."
+    },
+    {
+      "fieldname": "maximum_stock_level",
+      "fieldtype": "Float",
+      "label": "Maximum Stock Level",
+      "description": "Upper limit used to flag over-stock."
+    },
+    {
+      "fieldname": "preferred_supplier",
+      "fieldtype": "Link",
+      "label": "Preferred Supplier",
+      "options": "Supplier"
+    },
+    {
+      "fieldname": "lead_time_days",
+      "fieldtype": "Int",
+      "label": "Lead Time Days",
+      "description": "Days from order to receipt."
+    },
+    {
+      "fieldname": "barcode",
+      "fieldtype": "Data",
+      "label": "Barcode",
+      "unique": false
+    },
+    {
+      "fieldname": "shelf_life_days",
+      "fieldtype": "Int",
+      "label": "Shelf Life Days",
+      "description": "Days a batch stays usable after manufacture or receipt; drives expiry alerts."
+    },
+    {
+      "fieldname": "storage_notes",
+      "fieldtype": "Text",
+      "label": "Storage Notes"
+    },
+    {
+      "fieldname": "quality_section",
+      "fieldtype": "Section Break",
+      "label": "Quality and counting"
+    },
+    {
+      "fieldname": "inspection_required_on_receipt",
+      "fieldtype": "Check",
+      "label": "Inspect on receipt",
+      "description": "A Purchase Receipt for this item cannot be submitted until a quality inspection accepts the quantity."
+    },
+    {
+      "fieldname": "inspection_required_on_delivery",
+      "fieldtype": "Check",
+      "label": "Inspect before delivery",
+      "description": "A Delivery Note for this item cannot be submitted until a quality inspection accepts the quantity."
+    },
+    {
+      "fieldname": "quality_inspection_template",
+      "fieldtype": "Link",
+      "label": "Inspection template",
+      "options": "Quality Inspection Template"
+    },
+    {
+      "fieldname": "abc_class",
+      "fieldtype": "Select",
+      "label": "ABC class (counting frequency)",
+      "options": [
+        "A",
+        "B",
+        "C"
+      ],
+      "description": "A items are counted most often. Intervals are in Inventory Settings."
+    },
+    {
+      "fieldname": "last_counted_on",
+      "fieldtype": "Date",
+      "label": "Last counted on",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "autoname": "series:ITEM-.########",
+  "title_field": "item_name"
+}

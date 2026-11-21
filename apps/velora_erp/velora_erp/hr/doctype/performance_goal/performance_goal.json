@@ -1,0 +1,205 @@
+{
+  "name": "Performance Goal",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Cascading, measurable objectives connecting strategy, departments, teams and employees.",
+  "fields": [
+    {
+      "fieldname": "goal_code",
+      "fieldtype": "Data",
+      "label": "Goal Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "goal_title",
+      "fieldtype": "Data",
+      "label": "Goal Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "cycle",
+      "fieldtype": "Link",
+      "label": "Performance Cycle",
+      "options": "Performance Cycle",
+      "required": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "parent_goal",
+      "fieldtype": "Link",
+      "label": "Aligned Parent Goal",
+      "options": "Performance Goal"
+    },
+    {
+      "fieldname": "goal_level",
+      "fieldtype": "Select",
+      "label": "Goal Level",
+      "options": [
+        "Organisation",
+        "Department",
+        "Team",
+        "Individual",
+        "Project"
+      ],
+      "default": "Individual"
+    },
+    {
+      "fieldname": "goal_type",
+      "fieldtype": "Select",
+      "label": "Goal Type",
+      "options": [
+        "Strategic",
+        "Operational",
+        "Development",
+        "Compliance",
+        "Project"
+      ],
+      "default": "Operational"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "measure",
+      "fieldtype": "Data",
+      "label": "Success Measure"
+    },
+    {
+      "fieldname": "unit",
+      "fieldtype": "Data",
+      "label": "Unit of Measure"
+    },
+    {
+      "fieldname": "baseline",
+      "fieldtype": "Float",
+      "label": "Baseline",
+      "default": 0
+    },
+    {
+      "fieldname": "target_value",
+      "fieldtype": "Float",
+      "label": "Target Value"
+    },
+    {
+      "fieldname": "actual_value",
+      "fieldtype": "Float",
+      "label": "Actual Value",
+      "default": 0
+    },
+    {
+      "fieldname": "weight",
+      "fieldtype": "Float",
+      "label": "Weight (%)",
+      "default": 0
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date"
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date"
+    },
+    {
+      "fieldname": "progress_percent",
+      "fieldtype": "Float",
+      "label": "Progress (%)",
+      "default": 0
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Proposed",
+        "Approved",
+        "In Progress",
+        "At Risk",
+        "Completed",
+        "Not Achieved",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "evidence",
+      "fieldtype": "Text",
+      "label": "Evidence / Achievement"
+    },
+    {
+      "fieldname": "last_check_in",
+      "fieldtype": "Date",
+      "label": "Last Check-in"
+    },
+    {
+      "fieldname": "action_owner",
+      "fieldtype": "Link",
+      "label": "Goal Owner",
+      "options": "Employee"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "istable": false,
+  "autoname": "field:goal_code",
+  "title_field": "employee_name"
+}

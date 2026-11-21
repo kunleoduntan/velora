@@ -1,0 +1,112 @@
+{
+  "name": "Party Adjustment",
+  "module": "Finance",
+  "autoname": "field:adjustment_id",
+  "track_changes": true,
+  "is_submittable": false,
+  "description": "Controlled customer credit note or supplier debit note. Posting is permitted only through an approved Financial Posting Engine batch.",
+  "fields": [
+    {
+      "fieldname": "adjustment_id",
+      "fieldtype": "Data",
+      "label": "Adjustment ID",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "kind",
+      "fieldtype": "Select",
+      "label": "Adjustment Type",
+      "options": "Customer Credit Note\\nSupplier Debit Note",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party_type",
+      "fieldtype": "Select",
+      "label": "Party Type",
+      "options": "Customer\\nSupplier",
+      "required": true
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "options": "party_type",
+      "label": "Party",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "original_invoice",
+      "fieldtype": "Data",
+      "label": "Original Invoice",
+      "required": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Adjustment Amount",
+      "required": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason",
+      "required": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Workflow Status",
+      "options": "Draft\\nPending Review\\nApproved\\nRejected\\nPosted\\nCancelled",
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "created_by",
+      "fieldtype": "Data",
+      "label": "Created By",
+      "read_only": true
+    },
+    {
+      "fieldname": "reviewed_by",
+      "fieldtype": "Data",
+      "label": "Reviewed By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "ledger_posted",
+      "fieldtype": "Check",
+      "label": "Ledger Posted",
+      "read_only": true
+    }
+  ]
+}

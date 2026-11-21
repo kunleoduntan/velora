@@ -1,0 +1,123 @@
+{
+  "name": "Job Application",
+  "module": "HR",
+  "autoname": "series:APP-.####",
+  "track_changes": true,
+  "description": "Tracks each candidate application through a configurable recruitment pipeline.",
+  "fields": [
+    {
+      "fieldname": "candidate",
+      "fieldtype": "Link",
+      "label": "Candidate",
+      "options": "Candidate",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "requisition",
+      "fieldtype": "Link",
+      "label": "Job Requisition",
+      "options": "Job Requisition",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "job_posting",
+      "fieldtype": "Link",
+      "label": "Job Posting",
+      "options": "Job Posting"
+    },
+    {
+      "fieldname": "application_date",
+      "fieldtype": "Date",
+      "label": "Application Date",
+      "required": true
+    },
+    {
+      "fieldname": "cover_letter",
+      "fieldtype": "Text",
+      "label": "Cover Letter"
+    },
+    {
+      "fieldname": "screening_score",
+      "fieldtype": "Float",
+      "label": "Screening Score"
+    },
+    {
+      "fieldname": "screening_notes",
+      "fieldtype": "Text",
+      "label": "Screening Notes"
+    },
+    {
+      "fieldname": "assigned_recruiter",
+      "fieldtype": "Data",
+      "label": "Assigned Recruiter"
+    },
+    {
+      "fieldname": "application_stage",
+      "fieldtype": "Select",
+      "label": "Pipeline Stage",
+      "options": [
+        "Applied",
+        "Screening",
+        "Shortlisted",
+        "Assessment",
+        "Interview",
+        "Reference Check",
+        "Offer",
+        "Hired",
+        "Rejected",
+        "Withdrawn"
+      ],
+      "default": "Applied",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "rejection_reason",
+      "fieldtype": "Text",
+      "label": "Rejection Reason"
+    },
+    {
+      "fieldname": "final_decision_date",
+      "fieldtype": "Date",
+      "label": "Final Decision Date"
+    },
+    {
+      "fieldname": "offer",
+      "fieldtype": "Link",
+      "label": "Job Offer",
+      "options": "Job Offer"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ]
+}

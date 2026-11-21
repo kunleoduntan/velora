@@ -1,0 +1,106 @@
+{
+  "name": "Journal Voucher Line",
+  "module": "Accounts",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "journal_type",
+      "fieldtype": "Select",
+      "label": "Journal Type",
+      "options": [
+        "",
+        "General",
+        "Adjusting",
+        "Reversing",
+        "Recurring",
+        "Opening Balance",
+        "Depreciation",
+        "Accrual",
+        "Prepayment",
+        "Intercompany",
+        "Bank Transfer",
+        "Year-End Closing"
+      ]
+    },
+    {
+      "fieldname": "debit_account",
+      "fieldtype": "Link",
+      "label": "Debit Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "credit_account",
+      "fieldtype": "Link",
+      "label": "Credit Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party_type",
+      "fieldtype": "Select",
+      "label": "Party Type",
+      "options": [
+        "",
+        "Customer",
+        "Supplier",
+        "Employee"
+      ]
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "label": "Party"
+    },
+    {
+      "fieldname": "narration",
+      "fieldtype": "Data",
+      "label": "Narration",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "group_ref",
+      "fieldtype": "Data",
+      "label": "Group (optional)"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Pending",
+        "Created",
+        "Cancelled"
+      ],
+      "default": "Pending",
+      "read_only": true
+    },
+    {
+      "fieldname": "created_type",
+      "fieldtype": "Data",
+      "label": "Created",
+      "read_only": true
+    },
+    {
+      "fieldname": "created_ref",
+      "fieldtype": "Data",
+      "label": "Created Ref",
+      "read_only": true
+    }
+  ]
+}

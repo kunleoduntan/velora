@@ -1,0 +1,157 @@
+{
+  "name": "Salary Structure",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Version-controlled, ordered salary rule set. Structure approval is independent from payroll-run approval.",
+  "fields": [
+    {
+      "fieldname": "structure_name",
+      "fieldtype": "Data",
+      "label": "Structure Name",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "pay_frequency",
+      "fieldtype": "Select",
+      "label": "Pay Frequency",
+      "options": [
+        "Weekly",
+        "Biweekly",
+        "Semi-monthly",
+        "Monthly",
+        "Quarterly",
+        "Annual"
+      ],
+      "default": "Monthly",
+      "required": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "earnings",
+      "fieldtype": "Table",
+      "label": "Earnings",
+      "options": "Salary Structure Component",
+      "description": "Pay elements added to gross pay: basic salary, allowances, bonuses. Evaluated in Sequence order; a formula may use any earlier code."
+    },
+    {
+      "fieldname": "deductions",
+      "fieldtype": "Table",
+      "label": "Deductions & Contributions",
+      "options": "Salary Structure Component",
+      "description": "PAYE, pension, loans, advances and employer contributions. Rows typed in the wrong table are moved automatically."
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "default_cost_centre",
+      "fieldtype": "Link",
+      "label": "Default Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "default_business_unit",
+      "fieldtype": "Link",
+      "label": "Default Business Unit",
+      "options": "Business Unit"
+    }
+  ],
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "export": false,
+      "print": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "structure_name"
+}

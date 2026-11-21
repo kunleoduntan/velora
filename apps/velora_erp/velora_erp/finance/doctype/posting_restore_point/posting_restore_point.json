@@ -1,0 +1,17 @@
+{
+  "name": "Posting Restore Point",
+  "module": "Finance",
+  "track_changes": false,
+  "hide_from_menu": true,
+  "description": "A copy of the records a document is about to change when it is submitted (an asset, a loan, a payroll balance ...). Cancelling the document puts them back exactly as they were. Written by the system only.",
+  "fields": [
+    {"fieldname": "source_doctype", "fieldtype": "Data", "label": "Document Type", "required": true, "in_list_view": true},
+    {"fieldname": "source_name", "fieldtype": "Data", "label": "Document", "required": true, "in_list_view": true},
+    {"fieldname": "snapshot", "fieldtype": "JSON", "label": "Records Before Submit"}
+  ],
+  "autoname": "series:PRP-.########",
+  "permissions": [
+    {"role": "System Manager", "read": true}
+  ],
+  "title_field": "source_name"
+}

@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "velora_demo"
+version = "0.1.0"
+description = "Velora reference app: proves the framework end to end"
+dependencies = ["velora"]
+
+[tool.setuptools.packages.find]
+include = ["velora_demo*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.js"]

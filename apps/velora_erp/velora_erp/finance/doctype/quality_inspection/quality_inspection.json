@@ -1,0 +1,183 @@
+{
+  "name": "Quality Inspection",
+  "module": "Finance",
+  "track_changes": true,
+  "is_submittable": true,
+  "autoname": "series:QI-.########",
+  "description": "Records that a quantity of an item was inspected, the readings taken and whether it was accepted. Items that require inspection cannot be received or delivered without an accepted inspection.",
+  "fields": [
+    {
+      "fieldname": "inspection_type",
+      "fieldtype": "Select",
+      "label": "Inspection",
+      "options": [
+        "Incoming",
+        "Outgoing",
+        "In Process"
+      ],
+      "default": "Incoming",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reference_doctype",
+      "fieldtype": "Select",
+      "label": "Document Inspected",
+      "options": [
+        "Purchase Receipt",
+        "Delivery Note",
+        "Stock Entry"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "reference_name",
+      "fieldtype": "Data",
+      "label": "Document Number",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "inspection_date",
+      "fieldtype": "Date",
+      "label": "Inspection Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_code",
+      "fieldtype": "Link",
+      "label": "Item",
+      "options": "Inventory Item",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "batch",
+      "fieldtype": "Link",
+      "label": "Batch",
+      "options": "Batch"
+    },
+    {
+      "fieldname": "template",
+      "fieldtype": "Link",
+      "label": "Inspection Template",
+      "options": "Quality Inspection Template",
+      "fetch_from": "item_code.quality_inspection_template"
+    },
+    {
+      "fieldname": "inspected_quantity",
+      "fieldtype": "Float",
+      "label": "Quantity Covered",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "sample_size",
+      "fieldtype": "Float",
+      "label": "Sample Size"
+    },
+    {
+      "fieldname": "readings",
+      "fieldtype": "Table",
+      "label": "Readings",
+      "options": "Quality Reading Row"
+    },
+    {
+      "fieldname": "result",
+      "fieldtype": "Select",
+      "label": "Result",
+      "options": [
+        "Accepted",
+        "Rejected"
+      ],
+      "default": "Accepted",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "accepted_quantity",
+      "fieldtype": "Float",
+      "label": "Accepted Quantity",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_quantity",
+      "fieldtype": "Float",
+      "label": "Rejected Quantity",
+      "read_only": true
+    },
+    {
+      "fieldname": "inspector",
+      "fieldtype": "Data",
+      "label": "Inspector",
+      "read_only": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Quality Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

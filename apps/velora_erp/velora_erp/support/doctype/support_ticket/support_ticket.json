@@ -1,0 +1,314 @@
+{
+  "name": "Support Ticket",
+  "module": "Support",
+  "autoname": "series:TKT-.######",
+  "title_field": "subject",
+  "track_changes": true,
+  "description": "A request for help, with a service-level clock, an owner and a full conversation.",
+  "fields": [
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "required": true,
+      "in_list_view": true,
+      "length": 250
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Open",
+        "In Progress",
+        "Waiting on Customer",
+        "Resolved",
+        "Closed"
+      ],
+      "default": "Open",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "priority",
+      "fieldtype": "Select",
+      "label": "Priority",
+      "options": [
+        "Low",
+        "Medium",
+        "High",
+        "Urgent"
+      ],
+      "default": "Medium",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Link",
+      "label": "Category",
+      "options": "Support Category"
+    },
+    {
+      "fieldname": "source",
+      "fieldtype": "Select",
+      "label": "Received by",
+      "options": [
+        "Phone",
+        "Email",
+        "WhatsApp",
+        "Portal",
+        "Walk-in",
+        "Internal"
+      ],
+      "default": "Phone"
+    },
+    {
+      "fieldname": "column_break_who",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "requester_type",
+      "fieldtype": "Select",
+      "label": "From a",
+      "options": [
+        "Customer",
+        "Employee",
+        "Other"
+      ],
+      "default": "Customer"
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "label": "Customer",
+      "options": "Customer",
+      "depends_on": "eval:doc.requester_type == 'Customer'",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "requester_name",
+      "fieldtype": "Data",
+      "label": "Name"
+    },
+    {
+      "fieldname": "requester_email",
+      "fieldtype": "Data",
+      "label": "Email"
+    },
+    {
+      "fieldname": "requester_phone",
+      "fieldtype": "Data",
+      "label": "Phone"
+    },
+    {
+      "fieldname": "description_section",
+      "fieldtype": "Section Break",
+      "label": "Request"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "What is needed"
+    },
+    {
+      "fieldname": "reference_doctype",
+      "fieldtype": "Data",
+      "label": "About document type",
+      "description": "Optional: the invoice, order or other record this is about."
+    },
+    {
+      "fieldname": "reference_name",
+      "fieldtype": "Data",
+      "label": "About document"
+    },
+    {
+      "fieldname": "conversation_tab",
+      "fieldtype": "Tab Break",
+      "label": "Conversation"
+    },
+    {
+      "fieldname": "replies",
+      "fieldtype": "Table",
+      "label": "Replies and notes",
+      "options": "Support Ticket Reply"
+    },
+    {
+      "fieldname": "resolution_notes",
+      "fieldtype": "Text",
+      "label": "Resolution",
+      "mandatory_depends_on": "eval:doc.status == 'Resolved' || doc.status == 'Closed'"
+    },
+    {
+      "fieldname": "service_tab",
+      "fieldtype": "Tab Break",
+      "label": "Service Level"
+    },
+    {
+      "fieldname": "team",
+      "fieldtype": "Link",
+      "label": "Team",
+      "options": "Support Team",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Data",
+      "label": "Assigned to",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "sla",
+      "fieldtype": "Link",
+      "label": "Service level agreement",
+      "options": "Service Level Agreement",
+      "read_only": true
+    },
+    {
+      "fieldname": "opened_on",
+      "fieldtype": "Datetime",
+      "label": "Opened",
+      "read_only": true
+    },
+    {
+      "fieldname": "column_break_sla",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "first_response_due",
+      "fieldtype": "Datetime",
+      "label": "First response due",
+      "read_only": true
+    },
+    {
+      "fieldname": "first_responded_on",
+      "fieldtype": "Datetime",
+      "label": "First responded",
+      "read_only": true
+    },
+    {
+      "fieldname": "response_sla",
+      "fieldtype": "Select",
+      "label": "Response status",
+      "options": [
+        "",
+        "On track",
+        "At risk",
+        "Met",
+        "Breached",
+        "Paused"
+      ],
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "resolution_due",
+      "fieldtype": "Datetime",
+      "label": "Resolution due",
+      "read_only": true
+    },
+    {
+      "fieldname": "resolved_on",
+      "fieldtype": "Datetime",
+      "label": "Resolved",
+      "read_only": true
+    },
+    {
+      "fieldname": "resolution_sla",
+      "fieldtype": "Select",
+      "label": "Resolution status",
+      "options": [
+        "",
+        "On track",
+        "At risk",
+        "Met",
+        "Breached",
+        "Paused"
+      ],
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "paused_since",
+      "fieldtype": "Datetime",
+      "label": "Clock paused since",
+      "read_only": true
+    },
+    {
+      "fieldname": "escalation_level",
+      "fieldtype": "Int",
+      "label": "Escalations",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "reopen_count",
+      "fieldtype": "Int",
+      "label": "Reopened",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "closed_on",
+      "fieldtype": "Datetime",
+      "label": "Closed",
+      "read_only": true
+    },
+    {
+      "fieldname": "feedback_tab",
+      "fieldtype": "Tab Break",
+      "label": "Customer Feedback"
+    },
+    {
+      "fieldname": "satisfaction",
+      "fieldtype": "Int",
+      "label": "Satisfaction (1 to 5)"
+    },
+    {
+      "fieldname": "feedback",
+      "fieldtype": "Text",
+      "label": "Comment"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Support Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Support Agent",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true
+    },
+    {
+      "role": "Sales Manager",
+      "read": true,
+      "export": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "export": true
+    }
+  ]
+}

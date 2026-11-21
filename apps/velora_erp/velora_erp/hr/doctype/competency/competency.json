@@ -1,0 +1,86 @@
+{
+  "name": "Competency",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Reusable competency and skill catalogue for workforce capability assessment.",
+  "fields": [
+    {
+      "fieldname": "competency_name",
+      "fieldtype": "Data",
+      "label": "Competency Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "competency_code",
+      "fieldtype": "Data",
+      "label": "Competency Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "competency_type",
+      "fieldtype": "Select",
+      "label": "Competency Type",
+      "options": [
+        "Core",
+        "Leadership",
+        "Functional",
+        "Technical",
+        "Behavioural",
+        "Digital"
+      ],
+      "default": "Core",
+      "required": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1
+    },
+    {
+      "fieldname": "owner_department",
+      "fieldtype": "Link",
+      "label": "Owner Department",
+      "options": "Department"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "istable": false,
+  "title_field": "competency_name"
+}

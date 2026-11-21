@@ -1,0 +1,142 @@
+{
+  "name": "Fixed Asset Transfer",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled intra-entity movement of a fixed asset between locations, cost centres and business units. Transfers do not change asset cost or create GL postings.",
+  "fields": [
+    {
+      "fieldname": "asset",
+      "fieldtype": "Link",
+      "label": "Fixed Asset",
+      "required": true,
+      "options": "Fixed Asset"
+    },
+    {
+      "fieldname": "transfer_date",
+      "fieldtype": "Date",
+      "label": "Transfer Date",
+      "required": true
+    },
+    {
+      "fieldname": "from_section",
+      "fieldtype": "Section Break",
+      "label": "Current Assignment",
+      "read_only": true
+    },
+    {
+      "fieldname": "from_location",
+      "fieldtype": "Data",
+      "label": "Current Location",
+      "read_only": true
+    },
+    {
+      "fieldname": "to_location",
+      "fieldtype": "Data",
+      "label": "New Location",
+      "depends_on": "eval:doc.asset"
+    },
+    {
+      "fieldname": "from_cost_centre",
+      "fieldtype": "Link",
+      "label": "Current Cost Centre",
+      "options": "Cost Centre",
+      "read_only": true
+    },
+    {
+      "fieldname": "to_cost_centre",
+      "fieldtype": "Link",
+      "label": "New Cost Centre",
+      "options": "Cost Centre",
+      "depends_on": "eval:doc.asset"
+    },
+    {
+      "fieldname": "from_business_unit",
+      "fieldtype": "Link",
+      "label": "Current Business Unit",
+      "options": "Business Unit",
+      "read_only": true
+    },
+    {
+      "fieldname": "to_business_unit",
+      "fieldtype": "Link",
+      "label": "New Business Unit",
+      "options": "Business Unit",
+      "depends_on": "eval:doc.asset"
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason for Transfer",
+      "required": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval and Audit"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "required": true,
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ]
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    },
+    {
+      "fieldname": "history_record",
+      "fieldtype": "Data",
+      "label": "History Record"
+    }
+  ],
+  "autoname": "series:FAT-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

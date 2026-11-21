@@ -1,0 +1,212 @@
+{
+  "name": "Receipt",
+  "module": "Accounts",
+  "autoname": "series:RCT-.#####",
+  "is_submittable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "receipt_type",
+      "fieldtype": "Select",
+      "label": "Receipt Type",
+      "options": [
+        "Customer",
+        "Other"
+      ],
+      "default": "Customer",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Cash / Bank Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "method",
+      "fieldtype": "Select",
+      "label": "Method",
+      "options": [
+        "Cash",
+        "Bank Transfer",
+        "Cheque",
+        "Card",
+        "Gateway"
+      ],
+      "default": "Bank Transfer",
+      "required": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "reference_no",
+      "fieldtype": "Data",
+      "label": "Reference No",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "reference_date",
+      "fieldtype": "Date",
+      "label": "Reference Date"
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "label": "Customer",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "invoices",
+      "fieldtype": "Table",
+      "label": "Settle Invoices",
+      "options": "Receipt Invoice"
+    },
+    {
+      "fieldname": "allocated_total",
+      "fieldtype": "Currency",
+      "label": "Settled",
+      "read_only": true
+    },
+    {
+      "fieldname": "discount_total",
+      "fieldtype": "Currency",
+      "label": "Discount",
+      "read_only": true
+    },
+    {
+      "fieldname": "on_account",
+      "fieldtype": "Currency",
+      "label": "On Account",
+      "read_only": true,
+      "description": "Money not applied to an invoice stays on the party's account as a credit."
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Receipt Lines",
+      "options": "Receipt Line"
+    },
+    {
+      "fieldname": "wht_rate",
+      "fieldtype": "Float",
+      "label": "WHT Rate %"
+    },
+    {
+      "fieldname": "wht_amount",
+      "fieldtype": "Currency",
+      "label": "WHT Amount"
+    },
+    {
+      "fieldname": "wht_account",
+      "fieldtype": "Link",
+      "label": "WHT Account",
+      "options": "Account"
+    },
+    {
+      "fieldname": "fee_amount",
+      "fieldtype": "Currency",
+      "label": "Gateway / Bank Fee"
+    },
+    {
+      "fieldname": "fee_account",
+      "fieldtype": "Link",
+      "label": "Fee Account",
+      "options": "Account"
+    },
+    {
+      "fieldname": "gateway",
+      "fieldtype": "Data",
+      "label": "Gateway",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "gateway_reference",
+      "fieldtype": "Data",
+      "label": "Gateway Reference",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "total",
+      "fieldtype": "Currency",
+      "label": "Total",
+      "read_only": true
+    },
+    {
+      "fieldname": "bank_amount",
+      "fieldtype": "Currency",
+      "label": "Received In Bank",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "source_type",
+      "fieldtype": "Data",
+      "label": "Source Type",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_ref",
+      "fieldtype": "Data",
+      "label": "Source",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "export": true
+    }
+  ]
+}

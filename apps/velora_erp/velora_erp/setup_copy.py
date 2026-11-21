@@ -1,0 +1,45 @@
+"""What VeloraERP offers to copy from one company to another (read by velora.setup_copy).
+
+Order matters: a section may link to the ones before it. Only setup is listed. Anything submittable (posted or approved
+documents, tax rules that need approval) is never copied and is reported as skipped.
+"""
+
+SECTIONS = [
+    {"id": "chart_of_accounts", "label": "Chart of accounts",
+     "description": "Account types, account groups and accounts.",
+     "doctypes": ["Account Type", "Account Group", "Account"]},
+    {"id": "finance_masters", "label": "Finance masters",
+     "description": "Currencies, transaction types, cost centres, business units, accounting dimensions, payment terms, customer and supplier groups, asset categories, numbering and bank-statement coding rules.",
+     "doctypes": ["Currency", "Transaction Type", "Business Unit", "Cost Centre", "Accounting Dimension", "Dimension Value", "Payment Terms",
+                  "Customer Group", "Supplier Group", "Fixed Asset Category", "Naming Series Rule", "Bank Transaction Coding Rule"],
+     "requires": ["chart_of_accounts"]},
+    {"id": "inventory_masters", "label": "Inventory masters",
+     "description": "Units of measure, item groups and warehouses.",
+     "doctypes": ["Unit of Measure", "Item Group", "Warehouse"]},
+    {"id": "payroll_masters", "label": "Payroll masters",
+     "description": "Salary components and tax jurisdictions. Tax rules and salary structures need approval, so they are set up in each company.",
+     "doctypes": ["Salary Component", "Payroll Tax Jurisdiction"], "requires": ["chart_of_accounts"]},
+    {"id": "hr_masters", "label": "HR masters",
+     "description": "Branches, departments, designations, grades and bands, work locations, leave types, holiday lists, shift types, competencies, review templates and training courses.",
+     "doctypes": ["Branch", "Department", "Designation", "Job Band", "Job Grade", "Work Location", "Leave Type", "Holiday List", "Shift Type",
+                  "Competency", "Performance Review Template", "Training Course"]},
+    {"id": "support_masters", "label": "Customer support setup",
+     "description": "Categories, canned replies, service levels and support teams.",
+     "doctypes": ["Support Category", "Canned Reply", "Service Level Agreement", "Support Team"]},
+    {"id": "finance_policy", "label": "Finance policy",
+     "description": "Which documents need approval, who holds the other powers, posting and credit controls, loan recovery rules and the investment policy. Copy the workflows section too so approvals have a route. This UPDATES the receiving company's Finance Settings.",
+     "settings": {"doctype": "Finance Settings", "requires": ["chart_of_accounts"],
+                  "fields": ["accounting_basis", "accounting_framework", "financial_year_start_month", "number_format", "decimal_places",
+                             "allow_backdated_posting", "backdated_posting_days", "prevent_posting_to_closed_periods", "allow_negative_account_balance",
+                             "exchange_rate_source", "rate_type", "tax_inclusive_pricing", "tax_rounding_method", "track_financial_changes",
+                             "require_reason_for_override", "enforce_customer_credit_limit", "include_open_sales_orders_in_credit_exposure",
+                             "maximum_loan_deduction_percent_of_net_pay", "minimum_net_pay_after_loan_deductions", "loan_recovery_allocation_method",
+                             "allow_partial_loan_recovery", "investment_auto_accrue", "investment_maturity_alert_days", "investment_wht_treatment",
+                             "investment_default_wht_rate", "investment_max_counterparty_percent", "investment_max_asset_group_percent",
+                             "investment_bank_account", "investment_interest_income_account", "investment_dividend_income_account",
+                             "investment_rental_income_account", "investment_accrued_income_account", "investment_deferred_income_account",
+                             "investment_wht_receivable_account", "investment_wht_expense_account", "investment_realised_gain_loss_account",
+                             "investment_unrealised_gain_loss_account", "investment_fair_value_reserve_account", "investment_expense_account"],
+                  "tables": ["approval_policy", "authority_policy"]},
+     "requires": ["chart_of_accounts"]},
+]

@@ -1,0 +1,49 @@
+{
+  "name": "Statutory Deductions Summary",
+  "module": "HR",
+  "type": "script",
+  "ref_doctype": "Salary Slip",
+  "roles": [
+    "System Manager",
+    "HR Manager",
+    "Payroll Manager",
+    "Finance Manager",
+    "Auditor"
+  ],
+  "description": "Employee deductions and employer contributions per component (PAYE, pension, NHF, NSITF ...) for remittance.",
+  "filters": [
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "branch",
+      "label": "Branch",
+      "fieldtype": "Link",
+      "options": "Branch"
+    },
+    {
+      "fieldname": "component_type",
+      "label": "Component Type",
+      "fieldtype": "Select",
+      "options": [
+        "Deduction",
+        "Employer Contribution",
+        "Loan Repayment",
+        "Advance Recovery"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "name": "Department",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Company organisational department hierarchy.",
+  "fields": [
+    {
+      "fieldname": "department_code",
+      "fieldtype": "Data",
+      "label": "Department Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 30
+    },
+    {
+      "fieldname": "department_name",
+      "fieldtype": "Data",
+      "label": "Department Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "parent_department",
+      "fieldtype": "Link",
+      "label": "Parent Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "department_head",
+      "fieldtype": "Link",
+      "label": "Department Head",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0,
+      "in_standard_filter": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": false,
+      "create": false
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": false,
+      "create": false
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": false,
+      "create": false
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false
+    }
+  ],
+  "autoname": "field:department_code",
+  "title_field": "department_name"
+}

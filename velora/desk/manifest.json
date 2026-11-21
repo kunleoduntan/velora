@@ -1,0 +1,346 @@
+{
+  "_centre-Ccr-FIsW.js": {
+    "file": "assets/centre-Ccr-FIsW.js",
+    "name": "centre",
+    "imports": [
+      "_react-Cs6DZD4Z.js"
+    ]
+  },
+  "_react-Cs6DZD4Z.js": {
+    "file": "assets/react-Cs6DZD4Z.js",
+    "name": "react"
+  },
+  "_react-dom-Bz6qyyFw.js": {
+    "file": "assets/react-dom-Bz6qyyFw.js",
+    "name": "react-dom",
+    "imports": [
+      "_react-Cs6DZD4Z.js"
+    ]
+  },
+  "_typescript-DFYBja5q.js": {
+    "file": "assets/typescript-DFYBja5q.js",
+    "name": "typescript",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js"
+    ]
+  },
+  "index.html": {
+    "file": "assets/index-Dwb-S-Hj.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "_react-dom-Bz6qyyFw.js"
+    ],
+    "dynamicImports": [
+      "_typescript-DFYBja5q.js",
+      "src/portal/PortalApp.tsx",
+      "src/components/ControlsCheck.tsx",
+      "src/components/InvestmentPortfolio.tsx",
+      "src/components/SupportDesk.tsx",
+      "src/components/BroadcastCentre.tsx",
+      "src/components/GlReview.tsx",
+      "src/components/ShortcutHub.tsx",
+      "src/components/PortalAccess.tsx",
+      "src/components/BudgetWorkbench.tsx",
+      "src/components/DeveloperStudio.tsx",
+      "src/components/AIStudio.tsx",
+      "src/components/LayoutDesigner.tsx",
+      "src/components/FinancialReportDesigner.tsx",
+      "src/components/FinancialReportingCentre.tsx",
+      "src/components/OperationalCentre.tsx",
+      "src/components/FinanceRequestsCentre.tsx",
+      "src/components/RecruitmentCentre.tsx",
+      "src/components/UpdateCentre.tsx",
+      "src/components/BankReconciliationCentre.tsx",
+      "src/components/WorkspaceDesigner.tsx",
+      "src/components/NotificationAutomationCentre.tsx",
+      "src/components/RuleStudio.tsx",
+      "src/components/LeaveManagementCentre.tsx",
+      "src/components/TrainingCentre.tsx",
+      "src/components/HRGovernanceCentre.tsx"
+    ],
+    "css": [
+      "assets/index-ChYroZIE.css"
+    ]
+  },
+  "src/components/AIStudio.tsx": {
+    "file": "assets/AIStudio-D9jSSp6U.js",
+    "name": "AIStudio",
+    "src": "src/components/AIStudio.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/BankReconciliationCentre.tsx": {
+    "file": "assets/BankReconciliationCentre-B_z6TeaV.js",
+    "name": "BankReconciliationCentre",
+    "src": "src/components/BankReconciliationCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/BroadcastCentre.tsx": {
+    "file": "assets/BroadcastCentre-BDlNB9wH.js",
+    "name": "BroadcastCentre",
+    "src": "src/components/BroadcastCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_centre-Ccr-FIsW.js",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/BudgetWorkbench.tsx": {
+    "file": "assets/BudgetWorkbench-CpVAHWB2.js",
+    "name": "BudgetWorkbench",
+    "src": "src/components/BudgetWorkbench.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/ControlsCheck.tsx": {
+    "file": "assets/ControlsCheck-sXzBPyEI.js",
+    "name": "ControlsCheck",
+    "src": "src/components/ControlsCheck.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/DeveloperStudio.tsx": {
+    "file": "assets/DeveloperStudio-DdBeEKuN.js",
+    "name": "DeveloperStudio",
+    "src": "src/components/DeveloperStudio.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/FinanceRequestsCentre.tsx": {
+    "file": "assets/FinanceRequestsCentre-jANGiajN.js",
+    "name": "FinanceRequestsCentre",
+    "src": "src/components/FinanceRequestsCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/FinancialReportDesigner.tsx": {
+    "file": "assets/FinancialReportDesigner-DKCogXAR.js",
+    "name": "FinancialReportDesigner",
+    "src": "src/components/FinancialReportDesigner.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/FinancialReportingCentre.tsx": {
+    "file": "assets/FinancialReportingCentre-t-ecgoJf.js",
+    "name": "FinancialReportingCentre",
+    "src": "src/components/FinancialReportingCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/GlReview.tsx": {
+    "file": "assets/GlReview-CY5XjD1u.js",
+    "name": "GlReview",
+    "src": "src/components/GlReview.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_centre-Ccr-FIsW.js",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/HRGovernanceCentre.tsx": {
+    "file": "assets/HRGovernanceCentre-7ce1ZjO0.js",
+    "name": "HRGovernanceCentre",
+    "src": "src/components/HRGovernanceCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/InvestmentPortfolio.tsx": {
+    "file": "assets/InvestmentPortfolio-AsiwLLhC.js",
+    "name": "InvestmentPortfolio",
+    "src": "src/components/InvestmentPortfolio.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_centre-Ccr-FIsW.js",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/LayoutDesigner.tsx": {
+    "file": "assets/LayoutDesigner-FpysEWar.js",
+    "name": "LayoutDesigner",
+    "src": "src/components/LayoutDesigner.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/LeaveManagementCentre.tsx": {
+    "file": "assets/LeaveManagementCentre-rXcAFaVO.js",
+    "name": "LeaveManagementCentre",
+    "src": "src/components/LeaveManagementCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/NotificationAutomationCentre.tsx": {
+    "file": "assets/NotificationAutomationCentre-BereXJIo.js",
+    "name": "NotificationAutomationCentre",
+    "src": "src/components/NotificationAutomationCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/OperationalCentre.tsx": {
+    "file": "assets/OperationalCentre-nED2CVee.js",
+    "name": "OperationalCentre",
+    "src": "src/components/OperationalCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/PortalAccess.tsx": {
+    "file": "assets/PortalAccess-QmFBN_gI.js",
+    "name": "PortalAccess",
+    "src": "src/components/PortalAccess.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/RecruitmentCentre.tsx": {
+    "file": "assets/RecruitmentCentre-w10uD1vL.js",
+    "name": "RecruitmentCentre",
+    "src": "src/components/RecruitmentCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/RuleStudio.tsx": {
+    "file": "assets/RuleStudio-Dcfb2ZFn.js",
+    "name": "RuleStudio",
+    "src": "src/components/RuleStudio.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/ShortcutHub.tsx": {
+    "file": "assets/ShortcutHub-CsFRv3Za.js",
+    "name": "ShortcutHub",
+    "src": "src/components/ShortcutHub.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/SupportDesk.tsx": {
+    "file": "assets/SupportDesk-CRj8My10.js",
+    "name": "SupportDesk",
+    "src": "src/components/SupportDesk.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_centre-Ccr-FIsW.js",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/TrainingCentre.tsx": {
+    "file": "assets/TrainingCentre-Gd1G8xzY.js",
+    "name": "TrainingCentre",
+    "src": "src/components/TrainingCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/UpdateCentre.tsx": {
+    "file": "assets/UpdateCentre-BqOmOBDi.js",
+    "name": "UpdateCentre",
+    "src": "src/components/UpdateCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/components/WorkspaceDesigner.tsx": {
+    "file": "assets/WorkspaceDesigner-B_AqxIgv.js",
+    "name": "WorkspaceDesigner",
+    "src": "src/components/WorkspaceDesigner.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-Bz6qyyFw.js"
+    ]
+  },
+  "src/portal/PortalApp.tsx": {
+    "file": "assets/PortalApp-CpzbwYvi.js",
+    "name": "PortalApp",
+    "src": "src/portal/PortalApp.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js"
+    ]
+  }
+}

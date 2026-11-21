@@ -1,0 +1,184 @@
+{
+  "name": "Leave Application",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Employee leave request with policy validation, approval separation and controlled balance reservation.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "leave_type",
+      "fieldtype": "Link",
+      "label": "Leave Type",
+      "options": "Leave Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "leave_allocation",
+      "fieldtype": "Link",
+      "label": "Leave Allocation",
+      "options": "Leave Allocation"
+    },
+    {
+      "fieldname": "holiday_list",
+      "fieldtype": "Link",
+      "label": "Holiday List",
+      "options": "Holiday List"
+    },
+    {
+      "fieldname": "from_date",
+      "fieldtype": "Date",
+      "label": "From Date",
+      "required": true
+    },
+    {
+      "fieldname": "to_date",
+      "fieldtype": "Date",
+      "label": "To Date",
+      "required": true
+    },
+    {
+      "fieldname": "half_day",
+      "fieldtype": "Check",
+      "label": "Half Day",
+      "default": 0
+    },
+    {
+      "fieldname": "half_day_period",
+      "fieldtype": "Select",
+      "label": "Half Day Period",
+      "options": [
+        "First Half",
+        "Second Half"
+      ]
+    },
+    {
+      "fieldname": "total_days",
+      "fieldtype": "Float",
+      "label": "Requested Days",
+      "read_only": true
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason",
+      "required": true
+    },
+    {
+      "fieldname": "supporting_document",
+      "fieldtype": "Data",
+      "label": "Supporting Document"
+    },
+    {
+      "fieldname": "workflow_status",
+      "fieldtype": "Select",
+      "label": "Workflow Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected",
+        "Cancelled",
+        "Completed"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_notes",
+      "fieldtype": "Text",
+      "label": "Approval Notes"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "payroll_treatment",
+      "fieldtype": "Select",
+      "label": "Payroll Treatment",
+      "options": [
+        "Not Applicable",
+        "Paid Leave",
+        "Unpaid Leave",
+        "Review for Payroll Input"
+      ],
+      "default": "Not Applicable",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    },
+    {
+      "role": "Employee",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "title_field": "employee_name"
+}

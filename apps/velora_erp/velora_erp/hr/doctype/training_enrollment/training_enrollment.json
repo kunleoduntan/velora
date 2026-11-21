@@ -1,0 +1,153 @@
+{
+  "name": "Training Enrollment",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Employee nomination and enrolment record for a scheduled training session.",
+  "fields": [
+    {
+      "fieldname": "session",
+      "fieldtype": "Link",
+      "label": "Training Session",
+      "options": "Training Session",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "nomination_source",
+      "fieldtype": "Select",
+      "label": "Nomination Source",
+      "options": [
+        "Manager",
+        "HR",
+        "Employee Request",
+        "Performance Gap",
+        "Mandatory"
+      ],
+      "default": "HR"
+    },
+    {
+      "fieldname": "development_plan",
+      "fieldtype": "Link",
+      "label": "Career Development Plan",
+      "options": "Career Development Plan"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Enrolment Status",
+      "options": [
+        "Nominated",
+        "Approved",
+        "Waitlisted",
+        "Enrolled",
+        "Attended",
+        "Absent",
+        "Withdrawn",
+        "Completed",
+        "Failed"
+      ],
+      "default": "Nominated",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "attendance_status",
+      "fieldtype": "Select",
+      "label": "Attendance",
+      "options": [
+        "Not Recorded",
+        "Present",
+        "Partial",
+        "Absent"
+      ],
+      "default": "Not Recorded"
+    },
+    {
+      "fieldname": "assessment_score",
+      "fieldtype": "Float",
+      "label": "Assessment Score"
+    },
+    {
+      "fieldname": "certificate_reference",
+      "fieldtype": "Data",
+      "label": "Certificate Reference"
+    },
+    {
+      "fieldname": "training_cost",
+      "fieldtype": "Currency",
+      "label": "Training Cost"
+    },
+    {
+      "fieldname": "feedback",
+      "fieldtype": "Text",
+      "label": "Employee Feedback"
+    },
+    {
+      "fieldname": "manager_feedback",
+      "fieldtype": "Text",
+      "label": "Manager Feedback"
+    },
+    {
+      "fieldname": "training_completed_on",
+      "fieldtype": "Date",
+      "label": "Training Completed On"
+    },
+    {
+      "fieldname": "certificate_issue_date",
+      "fieldtype": "Date",
+      "label": "Certificate Issue Date"
+    },
+    {
+      "fieldname": "certificate_expiry_date",
+      "fieldtype": "Date",
+      "label": "Certificate Expiry Date"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true
+    }
+  ],
+  "istable": false,
+  "title_field": "employee_name"
+}

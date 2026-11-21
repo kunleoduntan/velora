@@ -1,0 +1,78 @@
+{
+  "name": "Currency Exchange Rate",
+  "module": "Finance",
+  "app": "velora_erp",
+  "autoname": "series:CER-.#####",
+  "fields": [
+    {
+      "fieldname": "from_currency",
+      "fieldtype": "Link",
+      "label": "From Currency",
+      "length": 3,
+      "required": true,
+      "in_list_view": 1,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "to_currency",
+      "fieldtype": "Link",
+      "label": "To Currency",
+      "length": 3,
+      "required": true,
+      "in_list_view": 1,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Effective From",
+      "required": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "rate",
+      "fieldtype": "Float",
+      "label": "Rate (1 From = x To)",
+      "required": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "source",
+      "fieldtype": "Data",
+      "label": "Source"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true
+    },
+    {
+      "role": "Auditor",
+      "read": true
+    }
+  ],
+  "track_changes": true,
+  "description": "Dated exchange rates to the base currency. A foreign-currency sales or purchase document that still has no rate picks the latest rate on or before its date."
+}

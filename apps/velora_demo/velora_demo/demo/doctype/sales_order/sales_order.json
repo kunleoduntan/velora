@@ -1,0 +1,56 @@
+{
+  "name": "Sales Order",
+  "module": "Demo",
+  "autoname": "series:SO-.#####",
+  "is_submittable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "options": "Customer",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "order_date",
+      "fieldtype": "Date",
+      "default": "Today",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "options": "Sales Order Item",
+      "required": true
+    },
+    {
+      "fieldname": "total",
+      "fieldtype": "Currency",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true
+    },
+    {
+      "role": "Sales User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true
+    }
+  ]
+}

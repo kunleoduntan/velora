@@ -1,0 +1,154 @@
+{
+  "name": "Supplier Quotation",
+  "module": "Finance",
+  "track_changes": true,
+  "autoname": "series:SQ-.######",
+  "description": "What one supplier quoted for a Request for Quotation. Compare them in the Quotation Comparison report, then order from the winner.",
+  "fields": [
+    {
+      "fieldname": "supplier",
+      "fieldtype": "Link",
+      "label": "Supplier",
+      "options": "Supplier",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "supplier_name",
+      "label": "Supplier Name",
+      "fieldtype": "Data",
+      "fetch_from": "supplier.supplier_name",
+      "read_only": true
+    },
+    {
+      "fieldname": "request_for_quotation",
+      "fieldtype": "Link",
+      "label": "Request for Quotation",
+      "options": "Request for Quotation",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "quotation_date",
+      "fieldtype": "Date",
+      "label": "Quotation Date",
+      "required": true,
+      "default": "Today"
+    },
+    {
+      "fieldname": "valid_till",
+      "fieldtype": "Date",
+      "label": "Valid Until",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "default": 1
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Quoted Items",
+      "options": "Supplier Quotation Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_amount",
+      "fieldtype": "Currency",
+      "label": "Total",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "terms",
+      "fieldtype": "Text",
+      "label": "Delivery and Payment Terms"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Received",
+        "Awarded",
+        "Lost",
+        "Expired"
+      ],
+      "default": "Draft",
+      "read_only": false,
+      "in_list_view": true,
+      "description": "Fill in the rates, then set Received. Awarded, Lost and Expired follow by themselves."
+    },
+    {
+      "fieldname": "purchase_order",
+      "fieldtype": "Link",
+      "label": "Purchase Order",
+      "options": "Purchase Order",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Procurement Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

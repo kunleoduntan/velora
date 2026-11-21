@@ -1,0 +1,190 @@
+{
+  "name": "Bank Transaction Processor",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Statement import and coding workbench. It stages imported lines and creates a separate approval-controlled Bank Batch for posting.",
+  "fields": [
+    {
+      "fieldname": "bank",
+      "fieldtype": "Link",
+      "options": "Bank Account",
+      "label": "Bank Account",
+      "in_list_view": true,
+      "description": "Pick the bank account: its ledger account, currency and company are filled in for you."
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank GL Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "fetch_from": "bank.gl_account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "statement_date_from",
+      "fieldtype": "Date",
+      "label": "Statement From"
+    },
+    {
+      "fieldname": "statement_date_to",
+      "fieldtype": "Date",
+      "label": "Statement To"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency",
+      "fetch_from": "bank.currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "source_file_name",
+      "fieldtype": "Data",
+      "label": "Source File Name"
+    },
+    {
+      "fieldname": "import_reference",
+      "fieldtype": "Data",
+      "label": "Import Reference",
+      "required": true,
+      "unique": true
+    },
+    {
+      "fieldname": "csv_import_section",
+      "fieldtype": "Section Break",
+      "label": "CSV Statement Import",
+      "collapsible": true
+    },
+    {
+      "fieldname": "raw_csv_data",
+      "fieldtype": "Text",
+      "label": "Paste CSV Statement Data",
+      "description": "Expected headers: transaction_date,direction,description,bank_reference,amount,offset_account,party_type,party,cost_centre,business_unit. Raw CSV is parsed in memory and not retained."
+    },
+    {
+      "fieldname": "import_hash",
+      "fieldtype": "Data",
+      "label": "Import SHA256",
+      "read_only": true,
+      "unique": true
+    },
+    {
+      "fieldname": "lines_section",
+      "fieldtype": "Section Break",
+      "label": "Imported Statement Lines",
+      "collapsible": true
+    },
+    {
+      "fieldname": "transactions",
+      "fieldtype": "Table",
+      "label": "Transactions",
+      "options": "Bank Statement Transaction",
+      "required": true
+    },
+    {
+      "fieldname": "total_receipts",
+      "fieldtype": "Currency",
+      "label": "Total Receipts",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_payments",
+      "fieldtype": "Currency",
+      "label": "Total Payments",
+      "read_only": true
+    },
+    {
+      "fieldname": "exception_count",
+      "fieldtype": "Int",
+      "label": "Uncoded / Exception Lines",
+      "read_only": true
+    },
+    {
+      "fieldname": "batch_section",
+      "fieldtype": "Section Break",
+      "label": "Generated Posting Batch",
+      "collapsible": true
+    },
+    {
+      "fieldname": "generated_batch",
+      "fieldtype": "Data",
+      "label": "Generated Bank Batch",
+      "read_only": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Ready for Review",
+        "Batch Created",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "autoname": "series:BAN-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "source_file_name"
+}
