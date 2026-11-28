@@ -1,0 +1,1 @@
+from velora_erp.finance.payroll_documents import SalarySlip

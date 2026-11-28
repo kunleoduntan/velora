@@ -1,0 +1,43 @@
+{
+  "name": "Attendance Summary",
+  "module": "HR",
+  "type": "script",
+  "ref_doctype": "Attendance",
+  "roles": [
+    "System Manager",
+    "HR Manager",
+    "HR User",
+    "Auditor"
+  ],
+  "description": "Days present, absent, on leave and late per employee with worked hours and attendance rate.",
+  "filters": [
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "branch",
+      "label": "Branch",
+      "fieldtype": "Link",
+      "options": "Branch"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "name": "Project Document Register",
+  "module": "Collaboration",
+  "track_changes": true,
+  "description": "Controlled project document index; binary storage remains in Velora document service.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "document_title",
+      "label": "Document Title",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "document_type",
+      "label": "Document Type",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "file_reference",
+      "label": "File Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "version",
+      "label": "Version",
+      "fieldtype": "Int",
+      "default": 1
+    },
+    {
+      "fieldname": "classification",
+      "label": "Classification",
+      "fieldtype": "Select",
+      "options": [
+        "Public",
+        "Internal",
+        "Confidential",
+        "Restricted"
+      ],
+      "default": "Internal"
+    },
+    {
+      "fieldname": "document_owner",
+      "label": "Document Owner",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Superseded"
+      ],
+      "default": "Draft"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "project"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "FX Exposure and Sensitivity",
+ "module": "Debt and Treasury",
+ "type": "script",
+ "ref_doctype": "Financing Facility",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Foreign-currency receivables, payables and debt netted per currency, with the gain or loss from a currency move.",
+ "filters": []
+}

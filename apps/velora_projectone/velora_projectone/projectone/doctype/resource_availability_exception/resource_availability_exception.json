@@ -1,0 +1,90 @@
+{
+  "name": "Resource Availability Exception",
+  "module": "Resources",
+  "track_changes": true,
+  "description": "Leave, holiday, maintenance or other resource capacity exception.",
+  "istable": false,
+  "fields": [
+    {
+      "fieldname": "resource",
+      "label": "Resource",
+      "fieldtype": "Link",
+      "options": "Resource Profile",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "exception_date",
+      "label": "Date",
+      "fieldtype": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "available_hours",
+      "label": "Available Hours",
+      "fieldtype": "Float",
+      "default": 0
+    },
+    {
+      "fieldname": "reason",
+      "label": "Reason",
+      "fieldtype": "Select",
+      "options": [
+        "Leave",
+        "Public Holiday",
+        "Training",
+        "Maintenance",
+        "Other"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "reference",
+      "label": "Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "resource"
+}

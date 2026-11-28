@@ -1,0 +1,11 @@
+{
+  "name": "Role Conflicts in Use",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager"
+  ],
+  "description": "People who hold two roles that your rules say must not be combined (for example, who prepares and who approves).",
+  "filters": []
+}

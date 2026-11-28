@@ -1,0 +1,77 @@
+{
+  "name": "Fiscal Year",
+  "module": "Accounts",
+  "autoname": "field:year_name",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "year_name",
+      "fieldtype": "Data",
+      "label": "Year",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "is_closed",
+      "fieldtype": "Check",
+      "label": "Closed",
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ]
+}

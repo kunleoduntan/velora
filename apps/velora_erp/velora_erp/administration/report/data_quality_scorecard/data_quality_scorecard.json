@@ -1,0 +1,16 @@
+{
+  "name": "Data Quality Scorecard",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Sales Manager",
+    "Accounts Manager",
+    "General Manager",
+    "HR Manager"
+  ],
+  "description": "How complete your master data is. Missing emails and phone numbers mean birthday wishes, statements and reminders cannot reach people.",
+  "filters": []
+}

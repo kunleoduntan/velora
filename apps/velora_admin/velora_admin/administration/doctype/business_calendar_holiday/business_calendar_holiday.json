@@ -1,0 +1,18 @@
+{
+  "name": "Business Calendar Holiday",
+  "module": "Administration",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "holiday_date",
+      "fieldtype": "Date",
+      "label": "Holiday Date",
+      "required": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description"
+    }
+  ]
+}

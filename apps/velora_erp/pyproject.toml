@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "velora_erp"
+version = "2.106.1"
+description = "VeloraERP - integrated accounting and business core for the Velora framework"
+requires-python = ">=3.10"
+dependencies = ["velora>=1.19.0,<1.21.0", "velora-projectone>=2.25.2"]
+
+[tool.setuptools.packages.find]
+include = ["velora_erp*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.js", "*.md", "patches.txt", "docs/*.md", "docs/*.json", "docs/*.html", "print_formats/*.html"]
+
+[project.entry-points."velora.api_routes"]
+velora_erp = "velora_erp.api_routes"

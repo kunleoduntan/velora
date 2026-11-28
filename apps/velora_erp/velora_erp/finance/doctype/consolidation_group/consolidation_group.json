@@ -1,0 +1,122 @@
+{
+  "name": "Consolidation Group",
+  "module": "Finance",
+  "autoname": "field:group_name",
+  "title_field": "group_name",
+  "track_changes": true,
+  "description": "Companies reported together: who belongs, how much of each the group owns, how their accounts line up and what is eliminated between them.",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "group_name",
+      "fieldtype": "Data",
+      "label": "Group name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "presentation_currency",
+      "fieldtype": "Link",
+      "label": "Reporting currency",
+      "options": "Currency",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Active",
+        "Inactive"
+      ],
+      "default": "Active",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "tolerance",
+      "fieldtype": "Float",
+      "label": "Difference tolerance",
+      "default": 1,
+      "description": "Intercompany differences smaller than this are not flagged."
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "members_tab",
+      "fieldtype": "Tab Break",
+      "label": "Companies"
+    },
+    {
+      "fieldname": "members",
+      "fieldtype": "Table",
+      "label": "Companies",
+      "options": "Consolidation Member"
+    },
+    {
+      "fieldname": "eliminations_tab",
+      "fieldtype": "Tab Break",
+      "label": "Eliminations"
+    },
+    {
+      "fieldname": "eliminations",
+      "fieldtype": "Table",
+      "label": "Elimination rules",
+      "options": "Consolidation Elimination Rule"
+    },
+    {
+      "fieldname": "mappings_tab",
+      "fieldtype": "Tab Break",
+      "label": "Account mapping"
+    },
+    {
+      "fieldname": "mappings",
+      "fieldtype": "Table",
+      "label": "Account mapping",
+      "options": "Consolidation Account Map",
+      "description": "Only needed where two companies use different codes for the same thing; matching codes line up on their own."
+    }
+  ]
+}

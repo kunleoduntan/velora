@@ -1,0 +1,125 @@
+{
+  "doctype": "DocType",
+  "name": "Renewal Register",
+  "module": "Administration",
+  "custom": 0,
+  "is_submittable": 0,
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "renewal_title",
+      "label": "Renewal Item",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "renewal_category",
+      "label": "Category",
+      "fieldtype": "Select",
+      "options": "License\nPermit\nCertificate\nContract\nInsurance\nSubscription\nVehicle Document\nFacility Certification\nOther",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "reference_number",
+      "label": "Reference Number",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "issuing_authority",
+      "label": "Issuing Authority / Provider",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "company_or_entity",
+      "label": "Company / Entity",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "responsible_officer",
+      "label": "Responsible Officer",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "issue_date",
+      "label": "Issue / Effective Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "expiry_date",
+      "label": "Expiry / Renewal Date",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "renewal_lead_days",
+      "label": "Renewal Lead Days",
+      "fieldtype": "Int",
+      "default": 30,
+      "reqd": 1
+    },
+    {
+      "fieldname": "notification_schedule_json",
+      "label": "Notification Schedule (Days Before Expiry)",
+      "fieldtype": "Text",
+      "options": "JSON",
+      "default": "[90, 60, 30, 14, 7, 1, 0]"
+    },
+    {
+      "fieldname": "auto_renew",
+      "label": "Auto Renew",
+      "fieldtype": "Check",
+      "default": 0
+    },
+    {
+      "fieldname": "renewal_cost",
+      "label": "Renewal Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Active\nRenewal In Progress\nRenewed\nExpired\nCancelled",
+      "default": "Active",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "renewed_date",
+      "label": "Renewed Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "new_expiry_date",
+      "label": "New Expiry Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "linked_document",
+      "label": "Supporting Document",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1
+    }
+  ]
+}

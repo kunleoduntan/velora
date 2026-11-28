@@ -1,0 +1,199 @@
+{
+  "name": "Employee Separation",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Controlled employee separation workflow and clearance checklist. Final financial settlement is coordinated with Finance and is not posted by this document.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "separation_type",
+      "fieldtype": "Select",
+      "label": "Separation Type",
+      "options": [
+        "Resignation",
+        "Retirement",
+        "Termination",
+        "Redundancy",
+        "End of Contract",
+        "Death",
+        "Mutual Separation",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notice_date",
+      "fieldtype": "Date",
+      "label": "Notice Date",
+      "required": true
+    },
+    {
+      "fieldname": "last_working_date",
+      "fieldtype": "Date",
+      "label": "Last Working Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason",
+      "required": true
+    },
+    {
+      "fieldname": "eligible_for_rehire",
+      "fieldtype": "Check",
+      "label": "Eligible for Rehire",
+      "default": 0
+    },
+    {
+      "fieldname": "workflow_status",
+      "fieldtype": "Select",
+      "label": "Workflow Status",
+      "options": [
+        "Draft",
+        "Submitted",
+        "Under Review",
+        "Approved",
+        "Rejected",
+        "Clearance In Progress",
+        "Cleared",
+        "Closed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Not Submitted",
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Not Submitted",
+      "required": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    },
+    {
+      "fieldname": "clearance_items",
+      "fieldtype": "Table",
+      "label": "Exit Clearance",
+      "options": "Exit Clearance Item"
+    },
+    {
+      "fieldname": "clearance_completed",
+      "fieldtype": "Check",
+      "label": "Clearance Completed",
+      "default": 0
+    },
+    {
+      "fieldname": "final_settlement_status",
+      "fieldtype": "Select",
+      "label": "Final Settlement Status",
+      "options": [
+        "Not Started",
+        "Pending Finance",
+        "In Progress",
+        "Completed",
+        "On Hold"
+      ],
+      "default": "Not Started"
+    },
+    {
+      "fieldname": "finance_reference",
+      "fieldtype": "Data",
+      "label": "Finance Settlement Reference"
+    },
+    {
+      "fieldname": "exit_interview_date",
+      "fieldtype": "Date",
+      "label": "Exit Interview Date"
+    },
+    {
+      "fieldname": "exit_interview_notes",
+      "fieldtype": "Text",
+      "label": "Exit Interview Notes"
+    },
+    {
+      "fieldname": "closed_by",
+      "fieldtype": "Data",
+      "label": "Closed By"
+    },
+    {
+      "fieldname": "closed_on",
+      "fieldtype": "Datetime",
+      "label": "Closed On"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

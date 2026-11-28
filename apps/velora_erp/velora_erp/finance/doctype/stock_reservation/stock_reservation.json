@@ -1,0 +1,158 @@
+{
+  "name": "Stock Reservation",
+  "module": "Finance",
+  "track_changes": true,
+  "autoname": "series:SRV-.######",
+  "description": "Sets stock aside for an order or a customer. Reserved stock cannot be delivered, transferred or issued to anyone else until the reservation is released, used or expires.",
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "fieldtype": "Link",
+      "label": "Item",
+      "options": "Inventory Item",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Warehouse",
+      "options": "Warehouse",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "batch",
+      "fieldtype": "Link",
+      "label": "Batch (optional)",
+      "options": "Batch",
+      "description": "Leave empty to reserve from the warehouse as a whole."
+    },
+    {
+      "fieldname": "quantity",
+      "fieldtype": "Float",
+      "label": "Quantity Reserved",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "consumed_quantity",
+      "fieldtype": "Float",
+      "label": "Used So Far",
+      "read_only": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Active",
+        "Fulfilled",
+        "Released",
+        "Expired"
+      ],
+      "default": "Active",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reserved_for_doctype",
+      "fieldtype": "Data",
+      "label": "Reserved For (document type)",
+      "description": "For example Sales Order. A document of this type and name may use the reservation."
+    },
+    {
+      "fieldname": "reserved_for",
+      "fieldtype": "Data",
+      "label": "Reserved For (document)",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reserved_until",
+      "fieldtype": "Date",
+      "label": "Hold Until",
+      "description": "Empty holds the stock until released."
+    },
+    {
+      "fieldname": "reserved_by",
+      "fieldtype": "Data",
+      "label": "Reserved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "note",
+      "fieldtype": "Text",
+      "label": "Note"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Sales Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+ "name": "Expected Credit Loss Band",
+ "module": "Finance",
+ "istable": true,
+ "track_changes": false,
+ "description": "",
+ "fields": [
+  {
+   "fieldname": "bucket",
+   "fieldtype": "Data",
+   "label": "Ageing bucket",
+   "read_only": true
+  },
+  {
+   "fieldname": "loss_rate",
+   "fieldtype": "Float",
+   "label": "Loss rate (%)"
+  },
+  {
+   "fieldname": "exposure",
+   "fieldtype": "Currency",
+   "label": "Exposure"
+  },
+  {
+   "fieldname": "expected_loss",
+   "fieldtype": "Currency",
+   "label": "Expected loss",
+   "read_only": true
+  }
+ ]
+}

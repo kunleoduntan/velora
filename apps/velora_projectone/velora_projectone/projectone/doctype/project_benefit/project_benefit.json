@@ -1,0 +1,139 @@
+{
+  "name": "Project Benefit",
+  "module": "Governance",
+  "track_changes": true,
+  "description": "Expected and realised project benefit with accountable owner and measurement.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "benefit_name",
+      "label": "Benefit Name",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "benefit_category",
+      "label": "Benefit Category",
+      "fieldtype": "Select",
+      "options": [
+        "Financial",
+        "Operational",
+        "Customer",
+        "Compliance",
+        "Strategic",
+        "Environmental"
+      ]
+    },
+    {
+      "fieldname": "baseline_value",
+      "label": "Baseline Value",
+      "fieldtype": "Float"
+    },
+    {
+      "fieldname": "target_value",
+      "label": "Target Value",
+      "fieldtype": "Float",
+      "required": true
+    },
+    {
+      "fieldname": "actual_value",
+      "label": "Actual Value",
+      "fieldtype": "Float",
+      "default": 0
+    },
+    {
+      "fieldname": "unit_of_measure",
+      "label": "Unit of Measure",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "measurement_date",
+      "label": "Measurement Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "benefit_owner",
+      "label": "Benefit Owner",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "realisation_status",
+      "label": "Realisation Status",
+      "fieldtype": "Select",
+      "options": [
+        "Planned",
+        "Tracking",
+        "Realised",
+        "At Risk",
+        "Not Realised"
+      ],
+      "default": "Planned",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "measurement_method",
+      "label": "Measurement Method",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "evidence_reference",
+      "label": "Evidence Reference",
+      "fieldtype": "Data"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "benefit_name"
+}

@@ -1,0 +1,225 @@
+{
+  "name": "Governance Entity",
+  "module": "Governance",
+  "autoname": "series:GE-.####",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "entity_name",
+      "fieldtype": "Data",
+      "label": "Entity Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "legal_name",
+      "fieldtype": "Data",
+      "label": "Legal Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "entity_type",
+      "fieldtype": "Link",
+      "label": "Entity Type",
+      "options": "Governance Entity Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "parent_entity",
+      "fieldtype": "Link",
+      "label": "Parent Entity",
+      "options": "Governance Entity"
+    },
+    {
+      "fieldname": "country",
+      "fieldtype": "Data",
+      "label": "Country Code",
+      "required": true,
+      "default": "NG",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "registration_number",
+      "fieldtype": "Data",
+      "label": "Registration Number"
+    },
+    {
+      "fieldname": "tax_identification_number",
+      "fieldtype": "Data",
+      "label": "Tax Identification Number",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "incorporation_date",
+      "fieldtype": "Date",
+      "label": "Incorporation Date"
+    },
+    {
+      "fieldname": "registered_address",
+      "fieldtype": "Text",
+      "label": "Registered Address",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "principal_business",
+      "fieldtype": "Text",
+      "label": "Principal Business"
+    },
+    {
+      "fieldname": "industry",
+      "fieldtype": "Data",
+      "label": "Industry"
+    },
+    {
+      "fieldname": "website",
+      "fieldtype": "Data",
+      "label": "Website"
+    },
+    {
+      "fieldname": "corporate_email",
+      "fieldtype": "Data",
+      "label": "Corporate Email"
+    },
+    {
+      "fieldname": "telephone",
+      "fieldtype": "Data",
+      "label": "Telephone",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "entity_status",
+      "fieldtype": "Select",
+      "label": "Entity Status",
+      "options": [
+        "Active",
+        "Inactive",
+        "Dissolved",
+        "Under Liquidation",
+        "Merged",
+        "Suspended"
+      ],
+      "default": "Active",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_status",
+      "fieldtype": "Select",
+      "label": "Governance Status",
+      "options": [
+        "Setup",
+        "Active",
+        "Under Review",
+        "Archived"
+      ],
+      "default": "Setup",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "System Manager",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Governance Administrator",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Company Secretary",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "entity_name"
+}

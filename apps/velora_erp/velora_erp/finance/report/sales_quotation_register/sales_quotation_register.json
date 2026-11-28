@@ -1,0 +1,14 @@
+{
+  "name": "Sales Quotation Register",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Sales Quotation",
+  "roles": ["System Manager", "Finance Manager", "Accountant", "Auditor"],
+  "description": "Tracks submitted customer quotations by date, customer, validity, approval and conversion status.",
+  "filters": [
+    {"fieldname": "from_date", "label": "From Date", "fieldtype": "Date", "required": true},
+    {"fieldname": "to_date", "label": "To Date", "fieldtype": "Date", "required": true},
+    {"fieldname": "customer", "label": "Customer", "fieldtype": "Link", "options": "Customer"},
+    {"fieldname": "document_status", "label": "Document Status", "fieldtype": "Select", "options": ["Open", "Expired", "Partially Ordered", "Ordered", "Closed"]}
+  ]
+}

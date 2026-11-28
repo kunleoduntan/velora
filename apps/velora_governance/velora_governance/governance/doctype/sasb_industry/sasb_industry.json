@@ -1,0 +1,123 @@
+{
+ "name": "SASB Industry",
+ "module": "Governance",
+ "track_changes": true,
+ "autoname": "series:SASBI-.####",
+ "title_field": "industry_name",
+ "fields": [
+  {
+   "fieldname": "industry_code",
+   "fieldtype": "Data",
+   "label": "Industry code",
+   "required": true,
+   "unique": true,
+   "in_list_view": true,
+   "description": "As printed in the SASB Standard you hold a licence for."
+  },
+  {
+   "fieldname": "industry_name",
+   "fieldtype": "Data",
+   "label": "Industry",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "sector",
+   "fieldtype": "Data",
+   "label": "Sector",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "standard_version",
+   "fieldtype": "Data",
+   "label": "Standard version / edition"
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

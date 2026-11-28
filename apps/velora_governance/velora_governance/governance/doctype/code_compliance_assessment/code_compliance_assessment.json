@@ -1,0 +1,191 @@
+{
+ "name": "Code Compliance Assessment",
+ "module": "Governance",
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "governance_code",
+   "fieldtype": "Link",
+   "label": "Code",
+   "options": "Governance Code",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "assessment_period",
+   "fieldtype": "Data",
+   "label": "Period",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "assessment_date",
+   "fieldtype": "Date",
+   "label": "Assessment date",
+   "default": "Today"
+  },
+  {
+   "fieldname": "assessor",
+   "fieldtype": "Data",
+   "label": "Assessed by"
+  },
+  {
+   "fieldname": "responses",
+   "fieldtype": "Table",
+   "label": "Responses",
+   "options": "Code Compliance Response"
+  },
+  {
+   "fieldname": "practice_responses",
+   "fieldtype": "Table",
+   "label": "Recommended practices",
+   "options": "Code Compliance Practice Response"
+  },
+  {
+   "fieldname": "practice_applied_count",
+   "fieldtype": "Int",
+   "label": "Practices applied",
+   "read_only": true
+  },
+  {
+   "fieldname": "practice_assessed_count",
+   "fieldtype": "Int",
+   "label": "Practices assessed",
+   "read_only": true
+  },
+  {
+   "fieldname": "practice_total_count",
+   "fieldtype": "Int",
+   "label": "Practices in scope",
+   "read_only": true
+  },
+  {
+   "fieldname": "practice_application_percent",
+   "fieldtype": "Float",
+   "label": "Practice application %",
+   "read_only": true
+  },
+  {
+   "fieldname": "applied_count",
+   "fieldtype": "Int",
+   "label": "Applied",
+   "read_only": true
+  },
+  {
+   "fieldname": "partial_count",
+   "fieldtype": "Int",
+   "label": "Applied in part",
+   "read_only": true
+  },
+  {
+   "fieldname": "explained_count",
+   "fieldtype": "Int",
+   "label": "Explained",
+   "read_only": true
+  },
+  {
+   "fieldname": "not_assessed_count",
+   "fieldtype": "Int",
+   "label": "Not assessed",
+   "read_only": true
+  },
+  {
+   "fieldname": "application_percent",
+   "fieldtype": "Float",
+   "label": "Fully applied (%)",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "autoname": "series:CCA-.####",
+ "title_field": "assessment_period",
+ "track_changes": true,
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

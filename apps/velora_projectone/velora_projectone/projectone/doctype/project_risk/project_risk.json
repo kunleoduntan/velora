@@ -1,0 +1,178 @@
+{
+  "name": "Project Risk",
+  "module": "Governance",
+  "track_changes": true,
+  "description": "Project risk register.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "risk_code",
+      "label": "Risk Code",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "title",
+      "label": "Risk Title",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "category",
+      "label": "Category",
+      "fieldtype": "Select",
+      "options": [
+        "Schedule",
+        "Cost",
+        "Scope",
+        "Quality",
+        "Resource",
+        "Procurement",
+        "Legal",
+        "Compliance",
+        "Operational",
+        "Reputational"
+      ]
+    },
+    {
+      "fieldname": "probability",
+      "label": "Probability",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "impact",
+      "label": "Impact",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "risk_score",
+      "label": "Risk Score",
+      "fieldtype": "Int",
+      "read_only": true
+    },
+    {
+      "fieldname": "min_days",
+      "label": "Best-Case Delay (working days)",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "most_likely_days",
+      "label": "Likely Delay (working days)",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "max_days",
+      "label": "Worst-Case Delay (working days)",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "min_cost",
+      "label": "Best-Case Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "most_likely_cost",
+      "label": "Likely Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "max_cost",
+      "label": "Worst-Case Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "risk_owner",
+      "label": "Risk Owner",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "mitigation",
+      "label": "Mitigation Plan",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "contingency",
+      "label": "Contingency Plan",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "target_date",
+      "label": "Target Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Open",
+        "In Progress",
+        "On Hold",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "title"
+}

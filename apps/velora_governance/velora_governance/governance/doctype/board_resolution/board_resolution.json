@@ -1,0 +1,229 @@
+{
+  "name": "Board Resolution",
+  "module": "Governance",
+  "autoname": "series:BRS-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "resolution_title",
+      "fieldtype": "Data",
+      "label": "Resolution Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "committee",
+      "fieldtype": "Link",
+      "label": "Committee",
+      "options": "Board Committee"
+    },
+    {
+      "fieldname": "meeting",
+      "fieldtype": "Link",
+      "label": "Meeting",
+      "options": "Board Meeting"
+    },
+    {
+      "fieldname": "resolution_type",
+      "fieldtype": "Link",
+      "label": "Resolution Type",
+      "options": "Board Resolution Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "resolution_method",
+      "fieldtype": "Select",
+      "label": "Resolution Method",
+      "options": [
+        "Voting",
+        "Consensus",
+        "Written",
+        "Circular"
+      ],
+      "default": "Voting",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "resolution_text",
+      "fieldtype": "Text",
+      "label": "Resolution Text",
+      "required": true
+    },
+    {
+      "fieldname": "resolution_date",
+      "fieldtype": "Date",
+      "label": "Resolution Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Effective Date"
+    },
+    {
+      "fieldname": "voting_status",
+      "fieldtype": "Select",
+      "label": "Voting Status",
+      "options": [
+        "Not Started",
+        "Open",
+        "Closed"
+      ],
+      "default": "Not Started",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "resolution_status",
+      "fieldtype": "Select",
+      "label": "Resolution Status",
+      "options": [
+        "Draft",
+        "Adopted",
+        "Rejected",
+        "Withdrawn",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_threshold_percent",
+      "fieldtype": "Int",
+      "label": "Approval Threshold Percent",
+      "read_only": true
+    },
+    {
+      "fieldname": "votes",
+      "fieldtype": "Table",
+      "label": "Voting Records",
+      "options": "Board Resolution Voting"
+    },
+    {
+      "fieldname": "votes_for",
+      "fieldtype": "Int",
+      "label": "Votes For",
+      "read_only": true
+    },
+    {
+      "fieldname": "votes_against",
+      "fieldtype": "Int",
+      "label": "Votes Against",
+      "read_only": true
+    },
+    {
+      "fieldname": "abstentions",
+      "fieldtype": "Int",
+      "label": "Abstentions",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_votes",
+      "fieldtype": "Int",
+      "label": "Total Votes",
+      "read_only": true
+    },
+    {
+      "fieldname": "vote_result",
+      "fieldtype": "Select",
+      "label": "Vote Result",
+      "options": [
+        "Met",
+        "Not Met",
+        "No Votes"
+      ],
+      "read_only": true
+    },
+    {
+      "fieldname": "implementation_status",
+      "fieldtype": "Select",
+      "label": "Implementation Status",
+      "options": [
+        "Not Started",
+        "In Progress",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Not Started",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "resolution_title"
+}

@@ -1,0 +1,155 @@
+{
+  "name": "Annual Return",
+  "module": "Governance",
+  "autoname": "series:AR-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reporting_year",
+      "fieldtype": "Int",
+      "label": "Reporting Year",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "annual_return_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Ready",
+        "Submitted",
+        "Filed",
+        "Rejected",
+        "Overdue",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "filed_on",
+      "fieldtype": "Date",
+      "label": "Filed On"
+    },
+    {
+      "fieldname": "filing_reference",
+      "fieldtype": "Data",
+      "label": "Filing Reference"
+    },
+    {
+      "fieldname": "directors_count",
+      "fieldtype": "Int",
+      "label": "Directors Count"
+    },
+    {
+      "fieldname": "shareholders_count",
+      "fieldtype": "Int",
+      "label": "Shareholders Count"
+    },
+    {
+      "fieldname": "share_capital",
+      "fieldtype": "Float",
+      "label": "Share Capital"
+    },
+    {
+      "fieldname": "document_reference",
+      "fieldtype": "Data",
+      "label": "Annual Return File Reference"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "reporting_year"
+}

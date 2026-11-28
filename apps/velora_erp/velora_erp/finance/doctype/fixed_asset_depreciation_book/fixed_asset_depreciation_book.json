@@ -1,0 +1,119 @@
+{
+  "name": "Fixed Asset Depreciation Book",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Separate financial, tax and management depreciation bases. Tax and management books never post to the financial General Ledger.",
+  "fields": [
+    {
+      "fieldname": "book_code",
+      "fieldtype": "Data",
+      "label": "Book Code",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "book_name",
+      "fieldtype": "Data",
+      "label": "Book Name",
+      "required": true
+    },
+    {
+      "fieldname": "book_type",
+      "fieldtype": "Select",
+      "label": "Book Type",
+      "options": [
+        "Financial",
+        "Tax",
+        "Management"
+      ],
+      "required": true,
+      "default": "Financial",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "accounting_framework",
+      "fieldtype": "Select",
+      "label": "Accounting Framework",
+      "options": [
+        "IFRS",
+        "Local GAAP",
+        "Tax",
+        "Management"
+      ],
+      "depends_on": "eval:doc.book_type != \"Management\""
+    },
+    {
+      "fieldname": "posts_to_gl",
+      "fieldtype": "Check",
+      "label": "Posts to General Ledger",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "is_default",
+      "fieldtype": "Check",
+      "label": "Default Book",
+      "default": 0
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    }
+  ],
+  "autoname": "field:book_code",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "book_name"
+}

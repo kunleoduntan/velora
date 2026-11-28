@@ -1,0 +1,320 @@
+{
+  "name": "Salary Slip",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Employee-level payroll statement and immutable calculation snapshot generated from an approved payroll run.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department",
+      "read_only": true,
+      "fetch_from": "employee.department"
+    },
+    {
+      "fieldname": "branch",
+      "fieldtype": "Link",
+      "label": "Branch",
+      "options": "Branch",
+      "read_only": true,
+      "fetch_from": "employee.branch"
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre",
+      "read_only": true,
+      "fetch_from": "employee.default_cost_centre"
+    },
+    {
+      "fieldname": "payroll_run",
+      "fieldtype": "Link",
+      "label": "Payroll Run",
+      "options": "Payroll Run",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "salary_assignment",
+      "fieldtype": "Link",
+      "label": "Salary Structure Assignment",
+      "options": "Salary Structure Assignment",
+      "required": true
+    },
+    {
+      "fieldname": "period_start",
+      "fieldtype": "Date",
+      "label": "Period Start",
+      "required": true
+    },
+    {
+      "fieldname": "period_end",
+      "fieldtype": "Date",
+      "label": "Period End",
+      "required": true
+    },
+    {
+      "fieldname": "payroll_payable_account",
+      "fieldtype": "Link",
+      "label": "Net Salary Payable Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Salary Components",
+      "options": "Salary Slip Line",
+      "required": true
+    },
+    {
+      "fieldname": "loan_recovery_allocations",
+      "fieldtype": "JSON",
+      "label": "Loan Recovery Allocations"
+    },
+    {
+      "fieldname": "loan_recovery_summary",
+      "fieldtype": "JSON",
+      "label": "Loan Recovery Protection and Allocation Summary",
+      "read_only": true
+    },
+    {
+      "fieldname": "advance_recovery_allocations",
+      "fieldtype": "JSON",
+      "label": "Advance Recovery Allocations"
+    },
+    {
+      "fieldname": "gross_earnings",
+      "fieldtype": "Currency",
+      "label": "Gross Earnings",
+      "read_only": true
+    },
+    {
+      "fieldname": "employee_deductions",
+      "fieldtype": "Currency",
+      "label": "Employee Deductions",
+      "read_only": true
+    },
+    {
+      "fieldname": "loan_repayments",
+      "fieldtype": "Currency",
+      "label": "Loan Repayments",
+      "read_only": true
+    },
+    {
+      "fieldname": "advance_recoveries",
+      "fieldtype": "Currency",
+      "label": "Advance Recoveries",
+      "read_only": true
+    },
+    {
+      "fieldname": "employer_contributions",
+      "fieldtype": "Currency",
+      "label": "Employer Contributions",
+      "read_only": true
+    },
+    {
+      "fieldname": "net_pay",
+      "fieldtype": "Currency",
+      "label": "Net Pay",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "total_employer_cost",
+      "fieldtype": "Currency",
+      "label": "Total Employer Cost",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "paid_amount",
+      "fieldtype": "Currency",
+      "label": "Paid Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "outstanding_amount",
+      "fieldtype": "Currency",
+      "label": "Outstanding Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Posted",
+        "Partially Paid",
+        "Paid",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "variable_inputs",
+      "fieldtype": "JSON",
+      "label": "Variable Payroll Inputs"
+    },
+    {
+      "fieldname": "input_status",
+      "fieldtype": "Select",
+      "label": "Input Status",
+      "options": [
+        "Not Required",
+        "Pending",
+        "Complete"
+      ],
+      "default": "Pending",
+      "read_only": true
+    },
+    {
+      "fieldname": "review_notes",
+      "fieldtype": "Text",
+      "label": "Payroll Input Review Notes"
+    },
+    {
+      "fieldname": "tax_credit_amount",
+      "fieldtype": "Currency",
+      "label": "Approved PAYE Refund / Credit",
+      "read_only": true,
+      "default": 0
+    },
+    {
+      "fieldname": "tax_computation",
+      "fieldtype": "JSON",
+      "label": "Tax Computation Breakdown",
+      "read_only": true
+    }
+  ],
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "export": false,
+      "print": false,
+      "write": true,
+      "create": false,
+      "submit": false,
+      "delete": false,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Employee",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

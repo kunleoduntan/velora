@@ -1,0 +1,74 @@
+{
+  "name": "Performance Calibration Item",
+  "module": "HR",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "review",
+      "fieldtype": "Link",
+      "label": "Performance Review",
+      "options": "Performance Review",
+      "required": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": false
+    },
+    {
+      "fieldname": "original_score",
+      "fieldtype": "Float",
+      "label": "Original Score"
+    },
+    {
+      "fieldname": "proposed_score",
+      "fieldtype": "Float",
+      "label": "Proposed Calibrated Score"
+    },
+    {
+      "fieldname": "original_rating",
+      "fieldtype": "Data",
+      "label": "Original Rating"
+    },
+    {
+      "fieldname": "proposed_rating",
+      "fieldtype": "Data",
+      "label": "Proposed Rating"
+    },
+    {
+      "fieldname": "rationale",
+      "fieldtype": "Text",
+      "label": "Calibration Rationale",
+      "required": true
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "decision",
+      "fieldtype": "Select",
+      "label": "Decision",
+      "options": [
+        "Pending",
+        "Accepted",
+        "Rejected",
+        "Deferred"
+      ],
+      "default": "Pending"
+    }
+  ],
+  "permissions": [],
+  "istable": true
+}

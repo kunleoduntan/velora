@@ -1,0 +1,224 @@
+{
+  "name": "Project Revenue Recognition",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Reviewable project performance-based revenue and profit recognition proposal. This document never posts accounting entries.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "performance_obligation",
+      "label": "Performance Obligation",
+      "fieldtype": "Link",
+      "options": "Project Performance Obligation",
+      "required": true
+    },
+    {
+      "fieldname": "contract",
+      "label": "Project Contract",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "period_end",
+      "label": "Period End",
+      "fieldtype": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "options": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "transaction_price",
+      "label": "Allocated Transaction Price",
+      "fieldtype": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "recognition_method",
+      "label": "Recognition Method",
+      "fieldtype": "Select",
+      "options": "Cost To Cost\nOutput\nMilestone\nTime Elapsed\nPoint In Time",
+      "required": true
+    },
+    {
+      "fieldname": "recognition_over_time",
+      "label": "Recognise Over Time",
+      "fieldtype": "Check"
+    },
+    {
+      "fieldname": "control_transfer_confirmed",
+      "label": "Transfer Of Control Confirmed",
+      "fieldtype": "Check"
+    },
+    {
+      "fieldname": "progress_percent",
+      "label": "Measured Progress (%)",
+      "fieldtype": "Float",
+      "read_only": true
+    },
+    {
+      "fieldname": "cumulative_actual_cost",
+      "label": "Cumulative Eligible Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "forecast_total_cost",
+      "label": "Forecast Total Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "prior_cumulative_revenue",
+      "label": "Prior Cumulative Revenue",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "cumulative_revenue",
+      "label": "Cumulative Revenue Proposal",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "current_period_revenue",
+      "label": "Current Period Revenue Proposal",
+      "fieldtype": "Currency",
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "cumulative_cost",
+      "label": "Cumulative Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "current_period_cost",
+      "label": "Current Period Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "cumulative_profit",
+      "label": "Cumulative Project Profit",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "current_period_profit",
+      "label": "Current Period Profit",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "forecast_total_profit",
+      "label": "Forecast Total Profit",
+      "fieldtype": "Currency",
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "forecast_margin_percent",
+      "label": "Forecast Margin (%)",
+      "fieldtype": "Float",
+      "read_only": true
+    },
+    {
+      "fieldname": "potential_onerous_contract_loss",
+      "label": "Potential Contract Loss",
+      "fieldtype": "Check",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": "Draft\nPending Review\nApproved\nRejected\nSuperseded",
+      "required": true,
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_reference",
+      "label": "Approval Reference",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_watermark",
+      "label": "Source Data Watermark",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "notes",
+      "label": "Review Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    }
+  ],
+  "title_field": "project"
+}

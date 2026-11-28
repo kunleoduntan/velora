@@ -1,0 +1,20 @@
+{
+ "name": "Liquidity Forecast",
+ "module": "Debt and Treasury",
+ "type": "script",
+ "ref_doctype": "Financing Facility",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Week-by-week cash: receipts due, supplier payments, debt service and closing cash against the cash buffer.",
+ "filters": [
+  {
+   "fieldname": "weeks",
+   "label": "Weeks",
+   "fieldtype": "Int"
+  }
+ ]
+}

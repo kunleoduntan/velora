@@ -1,0 +1,107 @@
+{
+  "name": "Shift Type",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Defines working hours, breaks, grace periods and expected hours for a shift.",
+  "fields": [
+    {
+      "fieldname": "shift_name",
+      "fieldtype": "Data",
+      "label": "Shift Name",
+      "required": true,
+      "in_list_view": true,
+      "unique": true
+    },
+    {
+      "fieldname": "start_time",
+      "fieldtype": "Data",
+      "label": "Start Time (HH:MM)",
+      "required": true
+    },
+    {
+      "fieldname": "end_time",
+      "fieldtype": "Data",
+      "label": "End Time (HH:MM)",
+      "required": true
+    },
+    {
+      "fieldname": "break_minutes",
+      "fieldtype": "Int",
+      "label": "Unpaid Break Minutes",
+      "default": 0
+    },
+    {
+      "fieldname": "grace_minutes",
+      "fieldtype": "Int",
+      "label": "Late Arrival Grace Minutes",
+      "default": 0
+    },
+    {
+      "fieldname": "expected_hours",
+      "fieldtype": "Float",
+      "label": "Expected Working Hours"
+    },
+    {
+      "fieldname": "crosses_midnight",
+      "fieldtype": "Check",
+      "label": "Crosses Midnight",
+      "default": 0
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "shift_name"
+}

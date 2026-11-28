@@ -1,0 +1,81 @@
+{
+  "name": "Board Meeting Agenda Item",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "sequence",
+      "fieldtype": "Int",
+      "label": "Sequence",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "agenda_title",
+      "fieldtype": "Data",
+      "label": "Agenda Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Link",
+      "label": "Category",
+      "options": "Board Agenda Category",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "presenter",
+      "fieldtype": "Data",
+      "label": "Presenter"
+    },
+    {
+      "fieldname": "duration_minutes",
+      "fieldtype": "Int",
+      "label": "Duration (Minutes)",
+      "default": 0
+    },
+    {
+      "fieldname": "board_paper",
+      "fieldtype": "Link",
+      "label": "Board Paper",
+      "options": "Board Paper"
+    },
+    {
+      "fieldname": "confidential",
+      "fieldtype": "Check",
+      "label": "Confidential",
+      "default": 0
+    },
+    {
+      "fieldname": "voting_required",
+      "fieldtype": "Check",
+      "label": "Voting Required",
+      "default": 0
+    },
+    {
+      "fieldname": "expected_decision",
+      "fieldtype": "Text",
+      "label": "Expected Decision"
+    },
+    {
+      "fieldname": "agenda_status",
+      "fieldtype": "Select",
+      "label": "Agenda Status",
+      "options": [
+        "Planned",
+        "Completed",
+        "Deferred",
+        "Removed"
+      ],
+      "default": "Planned",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

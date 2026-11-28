@@ -1,0 +1,200 @@
+{
+ "name": "Sustainability Data Point",
+ "module": "Governance",
+ "autoname": "series:SDP-.####",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "metric",
+   "fieldtype": "Link",
+   "label": "Metric",
+   "options": "Sustainability Metric",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reporting_period",
+   "fieldtype": "Data",
+   "label": "Reporting Period",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "data_type",
+   "fieldtype": "Select",
+   "label": "Data Type",
+   "options": [
+    "Numeric",
+    "Percentage",
+    "Boolean",
+    "Text",
+    "Currency"
+   ],
+   "default": "Numeric",
+   "required": true
+  },
+  {
+   "fieldname": "text_value",
+   "fieldtype": "Data",
+   "label": "Text Value",
+   "depends_on": "eval:doc.data_type == 'Text'"
+  },
+  {
+   "fieldname": "boolean_value",
+   "fieldtype": "Check",
+   "label": "Boolean Value",
+   "depends_on": "eval:doc.data_type == 'Boolean'"
+  },
+  {
+   "fieldname": "value",
+   "fieldtype": "Float",
+   "label": "Value",
+   "required": false
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Sustainability Unit",
+   "required": true
+  },
+  {
+   "fieldname": "data_source",
+   "fieldtype": "Data",
+   "label": "Data Source"
+  },
+  {
+   "fieldname": "data_owner",
+   "fieldtype": "Data",
+   "label": "Data Owner"
+  },
+  {
+   "fieldname": "data_date",
+   "fieldtype": "Date",
+   "label": "Data Date",
+   "required": true
+  },
+  {
+   "fieldname": "data_quality",
+   "fieldtype": "Link",
+   "label": "Data Quality",
+   "options": "Sustainability Data Quality"
+  },
+  {
+   "fieldname": "verification_status",
+   "fieldtype": "Select",
+   "label": "Verification Status",
+   "options": [
+    "Unverified",
+    "Reviewed",
+    "Verified",
+    "Rejected"
+   ],
+   "default": "Unverified",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Table",
+   "label": "Evidence",
+   "options": "Sustainability Evidence"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "disclosure",
+   "label": "Disclosure",
+   "fieldtype": "Link",
+   "options": "Sustainability Disclosure"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ],
+ "title_field": "metric"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Quality Reading Row",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "parameter",
+      "fieldtype": "Data",
+      "label": "Parameter",
+      "required": true,
+      "in_list_view": true,
+      "length": 120
+    },
+    {
+      "fieldname": "kind",
+      "fieldtype": "Select",
+      "label": "Measured as",
+      "options": [
+        "Numeric",
+        "Pass/Fail"
+      ],
+      "default": "Numeric",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "min_value",
+      "fieldtype": "Float",
+      "label": "Minimum"
+    },
+    {
+      "fieldname": "max_value",
+      "fieldtype": "Float",
+      "label": "Maximum"
+    },
+    {
+      "fieldname": "unit",
+      "fieldtype": "Data",
+      "label": "Unit",
+      "length": 30
+    },
+    {
+      "fieldname": "reading",
+      "fieldtype": "Float",
+      "label": "Reading",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "passed",
+      "fieldtype": "Check",
+      "label": "Passed (for pass/fail points)"
+    },
+    {
+      "fieldname": "outcome",
+      "fieldtype": "Select",
+      "label": "Outcome",
+      "options": [
+        "Pass",
+        "Fail"
+      ],
+      "read_only": true,
+      "in_list_view": true
+    }
+  ]
+}

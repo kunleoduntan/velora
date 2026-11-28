@@ -1,0 +1,98 @@
+{
+  "name": "Performance Review Template",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Reusable, configurable performance assessment templates with weighted goals, competencies and behavioural criteria.",
+  "fields": [
+    {
+      "fieldname": "template_code",
+      "fieldtype": "Data",
+      "label": "Template Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "template_name",
+      "fieldtype": "Data",
+      "label": "Template Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "rating_method",
+      "fieldtype": "Select",
+      "label": "Rating Method",
+      "options": [
+        "Weighted Average",
+        "Simple Average",
+        "No Overall Score"
+      ],
+      "default": "Weighted Average",
+      "required": true
+    },
+    {
+      "fieldname": "rating_scale_description",
+      "fieldtype": "Text",
+      "label": "Rating Scale Guidance"
+    },
+    {
+      "fieldname": "criteria",
+      "fieldtype": "Table",
+      "label": "Criteria",
+      "options": "Performance Template Criterion",
+      "required": true
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "istable": false,
+  "autoname": "field:template_code",
+  "title_field": "template_name"
+}

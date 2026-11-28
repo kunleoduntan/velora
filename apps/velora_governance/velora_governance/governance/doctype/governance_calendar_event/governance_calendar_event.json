@@ -1,0 +1,144 @@
+{
+  "name": "Governance Calendar Event",
+  "module": "Governance",
+  "autoname": "series:GCE-.####",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "event_title",
+      "fieldtype": "Data",
+      "label": "Event Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "event_type",
+      "fieldtype": "Link",
+      "label": "Event Type",
+      "options": "Governance Event Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board"
+    },
+    {
+      "fieldname": "related_doctype",
+      "fieldtype": "Data",
+      "label": "Related DocType"
+    },
+    {
+      "fieldname": "related_record",
+      "fieldtype": "Data",
+      "label": "Related Record"
+    },
+    {
+      "fieldname": "event_date",
+      "fieldtype": "Date",
+      "label": "Event Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "responsible_person",
+      "fieldtype": "Data",
+      "label": "Responsible Person"
+    },
+    {
+      "fieldname": "reminder_days",
+      "fieldtype": "Int",
+      "label": "Reminder Days"
+    },
+    {
+      "fieldname": "event_status",
+      "fieldtype": "Select",
+      "label": "Event Status",
+      "options": [
+        "Open",
+        "In Progress",
+        "Completed",
+        "Cancelled",
+        "Overdue"
+      ],
+      "default": "Open",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "completion_evidence",
+      "fieldtype": "Data",
+      "label": "Completion Evidence Reference"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "event_title"
+}

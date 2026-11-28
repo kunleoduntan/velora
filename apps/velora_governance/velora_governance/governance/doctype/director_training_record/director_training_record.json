@@ -1,0 +1,166 @@
+{
+  "name": "Director Training Record",
+  "module": "Governance",
+  "autoname": "series:DTR-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "board_member",
+      "fieldtype": "Link",
+      "label": "Board Member",
+      "options": "Board Member",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "training_title",
+      "fieldtype": "Data",
+      "label": "Training Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "training_category",
+      "fieldtype": "Select",
+      "label": "Training Category",
+      "options": [
+        "Governance",
+        "Finance",
+        "Risk",
+        "Compliance",
+        "Technology",
+        "Sustainability",
+        "Leadership",
+        "Industry",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "provider",
+      "fieldtype": "Data",
+      "label": "Provider"
+    },
+    {
+      "fieldname": "training_date",
+      "fieldtype": "Date",
+      "label": "Training Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "hours",
+      "fieldtype": "Float",
+      "label": "Training Hours"
+    },
+    {
+      "fieldname": "cpd_credits",
+      "fieldtype": "Float",
+      "label": "CPD Credits"
+    },
+    {
+      "fieldname": "expiry_date",
+      "fieldtype": "Date",
+      "label": "Expiry Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "certificate_reference",
+      "fieldtype": "Data",
+      "label": "Certificate Reference"
+    },
+    {
+      "fieldname": "training_status",
+      "fieldtype": "Select",
+      "label": "Training Status",
+      "options": [
+        "Completed",
+        "Expired",
+        "Planned",
+        "Cancelled"
+      ],
+      "default": "Completed",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "training_title"
+}

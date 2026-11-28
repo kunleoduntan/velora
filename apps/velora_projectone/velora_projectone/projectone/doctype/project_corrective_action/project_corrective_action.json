@@ -1,0 +1,111 @@
+{
+  "name": "Project Corrective Action",
+  "module": "Governance",
+  "track_changes": true,
+  "description": "An action raised to bring a project exception back under control; approved through the workflow.",
+  "title_field": "title",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Title",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "exception_id",
+      "label": "Exception",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "action_owner",
+      "label": "Action Owner",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "due_date",
+      "label": "Due Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "requested_by",
+      "label": "Requested By",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Open",
+        "In Progress",
+        "On Hold",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Text"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "velora_projectone"
+version = "2.25.2"
+description = "Velora ProjectOne - Enterprise Project and Portfolio Management"
+requires-python = ">=3.10"
+dependencies = ["velora>=1.16.2,<1.20.0", "velora-erp>=2.95.4"]
+
+[tool.setuptools.packages.find]
+include = ["velora_projectone*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.js", "*.md", "*.txt", "*.html"]
+"velora_projectone" = ["frontend/*.js", "frontend/*.css", "docs/*.html"]
+
+[project.entry-points."velora.api_routes"]
+velora_projectone = "velora_projectone.api_routes"

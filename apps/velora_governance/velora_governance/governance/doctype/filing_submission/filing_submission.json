@@ -1,0 +1,67 @@
+{
+  "name": "Filing Submission",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "submission_date",
+      "fieldtype": "Date",
+      "label": "Submission Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "submitted_by",
+      "fieldtype": "Data",
+      "label": "Submitted By"
+    },
+    {
+      "fieldname": "submission_channel",
+      "fieldtype": "Select",
+      "label": "Submission Channel",
+      "options": [
+        "Portal",
+        "Email",
+        "Physical",
+        "Agent",
+        "Other"
+      ],
+      "default": "Portal",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "submission_reference",
+      "fieldtype": "Data",
+      "label": "Submission Reference"
+    },
+    {
+      "fieldname": "submission_result",
+      "fieldtype": "Select",
+      "label": "Submission Result",
+      "options": [
+        "Pending",
+        "Submitted",
+        "Accepted",
+        "Rejected",
+        "Returned"
+      ],
+      "default": "Submitted",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "response_date",
+      "fieldtype": "Date",
+      "label": "Response Date"
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

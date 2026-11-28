@@ -1,0 +1,58 @@
+{
+  "name": "Fixed Asset Request Line",
+  "module": "Finance",
+  "track_changes": false,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Asset Description",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "asset_category",
+      "fieldtype": "Link",
+      "label": "Asset Category",
+      "options": "Fixed Asset Category",
+      "required": true
+    },
+    {
+      "fieldname": "quantity",
+      "fieldtype": "Int",
+      "label": "Quantity",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "estimated_unit_cost",
+      "fieldtype": "Currency",
+      "label": "Estimated Unit Cost",
+      "required": true
+    },
+    {
+      "fieldname": "required_by",
+      "fieldtype": "Date",
+      "label": "Required By"
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "justification",
+      "fieldtype": "Text",
+      "label": "Business Justification"
+    }
+  ],
+  "istable": true
+}

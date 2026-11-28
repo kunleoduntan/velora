@@ -1,0 +1,184 @@
+{
+  "name": "Regulatory Correspondence",
+  "module": "Governance",
+  "autoname": "series:RCO-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "authority",
+      "fieldtype": "Link",
+      "label": "Regulatory Authority",
+      "options": "Regulatory Authority",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "correspondence_reference",
+      "fieldtype": "Data",
+      "label": "Correspondence Reference",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "direction",
+      "fieldtype": "Select",
+      "label": "Direction",
+      "options": [
+        "Received",
+        "Sent"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "correspondence_date",
+      "fieldtype": "Date",
+      "label": "Correspondence Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Select",
+      "label": "Category",
+      "options": [
+        "Notice",
+        "Inquiry",
+        "Request",
+        "Inspection",
+        "Complaint",
+        "Response",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "responsible_owner",
+      "fieldtype": "Data",
+      "label": "Responsible Owner"
+    },
+    {
+      "fieldname": "response_due_date",
+      "fieldtype": "Date",
+      "label": "Response Due Date"
+    },
+    {
+      "fieldname": "response_date",
+      "fieldtype": "Date",
+      "label": "Response Date"
+    },
+    {
+      "fieldname": "correspondence_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Open",
+        "In Progress",
+        "Responded",
+        "Closed",
+        "Overdue"
+      ],
+      "default": "Open",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "document_reference",
+      "fieldtype": "Data",
+      "label": "Correspondence File Reference"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "subject"
+}

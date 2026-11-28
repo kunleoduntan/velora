@@ -1,0 +1,99 @@
+{
+  "name": "Performance Rater Nomination",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Individual rater nomination and response tracking for 360-degree review campaigns.",
+  "fields": [
+    {
+      "fieldname": "review",
+      "fieldtype": "Link",
+      "label": "Performance Review",
+      "options": "Performance Review",
+      "required": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": false
+    },
+    {
+      "fieldname": "rater",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true
+    },
+    {
+      "fieldname": "relationship",
+      "fieldtype": "Select",
+      "label": "Relationship",
+      "options": [
+        "Manager",
+        "Peer",
+        "Direct Report",
+        "Internal Customer",
+        "Project Lead",
+        "Other"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "feedback_type",
+      "fieldtype": "Select",
+      "label": "Feedback Type",
+      "options": [
+        "Peer",
+        "360 Degree"
+      ],
+      "default": "360 Degree"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Nominated",
+        "Invited",
+        "Accepted",
+        "Submitted",
+        "Declined",
+        "Cancelled"
+      ],
+      "default": "Nominated"
+    },
+    {
+      "fieldname": "invited_on",
+      "fieldtype": "Datetime",
+      "label": "Invited On"
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date"
+    },
+    {
+      "fieldname": "feedback",
+      "fieldtype": "Link",
+      "label": "Feedback Record",
+      "options": "Performance Feedback"
+    },
+    {
+      "fieldname": "confidential",
+      "fieldtype": "Check",
+      "label": "Confidential",
+      "default": 1
+    }
+  ],
+  "permissions": [],
+  "istable": true
+}

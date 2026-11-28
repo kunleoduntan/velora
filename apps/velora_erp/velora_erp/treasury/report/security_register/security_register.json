@@ -1,0 +1,14 @@
+{
+ "name": "Security Register",
+ "module": "Debt and Treasury",
+ "type": "script",
+ "ref_doctype": "Financing Facility",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Collateral pledged against each facility with value, registration, expiry and the cover it gives over the outstanding balance.",
+ "filters": []
+}

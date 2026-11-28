@@ -1,0 +1,12 @@
+{
+  "name": "Staff Budget vs Actual",
+  "module": "HR",
+  "type": "script",
+  "ref_doctype": "Department Staff Budget",
+  "roles": ["System Manager", "HR Manager", "Finance Manager", "Auditor"],
+  "description": "Budgeted headcount and cost against people employed and positions already requested, by department and designation.",
+  "filters": [
+    {"fieldname": "department", "label": "Department", "fieldtype": "Link", "options": "Department"},
+    {"fieldname": "as_of", "label": "As Of", "fieldtype": "Date"}
+  ]
+}

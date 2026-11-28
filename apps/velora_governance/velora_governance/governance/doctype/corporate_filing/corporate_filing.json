@@ -1,0 +1,165 @@
+{
+  "name": "Corporate Filing",
+  "module": "Governance",
+  "autoname": "series:CPF-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "filing_requirement",
+      "fieldtype": "Link",
+      "label": "Filing Requirement",
+      "options": "Filing Requirement",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "filing_period",
+      "fieldtype": "Data",
+      "label": "Filing Period",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "responsible_owner",
+      "fieldtype": "Data",
+      "label": "Responsible Owner"
+    },
+    {
+      "fieldname": "filing_status",
+      "fieldtype": "Select",
+      "label": "Filing Status",
+      "options": [
+        "Draft",
+        "Ready",
+        "Submitted",
+        "Accepted",
+        "Rejected",
+        "Overdue",
+        "Not Required",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "submitted_on",
+      "fieldtype": "Date",
+      "label": "Submitted On"
+    },
+    {
+      "fieldname": "accepted_on",
+      "fieldtype": "Date",
+      "label": "Accepted On"
+    },
+    {
+      "fieldname": "filing_reference",
+      "fieldtype": "Data",
+      "label": "Filing Reference",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "document_reference",
+      "fieldtype": "Data",
+      "label": "Document File Reference"
+    },
+    {
+      "fieldname": "submission_history",
+      "fieldtype": "Table",
+      "label": "Submission History",
+      "options": "Filing Submission"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "filing_reference"
+}

@@ -1,0 +1,112 @@
+{
+  "name": "Employee Loan Schedule Line",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Calculated amortisation schedule for an employee loan.",
+  "fields": [
+    {
+      "fieldname": "installment_no",
+      "fieldtype": "Int",
+      "label": "Installment No",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "opening_balance",
+      "fieldtype": "Currency",
+      "label": "Opening Balance"
+    },
+    {
+      "fieldname": "principal_amount",
+      "fieldtype": "Currency",
+      "label": "Principal"
+    },
+    {
+      "fieldname": "interest_amount",
+      "fieldtype": "Currency",
+      "label": "Interest"
+    },
+    {
+      "fieldname": "total_due",
+      "fieldtype": "Currency",
+      "label": "Total Due"
+    },
+    {
+      "fieldname": "closing_balance",
+      "fieldtype": "Currency",
+      "label": "Closing Balance"
+    },
+    {
+      "fieldname": "paid_amount",
+      "fieldtype": "Currency",
+      "label": "Paid Amount",
+      "default": 0
+    },
+    {
+      "fieldname": "paid_principal",
+      "fieldtype": "Currency",
+      "label": "Principal Paid",
+      "default": 0
+    },
+    {
+      "fieldname": "paid_interest",
+      "fieldtype": "Currency",
+      "label": "Interest Paid",
+      "default": 0
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Pending",
+        "Partially Paid",
+        "Paid"
+      ],
+      "default": "Pending"
+    }
+  ],
+  "istable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

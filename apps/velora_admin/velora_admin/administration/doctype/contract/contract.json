@@ -1,0 +1,171 @@
+{
+  "name": "Contract",
+  "module": "Administration",
+  "autoname": "series:CONTRACT-.YYYY.-.####",
+  "title_field": "contract_title",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "CONTRACT-.YYYY.-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "contract_title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Contract Title",
+      "required": true
+    },
+    {
+      "fieldname": "vendor",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Vendor",
+      "options": "Vendor Administration Profile",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Service Agreement",
+      "fieldname": "contract_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Contract Type",
+      "options": "Service Agreement\nSupply Agreement\nLease\nConsulting\nMaintenance\nOther"
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Draft\nActive\nExpiring Soon\nExpired\nTerminated",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_org",
+      "fieldtype": "Section Break",
+      "label": "Organisation & Value"
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "column_break_org",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "value",
+      "fieldtype": "Currency",
+      "label": "Contract Value"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "section_break_dates",
+      "fieldtype": "Section Break",
+      "label": "Dates"
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date",
+      "required": true
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_dates",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "30",
+      "fieldname": "renewal_notice_days",
+      "fieldtype": "Int",
+      "label": "Renewal Notice (Days Before Expiry)"
+    },
+    {
+      "default": "0",
+      "fieldname": "auto_renew",
+      "fieldtype": "Check",
+      "label": "Auto-Renew"
+    },
+    {
+      "fieldname": "section_break_terms",
+      "fieldtype": "Section Break",
+      "label": "Terms"
+    },
+    {
+      "fieldname": "payment_terms",
+      "fieldtype": "Text",
+      "label": "Payment Terms"
+    },
+    {
+      "fieldname": "linked_document",
+      "fieldtype": "Link",
+      "label": "Contract Document",
+      "options": "Document Register"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "section_break_renewals",
+      "fieldtype": "Section Break",
+      "label": "Renewal History"
+    },
+    {
+      "fieldname": "renewal_history",
+      "fieldtype": "Table",
+      "label": "Renewal History",
+      "options": "Contract Renewal",
+      "read_only": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

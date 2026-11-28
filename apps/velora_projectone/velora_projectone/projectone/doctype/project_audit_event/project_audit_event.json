@@ -1,0 +1,63 @@
+{
+  "name": "Project Audit Event",
+  "module": "Projects",
+  "description": "Append-only record of what was done to a project record, by whom and what changed.",
+  "title_field": "action",
+  "sort_field": "creation",
+  "sort_order": "desc",
+  "fields": [
+    {
+      "fieldname": "project",
+      "fieldtype": "Data",
+      "label": "Record",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "action",
+      "fieldtype": "Data",
+      "label": "Action",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "actor",
+      "fieldtype": "Data",
+      "label": "Done By",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "before",
+      "fieldtype": "JSON",
+      "label": "Before"
+    },
+    {
+      "fieldname": "after",
+      "fieldtype": "JSON",
+      "label": "After"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

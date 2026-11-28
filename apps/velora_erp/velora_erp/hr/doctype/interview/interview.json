@@ -1,0 +1,137 @@
+{
+  "name": "Interview",
+  "module": "HR",
+  "autoname": "series:INT-.####",
+  "track_changes": true,
+  "description": "Interview scheduling, panel feedback and structured evaluation for a candidate application.",
+  "fields": [
+    {
+      "fieldname": "application",
+      "fieldtype": "Link",
+      "label": "Job Application",
+      "options": "Job Application",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "interview_round",
+      "fieldtype": "Data",
+      "label": "Interview Round",
+      "required": true
+    },
+    {
+      "fieldname": "interview_type",
+      "fieldtype": "Select",
+      "label": "Interview Type",
+      "options": [
+        "Phone",
+        "Video",
+        "In Person",
+        "Technical",
+        "Panel",
+        "Assessment"
+      ]
+    },
+    {
+      "fieldname": "scheduled_start",
+      "fieldtype": "Datetime",
+      "label": "Scheduled Start",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "scheduled_end",
+      "fieldtype": "Datetime",
+      "label": "Scheduled End"
+    },
+    {
+      "fieldname": "location_or_link",
+      "fieldtype": "Data",
+      "label": "Location or Meeting Link"
+    },
+    {
+      "fieldname": "panel_members",
+      "fieldtype": "Text",
+      "label": "Interview Panel Members"
+    },
+    {
+      "fieldname": "interviewer",
+      "fieldtype": "Data",
+      "label": "Lead Interviewer"
+    },
+    {
+      "fieldname": "score",
+      "fieldtype": "Float",
+      "label": "Overall Score"
+    },
+    {
+      "fieldname": "recommendation",
+      "fieldtype": "Select",
+      "label": "Recommendation",
+      "options": [
+        "Strong Hire",
+        "Hire",
+        "Hold",
+        "No Hire"
+      ]
+    },
+    {
+      "fieldname": "feedback",
+      "fieldtype": "Text",
+      "label": "Interview Feedback"
+    },
+    {
+      "fieldname": "interview_status",
+      "fieldtype": "Select",
+      "label": "Interview Status",
+      "options": [
+        "Scheduled",
+        "Completed",
+        "Cancelled",
+        "Rescheduled",
+        "No Show"
+      ],
+      "default": "Scheduled",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

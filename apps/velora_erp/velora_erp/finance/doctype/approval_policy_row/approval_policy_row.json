@@ -1,0 +1,23 @@
+{
+  "name": "Approval Policy Row",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "document_type",
+      "fieldtype": "Data",
+      "label": "Document",
+      "required": true,
+      "in_list_view": true,
+      "read_only": true,
+      "length": 140
+    },
+    {
+      "fieldname": "require_approval",
+      "fieldtype": "Check",
+      "label": "Requires approval",
+      "in_list_view": true,
+      "default": 0
+    }
+  ]
+}

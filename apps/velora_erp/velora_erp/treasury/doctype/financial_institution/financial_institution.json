@@ -1,0 +1,120 @@
+{
+ "name": "Financial Institution",
+ "module": "Debt and Treasury",
+ "autoname": "field:institution_name",
+ "track_changes": true,
+ "title_field": "institution_name",
+ "description": "A bank, development finance institution, bondholder group or related party that lends to the company.",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "report": true,
+   "export": true,
+   "print": true
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "institution_name",
+   "fieldtype": "Data",
+   "label": "Lender / institution",
+   "required": true,
+   "in_list_view": true,
+   "unique": true
+  },
+  {
+   "fieldname": "institution_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": [
+    "Commercial Bank",
+    "Development Finance Institution",
+    "Microfinance Bank",
+    "Bondholders / Capital Market",
+    "Related Party / Shareholder",
+    "Vendor Finance",
+    "Other"
+   ],
+   "required": true,
+   "default": "Commercial Bank",
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Relationship manager"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "tax_registration_number",
+   "fieldtype": "Data",
+   "label": "Tax registration number"
+  },
+  {
+   "fieldname": "wht_applicable",
+   "fieldtype": "Check",
+   "label": "Withholding tax applies to interest paid to this lender",
+   "default": 0,
+   "description": "Tick for lenders from whom withholding tax must be deducted when interest is paid. Banks licensed in Nigeria are generally treated differently from companies and individuals; confirm with your tax adviser."
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled",
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ]
+}

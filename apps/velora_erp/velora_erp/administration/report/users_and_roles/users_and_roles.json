@@ -1,0 +1,17 @@
+{
+  "name": "Users and Their Roles",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager"
+  ],
+  "description": "Every user of this company with their roles, flagging people with no role, with administrator rights, or with too many roles.",
+  "filters": [
+    {
+      "fieldname": "only_flagged",
+      "label": "Only people to review",
+      "fieldtype": "Check"
+    }
+  ]
+}

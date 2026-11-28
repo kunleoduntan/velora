@@ -1,0 +1,143 @@
+{
+ "name": "Tax Journal Line",
+ "module": "Tax Management",
+ "istable": true,
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Select",
+   "label": "Party type",
+   "options": [
+    "Customer",
+    "Supplier",
+    "Income received",
+    "Payment made"
+   ],
+   "required": true,
+   "in_list_view": true,
+   "description": "Customer: tax a customer withheld from you (a credit). Supplier: tax you withheld from a supplier (you remit it). Income received: tax withheld at source from your dividend, interest, rent or royalty (a credit). Payment made: tax you withheld from a dividend, interest, rent, fee or other payment to someone who is not a supplier (you remit it)."
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Data",
+   "label": "Customer / Supplier / Payee or payer",
+   "required": false,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "label": "Party name",
+   "read_only": true
+  },
+  {
+   "fieldname": "nature",
+   "fieldtype": "Select",
+   "label": "Nature of payment",
+   "options": [
+    "",
+    "Dividend",
+    "Interest",
+    "Rent",
+    "Royalty",
+    "Commission",
+    "Contract or service",
+    "Directors' fee",
+    "Other"
+   ],
+   "in_list_view": true
+  },
+  {
+   "fieldname": "payee_class",
+   "fieldtype": "Select",
+   "label": "Payee / payer is",
+   "options": [
+    "",
+    "Corporate",
+    "Individual",
+    "Federal government",
+    "State government",
+    "Local government",
+    "Other"
+   ]
+  },
+  {
+   "fieldname": "counter_account",
+   "fieldtype": "Link",
+   "label": "Counter account",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ],
+   "description": "For Income received / Payment made: the account on the other side of the tax (for example dividend income, or dividends payable)."
+  },
+  {
+   "fieldname": "invoice_reference",
+   "fieldtype": "Data",
+   "label": "Invoice",
+   "in_list_view": true,
+   "description": "Sales Invoice (customer) or Purchase Invoice (supplier) this tax relates to. The invoice is settled by the tax amount."
+  },
+  {
+   "fieldname": "gross_amount",
+   "fieldtype": "Currency",
+   "label": "Taxable amount",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "tax_rule",
+   "fieldtype": "Data",
+   "label": "Tax rule code",
+   "in_list_view": true,
+   "description": "Code of an approved WHT Tax Rule. The rate is taken from it."
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Float",
+   "label": "Rate %",
+   "read_only": true
+  },
+  {
+   "fieldname": "wht_amount",
+   "fieldtype": "Currency",
+   "label": "Tax withheld",
+   "in_list_view": true,
+   "description": "Leave blank to calculate from the rule; enter the certificate amount to override."
+  },
+  {
+   "fieldname": "tax_account",
+   "fieldtype": "Link",
+   "label": "Tax account",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ],
+   "description": "Customer lines: a WHT credit (asset) account. Supplier lines: a WHT payable (liability) account. Defaults from the rule."
+  },
+  {
+   "fieldname": "certificate_number",
+   "fieldtype": "Data",
+   "label": "Certificate no."
+  },
+  {
+   "fieldname": "certificate_date",
+   "fieldtype": "Date",
+   "label": "Certificate date"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  }
+ ]
+}

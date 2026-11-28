@@ -1,0 +1,23 @@
+# /etc/systemd/system/velora.service   (systemctl enable --now velora)
+[Unit]
+Description=Velora application server
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+User=velora
+Group=velora
+WorkingDirectory=/srv/velora/myworkspace
+Environment=VELORA_WORKSPACE=/srv/velora/myworkspace
+ExecStart=/srv/velora/venv/bin/velora start --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=3
+# hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/velora/myworkspace
+
+[Install]
+WantedBy=multi-user.target

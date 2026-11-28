@@ -1,0 +1,40 @@
+{
+ "name": "Support Ticket Reply",
+ "module": "Support",
+ "istable": true,
+ "fields": [
+  {
+   "fieldname": "posted_on",
+   "fieldtype": "Datetime",
+   "label": "When",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "author",
+   "fieldtype": "Data",
+   "label": "From",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "kind",
+   "fieldtype": "Select",
+   "label": "Kind",
+   "options": [
+    "Reply to customer",
+    "Internal note",
+    "Customer reply"
+   ],
+   "default": "Reply to customer",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Text",
+   "label": "Message",
+   "required": true,
+   "in_list_view": true
+  }
+ ]
+}

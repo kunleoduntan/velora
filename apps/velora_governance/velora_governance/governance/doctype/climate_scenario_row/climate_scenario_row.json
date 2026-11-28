@@ -1,0 +1,50 @@
+{
+ "name": "Climate Scenario Row",
+ "module": "Governance",
+ "istable": true,
+ "track_changes": false,
+ "fields": [
+  {
+   "fieldname": "scenario_name",
+   "fieldtype": "Data",
+   "label": "Scenario",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source (publisher and edition)",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "scenario_type",
+   "fieldtype": "Select",
+   "label": "Covers",
+   "options": [
+    "Transition",
+    "Physical",
+    "Transition and physical"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "warming_outcome",
+   "fieldtype": "Data",
+   "label": "Warming outcome (e.g. 1.5 C by 2100)",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "aligned_with_latest_agreement",
+   "fieldtype": "Check",
+   "label": "Aligned with the latest international climate agreement"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Narrative / key drivers"
+  }
+ ]
+}

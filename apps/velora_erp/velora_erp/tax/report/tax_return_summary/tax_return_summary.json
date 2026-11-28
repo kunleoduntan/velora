@@ -1,0 +1,35 @@
+{
+ "name": "Tax Return Summary",
+ "module": "Tax Management",
+ "type": "script",
+ "ref_doctype": "Tax Return",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Tax returns by period with output tax, recoverable and non-recoverable input tax, the amount payable or refundable, and where each stands (calculated, approved, filed, accepted).",
+ "filters": [
+  {
+   "fieldname": "from_date",
+   "label": "Period from",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "to_date",
+   "label": "Period to",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "tax_type",
+   "label": "Tax Type",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "return_status",
+   "label": "Status",
+   "fieldtype": "Data"
+  }
+ ]
+}

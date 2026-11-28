@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Velora ProjectOne",
+    "slug": "velora-projectone-mobile",
+    "version": "1.4.0",
+    "scheme": "veloraprojectone",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.velora.projectone",
+      "buildNumber": "8"
+    },
+    "android": {
+      "package": "com.velora.projectone",
+      "permissions": [],
+      "versionCode": 8
+    },
+    "plugins": [
+      "expo-secure-store"
+    ],
+    "extra": {
+      "projectOneApiBase": "https://projectone.yourdomain.com"
+    }
+  }
+}

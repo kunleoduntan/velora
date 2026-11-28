@@ -1,0 +1,732 @@
+{
+  "name": "Employee",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Canonical employee identity master, maintained by HR and referenced by Finance and Payroll for employee financial transactions.",
+  "autoname": "field:employee_code",
+  "fields": [
+    {
+      "fieldname": "photo",
+      "fieldtype": "Data",
+      "label": "Photo",
+      "hidden": true,
+      "description": "Id of the attached picture; set from the photo at the top of the form."
+    },
+    {
+      "fieldname": "employee_code",
+      "fieldtype": "Data",
+      "label": "Employee Code",
+      "required": true,
+      "unique": true,
+      "length": 40,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "salutation",
+      "fieldtype": "Select",
+      "label": "Salutation",
+      "options": [
+        "",
+        "Mr",
+        "Mrs",
+        "Miss",
+        "Ms",
+        "Dr",
+        "Prof",
+        "Engr",
+        "Chief",
+        "Pastor",
+        "Rev",
+        "Alhaji",
+        "Alhaja"
+      ]
+    },
+    {
+      "fieldname": "first_name",
+      "fieldtype": "Data",
+      "label": "First Name"
+    },
+    {
+      "fieldname": "middle_name",
+      "fieldtype": "Data",
+      "label": "Middle Name"
+    },
+    {
+      "fieldname": "last_name",
+      "fieldtype": "Data",
+      "label": "Last Name"
+    },
+    {
+      "fieldname": "preferred_name",
+      "fieldtype": "Data",
+      "label": "Preferred Name"
+    },
+    {
+      "fieldname": "employee_type",
+      "fieldtype": "Select",
+      "label": "Employee Type",
+      "options": [
+        "Permanent",
+        "Contract",
+        "Temporary",
+        "Director",
+        "Other"
+      ],
+      "default": "Permanent",
+      "required": true
+    },
+    {
+      "fieldname": "employment_status",
+      "fieldtype": "Select",
+      "label": "Employment Status",
+      "options": [
+        "Active",
+        "Probation",
+        "On Leave",
+        "Suspended",
+        "Notice Period",
+        "Left"
+      ],
+      "default": "Active",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "organisation_section",
+      "fieldtype": "Section Break",
+      "label": "Organisation"
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "designation",
+      "fieldtype": "Link",
+      "label": "Designation",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "branch",
+      "fieldtype": "Link",
+      "label": "Branch",
+      "options": "Branch"
+    },
+    {
+      "fieldname": "grade",
+      "fieldtype": "Data",
+      "label": "Employee Grade"
+    },
+    {
+      "fieldname": "work_location",
+      "fieldtype": "Select",
+      "label": "Work Location",
+      "options": [
+        "",
+        "Office",
+        "Remote",
+        "Hybrid",
+        "Field"
+      ]
+    },
+    {
+      "fieldname": "reports_to",
+      "fieldtype": "Link",
+      "label": "Reports To",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "default_cost_centre",
+      "fieldtype": "Link",
+      "label": "Default Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "default_business_unit",
+      "fieldtype": "Link",
+      "label": "Default Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "contact_section",
+      "fieldtype": "Section Break",
+      "label": "Work Contact"
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email Address"
+    },
+    {
+      "fieldname": "phone",
+      "fieldtype": "Data",
+      "label": "Telephone"
+    },
+    {
+      "fieldname": "user_account",
+      "fieldtype": "Data",
+      "label": "System User Account",
+      "unique": true,
+      "description": "Exact login username for employee self-service. One login may be linked to only one employee."
+    },
+    {
+      "fieldname": "attendance_device_id",
+      "fieldtype": "Data",
+      "label": "Attendance Device / Badge ID"
+    },
+    {
+      "fieldname": "personal_tab",
+      "fieldtype": "Tab Break",
+      "label": "Personal"
+    },
+    {
+      "fieldname": "gender",
+      "fieldtype": "Select",
+      "label": "Gender",
+      "options": [
+        "",
+        "Male",
+        "Female",
+        "Other",
+        "Prefer not to say"
+      ]
+    },
+    {
+      "fieldname": "date_of_birth",
+      "fieldtype": "Date",
+      "label": "Date of Birth"
+    },
+    {
+      "fieldname": "marital_status",
+      "fieldtype": "Select",
+      "label": "Marital Status",
+      "options": [
+        "",
+        "Single",
+        "Married",
+        "Separated",
+        "Divorced",
+        "Widowed"
+      ]
+    },
+    {
+      "fieldname": "nationality",
+      "fieldtype": "Data",
+      "label": "Nationality"
+    },
+    {
+      "fieldname": "blood_group",
+      "fieldtype": "Select",
+      "label": "Blood Group",
+      "options": [
+        "",
+        "A+",
+        "A-",
+        "B+",
+        "B-",
+        "AB+",
+        "AB-",
+        "O+",
+        "O-"
+      ]
+    },
+    {
+      "fieldname": "personal_contact_section",
+      "fieldtype": "Section Break",
+      "label": "Personal Contact"
+    },
+    {
+      "fieldname": "personal_email",
+      "fieldtype": "Data",
+      "label": "Personal Email"
+    },
+    {
+      "fieldname": "mobile",
+      "fieldtype": "Data",
+      "label": "Mobile"
+    },
+    {
+      "fieldname": "current_address",
+      "fieldtype": "Text",
+      "label": "Current Address"
+    },
+    {
+      "fieldname": "permanent_address",
+      "fieldtype": "Text",
+      "label": "Permanent Address"
+    },
+    {
+      "fieldname": "city",
+      "fieldtype": "Data",
+      "label": "City"
+    },
+    {
+      "fieldname": "state_region",
+      "fieldtype": "Data",
+      "label": "State / Region"
+    },
+    {
+      "fieldname": "country",
+      "fieldtype": "Data",
+      "label": "Country"
+    },
+    {
+      "fieldname": "emergency_section",
+      "fieldtype": "Section Break",
+      "label": "Emergency Contact"
+    },
+    {
+      "fieldname": "emergency_contact_name",
+      "fieldtype": "Data",
+      "label": "Contact Name"
+    },
+    {
+      "fieldname": "emergency_contact_relationship",
+      "fieldtype": "Data",
+      "label": "Relationship"
+    },
+    {
+      "fieldname": "emergency_contact_phone",
+      "fieldtype": "Data",
+      "label": "Contact Phone"
+    },
+    {
+      "fieldname": "employment_tab",
+      "fieldtype": "Tab Break",
+      "label": "Employment"
+    },
+    {
+      "fieldname": "date_of_joining",
+      "fieldtype": "Date",
+      "label": "Date of Joining"
+    },
+    {
+      "fieldname": "date_of_confirmation",
+      "fieldtype": "Date",
+      "label": "Date of Confirmation"
+    },
+    {
+      "fieldname": "contract_end_date",
+      "fieldtype": "Date",
+      "label": "Contract End Date"
+    },
+    {
+      "fieldname": "notice_period_days",
+      "fieldtype": "Int",
+      "label": "Notice Period (days)",
+      "default": 0
+    },
+    {
+      "fieldname": "leave_approver",
+      "fieldtype": "Data",
+      "label": "Leave Approver (user)"
+    },
+    {
+      "fieldname": "expense_approver",
+      "fieldtype": "Data",
+      "label": "Expense Approver (user)"
+    },
+    {
+      "fieldname": "compensation_section",
+      "fieldtype": "Section Break",
+      "label": "Compensation"
+    },
+    {
+      "fieldname": "gross_pay",
+      "fieldtype": "Currency",
+      "label": "Gross Pay",
+      "description": "Total monthly gross pay agreed for this employee, maintained by HR/Payroll. It is shown on the Salary Structure Assignment for reference; payroll still calculates from the assignment's Base Salary and the Salary Structure components.",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "pay_basis",
+      "label": "Pay Basis",
+      "fieldtype": "Select",
+      "options": [
+        "Follow Policy",
+        "Fixed Monthly",
+        "Attendance Based"
+      ],
+      "default": "Follow Policy",
+      "description": "Follow Policy uses the staff-category rule or the default in Payroll Automation Settings."
+    },
+    {
+      "fieldname": "exit_section",
+      "fieldtype": "Section Break",
+      "label": "Separation"
+    },
+    {
+      "fieldname": "resignation_date",
+      "fieldtype": "Date",
+      "label": "Resignation Letter Date"
+    },
+    {
+      "fieldname": "relieving_date",
+      "fieldtype": "Date",
+      "label": "Relieving Date"
+    },
+    {
+      "fieldname": "reason_for_leaving",
+      "fieldtype": "Text",
+      "label": "Reason for Leaving"
+    },
+    {
+      "fieldname": "statutory_tab",
+      "fieldtype": "Tab Break",
+      "label": "Statutory & Payroll"
+    },
+    {
+      "fieldname": "statutory_section",
+      "fieldtype": "Section Break",
+      "label": "Statutory Identifiers"
+    },
+    {
+      "fieldname": "tax_id",
+      "fieldtype": "Data",
+      "label": "Tax ID (TIN)"
+    },
+    {
+      "fieldname": "national_id_number",
+      "fieldtype": "Data",
+      "label": "National ID Number"
+    },
+    {
+      "fieldname": "pension_pin",
+      "fieldtype": "Data",
+      "label": "Pension PIN (RSA)"
+    },
+    {
+      "fieldname": "pension_fund_administrator",
+      "fieldtype": "Data",
+      "label": "Pension Fund Administrator"
+    },
+    {
+      "fieldname": "nhf_number",
+      "fieldtype": "Data",
+      "label": "NHF Number"
+    },
+    {
+      "fieldname": "health_insurance_provider",
+      "fieldtype": "Data",
+      "label": "Health Insurance Provider"
+    },
+    {
+      "fieldname": "health_insurance_no",
+      "fieldtype": "Data",
+      "label": "Health Insurance Number"
+    },
+    {
+      "fieldname": "bank_section",
+      "fieldtype": "Section Break",
+      "label": "Salary Payment"
+    },
+    {
+      "fieldname": "salary_mode",
+      "fieldtype": "Select",
+      "label": "Salary Payment Mode",
+      "options": [
+        "Bank",
+        "Cash",
+        "Cheque"
+      ],
+      "default": "Bank"
+    },
+    {
+      "fieldname": "bank_name",
+      "fieldtype": "Data",
+      "label": "Bank Name"
+    },
+    {
+      "fieldname": "bank_account_name",
+      "fieldtype": "Data",
+      "label": "Account Name"
+    },
+    {
+      "fieldname": "bank_account_no",
+      "fieldtype": "Data",
+      "label": "Account Number"
+    },
+    {
+      "fieldname": "ledger_section",
+      "fieldtype": "Section Break",
+      "label": "Employee Ledger Accounts"
+    },
+    {
+      "fieldname": "default_payable_account",
+      "fieldtype": "Link",
+      "label": "Default Employee Payable Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "advance_account",
+      "fieldtype": "Link",
+      "label": "Employee Advance Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "loan_account",
+      "fieldtype": "Link",
+      "label": "Employee Loan Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "classification_tab",
+      "fieldtype": "Tab Break",
+      "label": "Classification & Notes"
+    },
+    {
+      "fieldname": "categories",
+      "fieldtype": "Table",
+      "label": "Employee Categories",
+      "options": "Employee Category Row"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Internal Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Employee Finance Officer",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Employee",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "System Manager",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": false
+    },
+    {
+      "role": "HR Manager",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": false
+    },
+    {
+      "role": "Payroll Manager",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": false
+    },
+    {
+      "role": "Finance Manager",
+      "permlevel": 1,
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": false
+    },
+    {
+      "role": "Payroll Officer",
+      "permlevel": 1,
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": false
+    },
+    {
+      "role": "Employee Finance Officer",
+      "permlevel": 1,
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": false
+    },
+    {
+      "role": "Auditor",
+      "permlevel": 1,
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": false
+    }
+  ],
+  "title_field": "employee_name",
+  "image_field": "photo"
+}

@@ -1,0 +1,31 @@
+.velora-esg-dashboard { color: var(--text-color, #1f2937); }
+.velora-esg-dashboard .esg-dashboard-content { display:flex; flex-direction:column; gap:18px; }
+.velora-esg-dashboard .esg-filter-panel,.velora-esg-dashboard .esg-panel { background:var(--card-bg, #fff); border:1px solid var(--border-color, #e5e7eb); border-radius:10px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,.04); }
+.velora-esg-dashboard .esg-filter-heading { font-weight:700; margin-bottom:12px; }
+.velora-esg-dashboard .esg-filter-grid { display:grid; grid-template-columns:repeat(3,minmax(180px,1fr)) auto; gap:12px; align-items:end; }
+.velora-esg-dashboard .esg-filter-actions { display:flex; gap:8px; padding-bottom:1px; }
+.velora-esg-dashboard .esg-kpi-grid { display:grid; grid-template-columns:repeat(4,minmax(160px,1fr)); gap:12px; }
+.velora-esg-dashboard .esg-kpi-card { border:1px solid var(--border-color,#e5e7eb); border-radius:10px; padding:16px; background:var(--card-bg,#fff); min-height:120px; }
+.velora-esg-dashboard .esg-kpi-card.primary { border-top:3px solid #2563eb; }
+.velora-esg-dashboard .esg-kpi-card.warning { border-top:3px solid #d97706; }
+.velora-esg-dashboard .esg-kpi-card.danger { border-top:3px solid #dc2626; }
+.velora-esg-dashboard .esg-kpi-label { color:var(--text-muted,#6b7280); font-size:12px; font-weight:600; }
+.velora-esg-dashboard .esg-kpi-value { font-size:28px; font-weight:750; line-height:1.25; margin:8px 0; }
+.velora-esg-dashboard .esg-kpi-sub { font-size:12px; color:var(--text-muted,#6b7280); }
+.velora-esg-dashboard .esg-chart-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.velora-esg-dashboard .esg-panel h4 { margin:0 0 14px; font-weight:700; }
+.velora-esg-dashboard .esg-bar-row { display:grid; grid-template-columns:minmax(90px,140px) 1fr 50px; gap:10px; align-items:center; margin:10px 0; }
+.velora-esg-dashboard .esg-bar-label { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; }
+.velora-esg-dashboard .esg-bar-track { height:12px; border-radius:999px; background:var(--bg-color,#f3f4f6); overflow:hidden; }
+.velora-esg-dashboard .esg-bar-fill { height:100%; border-radius:999px; background:linear-gradient(90deg,#2563eb,#16a34a); min-width:0; }
+.velora-esg-dashboard .esg-bar-value { text-align:right; font-size:12px; font-weight:700; }
+.velora-esg-dashboard .esg-table-wrap { overflow:auto; }
+.velora-esg-dashboard .esg-table { margin:0; min-width:780px; }
+.velora-esg-dashboard .esg-table th { white-space:nowrap; font-size:12px; }
+.velora-esg-dashboard .esg-table td { vertical-align:middle; }
+.velora-esg-dashboard .esg-status { display:inline-block; padding:3px 8px; border-radius:20px; background:var(--bg-color,#f3f4f6); font-size:11px; }
+.velora-esg-dashboard .esg-empty { padding:16px; color:var(--text-muted,#6b7280); text-align:center; }
+.velora-esg-dashboard .esg-loading { padding:40px 12px; text-align:center; color:var(--text-muted,#6b7280); }
+.velora-esg-dashboard .esg-dashboard-footer { font-size:11px; color:var(--text-muted,#6b7280); display:flex; justify-content:space-between; flex-wrap:wrap; }
+@media(max-width:1000px) { .velora-esg-dashboard .esg-kpi-grid { grid-template-columns:repeat(2,minmax(140px,1fr)); } .velora-esg-dashboard .esg-chart-grid { grid-template-columns:1fr; } .velora-esg-dashboard .esg-filter-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .velora-esg-dashboard .esg-kpi-grid { grid-template-columns:1fr 1fr; gap:8px; } .velora-esg-dashboard .esg-kpi-card { padding:12px; min-height:110px; } .velora-esg-dashboard .esg-kpi-value { font-size:22px; } .velora-esg-dashboard .esg-filter-grid { grid-template-columns:1fr; } .velora-esg-dashboard .esg-filter-actions { justify-content:flex-start; } }

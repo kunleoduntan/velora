@@ -1,0 +1,159 @@
+{
+  "name": "Sustainability Opportunity",
+  "module": "Governance",
+  "autoname": "series:SUO-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "opportunity_category",
+      "fieldtype": "Link",
+      "label": "Opportunity Category",
+      "options": "Sustainability Opportunity Category",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "opportunity_title",
+      "fieldtype": "Data",
+      "label": "Opportunity Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "expected_benefit",
+      "fieldtype": "Text",
+      "label": "Expected Benefit"
+    },
+    {
+      "fieldname": "financial_impact",
+      "fieldtype": "Float",
+      "label": "Potential Financial Impact"
+    },
+    {
+      "fieldname": "time_horizon",
+      "fieldtype": "Select",
+      "label": "Time Horizon",
+      "options": [
+        "Short Term",
+        "Medium Term",
+        "Long Term"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "opportunity_owner",
+      "fieldtype": "Data",
+      "label": "Opportunity Owner"
+    },
+    {
+      "fieldname": "opportunity_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Identified",
+        "Assessing",
+        "Pursuing",
+        "Realized",
+        "Closed"
+      ],
+      "default": "Identified",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "opportunity_title"
+}

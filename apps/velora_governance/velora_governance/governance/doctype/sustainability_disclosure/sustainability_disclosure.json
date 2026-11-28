@@ -1,0 +1,162 @@
+{
+ "name": "Sustainability Disclosure",
+ "module": "Governance",
+ "autoname": "series:SDC-.####",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "framework",
+   "fieldtype": "Link",
+   "label": "Framework",
+   "options": "Sustainability Framework",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "standard",
+   "fieldtype": "Link",
+   "label": "Standard",
+   "options": "Sustainability Standard"
+  },
+  {
+   "fieldname": "disclosure_code",
+   "fieldtype": "Data",
+   "label": "Disclosure Code",
+   "required": true,
+   "unique": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "disclosure_title",
+   "fieldtype": "Data",
+   "label": "Disclosure Title",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "disclosure_type",
+   "fieldtype": "Link",
+   "label": "Disclosure Type",
+   "options": "Sustainability Disclosure Type",
+   "required": true
+  },
+  {
+   "fieldname": "topic",
+   "fieldtype": "Link",
+   "label": "Topic",
+   "options": "Sustainability Topic"
+  },
+  {
+   "fieldname": "required_data",
+   "fieldtype": "Text",
+   "label": "Required Data"
+  },
+  {
+   "fieldname": "guidance",
+   "fieldtype": "Text",
+   "label": "Guidance"
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "data_points_required",
+   "label": "Required Data Points",
+   "fieldtype": "Int",
+   "default": 0
+  },
+  {
+   "fieldname": "evidence_required",
+   "label": "Evidence Required",
+   "fieldtype": "Check",
+   "default": 0
+  },
+  {
+   "fieldname": "narrative_required",
+   "label": "Narrative Required",
+   "fieldtype": "Check",
+   "default": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ],
+ "title_field": "disclosure_title"
+}

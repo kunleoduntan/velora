@@ -1,0 +1,88 @@
+{
+  "name": "Notification Log",
+  "module": "Notify",
+  "fields": [
+    {
+      "fieldname": "user",
+      "fieldtype": "Data",
+      "label": "User",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "message",
+      "fieldtype": "Text",
+      "label": "Message"
+    },
+    {
+      "fieldname": "ref_doctype",
+      "fieldtype": "Data",
+      "label": "DocType"
+    },
+    {
+      "fieldname": "ref_name",
+      "fieldtype": "Data",
+      "label": "Document"
+    },
+    {
+      "fieldname": "priority",
+      "fieldtype": "Select",
+      "label": "Priority",
+      "options": [
+        "Low",
+        "Normal",
+        "High",
+        "Urgent"
+      ],
+      "default": "Normal"
+    },
+    {
+      "fieldname": "rule",
+      "fieldtype": "Data",
+      "label": "Rule",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "read",
+      "fieldtype": "Check",
+      "label": "Read",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "read_on",
+      "fieldtype": "Datetime",
+      "label": "Read On"
+    },
+    {
+      "fieldname": "escalated",
+      "fieldtype": "Check",
+      "label": "Escalated"
+    },
+    {
+      "fieldname": "delivery_key",
+      "fieldtype": "Data",
+      "label": "Delivery Key",
+      "unique": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "export": true
+    },
+    {
+      "role": "Notification Manager",
+      "read": true,
+      "export": true
+    }
+  ]
+}

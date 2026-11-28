@@ -1,0 +1,134 @@
+{
+ "name": "GHG Inventory Setting",
+ "module": "Governance",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "unique": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "consolidation_approach",
+   "fieldtype": "Select",
+   "label": "Organisational boundary",
+   "options": [
+    "Operational control",
+    "Financial control",
+    "Equity share"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "default_gwp_set",
+   "fieldtype": "Link",
+   "label": "Default GWP Set",
+   "options": "GWP Set"
+  },
+  {
+   "fieldname": "base_year",
+   "fieldtype": "Int",
+   "label": "Base year"
+  },
+  {
+   "fieldname": "base_year_emissions_tco2e",
+   "fieldtype": "Float",
+   "label": "Base-year emissions (tCO2e)"
+  },
+  {
+   "fieldname": "recalculation_threshold_percent",
+   "fieldtype": "Float",
+   "label": "Recalculation threshold (%)",
+   "default": 5,
+   "description": "Policy: restate the base year when structural changes alter total emissions by more than this."
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "autoname": "series:GIS-.####",
+ "title_field": "governance_entity",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

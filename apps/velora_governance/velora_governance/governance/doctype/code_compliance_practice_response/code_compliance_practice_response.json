@@ -1,0 +1,51 @@
+{
+ "name": "Code Compliance Practice Response",
+ "module": "Governance",
+ "istable": true,
+ "fields": [
+  {
+   "fieldname": "principle_number",
+   "fieldtype": "Int",
+   "label": "Principle",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "label": "Reference",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "requirement",
+   "fieldtype": "Text",
+   "label": "Recommended practice",
+   "read_only": true
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Applied",
+    "Applied in part",
+    "Explained (not applied)",
+    "Not applicable",
+    "Not assessed"
+   ],
+   "default": "Not assessed",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "how_applied_or_explanation",
+   "fieldtype": "Text",
+   "label": "How applied, or why not"
+  },
+  {
+   "fieldname": "evidence_reference",
+   "fieldtype": "Data",
+   "label": "Evidence reference"
+  }
+ ]
+}

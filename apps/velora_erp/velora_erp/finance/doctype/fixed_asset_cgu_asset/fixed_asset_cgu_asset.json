@@ -1,0 +1,23 @@
+{
+  "name": "Fixed Asset CGU Asset",
+  "module": "Finance",
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "asset",
+      "fieldtype": "Link",
+      "label": "Fixed Asset",
+      "options": "Fixed Asset",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "individual_recoverable_floor",
+      "fieldtype": "Currency",
+      "label": "Individual Recoverable Amount Floor",
+      "default": 0,
+      "description": "Minimum carrying amount after CGU allocation where supported by an individual recoverable amount."
+    }
+  ],
+  "istable": true
+}

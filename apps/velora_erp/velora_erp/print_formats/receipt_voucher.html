@@ -1,0 +1,14 @@
+<div class="pf">
+<style>.pf{font-family:Arial,Helvetica,sans-serif;font-size:13px}.pf table{width:100%;border-collapse:collapse;margin:8px 0}.pf th,.pf td{border:1px solid #bbb;padding:6px;text-align:left}.pf th{background:#f1f3f5}.pf .r{text-align:right}.pf .top{display:flex;justify-content:space-between;border-bottom:2px solid #222;padding-bottom:8px;margin-bottom:12px}.pf .sig{display:flex;gap:24px;margin-top:36px}.pf .sig div{flex:1;border-top:1px solid #222;padding-top:4px;font-size:12px}.pf .words{font-style:italic}.pf .small{font-size:11px;color:#555}</style>
+<div class="top"><div><div style="font-size:16px;font-weight:bold">YOUR ORGANISATION NAME</div><div class="small">Address · Telephone · Email</div></div>
+<div style="text-align:right"><div style="font-size:20px;font-weight:bold">RECEIPT VOUCHER</div><div>No. {{ doc.name }}</div><div>Date: {{ formatdate(doc.receipt_date) }}</div></div></div>
+<table><tr><th style="width:22%">Received from</th><td>{{ doc.received_from or frappe.db.get_value("Customer", doc.customer, "customer_name") or doc.customer or "" }}</td><th style="width:18%">Purpose</th><td>{{ doc.purpose }}</td></tr>
+<tr><th>Payment method</th><td>{{ doc.payment_method }}</td><th>Instrument / ref.</th><td>{{ doc.instrument_reference }}</td></tr>
+<tr><th>Currency</th><td>{{ doc.currency }}</td><th>Approval</th><td>{{ doc.approval_status }}{% if doc.approved_by %} by {{ doc.approved_by }}{% endif %}</td></tr></table>
+<table><thead><tr><th>Account</th><th>Party</th><th>Invoice settled</th><th class="r">Invoice amount applied</th><th class="r">Debit</th><th class="r">Credit</th></tr></thead><tbody>
+{% for l in doc.lines %}<tr><td>{{ l.account }}{% if l.description %}<br><span class="small">{{ l.description }}</span>{% endif %}</td><td>{{ l.party }}</td><td>{{ l.invoice_reference }}</td><td class="r">{{ fmt_money(l.allocation_amount) if l.allocation_amount else "" }}</td>
+<td class="r">{{ fmt_money(l.amount) if l.entry_side == "Debit" else "" }}</td><td class="r">{{ fmt_money(l.amount) if l.entry_side == "Credit" else "" }}</td></tr>
+{% if l.tax_amount %}<tr><td colspan="6" class="small">Tax withheld at source: {{ l.tax_code }} {{ l.tax_rate }}% = {{ fmt_money(l.tax_amount) }} (certificate to follow)</td></tr>{% endif %}{% endfor %}</tbody></table>
+<p><b>Total received: {{ doc.currency }} {{ fmt_money(doc.total_amount or doc.amount) }}</b><br><span class="words">{{ money_in_words(doc.total_amount or doc.amount, doc.currency) }}</span></p>
+<p>{{ doc.narration }}</p>
+<div class="sig"><div>Prepared by</div><div>Approved by</div><div>Received by (cashier)</div></div></div>

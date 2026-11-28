@@ -1,0 +1,219 @@
+{
+ "name": "GHG Calculation",
+ "module": "Governance",
+ "autoname": "series:GHC-.####",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "emission_source",
+   "fieldtype": "Link",
+   "label": "Emission Source",
+   "options": "Emission Source",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reporting_period",
+   "fieldtype": "Data",
+   "label": "Reporting Period",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "activity_quantity",
+   "fieldtype": "Float",
+   "label": "Activity Quantity",
+   "required": true
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Sustainability Unit",
+   "required": true
+  },
+  {
+   "fieldname": "emission_factor",
+   "fieldtype": "Link",
+   "label": "Emission Factor",
+   "options": "Emission Factor",
+   "required": true
+  },
+  {
+   "fieldname": "gwp_set",
+   "fieldtype": "Link",
+   "label": "GWP Set",
+   "options": "GWP Set"
+  },
+  {
+   "fieldname": "emissions_kgco2e",
+   "fieldtype": "Float",
+   "label": "Emissions kg CO2e",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "emissions_tco2e",
+   "fieldtype": "Float",
+   "label": "Emissions t CO2e",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Data",
+   "label": "Scope",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "scope3_category",
+   "fieldtype": "Data",
+   "label": "Scope 3 category",
+   "read_only": true
+  },
+  {
+   "fieldname": "scope2_method",
+   "fieldtype": "Select",
+   "label": "Scope 2 method",
+   "options": [
+    "Location-based",
+    "Market-based"
+   ]
+  },
+  {
+   "fieldname": "gases",
+   "fieldtype": "Table",
+   "label": "Gas breakdown",
+   "options": "GHG Calculation Gas",
+   "read_only": true
+  },
+  {
+   "fieldname": "biogenic_co2_kg",
+   "fieldtype": "Float",
+   "label": "Biogenic CO2 (kg, not in total)",
+   "read_only": true
+  },
+  {
+   "fieldname": "methodology",
+   "fieldtype": "Data",
+   "label": "Methodology"
+  },
+  {
+   "fieldname": "feed_key",
+   "fieldtype": "Data",
+   "label": "Activity feed key",
+   "read_only": true,
+   "description": "Set when generated from ERP spend; used to refresh without double counting."
+  },
+  {
+   "fieldname": "feed_run",
+   "fieldtype": "Link",
+   "label": "Activity Feed Run",
+   "options": "Activity Feed Run",
+   "read_only": true
+  },
+  {
+   "fieldname": "data_quality",
+   "fieldtype": "Link",
+   "label": "Data Quality",
+   "options": "Sustainability Data Quality"
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Table",
+   "label": "Evidence",
+   "options": "Sustainability Evidence"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ],
+ "title_field": "emission_source"
+}

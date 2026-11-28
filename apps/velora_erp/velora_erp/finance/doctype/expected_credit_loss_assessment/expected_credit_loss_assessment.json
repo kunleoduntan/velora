@@ -1,0 +1,193 @@
+{
+ "name": "Expected Credit Loss Assessment",
+ "module": "Finance",
+ "track_changes": true,
+ "description": "IFRS 9 simplified approach: a provision matrix on the ageing of receivables; posts only the change in the loss allowance.",
+ "autoname": "series:ECL-.########",
+ "is_submittable": true,
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "submit": true,
+   "cancel": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true,
+   "share": true,
+   "import": true,
+   "amend": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "submit": true,
+   "export": true,
+   "print": true,
+   "cancel": true,
+   "report": true,
+   "email": true,
+   "share": true,
+   "import": true,
+   "amend": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "assessment_date",
+   "fieldtype": "Date",
+   "label": "Assessment date",
+   "required": true,
+   "default": "Today",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "narration",
+   "fieldtype": "Text",
+   "label": "Narration"
+  },
+  {
+   "fieldname": "accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "expense_account",
+   "fieldtype": "Link",
+   "label": "Impairment loss account",
+   "options": "Account",
+   "required": true,
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "allowance_account",
+   "fieldtype": "Link",
+   "label": "Loss allowance account (contra-receivable)",
+   "options": "Account",
+   "required": true,
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "matrix_section",
+   "fieldtype": "Section Break",
+   "label": "Provision matrix"
+  },
+  {
+   "fieldname": "bands",
+   "fieldtype": "Table",
+   "options": "Expected Credit Loss Band",
+   "label": "Bands"
+  },
+  {
+   "fieldname": "totals_section",
+   "fieldtype": "Section Break",
+   "label": "Result"
+  },
+  {
+   "fieldname": "total_exposure",
+   "fieldtype": "Currency",
+   "read_only": true,
+   "label": "Total exposure"
+  },
+  {
+   "fieldname": "required_allowance",
+   "fieldtype": "Currency",
+   "read_only": true,
+   "label": "Required allowance"
+  },
+  {
+   "fieldname": "existing_allowance",
+   "fieldtype": "Currency",
+   "read_only": true,
+   "label": "Existing allowance"
+  },
+  {
+   "fieldname": "adjustment",
+   "fieldtype": "Currency",
+   "label": "Charge (release if negative)",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "options": [
+    "Pending",
+    "Approved",
+    "Rejected"
+   ],
+   "label": "Approval status"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "read_only": true,
+   "label": "Approved by"
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "read_only": true,
+   "label": "Approved on"
+  },
+  {
+   "fieldname": "posting_batch",
+   "fieldtype": "Data",
+   "read_only": true,
+   "label": "Posting batch"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "options": [
+    "Draft",
+    "Posted",
+    "Cancelled"
+   ],
+   "read_only": true,
+   "in_list_view": true,
+   "default": "Draft",
+   "label": "Status"
+  }
+ ]
+}

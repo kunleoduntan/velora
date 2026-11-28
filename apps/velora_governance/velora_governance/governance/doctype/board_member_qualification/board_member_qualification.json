@@ -1,0 +1,47 @@
+{
+  "name": "Board Member Qualification",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "qualification",
+      "fieldtype": "Data",
+      "label": "Qualification",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "institution",
+      "fieldtype": "Data",
+      "label": "Institution",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "award",
+      "fieldtype": "Data",
+      "label": "Award/Grade"
+    },
+    {
+      "fieldname": "year_awarded",
+      "fieldtype": "Int",
+      "label": "Year Awarded"
+    },
+    {
+      "fieldname": "certificate",
+      "fieldtype": "Data",
+      "label": "Certificate File Reference"
+    },
+    {
+      "fieldname": "verification_status",
+      "fieldtype": "Select",
+      "label": "Verification Status",
+      "options": [
+        "Unverified",
+        "Verified",
+        "Rejected"
+      ],
+      "default": "Unverified",
+      "in_list_view": true
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "name": "Competency Framework",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Versionable competency requirements by organisation, role, grade or employee.",
+  "fields": [
+    {
+      "fieldname": "framework_name",
+      "fieldtype": "Data",
+      "label": "Framework Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "framework_code",
+      "fieldtype": "Data",
+      "label": "Framework Code",
+      "required": true,
+      "unique": true
+    },
+    {
+      "fieldname": "applies_to",
+      "fieldtype": "Select",
+      "label": "Applies To",
+      "options": [
+        "Organisation",
+        "Department",
+        "Designation",
+        "Job Grade",
+        "Job Position",
+        "Employee"
+      ],
+      "default": "Organisation",
+      "required": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "designation",
+      "fieldtype": "Link",
+      "label": "Designation",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "job_grade",
+      "fieldtype": "Link",
+      "label": "Job Grade",
+      "options": "Job Grade"
+    },
+    {
+      "fieldname": "job_position",
+      "fieldtype": "Link",
+      "label": "Job Position",
+      "options": "Job Position"
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From"
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1
+    },
+    {
+      "fieldname": "competencies",
+      "fieldtype": "Table",
+      "label": "Competencies",
+      "options": "Competency Framework Item"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "istable": false,
+  "title_field": "employee_name"
+}

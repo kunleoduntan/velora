@@ -1,0 +1,30 @@
+{
+  "name": "Cost Distribution Line",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "rule_name",
+      "fieldtype": "Data",
+      "label": "Rule",
+      "required": true,
+      "in_list_view": true,
+      "length": 80
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "percentage",
+      "fieldtype": "Float",
+      "label": "Percentage",
+      "required": true,
+      "in_list_view": true
+    }
+  ]
+}

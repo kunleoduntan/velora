@@ -1,0 +1,127 @@
+{
+  "name": "Board Skills Matrix",
+  "module": "Governance",
+  "autoname": "series:BSM-.####",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assessment_date",
+      "fieldtype": "Date",
+      "label": "Assessment Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assessment_period",
+      "fieldtype": "Data",
+      "label": "Assessment Period",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assessed_by",
+      "fieldtype": "Data",
+      "label": "Assessed By"
+    },
+    {
+      "fieldname": "requirements",
+      "fieldtype": "Table",
+      "label": "Skill Requirements",
+      "options": "Board Skill Requirement",
+      "read_only": false
+    },
+    {
+      "fieldname": "assessment_status",
+      "fieldtype": "Select",
+      "label": "Assessment Status",
+      "options": [
+        "Draft",
+        "Calculated",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "summary",
+      "fieldtype": "Text",
+      "label": "Summary"
+    },
+    {
+      "fieldname": "approval_reference",
+      "fieldtype": "Data",
+      "label": "Approval Reference"
+    },
+    {
+      "fieldname": "results",
+      "fieldtype": "Table",
+      "label": "Calculated Results",
+      "options": "Board Skill Matrix Result",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "board"
+}

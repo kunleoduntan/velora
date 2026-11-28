@@ -1,0 +1,161 @@
+{
+  "name": "Governance Settings",
+  "module": "Governance",
+  "track_changes": true,
+  "description": "Global governance application configuration. Uses framework naming rules, workflows, permissions, notifications and audit services.",
+  "fields": [
+    {
+      "fieldname": "general_section",
+      "fieldtype": "Section Break",
+      "label": "General"
+    },
+    {
+      "fieldname": "default_country",
+      "fieldtype": "Data",
+      "label": "Default Country Code",
+      "default": "NG",
+      "description": "ISO 3166-1 alpha-2 country code for jurisdictional defaults."
+    },
+    {
+      "fieldname": "enable_multi_entity",
+      "fieldtype": "Check",
+      "label": "Enable Multi-Entity Governance",
+      "default": 1
+    },
+    {
+      "fieldname": "enable_board_management",
+      "fieldtype": "Check",
+      "label": "Enable Board Management",
+      "default": 1
+    },
+    {
+      "fieldname": "enable_secretariat",
+      "fieldtype": "Check",
+      "label": "Enable Corporate Secretariat",
+      "default": 1
+    },
+    {
+      "fieldname": "enable_sustainability",
+      "fieldtype": "Check",
+      "label": "Enable Sustainability and ESG",
+      "default": 1
+    },
+    {
+      "fieldname": "director_section",
+      "fieldtype": "Section Break",
+      "label": "Director Management"
+    },
+    {
+      "fieldname": "default_appointment_term_months",
+      "fieldtype": "Int",
+      "label": "Default Appointment Term (Months)",
+      "default": 36
+    },
+    {
+      "fieldname": "term_expiry_warning_days",
+      "fieldtype": "Int",
+      "label": "Term Expiry Warning Days",
+      "default": 180
+    },
+    {
+      "fieldname": "require_appointment_document",
+      "fieldtype": "Check",
+      "label": "Require Appointment Documentation",
+      "default": 1
+    },
+    {
+      "fieldname": "require_skills_assessment",
+      "fieldtype": "Check",
+      "label": "Require Skills Assessment",
+      "default": 1
+    },
+    {
+      "fieldname": "require_conflict_declaration",
+      "fieldtype": "Check",
+      "label": "Require Conflict Declaration",
+      "default": 1
+    },
+    {
+      "fieldname": "annual_declaration_renewal",
+      "fieldtype": "Check",
+      "label": "Annual Declaration Renewal",
+      "default": 1
+    },
+    {
+      "fieldname": "calendar_section",
+      "fieldtype": "Section Break",
+      "label": "Governance Calendar"
+    },
+    {
+      "fieldname": "default_reminder_days",
+      "fieldtype": "Int",
+      "label": "Primary Reminder Days",
+      "default": 30
+    },
+    {
+      "fieldname": "secondary_reminder_days",
+      "fieldtype": "Int",
+      "label": "Secondary Reminder Days",
+      "default": 7
+    },
+    {
+      "fieldname": "escalation_reminder_days",
+      "fieldtype": "Int",
+      "label": "Escalation Reminder Days",
+      "default": 1
+    },
+    {
+      "fieldname": "enable_overdue_escalation",
+      "fieldtype": "Check",
+      "label": "Enable Overdue Escalation",
+      "default": 1
+    },
+    {
+      "fieldname": "dashboard_section",
+      "fieldtype": "Section Break",
+      "label": "Dashboard"
+    },
+    {
+      "fieldname": "show_board_composition",
+      "fieldtype": "Check",
+      "label": "Show Board Composition",
+      "default": 1
+    },
+    {
+      "fieldname": "show_appointment_expiry",
+      "fieldtype": "Check",
+      "label": "Show Appointment Expiry",
+      "default": 1
+    },
+    {
+      "fieldname": "show_skills_gaps",
+      "fieldtype": "Check",
+      "label": "Show Skills Gaps",
+      "default": 1
+    },
+    {
+      "fieldname": "show_governance_calendar",
+      "fieldtype": "Check",
+      "label": "Show Governance Calendar",
+      "default": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": false
+    }
+  ],
+  "autoname": "prompt"
+}

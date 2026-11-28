@@ -1,0 +1,68 @@
+{
+  "name": "Supplier Quotation Line",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "fieldtype": "Link",
+      "label": "Item",
+      "options": "Inventory Item",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_name",
+      "label": "Item Name",
+      "fieldtype": "Data",
+      "fetch_from": "item_code.item_name",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "quantity",
+      "fieldtype": "Float",
+      "label": "Quantity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Data",
+      "label": "Unit of Measure"
+    },
+    {
+      "fieldname": "rate",
+      "fieldtype": "Currency",
+      "label": "Quoted Rate",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "lead_time_days",
+      "fieldtype": "Int",
+      "label": "Lead Time (days)"
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Deliver To",
+      "options": "Warehouse",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "rfq_line",
+      "fieldtype": "Data",
+      "label": "Request Line",
+      "read_only": true,
+      "hidden": true
+    }
+  ]
+}

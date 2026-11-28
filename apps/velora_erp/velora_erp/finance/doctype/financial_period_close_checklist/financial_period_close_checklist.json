@@ -1,0 +1,12 @@
+{
+  "name": "Financial Period Close Checklist",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {"fieldname":"item_code","fieldtype":"Data","label":"Control Code","required":true,"in_list_view":true},
+    {"fieldname":"description","fieldtype":"Data","label":"Review Requirement","required":true,"in_list_view":true},
+    {"fieldname":"completed","fieldtype":"Check","label":"Completed","default":0,"in_list_view":true},
+    {"fieldname":"evidence_reference","fieldtype":"Data","label":"Evidence Reference"},
+    {"fieldname":"reviewer_notes","fieldtype":"Text","label":"Reviewer Notes"}
+  ]
+}

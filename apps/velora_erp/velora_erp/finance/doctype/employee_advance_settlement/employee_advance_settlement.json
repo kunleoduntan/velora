@@ -1,0 +1,184 @@
+{
+  "name": "Employee Advance Settlement",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Settlement of employee advances through supported expense evidence or cash refunds.",
+  "fields": [
+    {
+      "fieldname": "employee_advance",
+      "fieldtype": "Link",
+      "label": "Employee Advance",
+      "options": "Employee Advance",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "settlement_date",
+      "fieldtype": "Date",
+      "label": "Settlement Date",
+      "required": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Settlement Lines",
+      "options": "Employee Advance Settlement Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_amount",
+      "fieldtype": "Currency",
+      "label": "Total Settlement",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Posted",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true
+    }
+  ],
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Employee Finance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

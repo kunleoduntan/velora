@@ -1,0 +1,124 @@
+{
+  "name": "Deferred Tax Assessment Line",
+  "module": "Finance",
+  "istable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Temporary Difference Description",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_type",
+      "fieldtype": "Select",
+      "label": "Source Type",
+      "options": [
+        "Fixed Asset",
+        "Lease",
+        "Provision",
+        "Accrual",
+        "Tax Loss",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_reference",
+      "fieldtype": "Data",
+      "label": "Source Reference"
+    },
+    {
+      "fieldname": "financial_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Financial Carrying Amount",
+      "required": true
+    },
+    {
+      "fieldname": "tax_base",
+      "fieldtype": "Currency",
+      "label": "Tax Base",
+      "required": true
+    },
+    {
+      "fieldname": "temporary_difference",
+      "fieldtype": "Currency",
+      "label": "Temporary Difference",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "difference_type",
+      "fieldtype": "Select",
+      "label": "Difference Type",
+      "options": [
+        "Taxable",
+        "Deductible",
+        "None"
+      ],
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "tax_rate",
+      "fieldtype": "Float",
+      "label": "Applicable Tax Rate (%)",
+      "required": true
+    },
+    {
+      "fieldname": "tax_rate_basis",
+      "fieldtype": "Data",
+      "label": "Enactment / Substantive Enactment Reference",
+      "required": true
+    },
+    {
+      "fieldname": "gross_deferred_tax",
+      "fieldtype": "Currency",
+      "label": "Gross Deferred Tax",
+      "read_only": true
+    },
+    {
+      "fieldname": "recognise_deferred_tax_asset",
+      "fieldtype": "Check",
+      "label": "Recognise Deferred Tax Asset",
+      "default": 1
+    },
+    {
+      "fieldname": "recoverability_basis",
+      "fieldtype": "Text",
+      "label": "DTA Recoverability Evidence"
+    },
+    {
+      "fieldname": "recognised_deferred_tax",
+      "fieldtype": "Currency",
+      "label": "Recognised Deferred Tax",
+      "read_only": true
+    },
+    {
+      "fieldname": "reversal_expected_date",
+      "fieldtype": "Date",
+      "label": "Expected Reversal Date"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "source_asset",
+      "fieldtype": "Link",
+      "label": "Source Fixed Asset",
+      "options": "Fixed Asset"
+    },
+    {
+      "fieldname": "source_depreciation_book",
+      "fieldtype": "Link",
+      "label": "Source Tax Book",
+      "options": "Fixed Asset Depreciation Book"
+    }
+  ],
+  "permissions": []
+}

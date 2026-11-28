@@ -1,0 +1,35 @@
+{
+  "name": "Customer Group",
+  "module": "Demo",
+  "autoname": "field:group_name",
+  "fields": [
+    {
+      "fieldname": "group_name",
+      "label": "Group Name",
+      "fieldtype": "Data",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Sales User",
+      "read": true,
+      "report": true
+    }
+  ]
+}

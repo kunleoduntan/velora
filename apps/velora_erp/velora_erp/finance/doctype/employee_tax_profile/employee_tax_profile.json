@@ -1,0 +1,153 @@
+{
+  "name": "Employee Tax Profile",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Effective-dated employee tax jurisdiction and approved tax rule assignment.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "jurisdiction",
+      "fieldtype": "Link",
+      "label": "Tax Jurisdiction",
+      "options": "Payroll Tax Jurisdiction",
+      "required": true
+    },
+    {
+      "fieldname": "tax_rule",
+      "fieldtype": "Link",
+      "label": "Payroll Tax Rule",
+      "options": "Payroll Tax Rule",
+      "required": true
+    },
+    {
+      "fieldname": "tax_identifier",
+      "fieldtype": "Data",
+      "label": "Tax Identifier"
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From",
+      "required": true
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "annual_relief",
+      "fieldtype": "Currency",
+      "label": "Annual Relief Override",
+      "default": 0
+    },
+    {
+      "fieldname": "tax_exempt",
+      "fieldtype": "Check",
+      "label": "Tax Exempt",
+      "default": 0
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "cancel": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "cancel": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "delete": false,
+      "report": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "delete": false,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

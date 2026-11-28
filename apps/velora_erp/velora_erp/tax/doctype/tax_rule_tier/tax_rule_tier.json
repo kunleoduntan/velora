@@ -1,0 +1,72 @@
+{
+ "name": "Tax Rule Tier",
+ "module": "Tax Management",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "lower_limit",
+   "fieldtype": "Currency",
+   "label": "From",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "upper_limit",
+   "fieldtype": "Currency",
+   "label": "To (blank = open-ended)",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Float",
+   "label": "Rate %",
+   "required": true,
+   "in_list_view": true
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  }
+ ],
+ "istable": true,
+ "description": "A marginal band of a tiered tax rule."
+}

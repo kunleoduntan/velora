@@ -1,0 +1,99 @@
+{
+  "name": "ProjectOne",
+  "label": "ProjectOne",
+  "icon": "briefcase-business",
+  "category": "Applications",
+  "description": "Enterprise Project and Portfolio Management",
+  "items": [
+    {
+      "label": "Executive Intelligence",
+      "type": "group",
+      "items": [
+        "Portfolio Executive Workspace",
+        "Project Schedule Workspace",
+        "ProjectOne Dashboards",
+        "Project Manager Workbench",
+        "Enterprise Capacity Workspace"
+      ]
+    },
+    {
+      "label": "Portfolio",
+      "type": "group",
+      "items": [
+        "Project Portfolio",
+        "Project Programme",
+        "Project Business Case"
+      ]
+    },
+    {
+      "label": "Projects",
+      "type": "group",
+      "items": [
+        "Project",
+        "Project Charter",
+        "Project Stakeholder"
+      ]
+    },
+    {
+      "label": "Planning & Execution",
+      "type": "group",
+      "items": [
+        "Project WBS",
+        "Project Task",
+        "Task Dependency",
+        "Project Milestone",
+        "Project Baseline",
+        "Project Deliverable",
+        "Project Sprint",
+        "Project User Story"
+      ]
+    },
+    {
+      "label": "Resources & Finance",
+      "type": "group",
+      "items": [
+        "Resource Profile",
+        "Resource Skill",
+        "Resource Calendar",
+        "Resource Availability Exception",
+        "Project Resource Allocation",
+        "Project Timesheet"
+      ]
+    },
+    {
+      "label": "Governance & Quality",
+      "type": "group",
+      "items": [
+        "Project Risk",
+        "Project Corrective Action",
+        "Project Issue",
+        "Project Change Request",
+        "Project Quality Inspection"
+      ]
+    },
+    {
+      "label": "Collaboration & Closure",
+      "type": "group",
+      "items": [
+        "Project Meeting",
+        "Project Document Register",
+        "Project Closure"
+      ]
+    },
+    {
+      "label": "Financial Control",
+      "type": "group",
+      "items": [
+        "Project Budget",
+        "Project Budget Line",
+        "Project Budget Change",
+        "Project Commitment",
+        "Project Cost Actual",
+        "Project Revenue Forecast",
+        "Project Financial Snapshot",
+        "Project Revenue Recognition",
+        "Project Performance Obligation"
+      ]
+    }
+  ]
+}

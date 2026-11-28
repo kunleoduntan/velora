@@ -1,0 +1,2396 @@
+[
+{
+"name": "Broadcast",
+"module": "Notify",
+"app": "velora_notify",
+"sub": false
+},
+{
+"name": "Communication Opt-Out",
+"module": "Notify",
+"app": "velora_notify",
+"sub": false
+},
+{
+"name": "Message Template",
+"module": "Notify",
+"app": "velora_notify",
+"sub": false
+},
+{
+"name": "Notification Delivery",
+"module": "Notify",
+"app": "velora_notify",
+"sub": false
+},
+{
+"name": "Notification Log",
+"module": "Notify",
+"app": "velora_notify",
+"sub": false
+},
+{
+"name": "Notification Preference",
+"module": "Notify",
+"app": "velora_notify",
+"sub": false
+},
+{
+"name": "Notification Rule",
+"module": "Notify",
+"app": "velora_notify",
+"sub": false
+},
+{
+"name": "Engagement Log",
+"module": "Engagement",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Engagement Settings",
+"module": "Engagement",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Moment Template",
+"module": "Engagement",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Occasion",
+"module": "Engagement",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Party Important Date",
+"module": "Engagement",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Account",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Account Group",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Account Ledger Record",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Account Statement Mapping",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Account Type",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Accounting Dimension",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Bank Account",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Bank Reconciliation Match",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Bank Statement Line",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Bank Transaction Coding Rule",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Batch",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Business Unit",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Cost Centre",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Cost Distribution Rule",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Currency",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Currency Exchange Rate",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Customer",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Customer Complaint",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Customer Group",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Cycle Count",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Deferred Tax Assessment",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Dimension Value",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Rent Declaration",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Finance Request Policy",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Finance Service Request",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Finance Settings",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Financial Period",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Financial Statement Row",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Financial Year",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Fixed Asset",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Fixed Asset Book Balance",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Fixed Asset Category",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Fixed Asset CGU",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Fixed Asset Depreciation Book",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Fixed Asset History Log",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Intercompany Cost Allocation",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Inventory Item",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Inventory Settings",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Item Group",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Material Request",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Naming Series Rule",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Party Adjustment",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Payment Terms",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Payroll Automation Settings",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Payroll Preparation",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Payroll Tax Jurisdiction",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Portal Account",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Posting Cancellation Log",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Posting Restore Point",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Quality Inspection Template",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Request for Quotation",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Salary Component",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Serial Number",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Stock Ledger Record",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Stock Reservation",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Supplier",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Supplier Group",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Supplier Quotation",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Tax Refund Credit Review",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Transaction Type",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Unit of Measure",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Warehouse",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Attendance",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Attendance Device",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Attendance Device User Mapping",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Attendance Integration",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Attendance Sync Run",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Branch",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Candidate",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Career Development Plan",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Competency",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Competency Framework",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Critical Position",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Department",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Department Staff Budget",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Designation",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Asset Assignment",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Change Request",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Classification Category",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Classification Value",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Competency Assessment",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Document",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee HR Profile",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Qualification",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Relations Case",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Separation",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employee Status History",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Employment Contract",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "External Attendance Punch",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Handover Management",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Holiday List",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "HR Policy Acknowledgement",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "HR Policy Document",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "HR Service Request",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Interview",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Job Application",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Job Band",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Job Grade",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Job Offer",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Job Position",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Job Posting",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Job Requisition",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Leave Allocation",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Leave Application",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Leave Period",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Leave Policy",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Leave Type",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Onboarding Plan",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Onboarding Task",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Overtime Request",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Calibration Session",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Check In",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Cycle",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Cycle Assignment",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Feedback",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Goal",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Improvement Plan",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Rater Campaign",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Review",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Review Template",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Performance Workflow Reminder",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Probation Review",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Recruitment Inbox Notification",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Recruitment Settings",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Reporting Assignment",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Shift Assignment",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Shift Type",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Succession Candidate",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Training Course",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Training Enrollment",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Training Program",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Training Session",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Work Location",
+"module": "HR",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Canned Reply",
+"module": "Support",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Service Level Agreement",
+"module": "Support",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Support Category",
+"module": "Support",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Support Settings",
+"module": "Support",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Support Team",
+"module": "Support",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Support Ticket",
+"module": "Support",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Project",
+"module": "Projects",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Audit Event",
+"module": "Projects",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Baseline",
+"module": "Planning",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Benefit",
+"module": "Governance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Budget",
+"module": "Finance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Budget Change",
+"module": "Finance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Budget Line",
+"module": "Finance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Business Case",
+"module": "Projects",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Change Request",
+"module": "Governance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Charter",
+"module": "Projects",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Closure",
+"module": "Closure",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Commitment",
+"module": "Finance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Corrective Action",
+"module": "Governance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Cost Actual",
+"module": "Finance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Cost Category",
+"module": "Setup",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Decision Log",
+"module": "Governance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Deliverable",
+"module": "Execution",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Document Register",
+"module": "Collaboration",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Epic",
+"module": "Agile",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Financial Snapshot",
+"module": "Finance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Issue",
+"module": "Governance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Meeting",
+"module": "Collaboration",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Milestone",
+"module": "Planning",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Performance Obligation",
+"module": "Finance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Portfolio",
+"module": "Portfolio",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Programme",
+"module": "Portfolio",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Quality Inspection",
+"module": "Quality",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Request Key",
+"module": "Projects",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Resource Allocation",
+"module": "Resources",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Revenue Forecast",
+"module": "Finance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Revenue Recognition",
+"module": "Finance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Risk",
+"module": "Governance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Sprint",
+"module": "Agile",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Sprint Retrospective",
+"module": "Agile",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Stage Gate",
+"module": "Governance",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Stakeholder",
+"module": "Projects",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Task",
+"module": "Execution",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Timesheet",
+"module": "Resources",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Type",
+"module": "Setup",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project User Story",
+"module": "Agile",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project WBS",
+"module": "Planning",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Project Work Log",
+"module": "Execution",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Resource Availability Exception",
+"module": "Resources",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Resource Calendar",
+"module": "Resources",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Resource Profile",
+"module": "Resources",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Resource Skill",
+"module": "Resources",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Task Dependency",
+"module": "Planning",
+"app": "velora_projectone",
+"sub": false
+},
+{
+"name": "Access Card",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Administration Settings",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Administrative Correspondence",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Administrative Event",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Administrative Travel Request",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Administrative Vehicle",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Administrative Visitor",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Approval Delegation",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Approval Escalation Rule",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Approval Matrix",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Automation Rule",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Business Calendar",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Checklist Template",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Compliance Requirement",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Contract",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Correspondence",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Document Category",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Document Register",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Event",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Facility",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Facility Asset",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Facility Space",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Facility Work Order",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Fulfilment Template",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Knowledge Article",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Maintenance Request",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Office Asset",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Office Location",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Organisation Unit",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Person",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Person Checklist",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Renewal Register",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Reporting Line",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Request Fulfilment",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Request Type",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Risk Register",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Security Incident",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Service",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Service Feedback",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Stock Transaction",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Supply Item",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Task",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Travel Request",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Trip",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Trip Request",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Vehicle",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Vendor",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Vendor Administration Profile",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Vendor Category",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Visitor",
+"module": "Administration",
+"app": "velora_admin",
+"sub": false
+},
+{
+"name": "Car Rental Booking",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Car Rental Vehicle",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Corporate Travel Account",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Customer Trip",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Customer Trip Request",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Farepoint Settings",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Flight Booking",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Hotel Booking",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Hotel Room Type",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Tour Booking",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Tour Package",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Activity",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Cancellation",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Commission Target",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Communication Log",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Country",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Customer Profile",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Destination",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Document",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Document Checklist",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Enquiry",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Feedback",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Follow Up",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel FX Markup Rule",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Group",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Hotel",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Insurance",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Itinerary",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Lead",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Loyalty Ledger",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Package",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Payment Schedule",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Policy",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Portal Message",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Quotation",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Referral",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Refund",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Service",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Supplier",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Supplier Commission",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Supplier Contract",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Supplier Payment",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Supplier Rate Card",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Travel Transfer",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Traveller",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Visa Application",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Visa Type",
+"module": "Farepoint",
+"app": "farepoint",
+"sub": false
+},
+{
+"name": "Sustainability Report Export Template",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Initiative",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Emission Source",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Meeting Decision Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Materiality Assessment",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Director Independence Status",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Meeting Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Agenda Category",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Shareholder",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Regulatory Authority",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Report Revision",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Opportunity Category",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Entity Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Resolution Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Risk Category",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Committee",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Topic",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Disclosure Assessment",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Annual Return",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Resolution",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Skill Category",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Data Quality",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Target",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Disclosure Applicability",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Risk",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Disclosure Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Framework",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Policy Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Report Review Issue",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Statutory Register Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Metric",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Report",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Statutory Register",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Stakeholder",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Emission Source Category",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Settings",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Director Classification",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Action Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Skill",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Metric Category",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Exception",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Committee Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Stakeholder Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Report Publication",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Member",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Automation Configuration",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Paper Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Appointment",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Exception Configuration",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Share Class",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Regulatory Correspondence",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Appointment Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Evaluation",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Control",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Event Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Succession Plan",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Policy",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Obligation",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Emission Factor",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "GHG Calculation",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Skills Matrix",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Initiative Category",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Corporate Filing",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Unit",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Meeting",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Evaluation Template",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Exception Activity",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Pack",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Data Point",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Director Training Record",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Report Review",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Opportunity",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Report Generation Log",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Standard",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Corporate Event Type",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Reporting Period",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Paper",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Meeting Minutes",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Automation Execution",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Action",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Entity",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Stakeholder Engagement",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Report Content Block",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Assurance",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Compliance Assessment",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Reporting Run",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Corporate Event",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Related Party Interest",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Disclosure",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Settings",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Filing Requirement",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Risk",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Regulatory Requirement",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Skill Level",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Shareholder Register",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Governance Calendar Event",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Board Committee Charter",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Conflict of Interest Declaration",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Sustainability Data Collection Task",
+"module": "Governance",
+"app": "velora_governance",
+"sub": false
+},
+{
+"name": "Consolidation Group",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+},
+{
+"name": "Consolidation Run",
+"module": "Finance",
+"app": "velora_erp",
+"sub": false
+}
+]

@@ -1,0 +1,63 @@
+{
+ "name": "Broadcast Recipient",
+ "module": "Notify",
+ "istable": true,
+ "fields": [
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "salutation",
+   "fieldtype": "Data",
+   "label": "Salutation",
+   "length": 40
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "in_list_view": true,
+   "length": 254
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "in_list_view": true,
+   "length": 40
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Pending",
+    "Queued",
+    "Sent",
+    "Failed",
+    "Skipped",
+    "Opted out"
+   ],
+   "default": "Pending",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "detail",
+   "fieldtype": "Data",
+   "label": "Detail",
+   "read_only": true,
+   "length": 300
+  },
+  {
+   "fieldname": "source_name",
+   "fieldtype": "Data",
+   "label": "From record",
+   "read_only": true,
+   "length": 140
+  }
+ ]
+}

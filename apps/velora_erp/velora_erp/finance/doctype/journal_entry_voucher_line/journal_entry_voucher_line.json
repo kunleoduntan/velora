@@ -1,0 +1,125 @@
+{
+  "name": "Journal Entry Voucher Line",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "trans_date",
+      "fieldtype": "Date",
+      "label": "Trans Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "transaction_description",
+      "fieldtype": "Data",
+      "label": "Transaction Description",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "account_type",
+      "fieldtype": "Select",
+      "label": "Acct Type",
+      "options": [
+        "Account GL",
+        "Supplier",
+        "Customer",
+        "Employee"
+      ],
+      "required": true,
+      "in_list_view": true,
+      "default": "Account GL"
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "label": "Party / GL Account",
+      "required": true,
+      "in_list_view": true,
+      "description": "Supplier, Customer or Employee code; or the General Ledger account when Acct Type is Account GL."
+    },
+    {
+      "fieldname": "party_name",
+      "fieldtype": "Data",
+      "label": "Party Name",
+      "read_only": true
+    },
+    {
+      "fieldname": "trans_effect",
+      "fieldtype": "Select",
+      "label": "Trans Effect",
+      "options": [
+        "Debit",
+        "Credit"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "corresponding_account",
+      "fieldtype": "Link",
+      "label": "Corresponding Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "description": "The opposite leg. It is posted on the opposite side automatically.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "repair_asset",
+      "label": "Repair / Maintenance of Asset",
+      "fieldtype": "Link",
+      "options": "Fixed Asset",
+      "description": "Tick an asset here to track this cost as repairs & maintenance of that asset."
+    },
+    {
+      "fieldname": "project",
+      "fieldtype": "Link",
+      "label": "Project",
+      "options": "Project"
+    },
+    {
+      "fieldname": "branch",
+      "fieldtype": "Link",
+      "label": "Branch",
+      "options": "Branch"
+    },
+    {
+      "fieldname": "corresponding_cost_centre",
+      "fieldtype": "Link",
+      "label": "Corresponding Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "corresponding_project",
+      "fieldtype": "Link",
+      "label": "Corresponding Project",
+      "options": "Project"
+    }
+  ]
+}

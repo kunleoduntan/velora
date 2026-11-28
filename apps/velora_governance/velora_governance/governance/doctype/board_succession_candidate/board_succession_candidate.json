@@ -1,0 +1,63 @@
+{
+  "name": "Board Succession Candidate",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "position",
+      "fieldtype": "Data",
+      "label": "Position",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "incumbent",
+      "fieldtype": "Link",
+      "label": "Incumbent",
+      "options": "Board Member"
+    },
+    {
+      "fieldname": "candidate",
+      "fieldtype": "Link",
+      "label": "Candidate",
+      "options": "Board Member",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "readiness",
+      "fieldtype": "Select",
+      "label": "Readiness",
+      "options": [
+        "Ready Now",
+        "1-2 Years",
+        "3-5 Years",
+        "Long Term",
+        "Not Assessed"
+      ],
+      "default": "Not Assessed",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "skills_gap",
+      "fieldtype": "Text",
+      "label": "Skills Gap"
+    },
+    {
+      "fieldname": "development_actions",
+      "fieldtype": "Text",
+      "label": "Development Actions"
+    },
+    {
+      "fieldname": "target_date",
+      "fieldtype": "Date",
+      "label": "Target Date"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

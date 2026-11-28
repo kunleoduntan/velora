@@ -1,0 +1,242 @@
+{
+  "name": "Fixed Asset Category",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Fixed asset category and default account mapping.",
+  "fields": [
+    {
+      "fieldname": "category_name",
+      "fieldtype": "Data",
+      "label": "Category Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "asset_account",
+      "fieldtype": "Link",
+      "label": "Asset Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accumulated_depreciation_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Depreciation Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "depreciation_expense_account",
+      "fieldtype": "Link",
+      "label": "Depreciation Expense Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "default_useful_life_months",
+      "fieldtype": "Int",
+      "label": "Default Useful Life (Months)",
+      "default": 60
+    },
+    {
+      "fieldname": "default_residual_percentage",
+      "fieldtype": "Float",
+      "label": "Default Residual Percentage",
+      "default": 0
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    },
+    {
+      "fieldname": "depreciation_defaults_section",
+      "fieldtype": "Section Break",
+      "label": "Depreciation Defaults",
+      "collapsible": true
+    },
+    {
+      "fieldname": "default_depreciation_method",
+      "fieldtype": "Select",
+      "label": "Default Depreciation Method",
+      "options": [
+        "Straight Line",
+        "Reducing Balance",
+        "Units of Production"
+      ],
+      "default": "Straight Line",
+      "required": true
+    },
+    {
+      "fieldname": "default_reducing_balance_rate",
+      "fieldtype": "Float",
+      "label": "Default Reducing Balance Rate (%)",
+      "default": 0,
+      "depends_on": "eval:doc.default_depreciation_method == \"Reducing Balance\""
+    },
+    {
+      "fieldname": "impairment_accounts_section",
+      "fieldtype": "Section Break",
+      "label": "Impairment and Revaluation Accounts",
+      "collapsible": true
+    },
+    {
+      "fieldname": "impairment_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Impairment Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "impairment_expense_account",
+      "fieldtype": "Link",
+      "label": "Impairment Loss Expense Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "impairment_reversal_account",
+      "fieldtype": "Link",
+      "label": "Impairment Reversal Income Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "revaluation_surplus_account",
+      "fieldtype": "Link",
+      "label": "Revaluation Surplus Account",
+      "options": "Account",
+      "description": "Equity reserve account used when impairment of a revalued asset first reduces an existing revaluation surplus.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    }
+  ],
+  "autoname": "series:FIX-.########",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "category_name"
+}

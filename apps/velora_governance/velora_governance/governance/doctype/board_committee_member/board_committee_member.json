@@ -1,0 +1,56 @@
+{
+  "name": "Board Committee Member",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "board_member",
+      "fieldtype": "Link",
+      "label": "Board Member",
+      "options": "Board Member",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "committee_role",
+      "fieldtype": "Select",
+      "label": "Committee Role",
+      "options": [
+        "Chair",
+        "Vice Chair",
+        "Member",
+        "Secretary",
+        "Observer"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From"
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "membership_status",
+      "fieldtype": "Select",
+      "label": "Membership Status",
+      "options": [
+        "Active",
+        "Inactive",
+        "Expired"
+      ],
+      "default": "Active",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

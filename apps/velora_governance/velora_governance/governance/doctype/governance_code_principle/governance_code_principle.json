@@ -1,0 +1,28 @@
+{
+ "name": "Governance Code Principle",
+ "module": "Governance",
+ "fields": [
+  {
+   "fieldname": "principle_number",
+   "fieldtype": "Int",
+   "label": "No.",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "part",
+   "fieldtype": "Data",
+   "label": "Part",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Principle",
+   "required": true,
+   "in_list_view": true
+  }
+ ],
+ "istable": true
+}

@@ -1,0 +1,109 @@
+{
+  "name": "Financial Period",
+  "module": "Finance",
+  "autoname": "field:period_name",
+  "track_changes": true,
+  "description": "A posting and reporting period within a Financial Year.",
+  "fields": [
+    {
+      "fieldname": "period_name",
+      "fieldtype": "Data",
+      "label": "Period Name",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "financial_year",
+      "fieldtype": "Link",
+      "label": "Financial Year",
+      "options": "Financial Year",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "period_number",
+      "fieldtype": "Int",
+      "label": "Period Number",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Future",
+        "Open",
+        "Closing",
+        "Closed"
+      ],
+      "default": "Future",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "closed_on",
+      "fieldtype": "Date",
+      "label": "Closed On",
+      "read_only": true
+    },
+    {
+      "fieldname": "close_notes",
+      "fieldtype": "Text",
+      "label": "Closing Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ],
+  "title_field": "period_name"
+}

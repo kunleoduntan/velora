@@ -1,0 +1,4 @@
+{"name": "Batch Expiry", "module": "Finance", "type": "script", "ref_doctype": "Batch", "roles": ["System Manager", "Finance Manager", "Inventory Manager", "Storekeeper", "Auditor"],
+ "description": "Batches that still hold stock and have expired or will expire soon. The look-ahead period comes from Inventory Settings.",
+ "filters": [{"fieldname":"warehouse","label":"Warehouse","fieldtype":"Link","options":"Warehouse"},{"fieldname":"item_code","label":"Item","fieldtype":"Link","options":"Inventory Item"},
+  {"fieldname":"days","label":"Expiring Within (days)","fieldtype":"Int"},{"fieldname":"include_ok","label":"Include Batches Not Near Expiry","fieldtype":"Check"}]}

@@ -1,0 +1,19 @@
+{
+  "name": "Message Delivery Health",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Engagement Manager"
+  ],
+  "description": "Are your emails, WhatsApp and in-app messages actually going out? Failures, waiting messages and held greetings in one place.",
+  "filters": [
+    {
+      "fieldname": "days",
+      "label": "Days back",
+      "fieldtype": "Int",
+      "default": 30
+    }
+  ]
+}

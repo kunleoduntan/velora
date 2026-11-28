@@ -1,0 +1,12 @@
+{
+  "name": "Quiet Customers and Suppliers",
+  "module": "Engagement",
+  "type": "script",
+  "ref_doctype": "Engagement Log",
+  "roles": ["System Manager", "Engagement Manager", "Sales Manager", "Finance Manager"],
+  "description": "Customers (or suppliers) who have not been invoiced for a while, with the date they were last nudged.",
+  "filters": [
+    {"fieldname": "party_type", "label": "Party type", "fieldtype": "Select", "options": ["Customer", "Supplier"], "default": "Customer"},
+    {"fieldname": "quiet_days", "label": "Quiet for at least (days)", "fieldtype": "Int"}
+  ]
+}

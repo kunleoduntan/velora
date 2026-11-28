@@ -1,0 +1,167 @@
+{
+  "name": "Payroll Payment",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Separate settlement of approved payroll liabilities through the central financial posting service.",
+  "fields": [
+    {
+      "fieldname": "payment_date",
+      "fieldtype": "Date",
+      "label": "Payment Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Payments",
+      "options": "Payroll Payment Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_amount",
+      "fieldtype": "Currency",
+      "label": "Total Payment",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Posted",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    }
+  ],
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Employee Finance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

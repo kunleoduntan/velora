@@ -1,0 +1,86 @@
+{
+  "name": "Employee Advance Settlement Line",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Expense evidence or cash refund applied against an employee advance.",
+  "fields": [
+    {
+      "fieldname": "settlement_type",
+      "fieldtype": "Select",
+      "label": "Settlement Type",
+      "options": [
+        "Expense Evidence",
+        "Cash Refund"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Expense or Cash Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description"
+    }
+  ],
+  "istable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

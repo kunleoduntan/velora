@@ -1,0 +1,354 @@
+{
+  "name": "Fixed Asset Disposal",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled derecognition of an asset, including proceeds and gain/loss calculation.",
+  "fields": [
+    {
+      "fieldname": "asset",
+      "fieldtype": "Link",
+      "label": "Fixed Asset",
+      "options": "Fixed Asset",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "disposal_date",
+      "fieldtype": "Date",
+      "label": "Disposal Date",
+      "required": true,
+      "default": "Today"
+    },
+    {
+      "fieldname": "disposal_type",
+      "fieldtype": "Select",
+      "label": "Disposal Type",
+      "options": [
+        "Sale",
+        "Scrap",
+        "Write Off",
+        "Donation",
+        "Theft / Loss"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Carrying Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "disposal_proceeds",
+      "fieldtype": "Currency",
+      "label": "Disposal Proceeds",
+      "default": 0
+    },
+    {
+      "fieldname": "proceeds_account",
+      "fieldtype": "Link",
+      "label": "Cash / Receivable Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "asset_account",
+      "fieldtype": "Link",
+      "label": "Asset Cost Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accumulated_depreciation_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Depreciation Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "gain_account",
+      "fieldtype": "Link",
+      "label": "Gain on Disposal Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "loss_account",
+      "fieldtype": "Link",
+      "label": "Loss on Disposal Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "gain_loss",
+      "fieldtype": "Currency",
+      "label": "Net Gain / (Loss) after Disposal Costs",
+      "read_only": true
+    },
+    {
+      "fieldtype": "Section Break",
+      "label": "Disposal Evidence and Costs",
+      "collapsible": true,
+      "fieldname": "disposal_evidence_section"
+    },
+    {
+      "fieldname": "buyer",
+      "fieldtype": "Data",
+      "label": "Buyer / Recipient"
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Disposal Reason",
+      "required": true
+    },
+    {
+      "fieldname": "condition_at_disposal",
+      "fieldtype": "Select",
+      "label": "Asset Condition",
+      "options": [
+        "Good",
+        "Fair",
+        "Poor",
+        "Damaged",
+        "Lost",
+        "Scrapped"
+      ]
+    },
+    {
+      "fieldname": "physical_verification_done",
+      "fieldtype": "Check",
+      "label": "Physical Verification Completed",
+      "default": 0
+    },
+    {
+      "fieldname": "verified_by",
+      "fieldtype": "Data",
+      "label": "Verified By",
+      "depends_on": "eval:doc.physical_verification_done == 1"
+    },
+    {
+      "fieldname": "verification_date",
+      "fieldtype": "Date",
+      "label": "Verification Date",
+      "depends_on": "eval:doc.physical_verification_done == 1"
+    },
+    {
+      "fieldname": "disposal_costs",
+      "fieldtype": "Currency",
+      "label": "Disposal Costs",
+      "default": 0
+    },
+    {
+      "fieldname": "disposal_cost_account",
+      "fieldtype": "Link",
+      "label": "Disposal Cost Expense Account",
+      "options": "Account",
+      "depends_on": "eval:doc.disposal_costs > 0",
+      "mandatory_depends_on": "eval:doc.disposal_costs > 0",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "disposal_cost_payment_account",
+      "fieldtype": "Link",
+      "label": "Disposal Cost Payment Account",
+      "options": "Account",
+      "depends_on": "eval:doc.disposal_costs > 0",
+      "mandatory_depends_on": "eval:doc.disposal_costs > 0",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "net_disposal_proceeds",
+      "fieldtype": "Currency",
+      "label": "Net Disposal Proceeds",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "impairment_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Impairment Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    }
+  ],
+  "autoname": "series:FIX-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

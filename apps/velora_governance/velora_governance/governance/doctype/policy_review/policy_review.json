@@ -1,0 +1,54 @@
+{
+  "name": "Policy Review",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "review_date",
+      "fieldtype": "Date",
+      "label": "Review Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reviewer",
+      "fieldtype": "Data",
+      "label": "Reviewer",
+      "required": true
+    },
+    {
+      "fieldname": "review_result",
+      "fieldtype": "Select",
+      "label": "Review Result",
+      "options": [
+        "No Change",
+        "Minor Revision",
+        "Major Revision",
+        "Superseded"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "findings",
+      "fieldtype": "Text",
+      "label": "Findings"
+    },
+    {
+      "fieldname": "next_review_date",
+      "fieldtype": "Date",
+      "label": "Next Review Date"
+    },
+    {
+      "fieldname": "action",
+      "fieldtype": "Link",
+      "label": "Action",
+      "options": "Board Action"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

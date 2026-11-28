@@ -1,0 +1,42 @@
+{
+  "name": "Project Retrospective Action",
+  "module": "Agile",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "action",
+      "label": "Improvement Action",
+      "fieldtype": "Text",
+      "required": true
+    },
+    {
+      "fieldname": "action_owner",
+      "label": "Owner",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "due_date",
+      "label": "Due Date",
+      "fieldtype": "Date",
+      "required": true
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Open",
+        "In Progress",
+        "Completed"
+      ],
+      "default": "Open"
+    },
+    {
+      "fieldname": "completion_evidence",
+      "label": "Completion Evidence",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": []
+}

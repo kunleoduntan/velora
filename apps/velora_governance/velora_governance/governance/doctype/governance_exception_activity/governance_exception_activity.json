@@ -1,0 +1,83 @@
+{
+  "name": "Governance Exception Activity",
+  "module": "Governance",
+  "autoname": "hash",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "exception",
+      "fieldtype": "Link",
+      "options": "Governance Exception",
+      "label": "Governance Exception",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "activity_type",
+      "fieldtype": "Select",
+      "options": "Created\nSource Updated\nAssigned\nReassigned\nComment\nEvidence Added\nStatus Changed\nEscalated\nNotification Sent\nNotification Failed",
+      "label": "Activity Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "actor",
+      "fieldtype": "Data",
+      "label": "Actor",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "details",
+      "fieldtype": "Text",
+      "label": "Details"
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "label": "Idempotency Key",
+      "unique": true
+    },
+    {
+      "fieldname": "activity_datetime",
+      "fieldtype": "Datetime",
+      "label": "Activity Date/Time",
+      "required": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "Governance Administrator",
+      "read": 1,
+      "create": 1,
+      "write": 1,
+      "delete": 0
+    },
+    {
+      "role": "Company Secretary",
+      "read": 1,
+      "create": 1,
+      "write": 0,
+      "delete": 0
+    },
+    {
+      "role": "Governance Officer",
+      "read": 1,
+      "create": 1,
+      "write": 0,
+      "delete": 0
+    },
+    {
+      "role": "Internal Auditor",
+      "read": 1,
+      "create": 0,
+      "write": 0,
+      "delete": 0
+    }
+  ]
+}

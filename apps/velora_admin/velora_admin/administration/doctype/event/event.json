@@ -1,0 +1,148 @@
+{
+  "name": "Event",
+  "module": "Administration",
+  "autoname": "series:EVENT-.YYYY.-.####",
+  "title_field": "event_title",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "EVENT-.YYYY.-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "event_title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Event Title",
+      "required": true
+    },
+    {
+      "default": "Meeting",
+      "fieldname": "event_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Event Type",
+      "options": "Meeting\nConference\nTraining\nWorkshop\nSocial\nBoard Meeting\nOther"
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Planning",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Planning\nConfirmed\nCompleted\nCancelled",
+      "read_only": 1
+    },
+    {
+      "fieldname": "organiser",
+      "fieldtype": "Link",
+      "label": "Organiser",
+      "options": "Person",
+      "required": true
+    },
+    {
+      "fieldname": "section_break_when",
+      "fieldtype": "Section Break",
+      "label": "Schedule & Venue"
+    },
+    {
+      "fieldname": "start_datetime",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "Start",
+      "required": true
+    },
+    {
+      "fieldname": "end_datetime",
+      "fieldtype": "Datetime",
+      "label": "End"
+    },
+    {
+      "fieldname": "column_break_when",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "is_internal_venue",
+      "fieldtype": "Check",
+      "label": "Internal Venue"
+    },
+    {
+      "fieldname": "facility_space",
+      "fieldtype": "Link",
+      "label": "Facility Space",
+      "options": "Facility Space"
+    },
+    {
+      "fieldname": "external_venue",
+      "fieldtype": "Data",
+      "label": "External Venue"
+    },
+    {
+      "fieldname": "expected_attendees",
+      "fieldtype": "Int",
+      "label": "Expected Attendees"
+    },
+    {
+      "fieldname": "section_break_budget",
+      "fieldtype": "Section Break",
+      "label": "Budget"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "budget_lines",
+      "fieldtype": "Table",
+      "label": "Budget Lines",
+      "options": "Event Budget Line"
+    },
+    {
+      "fieldname": "section_break_notes",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

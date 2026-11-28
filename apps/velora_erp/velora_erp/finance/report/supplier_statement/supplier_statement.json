@@ -1,0 +1,53 @@
+{
+  "name": "Supplier Statement",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Supplier",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Accountant",
+    "Auditor"
+  ],
+  "description": "Party-level account activity, opening balance, transactions and closing balance from the immutable financial ledger.",
+  "filters": [
+    {
+      "fieldname": "supplier",
+      "label": "Supplier",
+      "fieldtype": "Link",
+      "options": "Supplier",
+      "required": true
+    },
+    {
+      "fieldname": "account_from",
+      "label": "Account From",
+      "fieldtype": "Link",
+      "options": "Account"
+    },
+    {
+      "fieldname": "account_to",
+      "label": "Account To",
+      "fieldtype": "Link",
+      "options": "Account"
+    },
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date",
+      "required": false
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date",
+      "default": "Today",
+      "required": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "label": "Cost Centre",
+      "fieldtype": "Link",
+      "options": "Cost Centre"
+    }
+  ]
+}

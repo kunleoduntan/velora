@@ -1,0 +1,110 @@
+{
+  "name": "Job Grade",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Career and organisational grading classification.",
+  "fields": [
+    {
+      "fieldname": "grade_code",
+      "fieldtype": "Data",
+      "label": "Grade Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 30
+    },
+    {
+      "fieldname": "grade_name",
+      "fieldtype": "Data",
+      "label": "Grade Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "grade_level",
+      "fieldtype": "Int",
+      "label": "Grade Level"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0,
+      "in_standard_filter": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    }
+  ],
+  "autoname": "field:grade_code",
+  "title_field": "grade_name"
+}

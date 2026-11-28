@@ -1,0 +1,149 @@
+{
+ "name": "XBRL Export Setting",
+ "module": "Governance",
+ "track_changes": true,
+ "autoname": "series:XES-.####",
+ "title_field": "governance_entity",
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "unique": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "schema_ref",
+   "fieldtype": "Data",
+   "label": "Taxonomy entry point (schemaRef URL)",
+   "required": true,
+   "description": "From the IFRS Sustainability Disclosure Taxonomy release you file against, or the regulator's filing manual. Not guessed by the system."
+  },
+  {
+   "fieldname": "taxonomy_prefix",
+   "fieldtype": "Data",
+   "label": "Namespace prefix",
+   "required": true
+  },
+  {
+   "fieldname": "taxonomy_namespace",
+   "fieldtype": "Data",
+   "label": "Namespace URI",
+   "required": true
+  },
+  {
+   "fieldname": "identifier_scheme",
+   "fieldtype": "Data",
+   "label": "Entity identifier scheme (URI)",
+   "required": true
+  },
+  {
+   "fieldname": "identifier",
+   "fieldtype": "Data",
+   "label": "Entity identifier",
+   "required": true,
+   "description": "For example the LEI, or the identifier your regulator requires."
+  },
+  {
+   "fieldname": "co2e_unit_id",
+   "fieldtype": "Data",
+   "label": "Unit id",
+   "default": "tCO2e"
+  },
+  {
+   "fieldname": "co2e_unit_measure",
+   "fieldtype": "Data",
+   "label": "Unit measure (QName)",
+   "required": true,
+   "description": "The measure your taxonomy or the XBRL Unit Registry gives for tonnes of CO2 equivalent."
+  },
+  {
+   "fieldname": "extra_namespaces",
+   "fieldtype": "Text",
+   "label": "Other namespace prefixes (one per line: prefix=uri)"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

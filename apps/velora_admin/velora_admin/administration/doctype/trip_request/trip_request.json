@@ -1,0 +1,165 @@
+{
+  "name": "Trip Request",
+  "module": "Administration",
+  "autoname": "series:TRIP-.YYYY.-.####",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "TRIP-.YYYY.-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "requester",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Requester",
+      "options": "Person",
+      "required": true
+    },
+    {
+      "fieldname": "purpose",
+      "fieldtype": "Text",
+      "label": "Purpose"
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Requested",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Requested\nAssigned\nIn Progress\nCompleted\nCancelled",
+      "read_only": 1
+    },
+    {
+      "fieldname": "request",
+      "fieldtype": "Link",
+      "label": "Source Request",
+      "options": "Request",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_route",
+      "fieldtype": "Section Break",
+      "label": "Route & Timing"
+    },
+    {
+      "fieldname": "pickup_location",
+      "fieldtype": "Data",
+      "label": "Pickup Location"
+    },
+    {
+      "fieldname": "destination",
+      "fieldtype": "Data",
+      "label": "Destination",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_route",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "start_datetime",
+      "fieldtype": "Datetime",
+      "label": "Requested Start",
+      "required": true
+    },
+    {
+      "fieldname": "end_datetime",
+      "fieldtype": "Datetime",
+      "label": "Expected End"
+    },
+    {
+      "fieldname": "section_break_assignment",
+      "fieldtype": "Section Break",
+      "label": "Assignment"
+    },
+    {
+      "fieldname": "vehicle",
+      "fieldtype": "Link",
+      "label": "Vehicle",
+      "options": "Vehicle",
+      "read_only": 1
+    },
+    {
+      "fieldname": "driver",
+      "fieldtype": "Link",
+      "label": "Driver",
+      "options": "Person",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_actuals",
+      "fieldtype": "Section Break",
+      "label": "Trip Log"
+    },
+    {
+      "fieldname": "actual_start_datetime",
+      "fieldtype": "Datetime",
+      "label": "Actual Start",
+      "read_only": 1
+    },
+    {
+      "fieldname": "odometer_start",
+      "fieldtype": "Int",
+      "label": "Odometer (Start)"
+    },
+    {
+      "fieldname": "column_break_actuals",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "actual_end_datetime",
+      "fieldtype": "Datetime",
+      "label": "Actual End",
+      "read_only": 1
+    },
+    {
+      "fieldname": "odometer_end",
+      "fieldtype": "Int",
+      "label": "Odometer (End)"
+    },
+    {
+      "fieldname": "fuel_cost",
+      "fieldtype": "Currency",
+      "label": "Fuel Cost"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

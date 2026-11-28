@@ -1,0 +1,40 @@
+{
+  "name": "Board Skill Requirement",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "skill",
+      "fieldtype": "Link",
+      "label": "Skill",
+      "options": "Governance Skill",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "minimum_coverage",
+      "fieldtype": "Int",
+      "label": "Minimum Coverage",
+      "default": 1,
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "required_skill_level",
+      "fieldtype": "Link",
+      "label": "Required Skill Level",
+      "options": "Governance Skill Level"
+    },
+    {
+      "fieldname": "critical",
+      "fieldtype": "Check",
+      "label": "Critical Skill",
+      "default": 0
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

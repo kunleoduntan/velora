@@ -1,0 +1,198 @@
+{
+  "name": "Project User Story",
+  "module": "Agile",
+  "track_changes": true,
+  "description": "Agile product backlog item with readiness, acceptance, estimation and delivery controls.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "story_key",
+      "label": "Story Key",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "title",
+      "label": "Story Title",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "sprint",
+      "label": "Sprint",
+      "fieldtype": "Link",
+      "options": "Project Sprint"
+    },
+    {
+      "fieldname": "story_points",
+      "label": "Story Points",
+      "fieldtype": "Float"
+    },
+    {
+      "fieldname": "acceptance_criteria",
+      "label": "Acceptance Criteria",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "backlog_rank",
+      "label": "Backlog Rank",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "assignee",
+      "label": "Assignee",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Open",
+        "In Progress",
+        "On Hold",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "epic",
+      "label": "Epic",
+      "fieldtype": "Link",
+      "options": "Project Epic"
+    },
+    {
+      "fieldname": "feature",
+      "label": "Feature",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "priority",
+      "label": "Priority",
+      "fieldtype": "Select",
+      "options": [
+        "Low",
+        "Normal",
+        "High",
+        "Critical"
+      ]
+    },
+    {
+      "fieldname": "estimated_hours",
+      "label": "Estimated Hours",
+      "fieldtype": "Float"
+    },
+    {
+      "fieldname": "dependencies_assessed",
+      "label": "Dependencies Assessed",
+      "fieldtype": "Check"
+    },
+    {
+      "fieldname": "acceptance_criteria_met",
+      "label": "Acceptance Criteria Met",
+      "fieldtype": "Check"
+    },
+    {
+      "fieldname": "reviewed",
+      "label": "Reviewed",
+      "fieldtype": "Check"
+    },
+    {
+      "fieldname": "tests_passed",
+      "label": "Tests Passed",
+      "fieldtype": "Check"
+    },
+    {
+      "fieldname": "documentation_updated",
+      "label": "Documentation Updated",
+      "fieldtype": "Check"
+    },
+    {
+      "fieldname": "accepted",
+      "label": "Accepted",
+      "fieldtype": "Check"
+    },
+    {
+      "fieldname": "blocked_reason",
+      "label": "Blocked Reason",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "assignee_team",
+      "label": "Assignee Team",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "definition_of_ready",
+      "label": "Definition of Ready",
+      "fieldtype": "Check"
+    },
+    {
+      "fieldname": "definition_of_done",
+      "label": "Definition of Done",
+      "fieldtype": "Check"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "title"
+}

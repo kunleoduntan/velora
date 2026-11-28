@@ -1,0 +1,733 @@
+{
+ "name": "Finance Settings",
+ "module": "Finance",
+ "autoname": "field:settings_name",
+ "track_changes": true,
+ "description": "Central financial configuration for this company's isolated VeloraERP database.",
+ "fields": [
+  {
+   "fieldname": "general_tab",
+   "fieldtype": "Tab Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "settings_name",
+   "fieldtype": "Data",
+   "label": "Settings Profile",
+   "required": true,
+   "unique": true,
+   "default": "Primary Finance Settings",
+   "read_only": true
+  },
+  {
+   "fieldname": "country_code",
+   "fieldtype": "Data",
+   "label": "Country Code",
+   "length": 2,
+   "required": true,
+   "default": "NG",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "legal_entity",
+   "fieldtype": "Data",
+   "label": "Default Legal Entity",
+   "default": "MAIN",
+   "description": "Used silently by documents that record a legal entity (fixed assets, leases, bank batches). You normally never change it."
+  },
+  {
+   "fieldname": "base_currency",
+   "fieldtype": "Link",
+   "label": "Base Currency",
+   "length": 3,
+   "required": true,
+   "options": "Currency"
+  },
+  {
+   "fieldname": "accounting_basis",
+   "fieldtype": "Select",
+   "label": "Accounting Basis",
+   "options": [
+    "Accrual",
+    "Cash"
+   ],
+   "default": "Accrual",
+   "required": true
+  },
+  {
+   "fieldname": "accounting_framework",
+   "fieldtype": "Select",
+   "label": "Accounting Framework",
+   "options": [
+    "IFRS",
+    "IFRS for SMEs",
+    "Local GAAP",
+    "Other"
+   ],
+   "default": "IFRS",
+   "required": true
+  },
+  {
+   "fieldname": "financial_year_start_month",
+   "fieldtype": "Select",
+   "label": "Financial Year Start Month",
+   "options": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+   ],
+   "default": "January",
+   "required": true
+  },
+  {
+   "fieldname": "number_format",
+   "fieldtype": "Select",
+   "label": "Number Format",
+   "options": [
+    "1,234,567.89",
+    "1.234.567,89",
+    "1 234 567,89"
+   ],
+   "default": "1,234,567.89"
+  },
+  {
+   "fieldname": "decimal_places",
+   "fieldtype": "Int",
+   "label": "Currency Decimal Places",
+   "default": 2,
+   "required": true
+  },
+  {
+   "fieldname": "posting_tab",
+   "fieldtype": "Tab Break",
+   "label": "Posting Controls"
+  },
+  {
+   "fieldname": "allow_backdated_posting",
+   "fieldtype": "Check",
+   "label": "Allow Backdated Posting",
+   "default": 1
+  },
+  {
+   "fieldname": "sign_approved_documents",
+   "label": "Sign Approved Documents",
+   "fieldtype": "Check",
+   "default": 0,
+   "description": "When ticked, an approver's short signature (set under My Signature) and the time are added to the document each time they approve it."
+  },
+  {
+   "fieldname": "backdated_posting_days",
+   "fieldtype": "Int",
+   "label": "Maximum Backdating Days",
+   "default": 365
+  },
+  {
+   "fieldname": "prevent_posting_to_closed_periods",
+   "fieldtype": "Check",
+   "label": "Prevent Posting to Closed Periods",
+   "default": 1
+  },
+  {
+   "fieldname": "allow_negative_account_balance",
+   "fieldtype": "Check",
+   "label": "Allow Negative Account Balances",
+   "default": 0
+  },
+  {
+   "fieldname": "approvals_tab",
+   "fieldtype": "Tab Break",
+   "label": "Approvals"
+  },
+  {
+   "fieldname": "approvals_section",
+   "fieldtype": "Section Break",
+   "label": "Which documents need approval",
+   "description": "This is the company's approval policy. A ticked document waits for approval before it can be submitted or posted; an unticked one is approved as soon as it is saved. Ticking a document switches on its approval workflow (a sample is installed if there is none). Who approves, and in how many steps, is set in Settings > Workflows."
+  },
+  {
+   "fieldname": "approval_policy",
+   "fieldtype": "Table",
+   "label": "Approval policy",
+   "options": "Approval Policy Row"
+  },
+  {
+   "fieldname": "authority_section",
+   "fieldtype": "Section Break",
+   "label": "Other powers",
+   "description": "Powers that are not a document's approval: who may override a budget block, reverse a posted document, approve a scheduled report or publish a report. The built-in Administrator always keeps them."
+  },
+  {
+   "fieldname": "authority_policy",
+   "fieldtype": "Table",
+   "label": "Who holds these powers",
+   "options": "Authority Policy Row"
+  },
+  {
+   "fieldname": "currency_tab",
+   "fieldtype": "Tab Break",
+   "label": "Currency and Exchange Rates"
+  },
+  {
+   "fieldname": "exchange_rate_source",
+   "fieldtype": "Select",
+   "label": "Default Exchange Rate Source",
+   "options": [
+    "Manual",
+    "Configured Provider"
+   ],
+   "default": "Manual"
+  },
+  {
+   "fieldname": "rate_type",
+   "fieldtype": "Select",
+   "label": "Default Exchange Rate Type",
+   "options": [
+    "Spot",
+    "Daily",
+    "Monthly Average",
+    "Closing",
+    "Custom"
+   ],
+   "default": "Spot"
+  },
+  {
+   "fieldname": "tax_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tax Defaults"
+  },
+  {
+   "fieldname": "tax_inclusive_pricing",
+   "fieldtype": "Check",
+   "label": "Tax Inclusive Pricing by Default",
+   "default": 0
+  },
+  {
+   "fieldname": "tax_rounding_method",
+   "fieldtype": "Select",
+   "label": "Tax Rounding Method",
+   "options": [
+    "Per Line",
+    "Per Document"
+   ],
+   "default": "Per Document"
+  },
+  {
+   "fieldname": "audit_tab",
+   "fieldtype": "Tab Break",
+   "label": "Audit and Control"
+  },
+  {
+   "fieldname": "track_financial_changes",
+   "fieldtype": "Check",
+   "label": "Track Financial Configuration Changes",
+   "default": 1
+  },
+  {
+   "fieldname": "require_reason_for_override",
+   "fieldtype": "Check",
+   "label": "Require Reason for Financial Overrides",
+   "default": 1
+  },
+  {
+   "fieldname": "configuration_notes",
+   "fieldtype": "Text",
+   "label": "Configuration Notes"
+  },
+  {
+   "fieldname": "credit_control_section",
+   "label": "Customer Credit Control",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "enforce_customer_credit_limit",
+   "label": "Enforce Customer Credit Limit",
+   "fieldtype": "Check",
+   "default": 1,
+   "description": "Enforce customer credit holds and configured credit limits on Sales Orders and Sales Invoices."
+  },
+  {
+   "fieldname": "include_open_sales_orders_in_credit_exposure",
+   "label": "Include Open Sales Orders in Credit Exposure",
+   "fieldtype": "Check",
+   "default": 1,
+   "description": "Include the uninvoiced value of submitted Sales Orders in customer credit exposure."
+  },
+  {
+   "fieldname": "payroll_recovery_tab",
+   "fieldtype": "Tab Break",
+   "label": "Payroll and Employee Finance"
+  },
+  {
+   "fieldname": "payroll_recovery_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Loan Recovery Protection"
+  },
+  {
+   "fieldname": "maximum_loan_deduction_percent_of_net_pay",
+   "fieldtype": "Float",
+   "label": "Maximum Combined Loan Deduction (% of Net Pay Before Loan Recovery)",
+   "default": 30,
+   "description": "Overall ceiling for principal and interest recovered through payroll across all employee loans. Loan Type limits may impose a stricter ceiling. Zero removes the percentage ceiling but the minimum net pay floor still applies."
+  },
+  {
+   "fieldname": "minimum_net_pay_after_loan_deductions",
+   "fieldtype": "Currency",
+   "label": "Minimum Net Pay After Loan Deductions",
+   "default": 0,
+   "description": "Additional take-home protection. The combined loan deduction cannot reduce net pay below this amount."
+  },
+  {
+   "fieldname": "loan_recovery_allocation_method",
+   "fieldtype": "Select",
+   "label": "Default Loan Recovery Allocation",
+   "options": [
+    "Oldest Due First",
+    "Highest Interest First",
+    "Lowest Balance First",
+    "Pro Rata"
+   ],
+   "default": "Oldest Due First"
+  },
+  {
+   "fieldname": "allow_partial_loan_recovery",
+   "fieldtype": "Check",
+   "label": "Allow Partial Loan Recovery",
+   "default": 1
+  },
+  {
+   "fieldname": "cost_distribution_lines",
+   "fieldtype": "Table",
+   "label": "Cost Distribution (shared cost percentages)",
+   "options": "Cost Distribution Line",
+   "description": "Name a rule and list the cost centres with their percentages (each rule must total 100%). Payments and Receipts pick the rule and the system spreads the cost accordingly."
+  },
+  {
+   "fieldname": "investments_tab",
+   "fieldtype": "Tab Break",
+   "label": "Investments"
+  },
+  {
+   "fieldname": "investment_controls_section",
+   "fieldtype": "Section Break",
+   "label": "Investment controls"
+  },
+  {
+   "fieldname": "investment_auto_accrue",
+   "fieldtype": "Check",
+   "label": "Post month-end income accruals automatically",
+   "default": 0
+  },
+  {
+   "fieldname": "investment_maturity_alert_days",
+   "fieldtype": "Int",
+   "label": "Warn about maturities within (days)",
+   "default": 30
+  },
+  {
+   "fieldname": "investment_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "investment_wht_treatment",
+   "fieldtype": "Select",
+   "label": "Withholding tax deducted from our income is",
+   "default": "Tax credit (asset)",
+   "options": [
+    "Tax credit (asset)",
+    "Final tax (expense)"
+   ]
+  },
+  {
+   "fieldname": "investment_default_wht_rate",
+   "fieldtype": "Float",
+   "label": "Default withholding tax rate (%)",
+   "default": 10
+  },
+  {
+   "fieldname": "investment_limits_section",
+   "fieldtype": "Section Break",
+   "label": "Concentration limits"
+  },
+  {
+   "fieldname": "investment_max_counterparty_percent",
+   "fieldtype": "Float",
+   "label": "Maximum share of the portfolio with one counterparty (%)",
+   "default": 25
+  },
+  {
+   "fieldname": "investment_max_asset_group_percent",
+   "fieldtype": "Float",
+   "label": "Maximum share of the portfolio in one asset group (%)",
+   "default": 70
+  },
+  {
+   "fieldname": "investment_accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Default investment accounts"
+  },
+  {
+   "fieldname": "investment_bank_account",
+   "fieldtype": "Link",
+   "label": "Default bank account",
+   "options": "Bank Account"
+  },
+  {
+   "fieldname": "investment_interest_income_account",
+   "fieldtype": "Link",
+   "label": "Interest income",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "investment_dividend_income_account",
+   "fieldtype": "Link",
+   "label": "Dividend income",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "investment_rental_income_account",
+   "fieldtype": "Link",
+   "label": "Rental income",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "investment_column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "investment_accrued_income_account",
+   "fieldtype": "Link",
+   "label": "Accrued income receivable",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "investment_deferred_income_account",
+   "fieldtype": "Link",
+   "label": "Deferred income (interest received upfront)",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "investment_wht_tax_code",
+   "fieldtype": "Data",
+   "label": "Withholding tax rule code",
+   "description": "Code of the approved WHT Tax Rule. Tax withheld on investment income is then tagged with it, so it appears in the tax ledger and the WHT reports beside every other source."
+  },
+  {
+   "fieldname": "investment_wht_receivable_account",
+   "fieldtype": "Link",
+   "label": "Withholding tax credit receivable",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "investment_wht_expense_account",
+   "fieldtype": "Link",
+   "label": "Withholding tax expense",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "investment_column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "investment_realised_gain_loss_account",
+   "fieldtype": "Link",
+   "label": "Realised gain / loss on disposal",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "investment_unrealised_gain_loss_account",
+   "fieldtype": "Link",
+   "label": "Unrealised gain / loss (profit or loss)",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "foreign_exchange_section",
+   "fieldtype": "Section Break",
+   "label": "Foreign Exchange Accounts"
+  },
+  {
+   "fieldname": "realised_exchange_gain_account",
+   "fieldtype": "Link",
+   "label": "Realised exchange gain",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ],
+   "description": "Credited when a foreign-currency invoice is settled at a better rate than it was booked."
+  },
+  {
+   "fieldname": "realised_exchange_loss_account",
+   "fieldtype": "Link",
+   "label": "Realised exchange loss",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ],
+   "description": "Debited when a foreign-currency invoice is settled at a worse rate than it was booked."
+  },
+  {
+   "fieldname": "unrealised_exchange_gain_account",
+   "fieldtype": "Link",
+   "label": "Unrealised exchange gain",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ],
+   "description": "Used by Foreign Currency Revaluation at period end."
+  },
+  {
+   "fieldname": "unrealised_exchange_loss_account",
+   "fieldtype": "Link",
+   "label": "Unrealised exchange loss",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ],
+   "description": "Used by Foreign Currency Revaluation at period end."
+  },
+  {
+   "fieldname": "exchange_rounding_account",
+   "fieldtype": "Link",
+   "label": "Exchange Rounding Account",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ],
+   "description": "Receives the cent-level difference that arises when each line of a foreign-currency entry is converted and rounded separately. If empty, the realised exchange gain or loss account is used."
+  },
+  {
+   "fieldname": "investment_fair_value_reserve_account",
+   "fieldtype": "Link",
+   "label": "Fair value reserve (other comprehensive income)",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "investment_expense_account",
+   "fieldtype": "Link",
+   "label": "Investment fees and property expenses",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ],
+    [
+     "disabled",
+     "=",
+     0
+    ]
+   ]
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "export": true,
+   "report": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "report": true
+  },
+  {
+   "role": "Investment Manager",
+   "read": true,
+   "report": true
+  }
+ ],
+ "title_field": "settings_name"
+}

@@ -1,0 +1,60 @@
+{
+ "name": "Sustainability Evidence",
+ "module": "Governance",
+ "istable": true,
+ "fields": [
+  {
+   "fieldname": "evidence_type",
+   "fieldtype": "Data",
+   "label": "Evidence Type",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "document_reference",
+   "fieldtype": "Data",
+   "label": "Document Reference",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "evidence_date",
+   "fieldtype": "Date",
+   "label": "Evidence Date"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
+  },
+  {
+   "fieldname": "verified",
+   "fieldtype": "Check",
+   "label": "Verified",
+   "default": 0
+  },
+  {
+   "fieldname": "governance_entity",
+   "label": "Governance Entity",
+   "fieldtype": "Link",
+   "options": "Governance Entity"
+  },
+  {
+   "fieldname": "reporting_period",
+   "label": "Reporting Period",
+   "fieldtype": "Link",
+   "options": "Sustainability Reporting Period"
+  },
+  {
+   "fieldname": "disclosure",
+   "label": "Disclosure",
+   "fieldtype": "Link",
+   "options": "Sustainability Disclosure"
+  }
+ ]
+}

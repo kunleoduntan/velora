@@ -1,0 +1,163 @@
+{
+  "name": "Board Evaluation",
+  "module": "Governance",
+  "autoname": "series:BEV-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "committee",
+      "fieldtype": "Link",
+      "label": "Committee",
+      "options": "Board Committee"
+    },
+    {
+      "fieldname": "board_member",
+      "fieldtype": "Link",
+      "label": "Board Member",
+      "options": "Board Member"
+    },
+    {
+      "fieldname": "template",
+      "fieldtype": "Link",
+      "label": "Evaluation Template",
+      "options": "Board Evaluation Template",
+      "required": true
+    },
+    {
+      "fieldname": "evaluation_period",
+      "fieldtype": "Data",
+      "label": "Evaluation Period",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "evaluation_date",
+      "fieldtype": "Date",
+      "label": "Evaluation Date",
+      "required": true
+    },
+    {
+      "fieldname": "evaluator",
+      "fieldtype": "Data",
+      "label": "Evaluator",
+      "required": true
+    },
+    {
+      "fieldname": "evaluation_status",
+      "fieldtype": "Select",
+      "label": "Evaluation Status",
+      "options": [
+        "Draft",
+        "In Progress",
+        "Completed",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "responses",
+      "fieldtype": "Table",
+      "label": "Responses",
+      "options": "Board Evaluation Response"
+    },
+    {
+      "fieldname": "overall_score",
+      "fieldtype": "Float",
+      "label": "Overall Score (1-5)",
+      "read_only": true
+    },
+    {
+      "fieldname": "summary",
+      "fieldtype": "Text",
+      "label": "Summary"
+    },
+    {
+      "fieldname": "recommendations",
+      "fieldtype": "Text",
+      "label": "Recommendations"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "evaluation_period"
+}

@@ -1,0 +1,149 @@
+{
+ "name": "SASB Metric Response",
+ "module": "Governance",
+ "track_changes": true,
+ "autoname": "series:SASBR-.####",
+ "title_field": "sasb_metric",
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reporting_period",
+   "fieldtype": "Data",
+   "label": "Reporting period",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "sasb_metric",
+   "fieldtype": "Link",
+   "label": "SASB Metric",
+   "options": "SASB Metric",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Link",
+   "label": "Industry",
+   "options": "SASB Industry",
+   "read_only": true
+  },
+  {
+   "fieldname": "response_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Not started",
+    "Reported",
+    "Omitted",
+    "Not applicable"
+   ],
+   "default": "Not started",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "data_point",
+   "fieldtype": "Link",
+   "label": "Data point",
+   "options": "Sustainability Data Point"
+  },
+  {
+   "fieldname": "value",
+   "fieldtype": "Float",
+   "label": "Value"
+  },
+  {
+   "fieldname": "text_response",
+   "fieldtype": "Text",
+   "label": "Narrative answer"
+  },
+  {
+   "fieldname": "omission_reason",
+   "fieldtype": "Text",
+   "label": "Reason for omission or non-applicability"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

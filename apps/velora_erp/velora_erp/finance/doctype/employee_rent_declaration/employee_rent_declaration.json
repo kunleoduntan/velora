@@ -1,0 +1,134 @@
+{
+  "name": "Employee Rent Declaration",
+  "module": "Finance",
+  "title_field": "employee_name",
+  "track_changes": true,
+  "description": "The annual rent an employee pays. Once verified, rent relief flows into the employee's PAYE automatically.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "label": "Employee Name",
+      "fieldtype": "Data",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "tax_year",
+      "label": "Tax Year",
+      "fieldtype": "Int",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true,
+      "description": "The year the tax year starts in, e.g. 2026."
+    },
+    {
+      "fieldname": "annual_rent",
+      "label": "Annual Rent",
+      "fieldtype": "Currency",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "rent_relief",
+      "label": "Rent Relief",
+      "fieldtype": "Currency",
+      "read_only": true,
+      "in_list_view": true,
+      "description": "Worked out from the rate and cap in Payroll Automation Settings."
+    },
+    {
+      "fieldname": "landlord_name",
+      "label": "Landlord / Agent",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "proof_reference",
+      "label": "Proof (receipt or agreement reference)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Verified"
+      ],
+      "default": "Draft",
+      "in_list_view": true,
+      "in_standard_filter": true,
+      "description": "Only Verified declarations give relief."
+    },
+    {
+      "fieldname": "verified_by",
+      "label": "Verified By",
+      "fieldtype": "Data",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true
+    }
+  ]
+}

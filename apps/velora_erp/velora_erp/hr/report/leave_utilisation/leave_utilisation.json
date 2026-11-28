@@ -1,0 +1,49 @@
+{
+  "name": "Leave Utilisation",
+  "module": "HR",
+  "type": "script",
+  "ref_doctype": "Leave Application",
+  "roles": [
+    "System Manager",
+    "HR Manager",
+    "HR User",
+    "Auditor"
+  ],
+  "description": "Approved leave days taken per employee by leave type, with unpaid-leave days flagged for payroll.",
+  "filters": [
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "branch",
+      "label": "Branch",
+      "fieldtype": "Link",
+      "options": "Branch"
+    },
+    {
+      "fieldname": "leave_type",
+      "label": "Leave Type",
+      "fieldtype": "Link",
+      "options": "Leave Type"
+    }
+  ]
+}

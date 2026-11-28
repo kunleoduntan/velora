@@ -1,0 +1,133 @@
+{
+  "name": "Project Budget",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Approved project funding authority.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "budget_version",
+      "label": "Budget Version",
+      "fieldtype": "Int",
+      "default": 1
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "approved_amount",
+      "label": "Approved Amount",
+      "fieldtype": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "contingency_amount",
+      "label": "Contingency Amount",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "effective_from",
+      "label": "Effective From",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Superseded"
+      ],
+      "default": "Draft"
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "approval_reference",
+      "label": "Approval Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "created_by",
+      "label": "Created By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "superseded_by",
+      "label": "Superseded By",
+      "fieldtype": "Link",
+      "options": "Project Budget"
+    },
+    {
+      "fieldname": "change_summary",
+      "label": "Change Summary",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "project"
+}

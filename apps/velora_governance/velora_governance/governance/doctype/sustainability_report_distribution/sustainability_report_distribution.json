@@ -1,0 +1,14 @@
+{
+  "name": "Sustainability Report Distribution",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {"fieldname":"recipient","fieldtype":"Data","label":"Recipient","required":true,"in_list_view":true},
+    {"fieldname":"recipient_type","fieldtype":"Select","label":"Recipient Type","options":["Board Member","Committee Member","Executive","Employee","Regulator","Investor","External Stakeholder","Other"],"default":"Other"},
+    {"fieldname":"delivery_method","fieldtype":"Select","label":"Delivery Method","options":["Portal","Email","Secure Link","Physical Copy","Regulatory Portal","Other"],"required":true,"in_list_view":true},
+    {"fieldname":"delivery_date","fieldtype":"Date","label":"Delivery Date"},
+    {"fieldname":"delivery_status","fieldtype":"Select","label":"Delivery Status","options":["Pending","Sent","Delivered","Failed","Acknowledged"],"default":"Pending","required":true,"in_list_view":true},
+    {"fieldname":"acknowledged_date","fieldtype":"Date","label":"Acknowledged Date"},
+    {"fieldname":"notes","fieldtype":"Text","label":"Distribution Notes"}
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "name": "Approval Matrix",
+  "module": "Administration",
+  "autoname": "field:matrix_name",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "matrix_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Matrix Name",
+      "unique": 1,
+      "required": true
+    },
+    {
+      "default": "1",
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Is Active"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "description": "Leave blank to make this matrix usable as a fallback across request types",
+      "fieldname": "applicable_request_type",
+      "fieldtype": "Link",
+      "label": "Applicable Request Type",
+      "options": "Request Type"
+    },
+    {
+      "fieldname": "applicable_department",
+      "fieldtype": "Link",
+      "label": "Applicable Department (optional)",
+      "options": "Department"
+    },
+    {
+      "fieldname": "section_break_levels",
+      "fieldtype": "Section Break",
+      "label": "Approval Levels"
+    },
+    {
+      "fieldname": "levels",
+      "fieldtype": "Table",
+      "label": "Levels",
+      "options": "Approval Matrix Level",
+      "required": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

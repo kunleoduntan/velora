@@ -1,0 +1,21 @@
+{
+  "name": "Fixed Asset Book Reconciliation",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Fixed Asset Book Balance",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Accountant",
+    "Auditor"
+  ],
+  "description": "Compares tax and management depreciation book carrying values with the financial fixed asset register. It does not post deferred tax journals.",
+  "filters": [
+    {
+      "fieldname": "depreciation_book",
+      "label": "Depreciation Book",
+      "fieldtype": "Link",
+      "options": "Fixed Asset Depreciation Book"
+    }
+  ]
+}

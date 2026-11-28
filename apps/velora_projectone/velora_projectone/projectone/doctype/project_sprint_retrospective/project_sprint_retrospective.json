@@ -1,0 +1,100 @@
+{
+  "name": "Project Sprint Retrospective",
+  "module": "Agile",
+  "track_changes": true,
+  "description": "Sprint retrospective, learning and owned improvement actions.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "sprint",
+      "label": "Sprint",
+      "fieldtype": "Link",
+      "options": "Project Sprint",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "facilitator",
+      "label": "Facilitator",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "review_date",
+      "label": "Review Date",
+      "fieldtype": "Date",
+      "required": true
+    },
+    {
+      "fieldname": "what_went_well",
+      "label": "What Went Well",
+      "fieldtype": "Text",
+      "required": true
+    },
+    {
+      "fieldname": "what_to_improve",
+      "label": "What To Improve",
+      "fieldtype": "Text",
+      "required": true
+    },
+    {
+      "fieldname": "actions",
+      "label": "Improvement Actions",
+      "fieldtype": "Table",
+      "options": "Project Retrospective Action"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "sprint"
+}

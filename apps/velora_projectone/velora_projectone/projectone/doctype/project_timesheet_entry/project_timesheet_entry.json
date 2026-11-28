@@ -1,0 +1,58 @@
+{
+  "name": "Project Timesheet Entry",
+  "module": "Resources",
+  "track_changes": true,
+  "description": "Daily time entry line for a project timesheet.",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "work_date",
+      "label": "Work Date",
+      "fieldtype": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true
+    },
+    {
+      "fieldname": "task",
+      "label": "Project Task",
+      "fieldtype": "Link",
+      "options": "Project Task"
+    },
+    {
+      "fieldname": "hours",
+      "label": "Hours",
+      "fieldtype": "Float",
+      "required": true
+    },
+    {
+      "fieldname": "billable",
+      "label": "Billable",
+      "fieldtype": "Check",
+      "default": true
+    },
+    {
+      "fieldname": "activity",
+      "label": "Activity",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "cost_centre",
+      "label": "Cost Centre",
+      "fieldtype": "Link",
+      "options": "Cost Centre"
+    }
+  ],
+  "permissions": []
+}

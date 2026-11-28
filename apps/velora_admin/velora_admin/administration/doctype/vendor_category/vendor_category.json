@@ -1,0 +1,48 @@
+{
+  "name": "Vendor Category",
+  "module": "Administration",
+  "autoname": "field:category_name",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "category_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Category Name",
+      "unique": 1,
+      "required": true
+    },
+    {
+      "default": "1",
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Is Active"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

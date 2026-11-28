@@ -1,0 +1,136 @@
+{
+  "name": "Financial Statement Row",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Reusable financial statement presentation rows. Account mappings are maintained separately.",
+  "fields": [
+    {
+      "fieldname": "row_code",
+      "fieldtype": "Data",
+      "label": "Row Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "in_standard_filter": true,
+      "length": 40
+    },
+    {
+      "fieldname": "row_label",
+      "fieldtype": "Data",
+      "label": "Row Label",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "statement_type",
+      "fieldtype": "Select",
+      "label": "Statement",
+      "options": [
+        "Statement of Financial Position",
+        "Statement of Profit or Loss",
+        "Statement of Comprehensive Income",
+        "Cash Flow Statement",
+        "Statement of Changes in Equity"
+      ],
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "parent_row",
+      "fieldtype": "Link",
+      "label": "Parent Row",
+      "options": "Financial Statement Row"
+    },
+    {
+      "fieldname": "row_type",
+      "fieldtype": "Select",
+      "label": "Row Type",
+      "options": [
+        "Section",
+        "Account Summary",
+        "Formula",
+        "Total"
+      ],
+      "required": true,
+      "default": "Account Summary"
+    },
+    {
+      "fieldname": "can_contain_rows",
+      "fieldtype": "Check",
+      "label": "Can Contain Child Rows",
+      "default": 0
+    },
+    {
+      "fieldname": "formula",
+      "fieldtype": "Data",
+      "label": "Formula",
+      "description": "Reserved for a validated formula engine; formulas are not evaluated in this release."
+    },
+    {
+      "fieldname": "display_order",
+      "fieldtype": "Int",
+      "label": "Display Order",
+      "default": 10
+    },
+    {
+      "fieldname": "sign_multiplier",
+      "fieldtype": "Int",
+      "label": "Sign Multiplier",
+      "default": 1
+    },
+    {
+      "fieldname": "bold",
+      "fieldtype": "Check",
+      "label": "Bold"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ],
+  "autoname": "field:row_code"
+}

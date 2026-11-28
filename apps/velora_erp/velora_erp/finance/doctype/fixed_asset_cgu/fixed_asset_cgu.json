@@ -1,0 +1,93 @@
+{
+  "name": "Fixed Asset CGU",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Cash-generating unit grouping for IAS 36 testing, including fixed assets, goodwill and other non-fixed-asset items.",
+  "fields": [
+    {
+      "fieldname": "cgu_name",
+      "fieldtype": "Data",
+      "label": "CGU Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "assets_section",
+      "fieldtype": "Section Break",
+      "label": "Assets in CGU",
+      "collapsible": true
+    },
+    {
+      "fieldname": "assets",
+      "fieldtype": "Table",
+      "label": "CGU Assets",
+      "options": "Fixed Asset CGU Asset"
+    },
+    {
+      "fieldname": "other_assets",
+      "fieldtype": "Table",
+      "label": "Goodwill and Other CGU Assets",
+      "options": "Fixed Asset CGU Other Asset"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    }
+  ],
+  "autoname": "series:CGU-.########",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "cgu_name"
+}

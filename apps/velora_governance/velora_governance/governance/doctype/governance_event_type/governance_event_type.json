@@ -1,0 +1,84 @@
+{
+  "name": "Governance Event Type",
+  "module": "Governance",
+  "autoname": "series:GEV-.####",
+  "track_changes": true,
+  "title_field": "event_type_name",
+  "fields": [
+    {
+      "fieldname": "event_type_name",
+      "fieldtype": "Data",
+      "label": "Event Type Name",
+      "required": true,
+      "in_list_view": true,
+      "unique": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description",
+      "required": false,
+      "in_list_view": false
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "required": false,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "default_reminder_days",
+      "fieldtype": "Int",
+      "label": "Default Reminder Days",
+      "required": false,
+      "in_list_view": false
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ]
+}

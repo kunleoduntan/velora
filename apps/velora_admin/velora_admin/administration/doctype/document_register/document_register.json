@@ -1,0 +1,234 @@
+{
+  "name": "Document Register",
+  "module": "Administration",
+  "autoname": "series:DOC-.YYYY.-.####",
+  "title_field": "document_title",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "DOC-.YYYY.-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "document_title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Document Title",
+      "required": true
+    },
+    {
+      "fieldname": "document_category",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Category",
+      "options": "Document Category",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Draft\nReview\nApproval\nPublished\nActive\nRevision\nArchived",
+      "read_only": 1
+    },
+    {
+      "default": "Internal",
+      "fieldname": "confidentiality",
+      "fieldtype": "Select",
+      "label": "Confidentiality",
+      "options": "Public\nInternal\nConfidential\nRestricted"
+    },
+    {
+      "fieldname": "section_break_owner",
+      "fieldtype": "Section Break",
+      "label": "Ownership"
+    },
+    {
+      "fieldname": "document_owner",
+      "fieldtype": "Link",
+      "label": "Document Owner",
+      "options": "Person",
+      "required": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "organisation_unit",
+      "fieldtype": "Link",
+      "label": "Organisation Unit",
+      "options": "Organisation Unit"
+    },
+    {
+      "fieldname": "column_break_owner",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "current_version",
+      "fieldtype": "Data",
+      "label": "Current Version",
+      "read_only": 1
+    },
+    {
+      "fieldname": "current_file",
+      "fieldtype": "Data",
+      "label": "Current File",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_party",
+      "fieldtype": "Section Break",
+      "label": "Related Party (for contracts/licences etc.)"
+    },
+    {
+      "fieldname": "related_party_type",
+      "fieldtype": "Select",
+      "label": "Related Party Type",
+      "options": "Vendor\nEmployee\nPerson\nRegulatory Body\nExternal Organisation"
+    },
+    {
+      "fieldname": "related_party",
+      "fieldtype": "Data",
+      "label": "Related Party Name (if not a registered Vendor)"
+    },
+    {
+      "fieldname": "vendor",
+      "fieldtype": "Link",
+      "label": "Vendor",
+      "options": "Vendor Administration Profile"
+    },
+    {
+      "fieldname": "column_break_party",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "reference_no",
+      "fieldtype": "Data",
+      "label": "Reference / Certificate No."
+    },
+    {
+      "fieldname": "section_break_dates",
+      "fieldtype": "Section Break",
+      "label": "Dates"
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Effective Date"
+    },
+    {
+      "fieldname": "expiry_date",
+      "fieldtype": "Date",
+      "label": "Expiry Date"
+    },
+    {
+      "fieldname": "column_break_dates",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "review_date",
+      "fieldtype": "Date",
+      "label": "Next Review Date"
+    },
+    {
+      "fieldname": "review_frequency_days",
+      "fieldtype": "Int",
+      "label": "Review Frequency (Days)"
+    },
+    {
+      "fieldname": "section_break_approval",
+      "fieldtype": "Section Break",
+      "label": "Review & Approval"
+    },
+    {
+      "fieldname": "reviewed_by",
+      "fieldtype": "Link",
+      "label": "Reviewed By",
+      "options": "Person",
+      "read_only": 1
+    },
+    {
+      "fieldname": "reviewed_on",
+      "fieldtype": "Datetime",
+      "label": "Reviewed On",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_approval",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Link",
+      "label": "Approved By",
+      "options": "Person",
+      "read_only": 1
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_desc",
+      "fieldtype": "Section Break",
+      "label": "Description"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "section_break_versions",
+      "fieldtype": "Section Break",
+      "label": "Version History"
+    },
+    {
+      "fieldname": "version_history",
+      "fieldtype": "Table",
+      "label": "Version History",
+      "options": "Document Version"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

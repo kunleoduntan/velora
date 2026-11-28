@@ -1,0 +1,14 @@
+<div class="pf">
+<style>.pf{font-family:Georgia,'Times New Roman',serif;font-size:14px;border:3px double #222;padding:22px}.pf .top{text-align:center;border-bottom:1px solid #222;padding-bottom:8px;margin-bottom:14px}.pf .org{font-size:20px;font-weight:bold;letter-spacing:1px}.pf h1{margin:6px 0 0;font-size:22px;letter-spacing:3px}.pf .row{display:flex;justify-content:space-between;margin:6px 0}.pf .line{border-bottom:1px dotted #222;padding:0 4px;font-weight:bold}.pf .amt{border:2px solid #222;padding:8px 14px;font-size:18px;font-weight:bold;display:inline-block;margin:10px 0}.pf .words{font-style:italic}.pf .small{font-size:11px;color:#444}.pf .sig{display:flex;justify-content:space-between;margin-top:44px}.pf .sig div{width:44%;border-top:1px solid #222;padding-top:4px;font-size:12px;text-align:center}</style>
+<div class="top"><div class="org">YOUR ORGANISATION NAME</div><div class="small">Address · Telephone · Email · TIN</div><h1>OFFICIAL RECEIPT</h1></div>
+<div class="row"><div>No. <span class="line">{{ doc.name }}</span></div><div>Date <span class="line">{{ formatdate(doc.receipt_date) }}</span></div></div>
+<p>Received from <span class="line">{{ doc.received_from or frappe.db.get_value("Customer", doc.customer, "customer_name") or doc.customer or "" }}</span></p>
+<p>the sum of <span class="line words">{{ money_in_words(doc.total_amount or doc.amount, doc.currency) }}</span></p>
+<p>being payment for <span class="line">{{ doc.narration or doc.purpose }}</span></p>
+{% set ns = namespace(refs=[], wht=0) %}{% for l in doc.lines %}{% if l.invoice_reference %}{% set _ = ns.refs.append(l.invoice_reference) %}{% endif %}{% if l.tax_amount and l.entry_side == "Debit" %}{% set ns.wht = ns.wht + l.tax_amount %}{% endif %}{% endfor %}
+{% if ns.refs %}<p>Invoice(s) settled: <span class="line">{{ ns.refs | join(", ") }}</span></p>{% endif %}
+<p>By <span class="line">{{ doc.payment_method }}</span> {% if doc.instrument_reference %}Ref. <span class="line">{{ doc.instrument_reference }}</span>{% endif %}</p>
+<div class="amt">{{ doc.currency }} {{ fmt_money(doc.total_amount or doc.amount) }}</div>
+{% if ns.wht %}<p class="small">Withholding tax of {{ doc.currency }} {{ fmt_money(ns.wht) }} was deducted at source by the payer and is credited to the payer's account. The payer should send us the withholding tax certificate.</p>{% endif %}
+<p class="small">This receipt is valid only when signed and stamped. Cheques and transfers are subject to clearance.</p>
+<div class="sig"><div>Received by (name and signature)</div><div>Official stamp</div></div></div>

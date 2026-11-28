@@ -1,0 +1,402 @@
+{
+  "name": "Fixed Asset",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Fixed asset subledger master. Financial changes are posted only through the central posting engine.",
+  "fields": [
+    {
+      "fieldname": "asset_name",
+      "fieldtype": "Data",
+      "label": "Asset Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "asset_category",
+      "fieldtype": "Link",
+      "label": "Asset Category",
+      "options": "Fixed Asset Category",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "asset_tag",
+      "fieldtype": "Data",
+      "label": "Asset Tag",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "serial_number",
+      "fieldtype": "Data",
+      "label": "Serial Number"
+    },
+    {
+      "fieldname": "acquisition_date",
+      "fieldtype": "Date",
+      "label": "Acquisition Date",
+      "required": true
+    },
+    {
+      "fieldname": "acquisition_cost",
+      "fieldtype": "Currency",
+      "label": "Acquisition Cost",
+      "required": true
+    },
+    {
+      "fieldname": "accumulated_depreciation",
+      "fieldtype": "Currency",
+      "label": "Accumulated Depreciation",
+      "default": 0
+    },
+    {
+      "fieldname": "impairment_loss",
+      "fieldtype": "Currency",
+      "label": "Impairment Loss",
+      "default": 0
+    },
+    {
+      "fieldname": "carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Carrying Amount",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "residual_value",
+      "fieldtype": "Currency",
+      "label": "Residual Value",
+      "default": 0
+    },
+    {
+      "fieldname": "useful_life_months",
+      "fieldtype": "Int",
+      "label": "Useful Life (Months)",
+      "default": 60
+    },
+    {
+      "fieldname": "asset_account",
+      "fieldtype": "Link",
+      "label": "Asset Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accumulated_depreciation_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Depreciation Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Data",
+      "label": "Location"
+    },
+    {
+      "fieldname": "source_purchase",
+      "fieldtype": "Data",
+      "label": "Source Purchase"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Active",
+        "Leased",
+        "Disposed",
+        "Written Off"
+      ],
+      "default": "Active",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "revaluation_surplus",
+      "fieldtype": "Currency",
+      "label": "Revaluation Surplus",
+      "default": 0
+    },
+    {
+      "fieldname": "revaluation_adjustment",
+      "fieldtype": "Currency",
+      "label": "Net Revaluation Adjustment",
+      "default": 0
+    },
+    {
+      "fieldname": "revaluation_loss_balance",
+      "fieldtype": "Currency",
+      "label": "Unreversed Revaluation Loss",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "depreciation_section",
+      "fieldtype": "Section Break",
+      "label": "Depreciation and Impairment",
+      "collapsible": true
+    },
+    {
+      "fieldname": "depreciation_method",
+      "fieldtype": "Select",
+      "label": "Depreciation Method",
+      "options": [
+        "Straight Line",
+        "Reducing Balance",
+        "Units of Production"
+      ],
+      "default": "Straight Line"
+    },
+    {
+      "fieldname": "depreciation_rate",
+      "fieldtype": "Float",
+      "label": "Reducing Balance Rate (%)",
+      "depends_on": "eval:doc.depreciation_method == \"Reducing Balance\""
+    },
+    {
+      "fieldname": "depreciation_expense_account",
+      "fieldtype": "Link",
+      "label": "Depreciation Expense Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "depreciation_start_date",
+      "fieldtype": "Date",
+      "label": "Depreciation Start Date"
+    },
+    {
+      "fieldname": "last_depreciation_date",
+      "fieldtype": "Date",
+      "label": "Last Depreciation Date",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_units_of_production",
+      "fieldtype": "Float",
+      "label": "Estimated Total Production Units",
+      "depends_on": "eval:doc.depreciation_method == \"Units of Production\""
+    },
+    {
+      "fieldname": "units_produced_to_date",
+      "fieldtype": "Float",
+      "label": "Units Produced to Date",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "impairment_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Impairment Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "impairment_expense_account",
+      "fieldtype": "Link",
+      "label": "Impairment Loss Expense Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "impairment_reversal_account",
+      "fieldtype": "Link",
+      "label": "Impairment Reversal Income Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "impairment_ceiling_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Carrying Amount Ceiling for Impairment Reversal",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "revaluation_surplus_account",
+      "fieldtype": "Link",
+      "label": "Revaluation Surplus Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "components_section",
+      "fieldtype": "Section Break",
+      "label": "Significant Asset Components",
+      "collapsible": true
+    },
+    {
+      "fieldname": "components",
+      "fieldtype": "Table",
+      "label": "Asset Components",
+      "options": "Fixed Asset Component",
+      "description": "Use component accounting where significant parts have different useful lives."
+    },
+    {
+      "fieldname": "impairment_allocation_section",
+      "fieldtype": "Section Break",
+      "label": "Impairment Allocation History",
+      "collapsible": true
+    },
+    {
+      "fieldname": "impairment_against_revaluation_surplus",
+      "fieldtype": "Currency",
+      "label": "Impairment Previously Charged Against Revaluation Surplus",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "impairment_charged_to_expense",
+      "fieldtype": "Currency",
+      "label": "Impairment Previously Charged to Profit or Loss",
+      "default": 0,
+      "read_only": true
+    }
+  ],
+  "autoname": "series:FIX-.########",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "asset_name"
+}

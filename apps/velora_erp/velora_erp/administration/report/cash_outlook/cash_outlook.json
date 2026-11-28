@@ -1,0 +1,15 @@
+{
+  "name": "Cash Outlook",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Sales Manager",
+    "Accounts Manager",
+    "General Manager"
+  ],
+  "description": "Money coming in against money going out over the next 30, 60 and 90 days, with what is already overdue.",
+  "filters": []
+}

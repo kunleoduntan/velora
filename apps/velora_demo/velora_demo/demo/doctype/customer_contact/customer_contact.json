@@ -1,0 +1,10 @@
+{
+  "name": "Customer Contact",
+  "module": "Demo",
+  "istable": true,
+  "fields": [
+    {"fieldname": "contact_name", "fieldtype": "Data", "required": true, "in_list_view": true},
+    {"fieldname": "email", "fieldtype": "Data"},
+    {"fieldname": "phone", "fieldtype": "Data", "length": 20}
+  ]
+}

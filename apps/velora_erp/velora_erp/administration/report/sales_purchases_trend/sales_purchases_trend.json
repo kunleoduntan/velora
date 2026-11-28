@@ -1,0 +1,22 @@
+{
+  "name": "Sales and Purchases Trend",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Sales Manager",
+    "Accounts Manager",
+    "General Manager"
+  ],
+  "description": "Twelve months of selling and buying side by side, with month-on-month growth and a plain-words signal.",
+  "filters": [
+    {
+      "fieldname": "months",
+      "label": "Months",
+      "fieldtype": "Int",
+      "default": 12
+    }
+  ]
+}

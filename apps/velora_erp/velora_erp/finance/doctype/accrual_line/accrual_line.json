@@ -1,0 +1,93 @@
+{
+  "name": "Accrual Line",
+  "module": "Finance",
+  "track_changes": false,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Expense Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accrued_liability_account",
+      "fieldtype": "Link",
+      "label": "Accrued Liability Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Accrual Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "party_type",
+      "fieldtype": "Select",
+      "label": "Party Type",
+      "options": [
+        "",
+        "Supplier",
+        "Employee"
+      ]
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "label": "Party"
+    },
+    {
+      "fieldname": "dimensions",
+      "fieldtype": "JSON",
+      "label": "Accounting Dimensions"
+    }
+  ],
+  "istable": true
+}

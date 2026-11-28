@@ -1,0 +1,214 @@
+{
+ "name": "Sustainability Assurance",
+ "module": "Governance",
+ "autoname": "series:SAS-.####",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "report",
+   "fieldtype": "Link",
+   "label": "Sustainability Report",
+   "options": "Sustainability Report",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Data",
+   "label": "Assurance Provider",
+   "required": true
+  },
+  {
+   "fieldname": "assurance_type",
+   "fieldtype": "Select",
+   "label": "Assurance Type",
+   "options": [
+    "None",
+    "Limited",
+    "Reasonable",
+    "Other"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reporting_period",
+   "fieldtype": "Link",
+   "label": "Reporting Period",
+   "options": "Sustainability Reporting Period",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "assurance_standard",
+   "fieldtype": "Select",
+   "label": "Assurance standard",
+   "options": [
+    "ISAE 3000 (Revised)",
+    "ISSA 5000",
+    "ISAE 3410 (GHG statements)",
+    "AA1000AS",
+    "Other"
+   ]
+  },
+  {
+   "fieldname": "opinion",
+   "fieldtype": "Select",
+   "label": "Opinion / conclusion type",
+   "options": [
+    "Unmodified",
+    "Qualified",
+    "Adverse",
+    "Disclaimer"
+   ]
+  },
+  {
+   "fieldname": "locks_period_data",
+   "fieldtype": "Check",
+   "label": "Locks the period's data",
+   "default": 1,
+   "description": "While ticked, a completed assurance stops GHG Calculations and Data Points of this entity and period from being changed."
+  },
+  {
+   "fieldname": "lock_release_reason",
+   "fieldtype": "Text",
+   "label": "Reason for releasing the lock",
+   "depends_on": "eval:!doc.locks_period_data"
+  },
+  {
+   "fieldname": "lock_released_by",
+   "fieldtype": "Data",
+   "label": "Lock released by",
+   "read_only": true
+  },
+  {
+   "fieldname": "lock_released_on",
+   "fieldtype": "Datetime",
+   "label": "Lock released on",
+   "read_only": true
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Text",
+   "label": "Scope"
+  },
+  {
+   "fieldname": "conclusion",
+   "fieldtype": "Text",
+   "label": "Conclusion"
+  },
+  {
+   "fieldname": "assurance_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Planned",
+    "In Progress",
+    "Completed",
+    "Cancelled"
+   ],
+   "default": "Planned",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "assurance_date",
+   "fieldtype": "Date",
+   "label": "Assurance Date"
+  },
+  {
+   "fieldname": "report_reference",
+   "fieldtype": "Data",
+   "label": "Assurance Report Reference"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ],
+ "title_field": "provider"
+}

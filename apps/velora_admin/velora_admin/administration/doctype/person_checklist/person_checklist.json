@@ -1,0 +1,112 @@
+{
+  "name": "Person Checklist",
+  "module": "Administration",
+  "autoname": "series:PCHK-.YYYY.-.####",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "PCHK-.YYYY.-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "person",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Person",
+      "options": "Person",
+      "required": true
+    },
+    {
+      "fieldname": "checklist_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Checklist Type",
+      "options": "Onboarding\nOffboarding",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "template",
+      "fieldtype": "Link",
+      "label": "Template",
+      "options": "Checklist Template",
+      "required": true
+    },
+    {
+      "default": "In Progress",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "In Progress\nCompleted",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_dates",
+      "fieldtype": "Section Break",
+      "label": "Dates"
+    },
+    {
+      "default": "Today",
+      "description": "Start date for Onboarding, exit date for Offboarding — task due dates are calculated from this",
+      "fieldname": "reference_date",
+      "fieldtype": "Date",
+      "label": "Reference Date",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_dates",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "completed_on",
+      "fieldtype": "Datetime",
+      "label": "Completed On",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_tasks",
+      "fieldtype": "Section Break",
+      "label": "Tasks"
+    },
+    {
+      "fieldname": "tasks",
+      "fieldtype": "Table",
+      "label": "Tasks",
+      "options": "Person Checklist Task"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

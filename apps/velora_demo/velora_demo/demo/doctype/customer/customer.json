@@ -1,0 +1,106 @@
+{
+  "name": "Customer",
+  "module": "Demo",
+  "autoname": "series:CUST-.####",
+  "title_field": "customer_name",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "details_tab",
+      "fieldtype": "Tab Break",
+      "label": "Details"
+    },
+    {
+      "fieldname": "customer_name",
+      "label": "Customer Name",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "email",
+      "label": "Email Address",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "col_1",
+      "fieldtype": "Column Break",
+      "label": "Classification"
+    },
+    {
+      "fieldname": "customer_group",
+      "label": "Customer Group",
+      "fieldtype": "Link",
+      "options": "Customer Group",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "options": [
+        "Active",
+        "Inactive",
+        "Blocked"
+      ],
+      "default": "Active",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "credit_limit",
+      "label": "Credit Limit",
+      "fieldtype": "Currency",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "tax_exempt",
+      "label": "Tax Exempt",
+      "fieldtype": "Check",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "contacts_section",
+      "fieldtype": "Section Break",
+      "label": "Contacts"
+    },
+    {
+      "fieldname": "contacts",
+      "fieldtype": "Table",
+      "options": "Customer Contact"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Sales Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Sales User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    }
+  ]
+}

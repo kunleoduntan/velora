@@ -1,0 +1,65 @@
+{
+  "name": "Statutory Register Entry",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "entry_type",
+      "fieldtype": "Data",
+      "label": "Entry Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "subject_name",
+      "fieldtype": "Data",
+      "label": "Subject Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "record_reference",
+      "fieldtype": "Data",
+      "label": "Record Reference",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From"
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "entry_status",
+      "fieldtype": "Select",
+      "label": "Entry Status",
+      "options": [
+        "Active",
+        "Inactive",
+        "Expired",
+        "Removed"
+      ],
+      "default": "Active",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "details",
+      "fieldtype": "Text",
+      "label": "Details"
+    },
+    {
+      "fieldname": "document_reference",
+      "fieldtype": "Data",
+      "label": "Document Reference"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

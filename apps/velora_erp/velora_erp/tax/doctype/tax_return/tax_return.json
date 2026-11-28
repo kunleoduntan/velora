@@ -1,0 +1,200 @@
+{
+ "name": "Tax Return",
+ "module": "Tax Management",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "tax_type",
+   "fieldtype": "Select",
+   "label": "Tax type",
+   "options": [
+    "VAT",
+    "WHT",
+    "Excise",
+    "Customs",
+    "Levy",
+    "Income Tax",
+    "Other"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "jurisdiction",
+   "fieldtype": "Link",
+   "label": "Jurisdiction",
+   "options": "Tax Jurisdiction",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "period_start",
+   "fieldtype": "Date",
+   "label": "Period start",
+   "required": true
+  },
+  {
+   "fieldname": "period_end",
+   "fieldtype": "Date",
+   "label": "Period end",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "obligation",
+   "fieldtype": "Link",
+   "label": "Obligation",
+   "options": "Tax Obligation"
+  },
+  {
+   "fieldname": "return_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Draft",
+    "Calculated",
+    "Filed",
+    "Accepted",
+    "Rejected"
+   ],
+   "default": "Draft",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "lines",
+   "fieldtype": "Table",
+   "label": "Lines",
+   "options": "Tax Return Line"
+  },
+  {
+   "fieldname": "output_tax",
+   "fieldtype": "Currency",
+   "label": "Output tax",
+   "read_only": true
+  },
+  {
+   "fieldname": "input_tax",
+   "fieldtype": "Currency",
+   "label": "Input tax (recoverable)",
+   "read_only": true
+  },
+  {
+   "fieldname": "non_recoverable_tax",
+   "fieldtype": "Currency",
+   "label": "Input tax not recoverable",
+   "read_only": true
+  },
+  {
+   "fieldname": "net_payable",
+   "fieldtype": "Currency",
+   "label": "Payable (+) / refundable (-)",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "calculated_on",
+   "fieldtype": "Datetime",
+   "label": "Calculated on",
+   "read_only": true
+  },
+  {
+   "fieldname": "source_hash",
+   "fieldtype": "Data",
+   "label": "Source fingerprint",
+   "read_only": true,
+   "hidden": true
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval status",
+   "options": [
+    "Pending",
+    "Approved",
+    "Rejected"
+   ],
+   "default": "Pending",
+   "required": true
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved by",
+   "read_only": true
+  },
+  {
+   "fieldname": "filing_reference",
+   "fieldtype": "Data",
+   "label": "Filing reference"
+  },
+  {
+   "fieldname": "acknowledgement",
+   "fieldtype": "Data",
+   "label": "Authority acknowledgement"
+  },
+  {
+   "fieldname": "amends",
+   "fieldtype": "Link",
+   "label": "Amends return",
+   "options": "Tax Return"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  }
+ ],
+ "is_submittable": true,
+ "title_field": "tax_type",
+ "description": "A period tax return built from the ledger, approved through your workflow, then filed."
+}

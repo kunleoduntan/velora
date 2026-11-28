@@ -1,0 +1,13 @@
+{
+  "name": "Upcoming Moments",
+  "module": "Engagement",
+  "type": "script",
+  "ref_doctype": "Engagement Log",
+  "roles": ["System Manager", "Engagement Manager", "Sales Manager", "HR Manager", "Finance Manager"],
+  "description": "Birthdays, anniversaries, festive messages and win-back nudges due in the coming days, before anything is sent.",
+  "filters": [
+    {"fieldname": "from_date", "label": "From", "fieldtype": "Date"},
+    {"fieldname": "days", "label": "Days ahead", "fieldtype": "Int", "default": 14},
+    {"fieldname": "kind", "label": "Kind", "fieldtype": "Select", "options": ["", "Birthday", "Work Anniversary", "Partnership Anniversary", "Holiday", "Win Back", "Custom"]}
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "name": "Employee Change Request",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Controlled employee organisation and employment change proposals. Approved proposals require a separate effective-dated assignment or lifecycle transaction.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "change_type",
+      "fieldtype": "Select",
+      "label": "Change Type",
+      "options": [
+        "Transfer",
+        "Promotion",
+        "Demotion",
+        "Designation Change",
+        "Grade Change",
+        "Band Change",
+        "Reporting Line Change",
+        "Location Change",
+        "Secondment",
+        "Acting Appointment",
+        "Employment Type Change",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Effective Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "current_department",
+      "fieldtype": "Link",
+      "label": "Current Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "proposed_department",
+      "fieldtype": "Link",
+      "label": "Proposed Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "current_designation",
+      "fieldtype": "Link",
+      "label": "Current Designation",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "proposed_designation",
+      "fieldtype": "Link",
+      "label": "Proposed Designation",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "current_job_grade",
+      "fieldtype": "Link",
+      "label": "Current Job Grade",
+      "options": "Job Grade"
+    },
+    {
+      "fieldname": "proposed_job_grade",
+      "fieldtype": "Link",
+      "label": "Proposed Job Grade",
+      "options": "Job Grade"
+    },
+    {
+      "fieldname": "current_job_band",
+      "fieldtype": "Link",
+      "label": "Current Job Band",
+      "options": "Job Band"
+    },
+    {
+      "fieldname": "proposed_job_band",
+      "fieldtype": "Link",
+      "label": "Proposed Job Band",
+      "options": "Job Band"
+    },
+    {
+      "fieldname": "current_work_location",
+      "fieldtype": "Link",
+      "label": "Current Work Location",
+      "options": "Work Location"
+    },
+    {
+      "fieldname": "proposed_work_location",
+      "fieldtype": "Link",
+      "label": "Proposed Work Location",
+      "options": "Work Location"
+    },
+    {
+      "fieldname": "current_reports_to",
+      "fieldtype": "Link",
+      "label": "Current Reports To",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "proposed_reports_to",
+      "fieldtype": "Link",
+      "label": "Proposed Reports To",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Business Justification",
+      "required": true
+    },
+    {
+      "fieldname": "supporting_document",
+      "fieldtype": "Data",
+      "label": "Supporting Document"
+    },
+    {
+      "fieldname": "request_status",
+      "fieldtype": "Select",
+      "label": "Request Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected",
+        "Withdrawn",
+        "Implemented"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    },
+    {
+      "fieldname": "implemented_assignment",
+      "fieldtype": "Link",
+      "label": "Implemented Reporting Assignment",
+      "options": "Reporting Assignment"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

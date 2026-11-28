@@ -1,0 +1,119 @@
+{
+  "name": "Project Business Case",
+  "module": "Projects",
+  "track_changes": true,
+  "description": "Feasibility and investment justification.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "problem_statement",
+      "label": "Problem Statement",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "options_assessed",
+      "label": "Options Assessed",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "expected_benefits",
+      "label": "Expected Benefits",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "estimated_cost",
+      "label": "Estimated Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "estimated_benefit",
+      "label": "Estimated Benefits Value",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "roi_percent",
+      "label": "Estimated ROI (%)",
+      "fieldtype": "Float"
+    },
+    {
+      "fieldname": "payback_months",
+      "label": "Payback Period (Months)",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "risk_summary",
+      "label": "Risk Summary",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "recommendation",
+      "label": "Recommendation",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Draft"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "project"
+}

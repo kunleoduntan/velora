@@ -1,0 +1,32 @@
+{
+  "name": "Sustainability Metric Framework",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "framework",
+      "fieldtype": "Link",
+      "label": "Framework",
+      "options": "Sustainability Framework",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "standard",
+      "fieldtype": "Link",
+      "label": "Standard",
+      "options": "Sustainability Standard"
+    },
+    {
+      "fieldname": "disclosure",
+      "fieldtype": "Link",
+      "label": "Disclosure",
+      "options": "Sustainability Disclosure"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

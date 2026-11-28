@@ -1,0 +1,107 @@
+{
+  "name": "Posting Cancellation Log",
+  "module": "Finance",
+  "track_changes": false,
+  "description": "Evidence kept when a document is cancelled: who cancelled it, when, why, and a copy of the ledger rows that were removed. Written by the system only.",
+  "fields": [
+    {
+      "fieldname": "source_doctype",
+      "fieldtype": "Data",
+      "label": "Document Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_name",
+      "fieldtype": "Data",
+      "label": "Document",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cancelled_by",
+      "fieldtype": "Data",
+      "label": "Cancelled By",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cancelled_on",
+      "fieldtype": "Datetime",
+      "label": "Cancelled On",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason"
+    },
+    {
+      "fieldname": "ledger_rows_removed",
+      "fieldtype": "Int",
+      "label": "Account Ledger Rows Removed"
+    },
+    {
+      "fieldname": "stock_rows_removed",
+      "fieldtype": "Int",
+      "label": "Stock Ledger Rows Removed"
+    },
+    {
+      "fieldname": "total_debit",
+      "fieldtype": "Currency",
+      "label": "Total Debit Removed"
+    },
+    {
+      "fieldname": "unlinked",
+      "fieldtype": "JSON",
+      "label": "Unlinked And Cleaned Up"
+    },
+    {
+      "fieldname": "snapshot",
+      "fieldtype": "JSON",
+      "label": "Removed Rows"
+    }
+  ],
+  "autoname": "series:PCL-.########",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "source_name"
+}

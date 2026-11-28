@@ -1,0 +1,135 @@
+{
+  "name": "Performance Check In",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Continuous one-to-one performance conversations, progress evidence, blockers and agreed actions.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cycle",
+      "fieldtype": "Link",
+      "label": "Performance Cycle",
+      "options": "Performance Cycle",
+      "required": true
+    },
+    {
+      "fieldname": "goal",
+      "fieldtype": "Link",
+      "label": "Related Goal",
+      "options": "Performance Goal"
+    },
+    {
+      "fieldname": "check_in_date",
+      "fieldtype": "Date",
+      "label": "Check-in Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "manager",
+      "fieldtype": "Link",
+      "label": "Manager",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "progress_summary",
+      "fieldtype": "Text",
+      "label": "Progress Summary"
+    },
+    {
+      "fieldname": "achievements",
+      "fieldtype": "Text",
+      "label": "Achievements"
+    },
+    {
+      "fieldname": "blockers",
+      "fieldtype": "Text",
+      "label": "Blockers / Support Needed"
+    },
+    {
+      "fieldname": "wellbeing_pulse",
+      "fieldtype": "Select",
+      "label": "Wellbeing Pulse",
+      "options": [
+        "Positive",
+        "Neutral",
+        "Needs Attention"
+      ]
+    },
+    {
+      "fieldname": "agreed_actions",
+      "fieldtype": "Table",
+      "label": "Agreed Development Actions",
+      "options": "Performance Development Action"
+    },
+    {
+      "fieldname": "next_check_in",
+      "fieldtype": "Date",
+      "label": "Next Check-in Date"
+    },
+    {
+      "fieldname": "visibility",
+      "fieldtype": "Select",
+      "label": "Visibility",
+      "options": [
+        "Employee and Manager",
+        "HR Restricted"
+      ],
+      "default": "Employee and Manager"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "istable": false,
+  "title_field": "employee_name"
+}

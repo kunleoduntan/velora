@@ -1,0 +1,694 @@
+{
+  "name": "Investment",
+  "module": "Investments",
+  "autoname": "series:INV-.########",
+  "is_submittable": true,
+  "track_changes": true,
+  "title_field": "investment_name",
+  "description": "One holding in the portfolio: a money-market placement, treasury bill, fixed deposit, commercial paper, bond, share, fund, property or other asset. Income, tax and valuation are posted through Investment Transactions.",
+  "fields": [
+    {
+      "fieldname": "identity_tab",
+      "fieldtype": "Tab Break",
+      "label": "Investment"
+    },
+    {
+      "fieldname": "investment_name",
+      "fieldtype": "Data",
+      "label": "Investment Name",
+      "required": true,
+      "in_list_view": true,
+      "length": 180
+    },
+    {
+      "fieldname": "investment_class",
+      "fieldtype": "Select",
+      "label": "Investment Class",
+      "options": [
+        "Money Market Placement",
+        "Treasury Bill",
+        "Fixed Deposit",
+        "Commercial Paper",
+        "Bond",
+        "Equity / Shares",
+        "Mutual Fund / Unit Trust",
+        "Real Estate",
+        "Private Equity",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "asset_group",
+      "fieldtype": "Select",
+      "label": "Asset Group",
+      "options": [
+        "Money Market",
+        "Capital Market",
+        "Real Estate",
+        "Alternative"
+      ],
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "counterparty",
+      "fieldtype": "Data",
+      "label": "Issuer / Bank / Manager / Property",
+      "required": true,
+      "in_list_view": true,
+      "length": 180
+    },
+    {
+      "fieldname": "counterparty_type",
+      "fieldtype": "Select",
+      "label": "Counterparty Type",
+      "options": [
+        "",
+        "Bank",
+        "Government",
+        "Corporate",
+        "Fund Manager",
+        "Stockbroker",
+        "Property",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "reference_no",
+      "fieldtype": "Data",
+      "label": "Certificate / Reference No",
+      "length": 80
+    },
+    {
+      "fieldname": "column_break_identity",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Active",
+        "Part Disposed",
+        "Matured",
+        "Closed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "default": 1
+    },
+    {
+      "fieldname": "measurement",
+      "fieldtype": "Select",
+      "label": "Measurement",
+      "options": [
+        "Amortised cost / Cost",
+        "Fair value through profit or loss",
+        "Fair value through OCI"
+      ],
+      "default": "Amortised cost / Cost",
+      "description": "Fair value measures let you revalue the holding. Cost and amortised cost do not."
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Purpose / Notes"
+    },
+    {
+      "fieldname": "terms_section",
+      "fieldtype": "Section Break",
+      "label": "Terms",
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start (Settlement) Date",
+      "required": true
+    },
+    {
+      "fieldname": "tenor_days",
+      "fieldtype": "Int",
+      "label": "Tenor (days)",
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "maturity_date",
+      "fieldtype": "Date",
+      "label": "Maturity Date",
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "principal",
+      "fieldtype": "Currency",
+      "label": "Amount Invested (Cost)",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "acquisition_costs",
+      "fieldtype": "Currency",
+      "label": "Acquisition Costs (capitalised)"
+    },
+    {
+      "fieldname": "face_value",
+      "fieldtype": "Currency",
+      "label": "Face Value",
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "column_break_terms",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "interest_rate",
+      "fieldtype": "Float",
+      "label": "Rate (% p.a.)",
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)",
+      "description": "Interest rate, coupon rate or discount rate depending on the method."
+    },
+    {
+      "fieldname": "interest_method",
+      "fieldtype": "Select",
+      "label": "Income Method",
+      "options": [
+        "Simple Interest",
+        "Compound Interest",
+        "Discount (T-Bill)",
+        "Coupon (Bond)",
+        "Flat Rate"
+      ],
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "day_count",
+      "fieldtype": "Select",
+      "label": "Day Count",
+      "options": [
+        "Actual/365",
+        "Actual/360",
+        "30/360"
+      ],
+      "default": "Actual/365",
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "payment_mode",
+      "fieldtype": "Select",
+      "label": "Income Is Paid",
+      "options": [
+        "At Maturity",
+        "Periodic",
+        "Upfront"
+      ],
+      "default": "At Maturity",
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "payment_frequency",
+      "fieldtype": "Select",
+      "label": "Payment Frequency",
+      "options": [
+        "",
+        "Monthly",
+        "Quarterly",
+        "Half-yearly",
+        "Yearly"
+      ],
+      "depends_on": "eval:doc.payment_mode == 'Periodic'",
+      "mandatory_depends_on": "eval:doc.payment_mode == 'Periodic'"
+    },
+    {
+      "fieldname": "management_fee_percent",
+      "fieldtype": "Float",
+      "label": "Management Fee (% of income)",
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "rollover_instruction",
+      "fieldtype": "Select",
+      "label": "At Maturity",
+      "options": [
+        "Pay out",
+        "Roll over principal",
+        "Roll over principal and income"
+      ],
+      "default": "Pay out",
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "holding_section",
+      "fieldtype": "Section Break",
+      "label": "Units and Pricing",
+      "depends_on": "eval:['Equity / Shares','Mutual Fund / Unit Trust','Private Equity'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "units",
+      "fieldtype": "Float",
+      "label": "Units / Shares Bought",
+      "depends_on": "eval:['Equity / Shares','Mutual Fund / Unit Trust','Private Equity'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "unit_cost",
+      "fieldtype": "Currency",
+      "label": "Cost Per Unit",
+      "depends_on": "eval:['Equity / Shares','Mutual Fund / Unit Trust','Private Equity'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "market_price",
+      "fieldtype": "Currency",
+      "label": "Latest Price Per Unit",
+      "depends_on": "eval:['Equity / Shares','Mutual Fund / Unit Trust','Private Equity'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "column_break_holding",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "dividend_rate",
+      "fieldtype": "Float",
+      "label": "Expected Dividend (% of cost p.a.)",
+      "depends_on": "eval:['Equity / Shares','Mutual Fund / Unit Trust','Private Equity'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "listing_status",
+      "fieldtype": "Select",
+      "label": "Listing",
+      "options": [
+        "",
+        "Listed",
+        "Unlisted",
+        "OTC"
+      ],
+      "depends_on": "eval:['Equity / Shares','Mutual Fund / Unit Trust','Private Equity'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "property_section",
+      "fieldtype": "Section Break",
+      "label": "Property",
+      "depends_on": "eval:doc.investment_class == 'Real Estate'"
+    },
+    {
+      "fieldname": "property_type",
+      "fieldtype": "Select",
+      "label": "Property Type",
+      "options": [
+        "",
+        "Land",
+        "Residential",
+        "Commercial",
+        "Industrial",
+        "Mixed Use"
+      ],
+      "depends_on": "eval:doc.investment_class == 'Real Estate'"
+    },
+    {
+      "fieldname": "property_address",
+      "fieldtype": "Text",
+      "label": "Address",
+      "depends_on": "eval:doc.investment_class == 'Real Estate'"
+    },
+    {
+      "fieldname": "land_area_sqm",
+      "fieldtype": "Float",
+      "label": "Area (sq m)",
+      "depends_on": "eval:doc.investment_class == 'Real Estate'"
+    },
+    {
+      "fieldname": "column_break_property",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "title_reference",
+      "fieldtype": "Data",
+      "label": "Title / Deed Reference",
+      "depends_on": "eval:doc.investment_class == 'Real Estate'"
+    },
+    {
+      "fieldname": "tenant",
+      "fieldtype": "Data",
+      "label": "Tenant",
+      "depends_on": "eval:doc.investment_class == 'Real Estate'"
+    },
+    {
+      "fieldname": "expected_annual_rent",
+      "fieldtype": "Currency",
+      "label": "Expected Annual Rent",
+      "depends_on": "eval:doc.investment_class == 'Real Estate'"
+    },
+    {
+      "fieldname": "lease_end",
+      "fieldtype": "Date",
+      "label": "Lease Ends",
+      "depends_on": "eval:doc.investment_class == 'Real Estate'"
+    },
+    {
+      "fieldname": "tax_section",
+      "fieldtype": "Section Break",
+      "label": "Withholding Tax"
+    },
+    {
+      "fieldname": "wht_applicable",
+      "fieldtype": "Check",
+      "label": "Tax is withheld from the income",
+      "default": 1,
+      "description": "A new treasury bill starts with tax off (government securities); tick it after the first save if yours is taxed."
+    },
+    {
+      "fieldname": "wht_rate",
+      "fieldtype": "Float",
+      "label": "Withholding Tax Rate (%)",
+      "depends_on": "wht_applicable"
+    },
+    {
+      "fieldname": "accounts_section",
+      "fieldtype": "Section Break",
+      "label": "Accounts"
+    },
+    {
+      "fieldname": "investment_account",
+      "fieldtype": "Link",
+      "label": "Investment (Asset) Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank Account",
+      "options": "Bank Account"
+    },
+    {
+      "fieldname": "column_break_accounts",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "income_account",
+      "fieldtype": "Link",
+      "label": "Income Account (override)",
+      "options": "Account",
+      "description": "Leave empty to use the interest, dividend or rental account from Finance Settings > Investments.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accrued_income_account",
+      "fieldtype": "Link",
+      "label": "Accrued Income Account (override)",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "results_tab",
+      "fieldtype": "Tab Break",
+      "label": "Position"
+    },
+    {
+      "fieldname": "expected_gross_income",
+      "fieldtype": "Currency",
+      "label": "Expected Gross Income",
+      "read_only": true
+    },
+    {
+      "fieldname": "expected_wht",
+      "fieldtype": "Currency",
+      "label": "Expected Withholding Tax",
+      "read_only": true
+    },
+    {
+      "fieldname": "expected_net_income",
+      "fieldtype": "Currency",
+      "label": "Expected Net Income",
+      "read_only": true
+    },
+    {
+      "fieldname": "maturity_value",
+      "fieldtype": "Currency",
+      "label": "Total Realisable (Principal + Gross Income)",
+      "read_only": true
+    },
+    {
+      "fieldname": "effective_yield",
+      "fieldtype": "Float",
+      "label": "Yield on Cost (% p.a.)",
+      "read_only": true
+    },
+    {
+      "fieldname": "column_break_results",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "units_held",
+      "fieldtype": "Float",
+      "label": "Units Held",
+      "read_only": true
+    },
+    {
+      "fieldname": "cost_basis",
+      "fieldtype": "Currency",
+      "label": "Cost Still Held",
+      "read_only": true
+    },
+    {
+      "fieldname": "fair_value_adjustment",
+      "fieldtype": "Currency",
+      "label": "Revaluation Adjustment",
+      "read_only": true
+    },
+    {
+      "fieldname": "carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Carrying Amount",
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "column_break_results2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "income_accrued",
+      "fieldtype": "Currency",
+      "label": "Income Recognised",
+      "read_only": true
+    },
+    {
+      "fieldname": "income_received",
+      "fieldtype": "Currency",
+      "label": "Gross Income Received",
+      "read_only": true
+    },
+    {
+      "fieldname": "accrued_receivable",
+      "fieldtype": "Currency",
+      "label": "Accrued Income Still Receivable",
+      "read_only": true
+    },
+    {
+      "fieldname": "wht_suffered",
+      "fieldtype": "Currency",
+      "label": "Tax Withheld at Source",
+      "read_only": true
+    },
+    {
+      "fieldname": "realised_gain_loss",
+      "fieldtype": "Currency",
+      "label": "Realised Gain / (Loss)",
+      "read_only": true
+    },
+    {
+      "fieldname": "last_accrual_date",
+      "fieldtype": "Date",
+      "label": "Income Recognised Up To",
+      "read_only": true
+    },
+    {
+      "fieldname": "next_payment_date",
+      "fieldtype": "Date",
+      "label": "Next Expected Payment",
+      "read_only": true
+    },
+    {
+      "fieldname": "schedule_tab",
+      "fieldtype": "Tab Break",
+      "label": "Income Schedule",
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "schedule",
+      "fieldtype": "Table",
+      "label": "Expected Receipts",
+      "options": "Investment Schedule Line",
+      "read_only": true,
+      "depends_on": "eval:['Money Market Placement','Treasury Bill','Fixed Deposit','Commercial Paper','Bond'].includes(doc.investment_class)"
+    },
+    {
+      "fieldname": "control_tab",
+      "fieldtype": "Tab Break",
+      "label": "Control"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Purchase Posting",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Investment Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

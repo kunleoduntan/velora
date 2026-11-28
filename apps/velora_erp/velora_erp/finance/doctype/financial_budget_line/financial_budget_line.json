@@ -1,0 +1,109 @@
+{
+  "name": "Financial Budget Line",
+  "module": "Finance",
+  "istable": true,
+  "description": "One account and dimension allocation for a calendar month within an approved financial budget.",
+  "fields": [
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "period_start",
+      "fieldtype": "Date",
+      "label": "Period Start",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "period_end",
+      "fieldtype": "Date",
+      "label": "Period End",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "budget_amount",
+      "fieldtype": "Currency",
+      "label": "Budget Amount (Base Currency)",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "branch",
+      "fieldtype": "Link",
+      "label": "Branch",
+      "length": 140,
+      "in_list_view": true,
+      "options": "Branch"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "length": 140,
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "project",
+      "fieldtype": "Link",
+      "label": "Project",
+      "length": 140,
+      "options": "Project"
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "length": 140,
+      "options": "Department"
+    },
+    {
+      "fieldname": "dimensions",
+      "fieldtype": "JSON",
+      "label": "Additional Accounting Dimensions"
+    },
+    {
+      "fieldname": "line_notes",
+      "fieldtype": "Text",
+      "label": "Line Notes"
+    }
+  ],
+  "grid_columns": [
+    {
+      "field": "account",
+      "width": 2
+    },
+    {
+      "field": "period_start",
+      "width": 1
+    },
+    {
+      "field": "period_end",
+      "width": 1
+    },
+    {
+      "field": "budget_amount",
+      "width": 2
+    },
+    {
+      "field": "cost_centre",
+      "width": 2
+    },
+    {
+      "field": "branch",
+      "width": 2
+    }
+  ]
+}

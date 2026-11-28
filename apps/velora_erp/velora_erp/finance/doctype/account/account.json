@@ -1,0 +1,249 @@
+{
+ "name": "Account",
+ "module": "Finance",
+ "track_changes": true,
+ "description": "Postable account master. Financial class and normal balance are derived from its account group.",
+ "fields": [
+  {
+   "fieldname": "account_code",
+   "fieldtype": "Data",
+   "label": "Account Code",
+   "required": true,
+   "unique": true,
+   "in_list_view": true,
+   "in_standard_filter": true,
+   "length": 40
+  },
+  {
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "label": "Account Name",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "account_group",
+   "fieldtype": "Link",
+   "label": "Account Group",
+   "options": "Account Group",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "is_group",
+   "label": "Is Group",
+   "fieldtype": "Check",
+   "description": "A group account is a heading that adds up the accounts under it. Nothing is posted to it. Posting accounts leave this off.",
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "parent_account",
+   "label": "Parent Account",
+   "fieldtype": "Link",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     1
+    ]
+   ],
+   "description": "The group account this one is listed under.",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "root_type",
+   "fieldtype": "Select",
+   "label": "Financial Class",
+   "options": [
+    "Asset",
+    "Liability",
+    "Equity",
+    "Income",
+    "Expense"
+   ],
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "account_type",
+   "fieldtype": "Link",
+   "label": "Account Type",
+   "options": "Account Type",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "normal_balance",
+   "fieldtype": "Select",
+   "label": "Normal Balance",
+   "options": [
+    "Debit",
+    "Credit"
+   ],
+   "read_only": true
+  },
+  {
+   "fieldname": "account_currency",
+   "fieldtype": "Link",
+   "label": "Account Currency",
+   "length": 3,
+   "description": "Optional currency restriction. Blank means the company base currency and permitted transaction currencies apply.",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "is_control_account",
+   "fieldtype": "Check",
+   "label": "Control Account"
+  },
+  {
+   "fieldname": "control_account_type",
+   "fieldtype": "Select",
+   "label": "Control Account Purpose",
+   "options": [
+    "",
+    "Receivables",
+    "Payables",
+    "Inventory",
+    "Fixed Assets",
+    "Payroll",
+    "Tax",
+    "Bank",
+    "Other"
+   ],
+   "depends_on": "is_control_account"
+  },
+  {
+   "fieldname": "requires_party",
+   "fieldtype": "Check",
+   "label": "Requires Party Tracking",
+   "default": 0,
+   "read_only": true
+  },
+  {
+   "fieldname": "reconciliation_required",
+   "fieldtype": "Check",
+   "label": "Allow Reconciliation",
+   "fetch_from": "account_type.default_reconciliation",
+   "description": "Starts from the Account Type and follows it when the type changes. To exclude one account, untick it after it is saved.",
+   "in_list_view": false
+  },
+  {
+   "fieldname": "allow_manual_posting",
+   "fieldtype": "Check",
+   "label": "Allow Manual Posting",
+   "default": 1
+  },
+  {
+   "fieldname": "frozen",
+   "fieldtype": "Check",
+   "label": "Frozen",
+   "default": 0,
+   "description": "No new postings may be made to this account (corrections that reverse existing entries are still allowed). Use it to close an account without disabling its history."
+  },
+  {
+   "fieldname": "requires_cost_centre",
+   "fieldtype": "Check",
+   "label": "Cost Centre Required",
+   "default": 0,
+   "description": "Every posting to this account must carry a Cost Centre, e.g. expense and income accounts reported by centre."
+  },
+  {
+   "fieldname": "report_type",
+   "fieldtype": "Select",
+   "label": "Report Type",
+   "options": [
+    "Balance Sheet",
+    "Profit and Loss"
+   ],
+   "read_only": true,
+   "description": "Derived from the root type."
+  },
+  {
+   "fieldname": "tax_rate",
+   "fieldtype": "Float",
+   "label": "Default Tax Rate %",
+   "default": 0,
+   "description": "For tax accounts: the rate normally applied, proposed when the account is used on a tax line."
+  },
+  {
+   "fieldname": "tax_treatment",
+   "fieldtype": "Select",
+   "label": "Tax treatment",
+   "options": [
+    "Allowable",
+    "Not tax allowed",
+    "Partly allowable",
+    "Capital (use capital allowance)",
+    "Exempt income"
+   ],
+   "default": "Allowable",
+   "description": "How the balance is treated in the company income tax computation. 'Not tax allowed' expense balances are added back to profit; 'Partly allowable' adds back the percentage below; capital expenditure is added back and replaced by capital allowances; exempt income is deducted."
+  },
+  {
+   "fieldname": "disallowed_percent",
+   "fieldtype": "Float",
+   "label": "Not allowed %",
+   "default": 0,
+   "depends_on": "eval:doc.tax_treatment=='Partly allowable'",
+   "description": "Share of the balance that is not tax deductible."
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "export": true,
+   "report": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "report": true
+  }
+ ],
+ "autoname": "field:account_code",
+ "title_field": "account_name"
+}

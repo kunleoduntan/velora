@@ -1,0 +1,81 @@
+{
+  "name": "Automation Rule",
+  "module": "Administration",
+  "autoname": "field:title",
+  "istable": false,
+  "is_submittable": false,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Rule Name",
+      "fieldtype": "Data",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "enabled",
+      "label": "Enabled",
+      "fieldtype": "Check",
+      "default": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "trigger_event",
+      "label": "Trigger Event",
+      "fieldtype": "Select",
+      "options": "Request Created\nTask Created\nTask Due\nTask Overdue\nWork Order Created\nVehicle Service Due\nCorrespondence Received\nEvent Created\nStock Below Reorder\nScheduled",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "scope_doctype",
+      "label": "Target DocType",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "conditions_json",
+      "label": "Conditions JSON",
+      "fieldtype": "Text",
+      "options": "JSON"
+    },
+    {
+      "fieldname": "actions_json",
+      "label": "Actions JSON",
+      "fieldtype": "Text",
+      "options": "JSON"
+    },
+    {
+      "fieldname": "priority",
+      "label": "Rule Priority",
+      "fieldtype": "Int",
+      "default": 100
+    },
+    {
+      "fieldname": "last_run",
+      "label": "Last Run",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "run_count",
+      "label": "Run Count",
+      "fieldtype": "Int",
+      "default": 0
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "share": 1
+    }
+  ]
+}

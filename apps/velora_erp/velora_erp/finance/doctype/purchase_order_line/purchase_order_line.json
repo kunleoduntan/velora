@@ -1,0 +1,128 @@
+{
+  "name": "Purchase Order Line",
+  "module": "Finance",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "source_line",
+      "label": "Source Document Line",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "item_code",
+      "label": "Item Code",
+      "fieldtype": "Link",
+      "options": "Inventory Item",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_name",
+      "fieldtype": "Data",
+      "label": "Item Name",
+      "read_only": true,
+      "fetch_from": "item_code.item_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Data",
+      "required": true,
+      "fetch_from": "item_code.item_name"
+    },
+    {
+      "fieldname": "quantity",
+      "label": "Quantity",
+      "fieldtype": "Float",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "uom",
+      "label": "Unit of Measure",
+      "fieldtype": "Data",
+      "fetch_from": "item_code.stock_uom"
+    },
+    {
+      "fieldname": "rate",
+      "label": "Rate",
+      "fieldtype": "Currency",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "amount",
+      "label": "Amount",
+      "fieldtype": "Currency",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "discount_percentage",
+      "fieldtype": "Float",
+      "label": "Discount %",
+      "default": 0
+    },
+    {
+      "fieldname": "discount_amount",
+      "fieldtype": "Currency",
+      "label": "Discount per Unit",
+      "default": 0
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Receiving Warehouse",
+      "options": "Warehouse",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "schedule_date",
+      "fieldtype": "Date",
+      "label": "Required By"
+    },
+    {
+      "fieldname": "base_rate",
+      "fieldtype": "Currency",
+      "label": "Rate (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "base_amount",
+      "fieldtype": "Currency",
+      "label": "Amount (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "batch",
+      "label": "Batch",
+      "fieldtype": "Link",
+      "options": "Batch"
+    },
+    {
+      "fieldname": "serial_number",
+      "label": "Serial Number",
+      "fieldtype": "Link",
+      "options": "Serial Number"
+    },
+    {
+      "fieldname": "valuation_rate",
+      "label": "Inventory Valuation Rate",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "conversion_factor",
+      "fieldtype": "Float",
+      "label": "Stock UOM Conversion Factor",
+      "default": 1
+    }
+  ],
+  "permissions": [],
+  "istable": true
+}

@@ -1,0 +1,136 @@
+{
+  "name": "Vendor Administration Profile",
+  "module": "Administration",
+  "autoname": "series:VEND-.####",
+  "title_field": "vendor_name",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "VEND-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "vendor_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Vendor Name",
+      "required": true
+    },
+    {
+      "fieldname": "vendor_category",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Category",
+      "options": "Vendor Category",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Active",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Active\nInactive\nBlacklisted"
+    },
+    {
+      "fieldname": "section_break_supplier",
+      "fieldtype": "Section Break",
+      "label": "Purchasing / Finance Link"
+    },
+    {
+      "description": "Optional: link to the Supplier record used for Purchase Orders / Invoices. Not every administrative vendor (e.g. a cleaning contractor) needs one.",
+      "fieldname": "linked_supplier",
+      "fieldtype": "Link",
+      "label": "Linked Supplier",
+      "options": "Supplier"
+    },
+    {
+      "fieldname": "column_break_supplier",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "section_break_contact",
+      "fieldtype": "Section Break",
+      "label": "Contact"
+    },
+    {
+      "fieldname": "contact_person",
+      "fieldtype": "Data",
+      "label": "Contact Person"
+    },
+    {
+      "fieldname": "contact_phone",
+      "fieldtype": "Data",
+      "label": "Contact Phone"
+    },
+    {
+      "fieldname": "column_break_contact",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "contact_email",
+      "fieldtype": "Data",
+      "label": "Contact Email",
+      "options": "Email"
+    },
+    {
+      "fieldname": "address",
+      "fieldtype": "Data",
+      "label": "Address"
+    },
+    {
+      "fieldname": "section_break_perf",
+      "fieldtype": "Section Break",
+      "label": "Performance & Notes"
+    },
+    {
+      "fieldname": "performance_rating",
+      "fieldtype": "Select",
+      "label": "Performance Rating",
+      "options": "Excellent\nGood\nAverage\nPoor\nNot Yet Rated"
+    },
+    {
+      "fieldname": "sla_notes",
+      "fieldtype": "Text",
+      "label": "SLA Notes"
+    },
+    {
+      "fieldname": "column_break_perf",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

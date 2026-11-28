@@ -1,0 +1,111 @@
+{
+  "name": "Project Quality Inspection",
+  "module": "Quality",
+  "track_changes": true,
+  "description": "Quality inspection and non-conformance evidence.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "inspection_reference",
+      "label": "Inspection Reference",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "task",
+      "label": "Task",
+      "fieldtype": "Link",
+      "options": "Project Task"
+    },
+    {
+      "fieldname": "deliverable",
+      "label": "Deliverable",
+      "fieldtype": "Link",
+      "options": "Project Deliverable"
+    },
+    {
+      "fieldname": "inspection_date",
+      "label": "Inspection Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "inspector",
+      "label": "Inspector",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "result",
+      "label": "Result",
+      "fieldtype": "Select",
+      "options": [
+        "Pending",
+        "Pass",
+        "Fail",
+        "Conditional"
+      ]
+    },
+    {
+      "fieldname": "findings",
+      "label": "Findings",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "corrective_action",
+      "label": "Corrective Action",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "project"
+}

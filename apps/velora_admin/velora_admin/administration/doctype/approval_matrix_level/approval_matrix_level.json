@@ -1,0 +1,54 @@
+{
+  "name": "Approval Matrix Level",
+  "module": "Administration",
+  "autoname": "hash",
+  "is_submittable": false,
+  "istable": true,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "level_no",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Level",
+      "required": true
+    },
+    {
+      "default": "Requester's Manager",
+      "fieldname": "approver_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Approver Type",
+      "options": "Requester's Manager\nDepartment Head\nSpecific Role\nSpecific User",
+      "required": true
+    },
+    {
+      "fieldname": "approver_role",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Role"
+    },
+    {
+      "fieldname": "approver_user",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "User"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "min_amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Applies From Amount"
+    },
+    {
+      "fieldname": "max_amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Applies Up To Amount (0 = no limit)"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "name": "Engagement Log",
+  "module": "Engagement",
+  "autoname": "series:ENG-.######",
+  "title_field": "subject",
+  "fields": [
+    {
+      "fieldname": "sb_l",
+      "fieldtype": "Section Break",
+      "label": "Moment"
+    },
+    {
+      "fieldname": "moment_date",
+      "fieldtype": "Date",
+      "label": "Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "kind",
+      "fieldtype": "Select",
+      "label": "Kind",
+      "in_list_view": true,
+      "options": [
+        "Birthday",
+        "Work Anniversary",
+        "Partnership Anniversary",
+        "Holiday",
+        "Win Back",
+        "Custom"
+      ]
+    },
+    {
+      "fieldname": "party_type",
+      "fieldtype": "Data",
+      "label": "Party type",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "label": "Party",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party_name",
+      "fieldtype": "Data",
+      "label": "Name"
+    },
+    {
+      "fieldname": "cb_l",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "in_list_view": true,
+      "options": [
+        "Queued",
+        "Held",
+        "Released",
+        "No Address",
+        "Opted Out",
+        "Not Sent"
+      ],
+      "default": "Held"
+    },
+    {
+      "fieldname": "channels",
+      "fieldtype": "Data",
+      "label": "Channels"
+    },
+    {
+      "fieldname": "detail",
+      "fieldtype": "Data",
+      "label": "Detail"
+    },
+    {
+      "fieldname": "source",
+      "fieldtype": "Data",
+      "label": "Source"
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "label": "Key",
+      "unique": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "sb_m",
+      "fieldtype": "Section Break",
+      "label": "Message"
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email"
+    },
+    {
+      "fieldname": "phone",
+      "fieldtype": "Data",
+      "label": "Phone"
+    },
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "message",
+      "fieldtype": "Text",
+      "label": "Plain text"
+    },
+    {
+      "fieldname": "html",
+      "fieldtype": "Text",
+      "label": "Branded email (HTML)",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Engagement Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Sales Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    }
+  ],
+  "track_changes": false
+}

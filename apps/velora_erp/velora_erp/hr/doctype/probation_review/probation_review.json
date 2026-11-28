@@ -1,0 +1,181 @@
+{
+  "name": "Probation Review",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Structured probation check-ins, manager recommendations and HR confirmation decisions.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employment_contract",
+      "fieldtype": "Link",
+      "label": "Employment Contract",
+      "options": "Employment Contract"
+    },
+    {
+      "fieldname": "review_stage",
+      "fieldtype": "Select",
+      "label": "Review Stage",
+      "options": [
+        "30 Day",
+        "60 Day",
+        "90 Day",
+        "Final",
+        "Extended Review",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Review Due Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "review_date",
+      "fieldtype": "Date",
+      "label": "Review Date"
+    },
+    {
+      "fieldname": "reviewer",
+      "fieldtype": "Link",
+      "label": "Reviewer",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "performance_rating",
+      "fieldtype": "Select",
+      "label": "Performance Rating",
+      "options": [
+        "Outstanding",
+        "Exceeds Expectations",
+        "Meets Expectations",
+        "Needs Improvement",
+        "Unsatisfactory"
+      ]
+    },
+    {
+      "fieldname": "attendance_rating",
+      "fieldtype": "Select",
+      "label": "Attendance Rating",
+      "options": [
+        "Excellent",
+        "Good",
+        "Satisfactory",
+        "Needs Improvement",
+        "Unsatisfactory"
+      ]
+    },
+    {
+      "fieldname": "strengths",
+      "fieldtype": "Text",
+      "label": "Strengths"
+    },
+    {
+      "fieldname": "improvement_areas",
+      "fieldtype": "Text",
+      "label": "Areas for Improvement"
+    },
+    {
+      "fieldname": "recommendation",
+      "fieldtype": "Select",
+      "label": "Recommendation",
+      "options": [
+        "Confirm",
+        "Extend Probation",
+        "Terminate",
+        "Further Review"
+      ]
+    },
+    {
+      "fieldname": "extension_end_date",
+      "fieldtype": "Date",
+      "label": "Extended Probation End Date"
+    },
+    {
+      "fieldname": "review_notes",
+      "fieldtype": "Text",
+      "label": "Review Notes"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

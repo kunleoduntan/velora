@@ -1,0 +1,97 @@
+{
+  "name": "Quality Inspection Template",
+  "module": "Finance",
+  "track_changes": true,
+  "autoname": "field:template_name",
+  "title_field": "template_name",
+  "description": "The checks an item is inspected against: measured ranges and pass/fail points.",
+  "fields": [
+    {
+      "fieldname": "template_name",
+      "fieldtype": "Data",
+      "label": "Template",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 100
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "What it checks"
+    },
+    {
+      "fieldname": "parameters",
+      "fieldtype": "Table",
+      "label": "Parameters",
+      "options": "Quality Parameter Row",
+      "required": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Quality Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

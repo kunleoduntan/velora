@@ -1,0 +1,41 @@
+{
+  "name": "Checklist Template Item",
+  "module": "Administration",
+  "autoname": "hash",
+  "is_submittable": false,
+  "istable": true,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "task_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Task",
+      "required": true
+    },
+    {
+      "fieldname": "responsible_role",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Responsible Role"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "description": "Days from start date (onboarding) or end date (offboarding). Negative allowed for pre-start/pre-exit tasks.",
+      "fieldname": "due_offset_days",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Due Offset (Days)"
+    },
+    {
+      "default": "1",
+      "fieldname": "is_mandatory",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Mandatory"
+    }
+  ]
+}

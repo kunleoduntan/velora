@@ -1,0 +1,195 @@
+{
+  "name": "Governance Policy",
+  "module": "Governance",
+  "autoname": "series:GPL-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_type",
+      "fieldtype": "Link",
+      "label": "Policy Type",
+      "options": "Governance Policy Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_title",
+      "fieldtype": "Data",
+      "label": "Policy Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_code",
+      "fieldtype": "Data",
+      "label": "Policy Code",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "version_number",
+      "fieldtype": "Data",
+      "label": "Version Number",
+      "required": true
+    },
+    {
+      "fieldname": "policy_owner",
+      "fieldtype": "Data",
+      "label": "Policy Owner",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Effective Date"
+    },
+    {
+      "fieldname": "review_frequency_months",
+      "fieldtype": "Int",
+      "label": "Review Frequency Months",
+      "default": 12
+    },
+    {
+      "fieldname": "next_review_date",
+      "fieldtype": "Date",
+      "label": "Next Review Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_status",
+      "fieldtype": "Select",
+      "label": "Policy Status",
+      "options": [
+        "Draft",
+        "Under Review",
+        "Active",
+        "Superseded",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "document_reference",
+      "fieldtype": "Data",
+      "label": "Policy File Reference"
+    },
+    {
+      "fieldname": "acknowledgement_required",
+      "fieldtype": "Check",
+      "label": "Acknowledgement Required",
+      "default": 0
+    },
+    {
+      "fieldname": "acknowledgements",
+      "fieldtype": "Table",
+      "label": "Acknowledgements",
+      "options": "Policy Acknowledgement"
+    },
+    {
+      "fieldname": "reviews",
+      "fieldtype": "Table",
+      "label": "Review History",
+      "options": "Policy Review"
+    },
+    {
+      "fieldname": "summary",
+      "fieldtype": "Text",
+      "label": "Summary"
+    },
+    {
+      "fieldname": "supersedes",
+      "fieldtype": "Link",
+      "label": "Supersedes Policy",
+      "options": "Governance Policy"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "policy_title"
+}

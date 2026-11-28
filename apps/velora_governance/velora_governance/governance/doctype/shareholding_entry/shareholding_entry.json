@@ -1,0 +1,78 @@
+{
+  "name": "Shareholding Entry",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "shareholder",
+      "fieldtype": "Link",
+      "label": "Shareholder",
+      "options": "Shareholder",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "share_class",
+      "fieldtype": "Link",
+      "label": "Share Class",
+      "options": "Share Class",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "shares_held",
+      "fieldtype": "Float",
+      "label": "Shares Held",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "ownership_percent",
+      "fieldtype": "Float",
+      "label": "Ownership Percent",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Effective Date",
+      "required": true
+    },
+    {
+      "fieldname": "transaction_type",
+      "fieldtype": "Select",
+      "label": "Transaction Type",
+      "options": [
+        "Issue",
+        "Transfer In",
+        "Transfer Out",
+        "Adjustment",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "certificate_number",
+      "fieldtype": "Data",
+      "label": "Certificate Number"
+    },
+    {
+      "fieldname": "holding_status",
+      "fieldtype": "Select",
+      "label": "Holding Status",
+      "options": [
+        "Active",
+        "Transferred",
+        "Cancelled"
+      ],
+      "default": "Active",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

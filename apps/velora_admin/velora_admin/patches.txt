@@ -1,0 +1,5 @@
+# Velora Admin data migrations.
+[pre_model_sync]
+velora_admin.patches.v1_9.drop_administrative_prefix
+
+[post_model_sync]

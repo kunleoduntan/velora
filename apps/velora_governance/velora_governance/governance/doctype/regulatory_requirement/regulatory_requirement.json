@@ -1,0 +1,153 @@
+{
+  "name": "Regulatory Requirement",
+  "module": "Governance",
+  "autoname": "series:RGR-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "requirement_code",
+      "fieldtype": "Data",
+      "label": "Requirement Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "requirement_title",
+      "fieldtype": "Data",
+      "label": "Requirement Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "authority",
+      "fieldtype": "Link",
+      "label": "Regulatory Authority",
+      "options": "Regulatory Authority",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "jurisdiction",
+      "fieldtype": "Data",
+      "label": "Jurisdiction",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "requirement_type",
+      "fieldtype": "Select",
+      "label": "Requirement Type",
+      "options": [
+        "Filing",
+        "Compliance",
+        "Corporate Event",
+        "License",
+        "Disclosure",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "frequency",
+      "fieldtype": "Select",
+      "label": "Frequency",
+      "options": [
+        "Annual",
+        "Semi-Annual",
+        "Quarterly",
+        "Monthly",
+        "Event-Based",
+        "One-Time",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "applicable_entity_type",
+      "fieldtype": "Link",
+      "label": "Applicable Entity Type",
+      "options": "Governance Entity Type"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "requirement_title"
+}

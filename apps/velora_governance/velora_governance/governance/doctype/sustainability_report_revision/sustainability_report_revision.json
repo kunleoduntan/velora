@@ -1,0 +1,108 @@
+{
+  "name": "Sustainability Report Revision",
+  "module": "Governance",
+  "autoname": "series:SRV-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "report",
+      "fieldtype": "Link",
+      "label": "Report",
+      "options": "Sustainability Report",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "revision_number",
+      "fieldtype": "Int",
+      "label": "Revision Number",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "revision_date",
+      "fieldtype": "Datetime",
+      "label": "Revision Date",
+      "required": true
+    },
+    {
+      "fieldname": "revision_author",
+      "fieldtype": "Data",
+      "label": "Revision Author"
+    },
+    {
+      "fieldname": "change_summary",
+      "fieldtype": "Text",
+      "label": "Change Summary",
+      "required": true
+    },
+    {
+      "fieldname": "snapshot_json",
+      "fieldtype": "Text",
+      "label": "Report Snapshot",
+      "required": true
+    },
+    {
+      "fieldname": "revision_status",
+      "fieldtype": "Select",
+      "label": "Revision Status",
+      "options": "Draft\nSubmitted for Review\nApproved\nFinalized\nPublished\nSuperseded",
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "report"
+}

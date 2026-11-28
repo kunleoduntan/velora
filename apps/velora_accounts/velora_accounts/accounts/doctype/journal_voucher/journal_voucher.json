@@ -1,0 +1,107 @@
+{
+  "name": "Journal Voucher",
+  "module": "Accounts",
+  "autoname": "series:JV-.#####",
+  "is_submittable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "voucher_date",
+      "fieldtype": "Date",
+      "label": "Voucher Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "label": "Title",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "default_journal_type",
+      "fieldtype": "Select",
+      "label": "Default Journal Type",
+      "options": [
+        "General",
+        "Adjusting",
+        "Reversing",
+        "Recurring",
+        "Opening Balance",
+        "Depreciation",
+        "Accrual",
+        "Prepayment",
+        "Intercompany",
+        "Bank Transfer",
+        "Year-End Closing"
+      ],
+      "default": "General",
+      "required": true
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Lines",
+      "options": "Journal Voucher Line"
+    },
+    {
+      "fieldname": "total_amount",
+      "fieldtype": "Currency",
+      "label": "Total Amount",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ]
+}

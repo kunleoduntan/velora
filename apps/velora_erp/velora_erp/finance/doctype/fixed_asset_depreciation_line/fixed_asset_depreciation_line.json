@@ -1,0 +1,110 @@
+{
+  "name": "Fixed Asset Depreciation Line",
+  "module": "Finance",
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "asset",
+      "fieldtype": "Link",
+      "label": "Fixed Asset",
+      "options": "Fixed Asset",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "depreciation_method",
+      "fieldtype": "Data",
+      "label": "Depreciation Method",
+      "read_only": true
+    },
+    {
+      "fieldname": "opening_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Opening Carrying Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "units_produced",
+      "fieldtype": "Float",
+      "label": "Units Produced",
+      "default": 0,
+      "depends_on": "eval:doc.depreciation_method == \"Units of Production\""
+    },
+    {
+      "fieldname": "depreciation_amount",
+      "fieldtype": "Currency",
+      "label": "Depreciation Amount",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "closing_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Closing Carrying Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Depreciation Expense Account",
+      "options": "Account",
+      "read_only": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accumulated_depreciation_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Depreciation Account",
+      "options": "Account",
+      "read_only": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "book_balance_reference",
+      "fieldtype": "Data",
+      "label": "Book Balance Reference",
+      "read_only": true
+    },
+    {
+      "fieldname": "book_type",
+      "fieldtype": "Data",
+      "label": "Book Type",
+      "read_only": true
+    }
+  ],
+  "istable": true
+}

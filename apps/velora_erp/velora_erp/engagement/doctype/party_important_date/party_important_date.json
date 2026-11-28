@@ -1,0 +1,138 @@
+{
+  "name": "Party Important Date",
+  "module": "Engagement",
+  "autoname": "series:PID-.#####",
+  "title_field": "label",
+  "fields": [
+    {
+      "fieldname": "sb_p",
+      "fieldtype": "Section Break",
+      "label": "Date"
+    },
+    {
+      "fieldname": "party_type",
+      "fieldtype": "Select",
+      "label": "Party type",
+      "required": true,
+      "in_list_view": true,
+      "options": [
+        "Customer",
+        "Supplier",
+        "Employee"
+      ]
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Data",
+      "label": "Party",
+      "required": true,
+      "in_list_view": true,
+      "description": "The customer, supplier or employee code."
+    },
+    {
+      "fieldname": "party_name",
+      "fieldtype": "Data",
+      "label": "Party name",
+      "read_only": true
+    },
+    {
+      "fieldname": "date_type",
+      "fieldtype": "Select",
+      "label": "Kind",
+      "required": true,
+      "in_list_view": true,
+      "options": [
+        "Birthday",
+        "Anniversary",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "label",
+      "fieldtype": "Data",
+      "label": "Label",
+      "description": "For Other: what it celebrates, for example Founding day."
+    },
+    {
+      "fieldname": "cb_p",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "occasion_date",
+      "fieldtype": "Date",
+      "label": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "repeat_yearly",
+      "fieldtype": "Check",
+      "label": "Repeats yearly",
+      "default": 1
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": 1
+    },
+    {
+      "fieldname": "sb_pc",
+      "fieldtype": "Section Break",
+      "label": "Send to (optional)"
+    },
+    {
+      "fieldname": "contact_email",
+      "fieldtype": "Data",
+      "label": "Email",
+      "description": "Leave empty to use the email on the record."
+    },
+    {
+      "fieldname": "contact_phone",
+      "fieldtype": "Data",
+      "label": "Phone"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Engagement Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Sales Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    }
+  ]
+}

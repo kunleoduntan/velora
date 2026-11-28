@@ -1,0 +1,185 @@
+{
+ "version": 1,
+ "presets": [
+  {
+   "name": "velora",
+   "label": "Velora",
+   "description": "Clean enterprise blue (default)",
+   "brand": "#0f6cbd",
+   "neutral_hue": 250,
+   "neutral_chroma": 0.008,
+   "default_mode": "system",
+   "source": "velora"
+  },
+  {
+   "name": "graphite",
+   "label": "Graphite",
+   "description": "Quiet slate for serious back-office work",
+   "brand": "#475569",
+   "neutral_hue": 255,
+   "neutral_chroma": 0.006,
+   "default_mode": "system",
+   "source": "velora"
+  },
+  {
+   "name": "ledger",
+   "label": "Ledger",
+   "description": "Finance green",
+   "brand": "#0b7a5b",
+   "neutral_hue": 170,
+   "neutral_chroma": 0.008,
+   "default_mode": "system",
+   "source": "velora"
+  },
+  {
+   "name": "violet",
+   "label": "Violet",
+   "description": "Calm and modern",
+   "brand": "#6c5ce7",
+   "neutral_hue": 293,
+   "neutral_chroma": 0.009,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "farepoint",
+   "label": "Farepoint",
+   "description": "Bold magenta for consumer-facing apps",
+   "brand": "#e91e8c",
+   "neutral_hue": 271,
+   "neutral_chroma": 0.008,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "emerald",
+   "label": "Emerald",
+   "description": "Fresh teal-green",
+   "brand": "#0f766e",
+   "neutral_hue": 185,
+   "neutral_chroma": 0.006,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "sunset",
+   "label": "Sunset",
+   "description": "Warm amber",
+   "brand": "#d97706",
+   "neutral_hue": 74,
+   "neutral_chroma": 0.008,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "ocean",
+   "label": "Ocean",
+   "description": "Classic confident blue",
+   "brand": "#2563eb",
+   "neutral_hue": 261,
+   "neutral_chroma": 0.007,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "nova",
+   "label": "Nova",
+   "description": "Rich purple",
+   "brand": "#7c3aed",
+   "neutral_hue": 308,
+   "neutral_chroma": 0.014,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "ember",
+   "label": "Ember",
+   "description": "Energetic orange",
+   "brand": "#f97316",
+   "neutral_hue": 74,
+   "neutral_chroma": 0.016,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "midnight",
+   "label": "Midnight",
+   "description": "Deep indigo night mode",
+   "brand": "#818cf8",
+   "neutral_hue": 266,
+   "neutral_chroma": 0.03,
+   "default_mode": "dark",
+   "source": "vic_theme"
+  },
+  {
+   "name": "verdant",
+   "label": "Verdant",
+   "description": "Natural green",
+   "brand": "#059669",
+   "neutral_hue": 166,
+   "neutral_chroma": 0.021,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "arctic",
+   "label": "Arctic",
+   "description": "Cool sky blue",
+   "brand": "#0284c7",
+   "neutral_hue": 248,
+   "neutral_chroma": 0.004,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "forest",
+   "label": "Forest",
+   "description": "Deep green night mode",
+   "brand": "#22c55e",
+   "neutral_hue": 153,
+   "neutral_chroma": 0.03,
+   "default_mode": "dark",
+   "source": "vic_theme"
+  },
+  {
+   "name": "candy",
+   "label": "Candy",
+   "description": "Playful rose",
+   "brand": "#db2777",
+   "neutral_hue": 343,
+   "neutral_chroma": 0.014,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "cyan",
+   "label": "Cyan",
+   "description": "Clear cyan",
+   "brand": "#0891b2",
+   "neutral_hue": 217,
+   "neutral_chroma": 0.008,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "mint",
+   "label": "Mint",
+   "description": "Soft mint",
+   "brand": "#0fa3a0",
+   "neutral_hue": 189,
+   "neutral_chroma": 0.01,
+   "default_mode": "system",
+   "source": "vic_theme"
+  },
+  {
+   "name": "electric",
+   "label": "Electric",
+   "description": "Neon cyan (made readable automatically)",
+   "brand": "#00f0ff",
+   "neutral_hue": 210,
+   "neutral_chroma": 0.012,
+   "default_mode": "system",
+   "source": "vic_theme"
+  }
+ ]
+}

@@ -1,0 +1,166 @@
+{
+  "name": "Request Fulfilment",
+  "module": "Administration",
+  "autoname": "series:ARF-.YYYY.-.####",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "request",
+      "fieldtype": "Link",
+      "label": "Request",
+      "options": "Request",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Fulfilment Status",
+      "default": "Unassigned",
+      "in_list_view": true,
+      "options": "Unassigned\nAssigned\nIn Progress\nBlocked\nCompleted\nClosed\nCancelled",
+      "read_only": true
+    },
+    {
+      "fieldname": "priority",
+      "fieldtype": "Select",
+      "label": "Priority",
+      "default": "Medium",
+      "options": "Low\nMedium\nHigh\nUrgent",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Data",
+      "label": "Assigned To",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_team",
+      "fieldtype": "Link",
+      "label": "Assigned Team",
+      "options": "Department"
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Fulfilment Due Date"
+    },
+    {
+      "fieldname": "section_break_progress",
+      "fieldtype": "Section Break",
+      "label": "Progress"
+    },
+    {
+      "fieldname": "progress_percent",
+      "fieldtype": "Float",
+      "label": "Progress",
+      "default": "0",
+      "read_only": true
+    },
+    {
+      "fieldname": "started_on",
+      "fieldtype": "Datetime",
+      "label": "Started On",
+      "read_only": true
+    },
+    {
+      "fieldname": "completed_on",
+      "fieldtype": "Datetime",
+      "label": "Completed On",
+      "read_only": true
+    },
+    {
+      "fieldname": "completion_notes",
+      "fieldtype": "Text",
+      "label": "Completion Notes"
+    },
+    {
+      "fieldname": "section_break_tasks",
+      "fieldtype": "Section Break",
+      "label": "Fulfilment Tasks"
+    },
+    {
+      "fieldname": "tasks",
+      "fieldtype": "Table",
+      "label": "Tasks",
+      "options": "Request Fulfilment Task"
+    },
+    {
+      "fieldname": "section_break_evidence",
+      "fieldtype": "Section Break",
+      "label": "Evidence & Notes"
+    },
+    {
+      "fieldname": "evidence_links",
+      "fieldtype": "Text",
+      "label": "Evidence Links / References"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Fulfilment Notes"
+    },
+    {
+      "fieldname": "closed_on",
+      "fieldtype": "Datetime",
+      "label": "Closed On",
+      "read_only": true
+    },
+    {
+      "fieldname": "closure_reason",
+      "fieldtype": "Text",
+      "label": "Closure Reason"
+    },
+    {
+      "fieldname": "reopen_count",
+      "fieldtype": "Int",
+      "label": "Reopen Count",
+      "default": 0
+    },
+    {
+      "fieldname": "last_reopened_on",
+      "fieldtype": "Datetime",
+      "label": "Last Reopened On"
+    },
+    {
+      "fieldname": "reopening_reason",
+      "fieldtype": "Text",
+      "label": "Reopening Reason"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "Administration Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "Administrative Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Sustainability Report Framework",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "framework",
+      "fieldtype": "Link",
+      "label": "Framework",
+      "options": "Sustainability Framework",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "version",
+      "fieldtype": "Data",
+      "label": "Version"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

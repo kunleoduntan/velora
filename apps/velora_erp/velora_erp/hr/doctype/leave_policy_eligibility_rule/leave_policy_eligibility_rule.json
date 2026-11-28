@@ -1,0 +1,82 @@
+{
+  "name": "Leave Policy Eligibility Rule",
+  "module": "HR",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "rule_group",
+      "fieldtype": "Int",
+      "label": "OR Group",
+      "default": 1,
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "field_name",
+      "fieldtype": "Select",
+      "label": "Employee Attribute",
+      "options": [
+        "Employee Type",
+        "Department",
+        "Designation",
+        "Employee Grade",
+        "Branch",
+        "Business Unit",
+        "Gender",
+        "Job Grade",
+        "Job Band",
+        "Work Location",
+        "Reports To",
+        "Employee Category"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "category_name",
+      "fieldtype": "Link",
+      "label": "Classification Category",
+      "description": "Required when Employee Attribute is Employee Category.",
+      "options": "Employee Classification Category"
+    },
+    {
+      "fieldname": "operator",
+      "fieldtype": "Select",
+      "label": "Operator",
+      "options": [
+        "Equals",
+        "Not Equals",
+        "In",
+        "Not In",
+        "Is Set",
+        "Is Not Set"
+      ],
+      "default": "Equals",
+      "required": true
+    },
+    {
+      "fieldname": "category_value",
+      "fieldtype": "Link",
+      "label": "Classification Value",
+      "options": "Employee Classification Value"
+    },
+    {
+      "fieldname": "value",
+      "fieldtype": "Data",
+      "label": "Value",
+      "description": "For In / Not In, separate values with semicolons.",
+      "required": false,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_on",
+      "fieldtype": "Select",
+      "label": "Evaluate Attribute As Of",
+      "options": [
+        "Assignment Date",
+        "Leave Period Start"
+      ],
+      "default": "Leave Period Start"
+    }
+  ]
+}

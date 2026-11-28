@@ -1,0 +1,22 @@
+{
+  "name": "Customer Segments",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Sales Manager",
+    "Accounts Manager",
+    "General Manager"
+  ],
+  "description": "Who your champions are, who is drifting away and who is brand new, from how recently, how often and how much each customer buys.",
+  "filters": [
+    {
+      "fieldname": "days",
+      "label": "Days back",
+      "fieldtype": "Int",
+      "default": 365
+    }
+  ]
+}

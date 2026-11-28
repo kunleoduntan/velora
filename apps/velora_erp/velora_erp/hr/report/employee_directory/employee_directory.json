@@ -1,0 +1,56 @@
+{
+  "name": "Employee Directory",
+  "module": "HR",
+  "type": "script",
+  "ref_doctype": "Employee",
+  "roles": [
+    "System Manager",
+    "HR Manager",
+    "HR User",
+    "Auditor"
+  ],
+  "description": "Searchable staff list with department, designation, branch, grade, contact and tenure.",
+  "filters": [
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "branch",
+      "label": "Branch",
+      "fieldtype": "Link",
+      "options": "Branch"
+    },
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "designation",
+      "label": "Designation",
+      "fieldtype": "Link",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "employee_type",
+      "label": "Employee Type",
+      "fieldtype": "Select",
+      "options": [
+        "Permanent",
+        "Contract",
+        "Temporary",
+        "Director",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "include_disabled",
+      "label": "Include Disabled",
+      "fieldtype": "Check"
+    }
+  ]
+}

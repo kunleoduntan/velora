@@ -1,0 +1,4864 @@
+[
+ {
+  "id": 1,
+  "expr": "eval:doc.status === \"Open\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 2,
+  "expr": "eval:doc.status == \"Open\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 3,
+  "expr": "eval:doc.status != \"Closed\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 4,
+  "expr": "eval:doc.status !== \"Open\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 5,
+  "expr": "eval:doc.amount > 100",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 6,
+  "expr": "eval:doc.amount >= 150",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 7,
+  "expr": "eval:doc.amount < 150",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 8,
+  "expr": "eval:doc.amount <= 150",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 9,
+  "expr": "eval:doc.status === \"Open\" && doc.amount > 100",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 10,
+  "expr": "eval:doc.status === \"X\" || doc.amount > 100",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 11,
+  "expr": "eval:!doc.name",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 12,
+  "expr": "eval:!!doc.name",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 13,
+  "expr": "eval:!doc.flag",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 14,
+  "expr": "eval:doc.qty",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 15,
+  "expr": "eval:doc.title",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 16,
+  "expr": "eval:doc.tags",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 17,
+  "expr": "eval:doc.missing",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 18,
+  "expr": "eval:doc.missing === undefined",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 19,
+  "expr": "eval:doc.missing == null",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 20,
+  "expr": "eval:doc.name === null",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 21,
+  "expr": "eval:doc.name == undefined",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 22,
+  "expr": "eval:doc.rate == 12",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 23,
+  "expr": "eval:doc.rate === 12",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 24,
+  "expr": "eval:doc.rate > 5",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 25,
+  "expr": "eval:doc.zero == 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 26,
+  "expr": "eval:doc.zero == false",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 27,
+  "expr": "eval:doc.title == 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 28,
+  "expr": "eval:doc.qty == false",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 29,
+  "expr": "eval:doc.qty === false",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 30,
+  "expr": "eval:doc.flag == true",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 31,
+  "expr": "eval:doc.flag === true",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 32,
+  "expr": "eval:doc.flag === 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 33,
+  "expr": "eval:doc.amount + 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 34,
+  "expr": "eval:doc.amount - 50 > 99",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 35,
+  "expr": "eval:doc.amount * 2 === 300",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 36,
+  "expr": "eval:doc.amount / 3 > 49",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 37,
+  "expr": "eval:doc.amount % 7 === 4",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 38,
+  "expr": "eval:-doc.amount < 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 39,
+  "expr": "eval:+doc.rate === 12",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 40,
+  "expr": "eval:doc.title + doc.status",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 41,
+  "expr": "eval:doc.status + 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 42,
+  "expr": "eval:doc.rate + 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 43,
+  "expr": "eval:doc.rate - 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 44,
+  "expr": "eval:doc.amount > \"100\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 45,
+  "expr": "eval:doc.status > \"A\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 46,
+  "expr": "eval:doc.tags.includes(\"a\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 47,
+  "expr": "eval:doc.tags.includes(\"z\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 48,
+  "expr": "eval:doc.tags.indexOf(\"b\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 49,
+  "expr": "eval:doc.tags.indexOf(\"q\") === -1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 50,
+  "expr": "eval:doc.tags.length",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 51,
+  "expr": "eval:doc.tags.length > 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 52,
+  "expr": "eval:doc.code.startsWith(\"AB\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 53,
+  "expr": "eval:doc.code.endsWith(\"1\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 54,
+  "expr": "eval:doc.code.includes(\"B-\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 55,
+  "expr": "eval:doc.code.toLowerCase() === \"ab-1\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 56,
+  "expr": "eval:doc.code.toUpperCase()",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 57,
+  "expr": "eval:\"  x \".trim() === \"x\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 58,
+  "expr": "eval:doc.code.length === 4",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 59,
+  "expr": "eval:doc[\"status\"] === \"Open\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 60,
+  "expr": "eval:doc[\"no\"] === undefined",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 61,
+  "expr": "eval:doc.amount > 100 ? \"big\" : \"small\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 62,
+  "expr": "eval:doc.amount > 200 ? \"big\" : doc.qty ? \"q\" : \"none\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 63,
+  "expr": "eval:(doc.amount > 100 || doc.qty) && doc.flag",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 64,
+  "expr": "eval:doc.qty || \"fallback\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 65,
+  "expr": "eval:doc.status && doc.amount",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 66,
+  "expr": "eval:doc.title && doc.amount",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 67,
+  "expr": "eval:cint(\"12\") === 12",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 68,
+  "expr": "eval:cint(doc.f) === 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 69,
+  "expr": "eval:cint(\"x\") === 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 70,
+  "expr": "eval:flt(\"1.5\") === 1.5",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 71,
+  "expr": "eval:flt(doc.rate) + 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 72,
+  "expr": "eval:cstr(doc.amount) === \"150\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 73,
+  "expr": "eval:cstr(doc.name) === \"\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 74,
+  "expr": "eval:[\"a\",\"b\"].includes(doc.status)",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 75,
+  "expr": "eval:[\"Open\",\"Closed\"].includes(doc.status)",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 76,
+  "expr": "eval:[1,2,3].indexOf(2)",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 77,
+  "expr": "eval:[].length === 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 78,
+  "expr": "eval:1 + 2 * 3 === 7",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 79,
+  "expr": "eval:(1 + 2) * 3 === 9",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 80,
+  "expr": "eval:10 / 4 === 2.5",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 81,
+  "expr": "eval:0 / 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 82,
+  "expr": "eval:1 / 0 > 5",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 83,
+  "expr": "eval:\"a\" < \"b\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 84,
+  "expr": "eval:\"a\" === 'a'",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 85,
+  "expr": "eval:\"a\\\"b\".length === 3",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 86,
+  "expr": "eval:'it\\'s'.length === 4",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 87,
+  "expr": "eval:1e3 === 1000",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 88,
+  "expr": "eval:.5 + .5 === 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 89,
+  "expr": "eval:null == undefined",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 91,
+  "expr": "eval:null === null",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 92,
+  "expr": "eval:undefined == 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 93,
+  "expr": "eval:null == 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 94,
+  "expr": "eval:null >= 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 95,
+  "expr": "eval:null > 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 96,
+  "expr": "eval:true && false",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 97,
+  "expr": "eval:true || false",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 98,
+  "expr": "eval:!true",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 99,
+  "expr": "eval:!!\"x\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 100,
+  "expr": "eval:!!\"\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 101,
+  "expr": "eval:!![]",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 102,
+  "expr": "eval:\"\" == 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 103,
+  "expr": "eval:\"1\" == 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 104,
+  "expr": "eval:\"1\" === 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 105,
+  "expr": "eval:[] == false",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 106,
+  "expr": "eval:0 === -0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 107,
+  "expr": "eval:1 === 1.0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 108,
+  "expr": "eval:\"b\" > \"a\" && 3 > 2",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 109,
+  "expr": "eval:doc.amount>100&&doc.qty===0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 110,
+  "expr": "eval:doc.status===\"Open\"&&!doc.name",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 111,
+  "expr": "eval:  doc.status === \"Open\"  ",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 112,
+  "expr": "eval:!(doc.amount > 100)",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 113,
+  "expr": "eval:!doc.tags.includes(\"a\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 114,
+  "expr": "eval:doc.tags.includes(\"a\") && !doc.qty",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 115,
+  "expr": "eval:doc.f * 2 === 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 116,
+  "expr": "eval:doc.f + 0.5 === 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 117,
+  "expr": "eval:parent.status === \"P\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 118,
+  "expr": "eval:parent.status === \"P\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 119,
+  "expr": "eval:parent.status === \"P\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 120,
+  "expr": "eval:parent.amount > 10",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 121,
+  "expr": "eval:parent.amount > 10",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 122,
+  "expr": "eval:parent.amount > 10",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 123,
+  "expr": "eval:parent.missing",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 124,
+  "expr": "eval:parent.missing",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 125,
+  "expr": "eval:parent.missing",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 126,
+  "expr": "eval:frappe.user === \"u@x.com\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 127,
+  "expr": "eval:frappe.user === \"u@x.com\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 128,
+  "expr": "eval:frappe.user === \"u@x.com\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 129,
+  "expr": "eval:frappe.session.user === \"u@x.com\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 130,
+  "expr": "eval:frappe.session.user === \"u@x.com\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 131,
+  "expr": "eval:frappe.session.user === \"u@x.com\"",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 132,
+  "expr": "eval:frappe.user_roles.includes(\"Accounts Manager\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 133,
+  "expr": "eval:frappe.user_roles.includes(\"Accounts Manager\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 134,
+  "expr": "eval:frappe.user_roles.includes(\"Accounts Manager\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 135,
+  "expr": "eval:frappe.user_roles.includes(\"Nope\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 136,
+  "expr": "eval:frappe.user_roles.includes(\"Nope\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 137,
+  "expr": "eval:frappe.user_roles.includes(\"Nope\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 138,
+  "expr": "eval:__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 139,
+  "expr": "eval:__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 140,
+  "expr": "eval:__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 141,
+  "expr": "eval:!__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 142,
+  "expr": "eval:!__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 143,
+  "expr": "eval:!__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 144,
+  "expr": "eval:doc.__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 145,
+  "expr": "eval:doc.__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 146,
+  "expr": "eval:doc.__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 147,
+  "expr": "eval:!doc.__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 148,
+  "expr": "eval:!doc.__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "parent": {
+    "status": "P",
+    "amount": 50
+   },
+   "user": "u@x.com",
+   "roles": [
+    "Accounts Manager",
+    "User"
+   ],
+   "islocal": false
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 149,
+  "expr": "eval:!doc.__islocal",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {
+   "user": "u@x.com",
+   "roles": [],
+   "islocal": true
+  },
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 150,
+  "expr": "eval:doc.__class__",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 151,
+  "expr": "eval:doc.constructor",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 152,
+  "expr": "eval:doc.__proto__",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 153,
+  "expr": "eval:this",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 154,
+  "expr": "eval:window.alert(1)",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 155,
+  "expr": "eval:alert(1)",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 156,
+  "expr": "eval:eval(\"1\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 157,
+  "expr": "eval:doc.status.constructor",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 158,
+  "expr": "eval:doc.tags.map(x=>x)",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 159,
+  "expr": "eval:doc.tags.push(1)",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 160,
+  "expr": "eval:new Date()",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 161,
+  "expr": "eval:function(){}",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 162,
+  "expr": "eval:1 +",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 163,
+  "expr": "eval:(1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 164,
+  "expr": "eval:doc.",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 165,
+  "expr": "eval:doc[",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 166,
+  "expr": "eval:doc.status ===",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 167,
+  "expr": "eval:\"unterminated",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 168,
+  "expr": "eval:a b",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 169,
+  "expr": "eval:1 2",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 170,
+  "expr": "eval:doc.x = 1",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 171,
+  "expr": "eval:doc.a++",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 172,
+  "expr": "eval:`tpl`",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 173,
+  "expr": "eval:doc.status.length.foo",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 174,
+  "expr": "eval:Object.keys(doc)",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 175,
+  "expr": "eval:frappe.db.get_value(\"a\")",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 176,
+  "expr": "eval:frappe.boot",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 177,
+  "expr": "eval:typeof doc.x",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 178,
+  "expr": "eval:doc.status in doc",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 179,
+  "expr": "eval:void 0",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 180,
+  "expr": "eval:1 < 2 < 3",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 181,
+  "expr": "eval:_x",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 182,
+  "expr": "eval:doc._private",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 183,
+  "expr": "status",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 184,
+  "expr": "qty",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 185,
+  "expr": "title",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 186,
+  "expr": "tags",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 187,
+  "expr": "missing",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 188,
+  "expr": "flag",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 189,
+  "expr": "name",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 190,
+  "expr": "",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 191,
+  "expr": "eval:",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 192,
+  "expr": "eval:   ",
+  "doc": {
+   "status": "Open",
+   "amount": 150,
+   "qty": 0,
+   "name": null,
+   "title": "",
+   "flag": 1,
+   "tags": [
+    "a",
+    "b"
+   ],
+   "code": "AB-1",
+   "rate": "12",
+   "zero": "0",
+   "f": 0.5
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 193,
+  "expr": "eval:doc.payment_type == \"Expense\"",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 194,
+  "expr": "eval:doc.amount > 0 and doc.approved == 1",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 195,
+  "expr": "eval:doc.payment_type in [\"Expense\", \"Refund\"]",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 196,
+  "expr": "eval:doc.payment_type not in [\"Expense\"]",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 197,
+  "expr": "eval:doc.payment_type not in [\"Other\"]",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 198,
+  "expr": "eval:not doc.approved",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 199,
+  "expr": "eval:not doc.missing",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 200,
+  "expr": "eval:doc.approved == True",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 201,
+  "expr": "eval:doc.approved == False",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 202,
+  "expr": "eval:doc.missing == None",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 203,
+  "expr": "eval:doc.amount < 1 or doc.approved",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 204,
+  "expr": "eval:\"Exp\" in doc.payment_type",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 205,
+  "expr": "eval:\"zzz\" in doc.payment_type",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 206,
+  "expr": "eval:doc.amount in [2500, 3]",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 207,
+  "expr": "payment_type",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": true,
+  "valid": true
+ },
+ {
+  "id": 208,
+  "expr": "eval:doc.payment_type == \"Supplier\"",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": true
+ },
+ {
+  "id": 209,
+  "expr": "eval:__import__(\"os\").system(\"id\")",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 210,
+  "expr": "eval:doc.x is None",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ },
+ {
+  "id": 211,
+  "expr": "eval:lambda: 1",
+  "doc": {
+   "payment_type": "Expense",
+   "amount": 2500,
+   "approved": 1,
+   "tags": [
+    "a",
+    "b"
+   ]
+  },
+  "ctx": {},
+  "expect": false,
+  "valid": false
+ }
+]

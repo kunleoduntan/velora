@@ -1,0 +1,116 @@
+{
+  "name": "Request Type",
+  "module": "Administration",
+  "autoname": "field:request_type_name",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "request_type_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Request Type",
+      "unique": 1,
+      "required": true
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Category",
+      "options": "Procurement\nFacility\nIT\nHR\nTravel\nFleet\nSecurity\nDocument\nEvent\nFinance\nOther",
+      "required": true
+    },
+    {
+      "default": "1",
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Is Active"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "requires_cost",
+      "fieldtype": "Check",
+      "label": "Requires Estimated Cost"
+    },
+    {
+      "default": "1",
+      "fieldname": "allow_attachments",
+      "fieldtype": "Check",
+      "label": "Allow Attachments"
+    },
+    {
+      "default": "48",
+      "fieldname": "sla_hours",
+      "fieldtype": "Int",
+      "label": "SLA (Hours to Resolve)"
+    },
+    {
+      "fieldname": "section_break_defaults",
+      "fieldtype": "Section Break",
+      "label": "Defaults & Routing"
+    },
+    {
+      "fieldname": "default_department",
+      "fieldtype": "Link",
+      "label": "Default Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "default_approval_matrix",
+      "fieldtype": "Link",
+      "label": "Default Approval Matrix",
+      "options": "Approval Matrix"
+    },
+    {
+      "fieldname": "column_break_defaults",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "24",
+      "fieldname": "escalation_after_hours",
+      "fieldtype": "Int",
+      "label": "Escalate If Pending For (Hours)"
+    },
+    {
+      "fieldname": "escalate_to_role",
+      "fieldtype": "Data",
+      "label": "Escalate To Role"
+    },
+    {
+      "fieldname": "section_break_desc",
+      "fieldtype": "Section Break",
+      "label": "Description"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

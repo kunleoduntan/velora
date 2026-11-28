@@ -1,0 +1,238 @@
+{
+  "name": "Fixed Asset Purchase",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Direct fixed-asset acquisition. Use Purchase Invoice for normal supplier invoice matching; this document is for controlled direct acquisition outside that route.",
+  "fields": [
+    {
+      "fieldname": "purchase_date",
+      "fieldtype": "Date",
+      "label": "Purchase Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "request_reference",
+      "fieldtype": "Link",
+      "label": "Approved Fixed Asset Request",
+      "options": "Fixed Asset Request"
+    },
+    {
+      "fieldname": "purchase_type",
+      "fieldtype": "Select",
+      "label": "Purchase Type",
+      "options": [
+        "Supplier Credit",
+        "Immediate Bank Payment",
+        "Immediate Cash Payment"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "supplier",
+      "fieldtype": "Link",
+      "label": "Supplier",
+      "depends_on": "eval:doc.purchase_type == \"Supplier Credit\"",
+      "options": "Supplier",
+      "mandatory_depends_on": "eval:doc.purchase_type == \"Supplier Credit\""
+    },
+    {
+      "fieldname": "supplier_payable_account",
+      "fieldtype": "Link",
+      "label": "Supplier Payable Account",
+      "options": "Account",
+      "depends_on": "eval:doc.purchase_type == \"Supplier Credit\"",
+      "mandatory_depends_on": "eval:doc.purchase_type == \"Supplier Credit\"",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank / Cash Account",
+      "options": "Account",
+      "depends_on": "eval:doc.purchase_type == \"Immediate Bank Payment\" || doc.purchase_type == \"Immediate Cash Payment\"",
+      "mandatory_depends_on": "eval:doc.purchase_type == \"Immediate Bank Payment\" || doc.purchase_type == \"Immediate Cash Payment\"",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "items_section",
+      "fieldtype": "Section Break",
+      "label": "Asset Purchase Details",
+      "collapsible": true
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "label": "Asset Details",
+      "options": "Fixed Asset Purchase Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_cost",
+      "fieldtype": "Currency",
+      "label": "Total Cost",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Posted",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "created_assets",
+      "fieldtype": "Text",
+      "label": "Created Assets",
+      "read_only": true
+    },
+    {
+      "fieldname": "asset_components_section",
+      "fieldtype": "Section Break",
+      "label": "Asset Component Details",
+      "collapsible": true
+    },
+    {
+      "fieldname": "asset_components",
+      "fieldtype": "Table",
+      "label": "Asset Components",
+      "options": "Fixed Asset Component",
+      "description": "Enter significant components by matching Asset Line Name to the asset line name. Component costs and residual values must reconcile per asset."
+    }
+  ],
+  "autoname": "series:FIX-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

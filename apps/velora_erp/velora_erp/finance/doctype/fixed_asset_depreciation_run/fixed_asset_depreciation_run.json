@@ -1,0 +1,169 @@
+{
+  "name": "Fixed Asset Depreciation Run",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled periodic depreciation posting for owned and right-of-use assets.",
+  "fields": [
+    {
+      "fieldname": "period_section",
+      "fieldtype": "Section Break",
+      "label": "Depreciation Period",
+      "collapsible": true
+    },
+    {
+      "fieldname": "depreciation_book",
+      "fieldtype": "Link",
+      "label": "Depreciation Book",
+      "options": "Fixed Asset Depreciation Book",
+      "in_list_view": true,
+      "description": "Financial book posts to the General Ledger. Tax and management books update only their independent subledger balances."
+    },
+    {
+      "fieldname": "book_type",
+      "fieldtype": "Data",
+      "label": "Book Type",
+      "read_only": true
+    },
+    {
+      "fieldname": "period_start",
+      "fieldtype": "Date",
+      "label": "Period Start",
+      "required": true
+    },
+    {
+      "fieldname": "period_end",
+      "fieldtype": "Date",
+      "label": "Period End",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "default": "Today"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Assets to Depreciate",
+      "options": "Fixed Asset Depreciation Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_depreciation",
+      "fieldtype": "Currency",
+      "label": "Total Depreciation",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval and Posting",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "component_lines_section",
+      "fieldtype": "Section Break",
+      "label": "Component Depreciation Detail",
+      "collapsible": true
+    },
+    {
+      "fieldname": "component_lines",
+      "fieldtype": "Table",
+      "label": "Component Depreciation Lines",
+      "options": "Fixed Asset Component Depreciation Line"
+    }
+  ],
+  "autoname": "series:FADR-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

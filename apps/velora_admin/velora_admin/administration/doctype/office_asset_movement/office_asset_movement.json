@@ -1,0 +1,47 @@
+{
+  "name": "Office Asset Movement",
+  "module": "Administration",
+  "autoname": "hash",
+  "is_submittable": false,
+  "istable": true,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "movement_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "movement_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Type",
+      "options": "Assigned\nReturned\nTransferred\nDisposed",
+      "read_only": 1
+    },
+    {
+      "fieldname": "from_person",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "From",
+      "options": "Person",
+      "read_only": 1
+    },
+    {
+      "fieldname": "to_person",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "To",
+      "options": "Person",
+      "read_only": 1
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Remarks"
+    }
+  ]
+}

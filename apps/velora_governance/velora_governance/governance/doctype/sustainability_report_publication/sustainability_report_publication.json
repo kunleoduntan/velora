@@ -1,0 +1,186 @@
+{
+ "name": "Sustainability Report Publication",
+ "module": "Governance",
+ "autoname": "series:SRPUB-.####",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "report",
+   "fieldtype": "Link",
+   "label": "Sustainability Report",
+   "options": "Sustainability Report",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reporting_period",
+   "fieldtype": "Data",
+   "label": "Reporting Period",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "revision_number",
+   "fieldtype": "Int",
+   "label": "Revision Number",
+   "required": true,
+   "default": 1
+  },
+  {
+   "fieldname": "publication_date",
+   "fieldtype": "Date",
+   "label": "Publication Date",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "publication_channel",
+   "fieldtype": "Select",
+   "label": "Publication Channel",
+   "options": [
+    "Board Portal",
+    "Website",
+    "Email Distribution",
+    "Regulatory Filing",
+    "Internal Distribution",
+    "Other"
+   ],
+   "required": true
+  },
+  {
+   "fieldname": "audience",
+   "fieldtype": "Data",
+   "label": "Audience",
+   "default": "Board and Executive Management"
+  },
+  {
+   "fieldname": "publication_url",
+   "fieldtype": "Data",
+   "label": "Publication URL"
+  },
+  {
+   "fieldname": "file_reference",
+   "fieldtype": "Data",
+   "label": "Published File Reference"
+  },
+  {
+   "fieldname": "content_sha256",
+   "fieldtype": "Data",
+   "label": "Content SHA256",
+   "read_only": true
+  },
+  {
+   "fieldname": "publication_status",
+   "fieldtype": "Select",
+   "label": "Publication Status",
+   "options": [
+    "Prepared",
+    "Published",
+    "Withdrawn"
+   ],
+   "default": "Prepared",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "published_by",
+   "fieldtype": "Data",
+   "label": "Published By"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Publication Notes"
+  },
+  {
+   "fieldname": "distribution",
+   "fieldtype": "Table",
+   "label": "Distribution Log",
+   "options": "Sustainability Report Distribution"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

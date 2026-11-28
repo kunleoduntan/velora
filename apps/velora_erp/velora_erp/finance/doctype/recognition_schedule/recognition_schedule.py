@@ -1,0 +1,1 @@
+from velora_erp.finance.recognition.schedules import RecognitionSchedule

@@ -1,0 +1,235 @@
+{
+  "name": "Employee Advance",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Employee cash advance as a receivable asset, with approval, disbursement and controlled settlement.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "advance_date",
+      "fieldtype": "Date",
+      "label": "Advance Date",
+      "required": true
+    },
+    {
+      "fieldname": "purpose",
+      "fieldtype": "Data",
+      "label": "Purpose",
+      "required": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Advance Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "advance_account",
+      "fieldtype": "Link",
+      "label": "Employee Advance Receivable Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Disbursement Bank / Cash Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "recovery_method",
+      "fieldtype": "Select",
+      "label": "Recovery Method",
+      "options": [
+        "Manual",
+        "Payroll Deduction",
+        "Expense Settlement"
+      ],
+      "default": "Manual",
+      "required": true
+    },
+    {
+      "fieldname": "expected_settlement_date",
+      "fieldtype": "Date",
+      "label": "Expected Settlement Date"
+    },
+    {
+      "fieldname": "outstanding_amount",
+      "fieldtype": "Currency",
+      "label": "Outstanding Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Approved",
+        "Disbursed",
+        "Partially Settled",
+        "Settled",
+        "Rejected",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Employee Finance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "export": false,
+      "print": false,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

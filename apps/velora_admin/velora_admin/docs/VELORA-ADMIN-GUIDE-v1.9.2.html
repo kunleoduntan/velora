@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velora Admin Guide - Powered by Velora BiZ Solutions</title>
+<style>
+:root{--bg:#f6f7fb;--panel:#fff;--ink:#1c2033;--muted:#667085;--line:#e4e7ef;--brand:#5b5bf0;--brand2:#14b8a6;--brand-soft:#eef0ff;--ok:#12b76a;--warn:#f79009;--code:#0f172a;--codeink:#e2e8f0;--shadow:0 6px 24px rgba(28,32,51,.08)}
+:root[data-theme=dark]{--bg:#0f1220;--panel:#171b2e;--ink:#e8eaf6;--muted:#9aa3c0;--line:#272d47;--brand:#8b8bff;--brand2:#2dd4bf;--brand-soft:#1d2240;--code:#0a0d1a;--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--brand)}
+header.top{position:sticky;top:0;z-index:20;display:flex;gap:12px;align-items:center;padding:10px 18px;background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;text-decoration:none;color:var(--ink)}
+.logo svg{width:32px;height:32px}
+.top .grow{flex:1}.top input{width:min(320px,45vw);padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);font:inherit}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer;font:inherit}
+.btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0;font-weight:700}
+#menu{display:none}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;max-width:1240px;margin:0 auto;padding:0 18px}
+nav.side{position:sticky;top:64px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;padding:22px 0}
+nav.side a{display:block;padding:7px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:14.5px}
+nav.side a:hover{background:var(--brand-soft);color:var(--ink)}nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side .grp{margin:16px 12px 4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+main{padding:26px 0 80px;min-width:0}
+.hero{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 45%,#14b8a6 100%);color:#fff;border-radius:26px;padding:42px 36px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px);line-height:1.15}.hero p{margin:0 0 18px;max-width:640px;font-size:18px;opacity:.95}
+.hero .chips span{display:inline-block;margin:0 8px 8px 0;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.18);font-size:14px}
+section{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:26px 30px;margin:22px 0;box-shadow:var(--shadow)}
+section h2{margin:0 0 4px;font-size:26px}section h2 .n{display:inline-grid;place-items:center;width:34px;height:34px;margin-right:10px;border-radius:12px;background:var(--brand-soft);color:var(--brand);font-size:16px;vertical-align:middle}
+section h3{margin:26px 0 6px;font-size:18px}.lead{color:var(--muted);margin:4px 0 16px}
+pre{position:relative;margin:12px 0;padding:16px 18px;background:var(--code);color:var(--codeink);border-radius:14px;overflow:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre .cp{position:absolute;top:8px;right:8px;padding:3px 10px;font-size:12px;border-radius:999px;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:var(--brand-soft);padding:1px 6px;border-radius:6px}pre code{background:none;padding:0;font-size:inherit}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--bg)}.card b{display:block;margin-bottom:4px}
+.tip,.warn,.ok{border-left:4px solid var(--brand);background:var(--brand-soft);padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0}.warn{border-color:var(--warn);background:color-mix(in srgb,var(--warn) 12%,var(--panel))}.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 11%,var(--panel))}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:15px}th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+.steps{counter-reset:s;list-style:none;padding:0}.steps li{counter-increment:s;position:relative;padding:4px 0 14px 50px}.steps li:before{content:counter(s);position:absolute;left:0;top:2px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;font-weight:700}
+.pill{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;background:var(--brand-soft);color:var(--brand);font-weight:700}.pill.no{background:color-mix(in srgb,var(--warn) 18%,var(--panel));color:var(--warn)}
+footer{margin:36px 0;text-align:center;color:var(--muted);font-size:14px}footer b{color:var(--ink)}
+.hide{display:none!important}mark{background:#fde68a;color:#111;border-radius:4px;padding:0 2px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}nav.side{display:none;position:fixed;inset:56px 0 0 0;z-index:15;background:var(--panel);padding:16px;max-height:none}nav.side.open{display:block}#menu{display:inline-block}section{padding:20px 18px}}
+@media print{header.top,nav.side,.cp,.hero:after{display:none}.layout{display:block}section{box-shadow:none;break-inside:avoid}body{background:#fff}}
+nav.side .grp{margin:16px 12px 4px}
+table{display:block;overflow-x:auto}
+.kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:0 6px;background:var(--bg)}
+section h4{margin:18px 0 4px;font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+code{overflow-wrap:anywhere}pre code{overflow-wrap:normal}
+@media(max-width:700px){header.top{flex-wrap:wrap;gap:8px}.top .grow{display:none}.top input{order:9;width:100%}.btn.primary{display:none}.hero{padding:28px 20px}}
+
+.welcome{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--brand);border-radius:18px;padding:22px 26px;margin:0 0 22px;box-shadow:var(--shadow)}.welcome h2{margin:0 0 8px;font-size:21px;border:0;padding:0}.welcome p{margin:8px 0;line-height:1.7}.welcome .more{font-size:14px;color:var(--muted);margin-top:14px}.welcome .more a{font-weight:600}
+</style>
+</head>
+<body>
+<header class="top">
+  <button class="btn" id="menu" aria-label="Contents">&#9776;</button>
+  <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5bf0"/><stop offset="1" stop-color="#14b8a6"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#g)"/><path d="M9 12l11 18 11-18" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Velora <span class="pill">Admin</span></a>
+  <span class="grow"></span>
+  <input id="q" type="search" placeholder="Search this guide..." aria-label="Search this manual">
+  <button class="btn" id="theme" aria-label="Switch light or dark">&#9680;</button>
+  <button class="btn primary" onclick="window.print()">Print / PDF</button>
+</header>
+<div class="layout">
+<nav class="side" id="nav" aria-label="Contents"></nav>
+<main id="top"><div class="hero">
+  <h1>The Velora Admin guide.</h1>
+  <p>Set up and use Velora Admin 1.9.2: service requests and approvals, facilities and assets, vehicles and trips, visitors, contracts and renewals, documents and correspondence, events, risk and compliance.</p>
+  <div class="chips"><span>Requests</span><span>Facilities</span><span>Contracts</span><span>Renewals</span><span>Version 1.9.2</span></div>
+  <p style="margin:6px 0 0;font-size:14px;opacity:.9">Powered by <b>Velora BiZ Solutions</b></p>
+</div>
+<div class="welcome" id="welcome"><h2>Welcome to Velora Admin</h2><p>Every organisation runs on quiet work: the request that must reach the right person, the licence that must not expire, the vehicle that must be ready, the visitor who must be welcomed, the contract that must be renewed before the penalty, the document that must be found in seconds. <b>Velora Admin gives that work a proper home.</b></p>
+<p>Requests flow through services with deadlines and approval levels you define; facilities, assets, vehicles, visitors, contracts, vendors, renewals, documents and events are kept as clear records; and the daily jobs watch the calendar so that people do not have to. All of it shares the people, approvals and permissions of the rest of Velora, so the administrative office finally works from the same facts as everyone else.</p>
+<p>This guide shows you how to set it up in an afternoon and use it every day.</p><p class="more">Other guides on this server: <a href="/tutorial">Velora framework</a> · <a href="/guide/velora_erp">VeloraERP</a> · <a href="/guide/velora_projectone">ProjectOne</a> · <a href="/guide/velora_admin">Velora Admin</a>. A guide opens only if that application is installed.</p></div>
+<section id="what" data-g="Start here" data-t="overview what is velora admin features">
+<h2><span class="n">1</span>What Velora Admin is</h2>
+<p class="lead">It is the office-administration application of Velora: the place where requests, facilities, assets, vehicles, visitors, contracts, renewals, documents and events are recorded, approved and followed up.</p>
+<div class="cards"><div class="card"><b>Services and requests</b>A service catalogue, request forms you design, approval levels, deadlines and a fulfilment checklist for whoever does the work.</div><div class="card"><b>Facilities and assets</b>Buildings and spaces, the equipment in them, maintenance requests and work orders, and office assets with their movements.</div><div class="card"><b>Vehicles and travel</b>Vehicles with insurance and service dates, trip requests, trips and travel requests.</div><div class="card"><b>Visitors and access</b>Pre-registered visitors, check-in and check-out, badges and access cards.</div><div class="card"><b>Contracts and renewals</b>Vendors, contracts with renewal notice, and a register of licences, permits and certificates that expire.</div><div class="card"><b>Documents and records</b>A document register with versions and confidentiality, and incoming and outgoing correspondence with due dates.</div><div class="card"><b>Events, risk and compliance</b>Events with budgets, a risk register, security incidents and compliance requirements with their filing dates.</div></div><p>Everything appears in the <b>App Hub</b> under <b>Administration</b>. Approvals use the Velora workflow engine, so they are drawn on screen and never hard-coded; roles and permissions are the normal Velora ones.</p>
+</section>
+<section id="who" data-g="Start here" data-t="who reads what administrators users">
+<h2><span class="n">2</span>Which part is for whom</h2>
+<p class="lead">One guide, two readers.</p>
+<table><tr><th>You are</th><th>Read</th></tr><tr><td>Anyone who raises or follows a request, books a vehicle, registers a visitor or looks up a document</td><td>Sections 3, 5 to 10 and 13.</td></tr><tr><td>The administrator who sets Velora Admin up</td><td>Sections 2 to 4, then 11 (daily jobs).</td></tr><tr><td>A developer</td><td>The Velora framework manual, which opens at <code>/tutorial</code> on your server.</td></tr></table>
+</section>
+<section id="setup" data-g="Set up once" data-t="setup settings organisation unit location person calendar">
+<h2><span class="n">3</span>Set it up in an afternoon</h2>
+<p class="lead">Six small records give everything else its people, places and working days.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Administration Settings</td><td>Fiscal year, default currency, week start, working hours, naming series, e-mail and SMS switches and the default escalation days.</td></tr><tr><td>Organisation Unit</td><td>Your departments, divisions and branches, in a tree. Each can have a head and a cost centre.</td></tr><tr><td>Office Location</td><td>Offices, sites and regions. Facilities, vehicles and visitors point to a location.</td></tr><tr><td>Person</td><td>An employee, contractor or other person known to administration, optionally linked to an Employee and a user.</td></tr><tr><td>Reporting Line</td><td>Who reports to whom and from when. It is used to find approvers such as a requester's manager.</td></tr><tr><td>Business Calendar</td><td>Working days, working hours and holidays, so deadlines count working time only.</td></tr></table><h4>Tutorial: first set-up</h4><ol><li>Open <b>App Hub</b>, choose <b>Administration</b> and open <b>Administration Settings</b>. Fill the fiscal year, currency and working hours; Save.</li><li>Create your <b>Organisation Units</b>, starting with the top one and giving each a parent.</li><li>Create your <b>Office Locations</b>.</li><li>Create a <b>Business Calendar</b> with the working days and your public holidays.</li><li>Create a <b>Person</b> for each staff member who will raise or approve requests, then a <b>Reporting Line</b> for each, so approvers can be found.</li></ol>
+</section>
+<section id="requests" data-g="Set up once" data-t="request type service request fulfilment sla form fields">
+<h2><span class="n">4</span>Services and requests</h2>
+<p class="lead">A Request Type says what can be asked for; a Service says how it is delivered; a Request is one person asking.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Request Type</td><td>A kind of request (for example Vehicle Request, Office Supplies). It carries the deadline in hours, the default department, whether a cost is needed, and its default Approval Matrix.</td></tr><tr><td>Service</td><td>An entry in your service catalogue with its code, category, team, deadline, instructions and whether evidence is required. A Service can have its own request form fields (<b>Service Form Field</b>).</td></tr><tr><td>Fulfilment Template</td><td>The checklist of tasks to perform for a Service, in order, with who does each and which need evidence.</td></tr><tr><td>Request</td><td>One request: who asks, what type, priority (Low to Urgent), required-by date, cost estimate and description. Status runs Draft, Pending Approval, Approved or Rejected, In Progress, Completed or Cancelled.</td></tr><tr><td>Request Fulfilment</td><td>The work after approval: assignee, team, due date, tasks and progress. Status runs Unassigned to Closed, with Blocked when something is in the way.</td></tr><tr><td>Service Feedback</td><td>The requester's rating once the work is done.</td></tr></table><h4>Tutorial: raise and complete a request</h4><ol><li>Open <b>Request Type</b>, create <i>Office Supplies</i>, give it a deadline in hours and choose an Approval Matrix (section 4).</li><li>Open <b>Service</b>, create the service, choose the request type and the team that delivers it.</li><li>Optionally open <b>Fulfilment Template</b>, link the service and add the tasks.</li><li>As a staff member, open <b>Request</b>, choose New, pick the type, describe what you need and Save. Submit it for approval.</li><li>The approver sees it in their approval inbox and approves or rejects with a comment.</li><li>After approval the request is fulfilled: assign the work, tick tasks off, then complete it. The requester can leave feedback.</li></ol>
+</section>
+<section id="approvals" data-g="Set up once" data-t="approval matrix level delegation escalation">
+<h2><span class="n">5</span>Approvals, delegation and escalation</h2>
+<p class="lead">Who must approve a request depends on its type, department and cost. You decide that on screen.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Approval Matrix</td><td>A named set of levels. It can apply to one request type or department.</td></tr><tr><td>Approval Matrix Level</td><td>One level: the approver is a role or a named user, with an optional minimum and maximum amount, so small requests stop at level 1 and large ones go further.</td></tr><tr><td>Approval Delegation</td><td>A person hands their approvals to someone else between two dates, for example while on leave.</td></tr><tr><td>Approval Escalation Rule</td><td>If an approval is not done within the stated hours, notify an escalation user or role.</td></tr></table><p>Delegation and escalation are checked when an approval is acted on and by the daily job (section 11).</p>
+</section>
+<section id="facilities" data-g="Daily use" data-t="facility space asset maintenance work order office asset movement">
+<h2><span class="n">6</span>Facilities and assets</h2>
+<p class="lead">Know what you have, where it is and when it needs attention.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Facility and Facility Space</td><td>Buildings, floors and rooms in a tree, with type, capacity and manager.</td></tr><tr><td>Facility Asset</td><td>Equipment in a space (lift, generator, air conditioner) with serial number, warranty expiry and maintenance frequency in days. The next maintenance date follows from the last one.</td></tr><tr><td>Maintenance Request</td><td>A fault or service need for a facility asset, with priority, assignee, vendor and resolution notes.</td></tr><tr><td>Facility Work Order</td><td>Planned or ad hoc work: scheduled and completed dates, estimated and actual cost, optionally repeating.</td></tr><tr><td>Office Asset and Office Asset Movement</td><td>Furniture, laptops and similar assets, who holds them and every hand-over, with dates and remarks.</td></tr></table>
+</section>
+<section id="vehicles" data-g="Daily use" data-t="vehicle trip request travel request driver">
+<h2><span class="n">7</span>Vehicles, trips and travel</h2>
+<p class="lead">Keep vehicles legal and available, and trips accountable.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Vehicle</td><td>Registration, make, model, driver, location, insurance and roadworthiness expiry, last and next service and the service interval.</td></tr><tr><td>Trip Request</td><td>A person asks for a vehicle: pick-up, destination, start and end, then the vehicle and driver assigned. Status runs Requested, Assigned, In Progress, Completed or Cancelled; odometer readings are kept at the start and end.</td></tr><tr><td>Trip</td><td>The journey record, with passengers, estimated and actual cost.</td></tr><tr><td>Travel Request</td><td>A traveller's trip away: destination, dates, transport, accommodation, visa needs and estimated cost.</td></tr></table>
+</section>
+<section id="visitors" data-g="Daily use" data-t="visitor check in badge access card">
+<h2><span class="n">8</span>Visitors and access cards</h2>
+<p class="lead">A visitor is expected, welcomed and recorded.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Visitor</td><td>Name, organisation, host, purpose, expected date, ID type and number, vehicle number and photo. Status runs Pre-Registered, Checked In, Checked Out or No Show, with the check-in time recorded.</td></tr><tr><td>Access Card</td><td>A card number, its type and status, where it is used and who holds it, with issue and return dates.</td></tr></table><h4>Tutorial: receive a visitor</h4><ol><li>The host opens <b>Visitor</b>, chooses New and fills the visitor and the expected date (Pre-Registered).</li><li>At the gate, open the record, give a badge number and record the check-in (Checked In).</li><li>On leaving, record the check-out (Checked Out). If the visitor never came, mark No Show.</li></ol>
+</section>
+<section id="contracts" data-g="Daily use" data-t="contract vendor renewal register licence permit expiry">
+<h2><span class="n">9</span>Vendors, contracts and renewals</h2>
+<p class="lead">Nothing should expire by surprise.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Vendor Category, Vendor and Vendor Administration Profile</td><td>Who you buy services from, with contact, tax ID, qualification status and performance rating. The profile can link a Vendor to its ERP Supplier.</td></tr><tr><td>Contract</td><td>Title, vendor, type (Service Agreement, Supply Agreement, Lease, Consulting, Maintenance, Other), value, start and end dates, renewal notice days and whether it renews automatically. Status runs Draft, Active, Expiring Soon, Expired or Terminated.</td></tr><tr><td>Contract Renewal</td><td>Each renewal of a contract, with the old and new end date.</td></tr><tr><td>Renewal Register</td><td>Licences, permits, certificates, insurance, subscriptions, vehicle documents and facility certifications: the item, the authority, expiry date, lead days, responsible officer, cost and status (Active, Renewal In Progress, Renewed, Expired, Cancelled).</td></tr></table><p>Use the Renewal Register for anything with an expiry date that is not a contract. The daily renewal scan (section 11) looks at every Active or Renewal In Progress entry.</p>
+</section>
+<section id="documents" data-g="Daily use" data-t="document register category version confidentiality correspondence">
+<h2><span class="n">10</span>Documents and correspondence</h2>
+<p class="lead">Find any document in seconds and know which version is current.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Document Category</td><td>Groups of documents; can require an expiry date or periodic review, with a default review frequency.</td></tr><tr><td>Document Register and Document Version</td><td>One register entry per document with owner, department, confidentiality and the current file; each new file is a numbered version with change notes.</td></tr><tr><td>Correspondence</td><td>Incoming and outgoing letters and messages: subject, parties, reference number, priority, handler, date and response due date, with a link to the related document.</td></tr></table>
+</section>
+<section id="events" data-g="Daily use" data-t="event budget venue">
+<h2><span class="n">11</span>Events</h2>
+<p class="lead">Plan an event once, with its money.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Event</td><td>Title, type, organiser, start and end, internal space or external venue, expected attendees and status.</td></tr><tr><td>Event Budget Line</td><td>Each cost with its vendor, estimated and actual amount, so the event's budget against actual is visible.</td></tr></table>
+</section>
+<section id="risk" data-g="Daily use" data-t="risk register security incident compliance requirement">
+<h2><span class="n">12</span>Risk, security and compliance</h2>
+<p class="lead">Name the risk, record the incident, meet the filing date.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Risk Register</td><td>Risk with category, probability, impact and the resulting score, owner, treatment, mitigation plan and review date.</td></tr><tr><td>Security Incident</td><td>What happened, when and where, severity, who reported it, resolution notes and an optional link to the risk it relates to.</td></tr><tr><td>Compliance Requirement</td><td>A regulatory obligation: the body, frequency, responsible person, next due date, last filed date and the evidence document.</td></tr></table>
+</section>
+<section id="more" data-g="Daily use" data-t="supply item stock transaction knowledge article task checklist person">
+<h2><span class="n">13</span>Supplies, knowledge, tasks and checklists</h2>
+<p class="lead">The small records that keep the office moving.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Supply Item and Stock Transaction</td><td>Consumables with quantity on hand, reorder level and unit cost; each issue or receipt is a transaction.</td></tr><tr><td>Knowledge Article</td><td>Help articles for requesters, tied to a service or category and published when ready, with a review date.</td></tr><tr><td>Task</td><td>Follow-up work from any source, with priority, assignee, due date and optional repeat.</td></tr><tr><td>Checklist Template and Person Checklist</td><td>A reusable list (for example joining or leaving) applied to a Person, with each task tracked to completion.</td></tr></table>
+</section>
+<section id="jobs" data-g="Behind the scenes" data-t="daily job scheduler automation rule renewal scan sla">
+<h2><span class="n">14</span>What runs by itself every day</h2>
+<p class="lead">Velora Admin registers three daily jobs with the Velora scheduler.</p>
+<table><tr><th>Record</th><th>What it is for</th></tr><tr><td>Service maintenance</td><td>Checks request deadlines and approval escalations.</td></tr><tr><td>Admin automation</td><td>Runs your active <b>Automation Rule</b> records (a trigger event, optional conditions and actions).</td></tr><tr><td>Renewal scan</td><td>Records upcoming expiries from the Renewal Register for the framework's notification rules.</td></tr></table><p>The scan records renewal events but does not itself send e-mail. To be told by e-mail or in the app, define a notification rule in the framework's Notification Engine. The scheduler must be running on the server (the installer sets this up).</p>
+</section>
+<section id="questions" data-g="Help" data-t="questions faq answers">
+<h2><span class="n">15</span>Questions people ask</h2>
+<p class="lead"></p>
+<table><tr><th>Question</th><th>Answer</th></tr><tr><td>I cannot see Administration in the App Hub.</td><td>Your role needs permission on at least one Velora Admin document. Ask your administrator.</td></tr><tr><td>A request is stuck at Pending Approval.</td><td>Open it and check its Approval Matrix level. The approver may be on leave: use an Approval Delegation, or ask for the matrix to be corrected.</td></tr><tr><td>Can approval steps be changed without a developer?</td><td>Yes. Approval Matrix levels and workflows are set on screen.</td></tr><tr><td>Where do I find how to install or upgrade?</td><td>In the Velora framework manual at <code>/tutorial</code> on your server.</td></tr></table>
+</section>
+
+<footer>Velora Admin 1.9.2 on Velora 1.16.2 &middot; user and administrator guide<br>Powered by <b>Velora BiZ Solutions</b></footer>
+</main>
+</div>
+<script>
+(function(){
+  var secs=[].slice.call(document.querySelectorAll("section[id]")), nav=document.getElementById("nav");
+  var last=null;nav.innerHTML=secs.map(function(s){var h=s.querySelector("h2"),g=s.getAttribute("data-g"),pre="";if(g&&g!==last){pre='<div class="grp">'+g+'</div>';last=g}return pre+'<a href="#'+s.id+'">'+h.textContent.replace(/^(\d+)/,'$1. ')+'</a>'}).join("");
+  var links=[].slice.call(nav.querySelectorAll("a"));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id)})}})},{rootMargin:"-20% 0px -70% 0px"});
+  secs.forEach(function(s){io.observe(s)});
+  links.forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open")})});
+  document.getElementById("menu").onclick=function(){nav.classList.toggle("open")};
+  document.querySelectorAll("pre").forEach(function(p){var b=document.createElement("button");b.className="cp";b.textContent="Copy";b.onclick=function(){var t=p.querySelector("code").innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent="Copied"},function(){b.textContent="Select + copy"});setTimeout(function(){b.textContent="Copy"},1600)};p.appendChild(b)});
+  var q=document.getElementById("q");
+  q.addEventListener("input",function(){var t=q.value.trim().toLowerCase();secs.forEach(function(s){var hit=!t||(s.textContent+" "+(s.getAttribute("data-t")||"")).toLowerCase().indexOf(t)>=0;s.classList.toggle("hide",!hit)});links.forEach(function(a,i){a.classList.toggle("hide",secs[i].classList.contains("hide"))})});
+  var th=document.getElementById("theme"),root=document.documentElement,saved=null;try{saved=localStorage.getItem("velora-admin-guide-theme")}catch(e){}
+  if(saved)root.setAttribute("data-theme",saved);else if(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)root.setAttribute("data-theme","dark");
+  th.onclick=function(){var d=root.getAttribute("data-theme")==="dark"?"light":"dark";root.setAttribute("data-theme",d);try{localStorage.setItem("velora-admin-guide-theme",d)}catch(e){}};
+})();
+</script>
+</body>
+</html>

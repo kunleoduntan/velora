@@ -1,0 +1,41 @@
+{
+  "name": "Competency Framework Item",
+  "module": "HR",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "competency",
+      "fieldtype": "Link",
+      "label": "Competency",
+      "options": "Competency",
+      "required": true
+    },
+    {
+      "fieldname": "required_level",
+      "fieldtype": "Int",
+      "label": "Required Proficiency Level",
+      "default": 3,
+      "required": true
+    },
+    {
+      "fieldname": "weight",
+      "fieldtype": "Float",
+      "label": "Weight (%)",
+      "default": 0
+    },
+    {
+      "fieldname": "mandatory",
+      "fieldtype": "Check",
+      "label": "Mandatory",
+      "default": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Data",
+      "label": "Guidance"
+    }
+  ],
+  "permissions": [],
+  "istable": true
+}

@@ -1,0 +1,111 @@
+{
+  "name": "Designation",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Standard job titles and designation catalogue.",
+  "fields": [
+    {
+      "fieldname": "designation_code",
+      "fieldtype": "Data",
+      "label": "Designation Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 30
+    },
+    {
+      "fieldname": "designation_name",
+      "fieldtype": "Data",
+      "label": "Designation Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "job_grade",
+      "fieldtype": "Link",
+      "label": "Job Grade",
+      "options": "Job Grade"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0,
+      "in_standard_filter": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    }
+  ],
+  "autoname": "field:designation_code",
+  "title_field": "designation_name"
+}

@@ -1,0 +1,48 @@
+{
+ "name": "Activity Feed Run Result",
+ "module": "Governance",
+ "istable": true,
+ "track_changes": false,
+ "fields": [
+  {
+   "fieldname": "outcome",
+   "fieldtype": "Select",
+   "label": "Outcome",
+   "options": [
+    "Estimated",
+    "Excluded",
+    "Unmapped"
+   ],
+   "in_list_view": true
+  },
+  {
+   "fieldname": "rule",
+   "fieldtype": "Data",
+   "label": "Rule",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "key",
+   "fieldtype": "Data",
+   "label": "Account / item group / item",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "lines",
+   "fieldtype": "Int",
+   "label": "Lines",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "spend",
+   "fieldtype": "Float",
+   "label": "Spend (books currency)",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "ghg_calculation",
+   "fieldtype": "Data",
+   "label": "GHG Calculation"
+  }
+ ]
+}

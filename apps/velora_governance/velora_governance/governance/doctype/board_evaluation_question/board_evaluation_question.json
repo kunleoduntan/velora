@@ -1,0 +1,40 @@
+{
+  "name": "Board Evaluation Question",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "sequence",
+      "fieldtype": "Int",
+      "label": "Sequence",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Data",
+      "label": "Category",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "question",
+      "fieldtype": "Text",
+      "label": "Question",
+      "required": true
+    },
+    {
+      "fieldname": "weight",
+      "fieldtype": "Float",
+      "label": "Weight",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "mandatory",
+      "fieldtype": "Check",
+      "label": "Mandatory",
+      "default": 1
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "name": "Department Staff Budget",
+  "module": "HR",
+  "autoname": "series:DSB-.####",
+  "track_changes": true,
+  "title_field": "budget_title",
+  "description": "Approved headcount and staff cost for a department over a period. Job Requisitions are checked against it.",
+  "fields": [
+    {
+      "fieldname": "budget_title",
+      "fieldtype": "Data",
+      "label": "Budget Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "from_date",
+      "fieldtype": "Date",
+      "label": "From Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "to_date",
+      "fieldtype": "Date",
+      "label": "To Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "budget_status",
+      "fieldtype": "Select",
+      "label": "Budget Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected",
+        "Closed"
+      ],
+      "default": "Draft",
+      "in_list_view": true,
+      "in_standard_filter": true,
+      "description": "Controlled by the approval workflow once one is configured."
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Lines",
+      "options": "Department Staff Budget Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_budgeted_headcount",
+      "fieldtype": "Int",
+      "label": "Total Budgeted Headcount",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_filled",
+      "fieldtype": "Int",
+      "label": "Total Filled",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_committed",
+      "fieldtype": "Int",
+      "label": "Total Committed",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_vacant",
+      "fieldtype": "Int",
+      "label": "Total Vacant",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_annual_cost",
+      "fieldtype": "Currency",
+      "label": "Total Annual Cost",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "report": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": 1,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": 1,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": 1,
+      "export": 1,
+      "report": true
+    }
+  ]
+}

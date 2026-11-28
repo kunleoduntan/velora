@@ -1,0 +1,21 @@
+{
+ "name": "Income Tax Computation Summary",
+ "module": "Tax Management",
+ "type": "script",
+ "ref_doctype": "Income Tax Computation",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Company income tax computations by period: profit per books, adjustments, assessable profit, tax, levies, credits and the net payable.",
+ "filters": [
+  {
+   "fieldname": "jurisdiction",
+   "label": "Jurisdiction",
+   "fieldtype": "Link",
+   "options": "Tax Jurisdiction"
+  }
+ ]
+}

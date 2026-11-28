@@ -1,0 +1,164 @@
+{
+  "name": "Governance Obligation",
+  "module": "Governance",
+  "autoname": "series:GOB-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "requirement",
+      "fieldtype": "Link",
+      "label": "Regulatory Requirement",
+      "options": "Regulatory Requirement",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "obligation_period",
+      "fieldtype": "Data",
+      "label": "Obligation Period",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "responsible_owner",
+      "fieldtype": "Data",
+      "label": "Responsible Owner",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "obligation_status",
+      "fieldtype": "Select",
+      "label": "Obligation Status",
+      "options": [
+        "Open",
+        "In Progress",
+        "Compliant",
+        "Partially Compliant",
+        "Non-Compliant",
+        "Not Applicable",
+        "Overdue",
+        "Closed"
+      ],
+      "default": "Open",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "last_assessed_on",
+      "fieldtype": "Date",
+      "label": "Last Assessed On"
+    },
+    {
+      "fieldname": "last_assessment",
+      "fieldtype": "Link",
+      "label": "Last Assessment",
+      "options": "Compliance Assessment"
+    },
+    {
+      "fieldname": "evidence",
+      "fieldtype": "Table",
+      "label": "Evidence",
+      "options": "Compliance Evidence"
+    },
+    {
+      "fieldname": "remediation_action",
+      "fieldtype": "Link",
+      "label": "Remediation Action",
+      "options": "Board Action"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "requirement"
+}

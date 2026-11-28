@@ -1,0 +1,72 @@
+{
+  "name": "Business Calendar",
+  "module": "Administration",
+  "autoname": "field:calendar_name",
+  "istable": false,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "calendar_name",
+      "fieldtype": "Data",
+      "label": "Calendar Name",
+      "required": true,
+      "unique": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "working_days",
+      "fieldtype": "Select",
+      "label": "Working Days",
+      "options": "Monday-Friday\nMonday-Saturday\nAll Days",
+      "default": "Monday-Friday",
+      "required": true
+    },
+    {
+      "fieldname": "start_time",
+      "fieldtype": "Data",
+      "label": "Workday Start",
+      "default": "09:00:00",
+      "required": true
+    },
+    {
+      "fieldname": "end_time",
+      "fieldtype": "Data",
+      "label": "Workday End",
+      "default": "17:00:00",
+      "required": true
+    },
+    {
+      "fieldname": "holidays",
+      "fieldtype": "Table",
+      "label": "Holiday Dates",
+      "options": "Business Calendar Holiday"
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": "1"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true
+    },
+    {
+      "role": "Administration Manager",
+      "read": true,
+      "write": true,
+      "create": true
+    },
+    {
+      "role": "Administrative Manager",
+      "read": true,
+      "write": true,
+      "create": true
+    }
+  ]
+}

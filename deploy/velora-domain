@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+# velora-domain: the small ROOT helper behind `velora domain add|remove`. Installed by install.sh into /usr/local/sbin and allowed (only this file) in sudoers.
+#
+#   velora-domain add DOMAIN [--port 8000] [--no-tls] [--email you@example.com] [--dry-run]
+#   velora-domain remove DOMAIN [--dry-run]
+#
+# It runs as root on behalf of the unprivileged velora user, so it trusts NOTHING it is given: every value is validated before it is used.
+set -euo pipefail
+
+usage() { sed -n '2,8p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
+ACTION="${1:-}"; DOMAIN="${2:-}"; [ $# -ge 2 ] && shift 2 || { [ "$ACTION" = "-h" ] && usage 0; usage 2; }
+PORT=8000 TLS=1 EMAIL="" DRY=0
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --port) PORT="${2:-}"; shift 2;;
+    --no-tls) TLS=0; shift;;
+    --email) EMAIL="${2:-}"; shift 2;;
+    --dry-run) DRY=1; shift;;
+    *) echo "Unknown option: $1" >&2; exit 2;;
+  esac
+done
+
+[[ "$ACTION" =~ ^(add|remove)$ ]] || { echo "Error: action must be add or remove." >&2; exit 2; }
+[ "${#DOMAIN}" -le 253 ] && [[ "$DOMAIN" =~ ^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$ ]] || { echo "Error: '$DOMAIN' is not a valid domain name." >&2; exit 2; }
+[[ "$PORT" =~ ^[0-9]{2,5}$ ]] && [ "$PORT" -ge 1 ] && [ "$PORT" -le 65535 ] || { echo "Error: invalid port." >&2; exit 2; }
+[ -z "$EMAIL" ] || [[ "$EMAIL" =~ ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$ ]] || { echo "Error: invalid email." >&2; exit 2; }
+[ "$DRY" = 1 ] || [ "$(id -u)" = 0 ] || { echo "Error: must run as root (it is meant to be called through sudo by velora)." >&2; exit 1; }
+
+SITE="/etc/nginx/sites-available/velora-$DOMAIN"; LINK="/etc/nginx/sites-enabled/velora-$DOMAIN"
+run() { if [ "$DRY" = 1 ]; then printf '+ %s\n' "$*"; else "$@"; fi; }
+
+if [ "$ACTION" = "remove" ]; then
+  run rm -f "$LINK" "$SITE"
+  if [ "$DRY" = 1 ]; then echo "+ nginx -t && systemctl reload nginx"; else nginx -t >/dev/null 2>&1 && systemctl reload nginx || true; fi
+  echo "Removed the web-server site for $DOMAIN (its certificate, if any, is kept)."
+  exit 0
+fi
+
+CONF="server {
+    listen 80;
+    server_name $DOMAIN;
+    client_max_body_size 50m;
+    location / {
+        proxy_pass http://127.0.0.1:$PORT;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Forwarded-For \$remote_addr;
+        proxy_set_header X-Forwarded-Proto \$scheme;
+    }
+    location /api/events {
+        proxy_pass http://127.0.0.1:$PORT;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Forwarded-Proto \$scheme;
+        proxy_buffering off;
+        proxy_read_timeout 1h;
+    }
+}"
+if [ "$DRY" = 1 ]; then
+  echo "+ write $SITE"; printf '%s\n' "$CONF" | sed 's/^/    | /'
+  echo "+ ln -sf $SITE $LINK"; echo "+ nginx -t && systemctl reload nginx"
+  if [ "$TLS" = 1 ]; then
+    if [ -n "$EMAIL" ]; then WHO="-m $EMAIL"; else WHO="--register-unsafely-without-email"; fi
+    echo "+ certbot --nginx -d $DOMAIN --non-interactive --agree-tos $WHO --redirect"
+  fi
+  exit 0
+fi
+command -v nginx >/dev/null || { echo "Error: nginx is not installed (re-run install.sh with --domain, or apt install nginx)." >&2; exit 1; }
+printf '%s\n' "$CONF" > "$SITE"
+ln -sf "$SITE" "$LINK"
+if ! nginx -t >/dev/null 2>&1; then rm -f "$LINK" "$SITE"; echo "Error: nginx rejected the configuration; nothing was changed." >&2; exit 1; fi
+systemctl reload nginx
+if [ "$TLS" = 1 ]; then
+  command -v certbot >/dev/null || { rm -f "$LINK" "$SITE"; systemctl reload nginx; echo "Error: certbot is not installed (apt install certbot python3-certbot-nginx)." >&2; exit 1; }
+  if [ -n "$EMAIL" ]; then MAIL=(-m "$EMAIL"); else MAIL=(--register-unsafely-without-email); fi
+  certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos "${MAIL[@]}" --redirect || { rm -f "$LINK" "$SITE"; systemctl reload nginx; echo "Error: could not get a certificate for $DOMAIN (is its DNS pointing at this server, and port 80 open?). Nothing was changed." >&2; exit 3; }
+fi
+echo "OK: $DOMAIN is served."

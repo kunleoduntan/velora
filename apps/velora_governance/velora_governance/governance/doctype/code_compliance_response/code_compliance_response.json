@@ -1,0 +1,55 @@
+{
+ "name": "Code Compliance Response",
+ "module": "Governance",
+ "fields": [
+  {
+   "fieldname": "principle_number",
+   "fieldtype": "Int",
+   "label": "No.",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "part",
+   "fieldtype": "Data",
+   "label": "Part",
+   "read_only": true
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Principle",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Applied",
+    "Applied in part",
+    "Explained (not applied)",
+    "Not assessed"
+   ],
+   "default": "Not assessed",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "how_applied_or_explanation",
+   "fieldtype": "Text",
+   "label": "How applied, or why not (explanation)"
+  },
+  {
+   "fieldname": "evidence_reference",
+   "fieldtype": "Data",
+   "label": "Evidence reference"
+  },
+  {
+   "fieldname": "responsible_owner",
+   "fieldtype": "Data",
+   "label": "Owner"
+  }
+ ],
+ "istable": true
+}

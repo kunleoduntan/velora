@@ -1,0 +1,173 @@
+{
+  "name": "Reporting Assignment",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Effective-dated employee organisation and reporting assignment history.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department",
+      "required": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "designation",
+      "fieldtype": "Link",
+      "label": "Designation",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "job_position",
+      "fieldtype": "Link",
+      "label": "Job Position",
+      "options": "Job Position"
+    },
+    {
+      "fieldname": "job_grade",
+      "fieldtype": "Link",
+      "label": "Job Grade",
+      "options": "Job Grade"
+    },
+    {
+      "fieldname": "job_band",
+      "fieldtype": "Link",
+      "label": "Job Band",
+      "options": "Job Band"
+    },
+    {
+      "fieldname": "work_location",
+      "fieldtype": "Link",
+      "label": "Work Location",
+      "options": "Work Location"
+    },
+    {
+      "fieldname": "reports_to",
+      "fieldtype": "Link",
+      "label": "Reports To Employee",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "is_primary",
+      "fieldtype": "Check",
+      "label": "Primary Assignment",
+      "default": 1
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "assignment_status",
+      "fieldtype": "Select",
+      "label": "Assignment Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Superseded",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "report": true
+    }
+  ],
+  "title_field": "employee_name"
+}

@@ -1,0 +1,166 @@
+{
+  "name": "Disclosure Applicability",
+  "module": "Governance",
+  "autoname": "series:DAP-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "disclosure",
+      "fieldtype": "Link",
+      "label": "Disclosure",
+      "options": "Sustainability Disclosure",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reporting_period",
+      "fieldtype": "Data",
+      "label": "Reporting Period",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "applicable",
+      "fieldtype": "Check",
+      "label": "Applicable",
+      "default": 1,
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "materiality_status",
+      "fieldtype": "Select",
+      "label": "Materiality Status",
+      "options": [
+        "Material",
+        "Not Material",
+        "Pending Assessment",
+        "Not Applicable"
+      ],
+      "default": "Pending Assessment",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "responsible_owner",
+      "fieldtype": "Data",
+      "label": "Responsible Owner"
+    },
+    {
+      "fieldname": "disclosure_status",
+      "fieldtype": "Select",
+      "label": "Disclosure Status",
+      "options": [
+        "Not Started",
+        "Data Collection",
+        "Drafting",
+        "Completed",
+        "Not Applicable"
+      ],
+      "default": "Not Started",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "rationale",
+      "fieldtype": "Text",
+      "label": "Rationale"
+    },
+    {
+      "fieldname": "evidence",
+      "fieldtype": "Table",
+      "label": "Evidence",
+      "options": "Sustainability Evidence"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "disclosure"
+}

@@ -1,0 +1,127 @@
+{
+  "name": "Performance Calibration Session",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Governed performance rating calibration with preserved original scores and documented decisions.",
+  "fields": [
+    {
+      "fieldname": "session_title",
+      "fieldtype": "Data",
+      "label": "Session Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cycle",
+      "fieldtype": "Link",
+      "label": "Performance Cycle",
+      "options": "Performance Cycle",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "session_date",
+      "fieldtype": "Date",
+      "label": "Session Date",
+      "required": true
+    },
+    {
+      "fieldname": "facilitator",
+      "fieldtype": "Link",
+      "label": "Facilitator",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Scheduled",
+        "In Progress",
+        "Pending Approval",
+        "Approved",
+        "Closed"
+      ],
+      "default": "Draft",
+      "required": true
+    },
+    {
+      "fieldname": "confidentiality",
+      "fieldtype": "Select",
+      "label": "Confidentiality",
+      "options": [
+        "HR and Calibration Panel",
+        "HR Only"
+      ],
+      "default": "HR and Calibration Panel"
+    },
+    {
+      "fieldname": "calibration_items",
+      "fieldtype": "Table",
+      "label": "Calibration Items",
+      "options": "Performance Calibration Item"
+    },
+    {
+      "fieldname": "minutes",
+      "fieldtype": "Text",
+      "label": "Session Minutes"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "options": null
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "istable": false,
+  "title_field": "session_title"
+}

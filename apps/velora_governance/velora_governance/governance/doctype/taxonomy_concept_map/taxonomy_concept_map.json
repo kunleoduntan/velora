@@ -1,0 +1,176 @@
+{
+ "name": "Taxonomy Concept Map",
+ "module": "Governance",
+ "track_changes": true,
+ "autoname": "series:TCM-.####",
+ "title_field": "fact_key",
+ "fields": [
+  {
+   "fieldname": "fact_key",
+   "fieldtype": "Data",
+   "label": "Fact",
+   "required": true,
+   "unique": true,
+   "in_list_view": true,
+   "description": "ghg.scope1, ghg.scope2.location, ghg.scope2.market, ghg.scope3"
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "label": "Label (as printed in the taxonomy)",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "metric_code",
+   "fieldtype": "Data",
+   "label": "ISSB metric code",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Fact source",
+   "options": [
+    "GHG inventory",
+    "Data point",
+    "Report section text"
+   ],
+   "default": "GHG inventory",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "fact_type",
+   "fieldtype": "Select",
+   "label": "Fact type",
+   "options": [
+    "Number",
+    "Percentage",
+    "Monetary",
+    "Text block"
+   ],
+   "default": "Number"
+  },
+  {
+   "fieldname": "source_metric",
+   "fieldtype": "Link",
+   "label": "Sustainability Metric (data point source)",
+   "options": "Sustainability Metric"
+  },
+  {
+   "fieldname": "source_disclosure",
+   "fieldtype": "Link",
+   "label": "Disclosure (report section source)",
+   "options": "Sustainability Disclosure"
+  },
+  {
+   "fieldname": "unit_id",
+   "fieldtype": "Data",
+   "label": "Unit id (e.g. NGN, pure)"
+  },
+  {
+   "fieldname": "unit_measure",
+   "fieldtype": "Data",
+   "label": "Unit measure QName (e.g. iso4217:NGN, xbrli:pure)"
+  },
+  {
+   "fieldname": "scale",
+   "fieldtype": "Data",
+   "label": "Scale (e.g. -2 for a percentage held as 12.5)"
+  },
+  {
+   "fieldname": "element_qname",
+   "fieldtype": "Data",
+   "label": "Element QName (prefix:Name)",
+   "in_list_view": true,
+   "description": "Copy from the taxonomy package. Empty means the fact is not exported."
+  },
+  {
+   "fieldname": "decimals",
+   "fieldtype": "Data",
+   "label": "Decimals",
+   "default": "0"
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+  "name": "Board Appointment Type",
+  "module": "Governance",
+  "autoname": "series:BAT-.####",
+  "track_changes": true,
+  "title_field": "appointment_type_name",
+  "fields": [
+    {
+      "fieldname": "appointment_type_name",
+      "fieldtype": "Data",
+      "label": "Appointment Type Name",
+      "required": true,
+      "in_list_view": true,
+      "unique": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description",
+      "required": false,
+      "in_list_view": false
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "required": false,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+{
+ "name": "Sustainability Target",
+ "module": "Governance",
+ "autoname": "series:STG-.####",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "metric",
+   "fieldtype": "Link",
+   "label": "Metric",
+   "options": "Sustainability Metric",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "target_title",
+   "fieldtype": "Data",
+   "label": "Target Title",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "baseline_value",
+   "fieldtype": "Float",
+   "label": "Baseline Value",
+   "required": true
+  },
+  {
+   "fieldname": "baseline_year",
+   "fieldtype": "Int",
+   "label": "Baseline Year",
+   "required": true
+  },
+  {
+   "fieldname": "target_value",
+   "fieldtype": "Float",
+   "label": "Target Value",
+   "required": true
+  },
+  {
+   "fieldname": "target_year",
+   "fieldtype": "Int",
+   "label": "Target Year",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "target_direction",
+   "fieldtype": "Select",
+   "label": "Target Direction",
+   "options": [
+    "Reduce",
+    "Increase",
+    "Maintain"
+   ],
+   "required": true
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Sustainability Unit",
+   "required": true
+  },
+  {
+   "fieldname": "current_value",
+   "fieldtype": "Float",
+   "label": "Current Value"
+  },
+  {
+   "fieldname": "progress_percent",
+   "fieldtype": "Float",
+   "label": "Progress Percent",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "target_status",
+   "fieldtype": "Select",
+   "label": "Target Status",
+   "options": [
+    "Draft",
+    "On Track",
+    "At Risk",
+    "Behind",
+    "Achieved",
+    "Cancelled"
+   ],
+   "default": "Draft",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "target_owner",
+   "fieldtype": "Data",
+   "label": "Target Owner"
+  },
+  {
+   "fieldname": "initiative",
+   "fieldtype": "Link",
+   "label": "Initiative",
+   "options": "Sustainability Initiative"
+  },
+  {
+   "fieldname": "progress_history",
+   "fieldtype": "Table",
+   "label": "Progress History",
+   "options": "Sustainability Target Progress"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "climate_target",
+   "fieldtype": "Check",
+   "label": "Climate-related target (IFRS S2.33)"
+  },
+  {
+   "fieldname": "objective",
+   "fieldtype": "Text",
+   "label": "Objective of the target",
+   "depends_on": "eval:doc.climate_target"
+  },
+  {
+   "fieldname": "entity_part_covered",
+   "fieldtype": "Data",
+   "label": "Part of the entity covered",
+   "depends_on": "eval:doc.climate_target"
+  },
+  {
+   "fieldname": "target_basis",
+   "fieldtype": "Select",
+   "label": "Absolute or intensity",
+   "options": [
+    "Absolute",
+    "Intensity"
+   ],
+   "depends_on": "eval:doc.climate_target"
+  },
+  {
+   "fieldname": "agreement_basis",
+   "fieldtype": "Text",
+   "label": "How the latest international climate agreement informed the target",
+   "depends_on": "eval:doc.climate_target"
+  },
+  {
+   "fieldname": "milestones",
+   "fieldtype": "Text",
+   "label": "Milestones and interim targets",
+   "depends_on": "eval:doc.climate_target"
+  },
+  {
+   "fieldname": "third_party_validation",
+   "fieldtype": "Data",
+   "label": "Third-party validation (who, or none)",
+   "depends_on": "eval:doc.climate_target"
+  },
+  {
+   "fieldname": "ghg_target",
+   "fieldtype": "Check",
+   "label": "Greenhouse gas emissions target (IFRS S2.36)",
+   "depends_on": "eval:doc.climate_target"
+  },
+  {
+   "fieldname": "gases_covered",
+   "fieldtype": "Data",
+   "label": "Gases covered",
+   "depends_on": "eval:doc.ghg_target"
+  },
+  {
+   "fieldname": "scopes_covered",
+   "fieldtype": "Data",
+   "label": "Scopes covered (1, 2, 3 and categories)",
+   "depends_on": "eval:doc.ghg_target"
+  },
+  {
+   "fieldname": "gross_or_net",
+   "fieldtype": "Select",
+   "label": "Gross or net",
+   "options": [
+    "Gross",
+    "Net"
+   ],
+   "depends_on": "eval:doc.ghg_target"
+  },
+  {
+   "fieldname": "gross_target_if_net",
+   "fieldtype": "Text",
+   "label": "Associated gross target (if net)",
+   "depends_on": "eval:doc.ghg_target"
+  },
+  {
+   "fieldname": "sectoral_decarbonisation",
+   "fieldtype": "Select",
+   "label": "Sectoral decarbonisation approach used",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "depends_on": "eval:doc.ghg_target"
+  },
+  {
+   "fieldname": "carbon_credits_plan",
+   "fieldtype": "Text",
+   "label": "Planned use of carbon credits: reliance, scheme, type, credibility",
+   "depends_on": "eval:doc.ghg_target"
+  },
+  {
+   "fieldname": "revision_history",
+   "fieldtype": "Text",
+   "label": "Revisions to the target and why"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ],
+ "title_field": "target_title"
+}

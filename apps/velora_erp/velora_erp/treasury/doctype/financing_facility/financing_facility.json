@@ -1,0 +1,438 @@
+{
+ "name": "Financing Facility",
+ "module": "Debt and Treasury",
+ "autoname": "series:FAC-.#####",
+ "track_changes": true,
+ "title_field": "facility_name",
+ "description": "A credit agreement with a lender: the limit, pricing, repayment terms, accounts, security and covenants. Money is drawn against it with Financing Drawdowns.",
+ "is_submittable": true,
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "submit": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "report": true,
+   "export": true,
+   "print": true
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "details",
+   "fieldtype": "Section Break",
+   "label": "Facility"
+  },
+  {
+   "fieldname": "facility_name",
+   "fieldtype": "Data",
+   "label": "Facility name",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "financial_institution",
+   "fieldtype": "Link",
+   "label": "Lender",
+   "options": "Financial Institution",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "facility_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": [
+    "Term Loan",
+    "Revolving Credit",
+    "Overdraft",
+    "Bond / Commercial Paper",
+    "Trade Finance",
+    "Finance Lease",
+    "Shareholder / Intercompany Loan",
+    "Other"
+   ],
+   "required": true,
+   "default": "Term Loan",
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "approved_limit",
+   "fieldtype": "Currency",
+   "label": "Approved limit",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start date",
+   "required": true
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Availability ends",
+   "required": true,
+   "in_list_view": true,
+   "description": "The last day money can be drawn under this facility."
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Draft",
+    "Active",
+    "Expired",
+    "Closed"
+   ],
+   "default": "Draft",
+   "in_list_view": true,
+   "in_standard_filter": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Text",
+   "label": "Purpose"
+  },
+  {
+   "fieldname": "pricing",
+   "fieldtype": "Section Break",
+   "label": "Pricing and repayment terms"
+  },
+  {
+   "fieldname": "interest_rate_type",
+   "fieldtype": "Select",
+   "label": "Rate type",
+   "options": [
+    "Fixed",
+    "Floating"
+   ],
+   "required": true,
+   "default": "Fixed"
+  },
+  {
+   "fieldname": "reference_rate_name",
+   "fieldtype": "Data",
+   "label": "Reference rate",
+   "description": "For example MPR, NIBOR or SOFR (floating facilities)."
+  },
+  {
+   "fieldname": "rate_spread",
+   "fieldtype": "Float",
+   "label": "Spread over reference rate (%)"
+  },
+  {
+   "fieldname": "interest_rate",
+   "fieldtype": "Float",
+   "label": "All-in interest rate (% a year)",
+   "required": true,
+   "in_list_view": true,
+   "description": "Reference rate plus spread for a floating facility. A rate change is recorded with a Facility Amendment."
+  },
+  {
+   "fieldname": "day_count_basis",
+   "fieldtype": "Select",
+   "label": "Day count",
+   "options": [
+    "Actual/365",
+    "Actual/360",
+    "30/360"
+   ],
+   "required": true,
+   "default": "Actual/365"
+  },
+  {
+   "fieldname": "repayment_structure",
+   "fieldtype": "Select",
+   "label": "Repayment structure",
+   "options": [
+    "Annuity",
+    "Equal principal",
+    "Interest only, principal at maturity",
+    "Bullet (principal and interest at maturity)"
+   ],
+   "required": true,
+   "default": "Annuity"
+  },
+  {
+   "fieldname": "repayment_frequency",
+   "fieldtype": "Select",
+   "label": "Repayment frequency",
+   "options": [
+    "Monthly",
+    "Quarterly",
+    "Half-yearly",
+    "Annual"
+   ],
+   "required": true,
+   "default": "Monthly"
+  },
+  {
+   "fieldname": "default_tenor_months",
+   "fieldtype": "Int",
+   "label": "Usual tenor of a drawdown (months)",
+   "default": 12
+  },
+  {
+   "fieldname": "grace_period_months",
+   "fieldtype": "Int",
+   "label": "Principal grace period (months)",
+   "default": 0
+  },
+  {
+   "fieldname": "arrangement_fee_percent",
+   "fieldtype": "Float",
+   "label": "Arrangement fee (% of each drawdown)",
+   "default": 0
+  },
+  {
+   "fieldname": "allows_redraw",
+   "fieldtype": "Check",
+   "label": "Repaid principal can be borrowed again",
+   "description": "Revolving credit and overdrafts. A term loan's limit is used up by what has been drawn."
+  },
+  {
+   "fieldname": "accounts",
+   "fieldtype": "Section Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "loan_liability_account",
+   "fieldtype": "Link",
+   "label": "Loan liability account",
+   "options": "Account",
+   "required": true,
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "interest_expense_account",
+   "fieldtype": "Link",
+   "label": "Interest expense account",
+   "options": "Account",
+   "required": true,
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "accrued_interest_account",
+   "fieldtype": "Link",
+   "label": "Accrued interest account",
+   "options": "Account",
+   "required": true,
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "fee_expense_account",
+   "fieldtype": "Link",
+   "label": "Fees and charges account",
+   "options": "Account",
+   "description": "Arrangement and other bank fees. Defaults to the interest expense account.",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "wht_rule",
+   "fieldtype": "Data",
+   "label": "Withholding tax rule on interest",
+   "description": "The code of an approved Tax Rule (type WHT). When set, each repayment withholds tax on the interest and posts it to the tax ledger."
+  },
+  {
+   "fieldname": "security_section",
+   "fieldtype": "Section Break",
+   "label": "Security"
+  },
+  {
+   "fieldname": "secured",
+   "fieldtype": "Check",
+   "label": "Secured"
+  },
+  {
+   "fieldname": "security",
+   "fieldtype": "Table",
+   "label": "Security",
+   "options": "Facility Security"
+  },
+  {
+   "fieldname": "covenant_section",
+   "fieldtype": "Section Break",
+   "label": "Covenants"
+  },
+  {
+   "fieldname": "covenants",
+   "fieldtype": "Table",
+   "label": "Covenants",
+   "options": "Facility Covenant"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Section Break",
+   "label": "Position (maintained by the system)"
+  },
+  {
+   "fieldname": "total_drawn",
+   "fieldtype": "Currency",
+   "label": "Drawn to date",
+   "read_only": true
+  },
+  {
+   "fieldname": "principal_repaid",
+   "fieldtype": "Currency",
+   "label": "Principal repaid",
+   "read_only": true
+  },
+  {
+   "fieldname": "outstanding_principal",
+   "fieldtype": "Currency",
+   "label": "Outstanding principal",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "undrawn_available",
+   "fieldtype": "Currency",
+   "label": "Available to draw",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "utilisation_percent",
+   "fieldtype": "Float",
+   "label": "Utilisation %",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "accrued_interest_balance",
+   "fieldtype": "Currency",
+   "label": "Accrued interest unpaid",
+   "read_only": true
+  },
+  {
+   "fieldname": "approval",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval status",
+   "options": [
+    "Pending",
+    "Approved",
+    "Rejected"
+   ],
+   "required": true,
+   "default": "Pending",
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved by",
+   "read_only": true
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved on",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_by",
+   "fieldtype": "Data",
+   "label": "Rejected by",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_on",
+   "fieldtype": "Datetime",
+   "label": "Rejected on",
+   "read_only": true
+  },
+  {
+   "fieldname": "approval_comments",
+   "fieldtype": "Text",
+   "label": "Approval comments"
+  },
+  {
+   "fieldname": "posting_batch",
+   "fieldtype": "Link",
+   "label": "Financial Posting Batch",
+   "options": "Financial Posting Batch",
+   "read_only": true,
+   "hidden": true
+  }
+ ]
+}

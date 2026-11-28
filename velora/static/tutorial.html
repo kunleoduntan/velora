@@ -1,0 +1,999 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velora Tutorial and Manual for Administrators and Developers - Powered by Velora BiZ Solutions</title>
+<style>
+:root{--bg:#f6f7fb;--panel:#fff;--ink:#1c2033;--muted:#667085;--line:#e4e7ef;--brand:#5b5bf0;--brand2:#14b8a6;--brand-soft:#eef0ff;--ok:#12b76a;--warn:#f79009;--code:#0f172a;--codeink:#e2e8f0;--shadow:0 6px 24px rgba(28,32,51,.08)}
+:root[data-theme=dark]{--bg:#0f1220;--panel:#171b2e;--ink:#e8eaf6;--muted:#9aa3c0;--line:#272d47;--brand:#8b8bff;--brand2:#2dd4bf;--brand-soft:#1d2240;--code:#0a0d1a;--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--brand)}
+header.top{position:sticky;top:0;z-index:20;display:flex;gap:12px;align-items:center;padding:10px 18px;background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;text-decoration:none;color:var(--ink)}
+.logo svg{width:32px;height:32px}
+.top .grow{flex:1}.top input{width:min(320px,45vw);padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);font:inherit}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer;font:inherit}
+.btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0;font-weight:700}
+#menu{display:none}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;max-width:1240px;margin:0 auto;padding:0 18px}
+nav.side{position:sticky;top:64px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;padding:22px 0}
+nav.side a{display:block;padding:7px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:14.5px}
+nav.side a:hover{background:var(--brand-soft);color:var(--ink)}nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side .grp{margin:16px 12px 4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+main{padding:26px 0 80px;min-width:0}
+.hero{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 45%,#14b8a6 100%);color:#fff;border-radius:26px;padding:42px 36px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px);line-height:1.15}.hero p{margin:0 0 18px;max-width:640px;font-size:18px;opacity:.95}
+.hero .chips span{display:inline-block;margin:0 8px 8px 0;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.18);font-size:14px}
+section{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:26px 30px;margin:22px 0;box-shadow:var(--shadow)}
+section h2{margin:0 0 4px;font-size:26px}section h2 .n{display:inline-grid;place-items:center;width:34px;height:34px;margin-right:10px;border-radius:12px;background:var(--brand-soft);color:var(--brand);font-size:16px;vertical-align:middle}
+section h3{margin:26px 0 6px;font-size:18px}.lead{color:var(--muted);margin:4px 0 16px}
+pre{position:relative;margin:12px 0;padding:16px 18px;background:var(--code);color:var(--codeink);border-radius:14px;overflow:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre .cp{position:absolute;top:8px;right:8px;padding:3px 10px;font-size:12px;border-radius:999px;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:var(--brand-soft);padding:1px 6px;border-radius:6px}pre code{background:none;padding:0;font-size:inherit}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--bg)}.card b{display:block;margin-bottom:4px}
+.tip,.warn,.ok{border-left:4px solid var(--brand);background:var(--brand-soft);padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0}.warn{border-color:var(--warn);background:color-mix(in srgb,var(--warn) 12%,var(--panel))}.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 11%,var(--panel))}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:15px}th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+.steps{counter-reset:s;list-style:none;padding:0}.steps li{counter-increment:s;position:relative;padding:4px 0 14px 50px}.steps li:before{content:counter(s);position:absolute;left:0;top:2px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;font-weight:700}
+.pill{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;background:var(--brand-soft);color:var(--brand);font-weight:700}.pill.no{background:color-mix(in srgb,var(--warn) 18%,var(--panel));color:var(--warn)}
+footer{margin:36px 0;text-align:center;color:var(--muted);font-size:14px}footer b{color:var(--ink)}
+.hide{display:none!important}mark{background:#fde68a;color:#111;border-radius:4px;padding:0 2px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}nav.side{display:none;position:fixed;inset:56px 0 0 0;z-index:15;background:var(--panel);padding:16px;max-height:none}nav.side.open{display:block}#menu{display:inline-block}section{padding:20px 18px}}
+@media print{header.top,nav.side,.cp,.hero:after{display:none}.layout{display:block}section{box-shadow:none;break-inside:avoid}body{background:#fff}}
+nav.side .grp{margin:16px 12px 4px}
+table{display:block;overflow-x:auto}
+.kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:0 6px;background:var(--bg)}
+section h4{margin:18px 0 4px;font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+code{overflow-wrap:anywhere}pre code{overflow-wrap:normal}
+@media(max-width:700px){header.top{flex-wrap:wrap;gap:8px}.top .grow{display:none}.top input{order:9;width:100%}.btn.primary{display:none}.hero{padding:28px 20px}}
+
+.welcome{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--brand);border-radius:18px;padding:22px 26px;margin:0 0 22px;box-shadow:var(--shadow)}.welcome h2{margin:0 0 8px;font-size:21px;border:0;padding:0}.welcome p{margin:8px 0;line-height:1.7}.welcome .more{font-size:14px;color:var(--muted);margin-top:14px}.welcome .more a{font-weight:600}
+</style>
+</head>
+<body>
+<header class="top">
+  <button class="btn" id="menu" aria-label="Contents">&#9776;</button>
+  <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5bf0"/><stop offset="1" stop-color="#14b8a6"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#g)"/><path d="M9 12l11 18 11-18" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Velora <span class="pill">Framework</span></a>
+  <span class="grow"></span>
+  <input id="q" type="search" placeholder="Search this manual..." aria-label="Search this manual">
+  <button class="btn" id="theme" aria-label="Switch light or dark">&#9680;</button>
+  <button class="btn primary" onclick="window.print()">Print / PDF</button>
+</header>
+<div class="layout">
+<nav class="side" id="nav" aria-label="Contents"></nav>
+<main id="top">
+<div class="hero">
+  <h1>The Velora framework manual for administrators and developers.</h1>
+  <p>For the people who install, configure and extend Velora (version 1.19.2). People who only use an app such as VeloraERP or ProjectOne read that app's own user manual instead. This manual explains step by step: install, build apps, design forms, automate, notify, broadcast, secure, operate and recover.</p>
+  <div class="chips"><span>Administrators</span><span>Developers</span><span>Version 1.19.2</span><span>One database per company</span><span>Built for PostgreSQL</span></div>
+  <p style="margin:6px 0 0;font-size:14px;opacity:.9">Powered by <b>Velora BiZ Solutions</b></p>
+</div>
+<div class="welcome" id="welcome"><h2>Welcome to Velora</h2><p>Most software asks you to squeeze your business into its screens. <b>Velora turns that around.</b> You describe your business: the documents it keeps, the fields on them, who approves what, who may see which figure. Velora builds the forms, lists, reports, permissions, notifications and API from that description, and keeps every change in an audit trail.</p>
+<p>That is a rare and generous way to build: one small, careful engine; a separate database for every company so that no business ever sees another's records; approvals drawn on screen rather than written into code; installation, upgrade, backup and recovery that an administrator can do from one command line. The ERP, the project suite and the administration suite you may be using are all simply apps on this foundation, and so is whatever you build next.</p>
+<p>This manual takes you from the first install to extending the framework yourself. Take it one section at a time. You will find the framework is on your side.</p><p class="more">Other guides on this server: <a href="/tutorial">Velora framework</a> · <a href="/guide/velora_erp">VeloraERP</a> · <a href="/guide/velora_projectone">ProjectOne</a> · <a href="/guide/velora_admin">Velora Admin</a>. A guide opens only if that application is installed.</p></div>
+<section id="start" data-g="Start here" data-t="what is velora framework principles architecture overview">
+<h2><span class="n">1</span>What Velora is (and is not)</h2>
+
+<p class="lead">Velora is the engine and chassis. Your business apps are the cars.</p>
+<div class="cards">
+<div class="card"><b>The framework</b>Documents and their life cycle, forms and lists, permissions, reports, REST API, notifications, broadcasts, search, scheduler, background worker, workflows, dashboards, portals, installer, updater and backups. It knows nothing about insurance, hospitals or churches.</div>
+<div class="card"><b>Apps</b>Everything specific to a business: its DocTypes (record types), rules, workflows, reports and screens. Each app installs, updates and is removed on its own. VeloraERP is one such app; so is the small sample app made by the quickstart.</div>
+<div class="card"><b>Companies</b>Every company is a separate business environment with its <b>own database</b>, apps, users' roles and files. Nothing is shared or copied between companies.</div>
+</div>
+<h3>Technology in one paragraph</h3>
+<p>Python 3.10+, FastAPI and SQLAlchemy on the server; SQLite for trying things out and PostgreSQL 13+ for real use; a React and TypeScript single-page Desk (the browser interface) that is built once and shipped inside the Python package. Records are described by JSON files (DocTypes), in the same spirit as Frappe, and Velora can read Frappe DocType exports.</p>
+<h3>The five rules that keep it that way</h3>
+<ol>
+<li><b>Framework independence</b>: no industry logic in the core.</li>
+<li><b>Application independence</b>: every app installs and upgrades on its own.</li>
+<li><b>Database independence</b>: one database per company; a problem in one never touches another.</li>
+<li><b>Extension independence</b>: you extend with hooks, client scripts and settings, never by editing framework files.</li>
+<li><b>Upgrade independence</b>: framework and apps are versioned and migrated safely (backup first, automatic undo on failure).</li>
+</ol>
+<h3>What is in the box (version 1.19.2)</h3>
+<table><tr><th>Area</th><th>What you get</th></tr>
+<tr><td>Records</td><td>DocTypes, child tables, naming series, link integrity, submit / cancel / amend life cycle, optimistic locking, audit trail, comments, attachments, tags, sharing</td></tr>
+<tr><td>Desk</td><td>List and form views, form designer, grid designer, DocType Creator, client scripts, workspaces, Shortcut Hub, global search (Ctrl+K), theme engine, dark mode, keyboard-friendly</td></tr>
+<tr><td>Logic</td><td>Controllers, <code>doc_events</code>, server scripts (sandboxed), rules, workflows with approvals and delegation, scheduler events, durable background jobs</td></tr>
+<tr><td>Reports</td><td>Script reports, summary reports (JSON only), ad-hoc reports, report builder, dashboards, print formats, Excel export, financial statement designer</td></tr>
+<tr><td>Communication</td><td>Notification rules (In-App, Email, Webhook, SMS, WhatsApp), CC and BCC, HTML messages, digests, quiet hours, escalation, <b>Broadcast Centre</b> with opt-out and signed unsubscribe</td></tr>
+<tr><td>Data</td><td>Import and export for any DocType (Excel, CSV, JSON), dry-run validation, upsert, company file attachments, migration packages</td></tr>
+<tr><td>Platform</td><td>Control plane (users, tenants, companies, domains), SSO / OIDC, per-company databases, tenant security boundary, row-level security, API credentials</td></tr>
+<tr><td>Operations</td><td>One-command install and update with rollback, encrypted backups, restore rehearsals, readiness checks, maintenance mode, monitoring, deployment manifest, staging-to-production promotion</td></tr>
+<tr><td>Extensibility</td><td>App packages and a local marketplace, route providers, portal providers, public actions, AI advisors and the AI Developer Studio, integrations and webhooks</td></tr>
+</table>
+
+</section>
+<section id="tour" data-g="Start here" data-t="quick tour first app fifteen minutes install doctype tutorial quickstart">
+<h2><span class="n">2</span>The 15-minute tour</h2>
+
+<p class="lead">From nothing to your own working app. Each step is one command or one click.</p>
+<ol class="steps">
+<li><b>Install.</b> On a laptop: <code>pip install velora</code> then <code>velora quickstart</code>. On a server: <code>sudo bash install.sh --email you@company.com</code>. You get a signed-in system with a first company, notifications and search. If you give no password, one is generated and shown once.
+<pre><code>velora quickstart my-erp --email you@company.com --company "Acme Ltd"</code></pre></li>
+<li><b>Create your app.</b>
+<pre><code>velora new-app inventory
+velora new-doctype "Stock Item" --app inventory
+velora new-doctype "Stock Item Line" --app inventory --child
+velora new-doctype "Stock Movement" --app inventory --submittable</code></pre>
+This writes <code>apps/inventory/</code> with a DocType definition (a JSON file), a controller and a client script for each record type.</li>
+<li><b>Describe your record.</b> Open <code>stock_item.json</code> and list its fields, or paste a definition into the Desk's DocType Creator. Velora understands Frappe exports.</li>
+<li><b>Install it.</b>
+<pre><code>velora install-app inventory
+velora --company COMP-001 install-app inventory</code></pre>
+The first command installs on every company, the second only on the selected one.</li>
+<li><b>Make the form yours.</b> Open any form, press <b>Customize form</b>, drag fields, resize them, add sections and tabs.</li>
+<li><b>Add a notification.</b> Create a Notification Rule: when a Stock Item changes and quantity is below 5, tell the Store Manager role by In-App and Email.</li>
+<li><b>Find anything.</b> Press <span class="kbd">Ctrl</span>+<span class="kbd">K</span> and type part of a name. Accents and small typos are forgiven. Open the <b>Shortcut Hub</b> to search every record type and screen and pin favourites.</li>
+<li><b>Give the company its own address.</b>
+<pre><code>sudo velora domain add erp.yourcompany.com COMP-001</code></pre></li>
+</ol>
+<p>Later, <code>sudo velora update</code> keeps everything current and <code>velora uninstall-app inventory</code> removes the app after a backup.</p>
+
+</section>
+<section id="ideas" data-g="Start here" data-t="concepts glossary workspace control plane company app doctype document role hook">
+<h2><span class="n">3</span>The ideas you need</h2>
+
+<table><tr><th>Idea</th><th>What it is</th></tr>
+<tr><td>Workspace</td><td>The folder Velora lives in: apps, settings, keys, files, backups. On a server: <code>/srv/velora/workspace</code>.</td></tr>
+<tr><td>Control plane</td><td>The small registry that knows the users, tenants, companies, which database each company uses and which web address opens which company. It never holds business records.</td></tr>
+<tr><td>Tenant</td><td>A group (for example a business group) that owns companies.</td></tr>
+<tr><td>Company</td><td>An independent business with its own database. One login can reach several companies with a different role in each.</td></tr>
+<tr><td>App</td><td>A folder of DocTypes, code and settings with a <code>hooks.py</code>. Different companies can have different apps.</td></tr>
+<tr><td>DocType</td><td>A kind of record defined by a JSON file: fields, permissions, naming, behaviour. Velora builds the table, API, list and form from it.</td></tr>
+<tr><td>Document</td><td>One record. A submittable document goes Draft, Submitted (locked), Cancelled. A submitted document is never edited; to fix it you cancel it and amend it (a new draft linked to the cancelled one), or duplicate it.</td></tr>
+<tr><td>Child table</td><td>Rows that live inside a document (invoice lines). Declared as a DocType with the child flag.</td></tr>
+<tr><td>Role</td><td>What a user may do with each DocType: read, write, create, delete, submit, cancel, amend, report, export, import, share, print, email. Roles are per company.</td></tr>
+<tr><td>Hook</td><td>A place in <code>hooks.py</code> where an app plugs in: document events, scheduled jobs, lifecycle steps, route providers, portal providers.</td></tr>
+<tr><td>Rule / Workflow</td><td>Declarative behaviour stored in the company database: notification rules, approval workflows, dashboards, print formats.</td></tr>
+<tr><td>Worker</td><td>The background process (inside the server by default) that sends notifications, runs scheduler events and durable jobs.</td></tr>
+</table>
+<div class="tip"><b>Why one database per company?</b> It is the strongest isolation there is. A failed upgrade, a restore, a slow report or a mistake in Company A cannot reach Company B. You can back up, restore, move or archive one company without touching the others. Companies in a group relate only through group administration, reporting and explicit intercompany transactions, never by sharing records.</div>
+
+</section>
+<section id="commands" data-g="Install and run" data-t="commands cli install update uninstall backup doctor domain upgrade restore">
+<h2><span class="n">4</span>Commands: the complete reference</h2>
+
+<p class="lead">Every command does all its steps itself. Run <code>velora COMMAND --help</code> for the same information in the terminal; the full generated reference is <code>docs/commands.md</code>.</p>
+<h3>Global options</h3>
+<table><tr><th>Option</th><th>Meaning</th></tr>
+<tr><td><code>--site</code></td><td>site to run against (older single-site mode)</td></tr>
+<tr><td><code>--workspace</code></td><td>workspace folder (default: nearest parent holding <code>config/apps.txt</code>)</td></tr>
+<tr><td><code>--company</code></td><td>company id to run <code>install-app</code>, <code>migrate</code>, <code>doctypes</code>, <code>backup</code> against</td></tr>
+</table>
+<h3>Every command</h3>
+<table><tr><th>Group</th><th>Command</th><th>What it does</th></tr>
+<tr><td rowspan="4">Start</td><td><code>quickstart</code></td><td>Workspace, control plane, first company with its own database, sample app, administrator, then starts the server. <code>--db postgres</code> for real use. Safe to run again.</td></tr>
+<tr><td><code>start</code> / <code>serve</code></td><td>Web server + Desk + background worker. Each start repairs the layout and upgrades databases that are behind the code.</td></tr>
+<tr><td><code>doctor</code></td><td>Checks Python, OS, PostgreSQL, folder layout, databases, worker, backups and says how to fix each problem (exit code 1 if something failed).</td></tr>
+<tr><td><code>layout</code></td><td>Shows the folder structure with real sizes; <code>--fix</code> repairs it.</td></tr>
+<tr><td rowspan="9">Update and operate</td><td><code>update</code></td><td>New code (git, pip, wheel) &rarr; backup &rarr; database upgrade on the NEW code &rarr; restart. Anything fails and everything is rolled back.</td></tr>
+<tr><td><code>upgrade</code> / <code>upgrade-plan</code> / <code>apply-update</code></td><td>Upgrade databases to the installed code (<code>--dry-run</code> to preview); a reviewed, fingerprinted plan file can be required with <code>--plan-file</code>.</td></tr>
+<tr><td><code>migrate</code></td><td>Align tables and columns with the DocTypes (developer use; upgrades do it for you).</td></tr>
+<tr><td><code>backup</code></td><td>Compressed backup of one company (<code>--all</code> for every company).</td></tr>
+<tr><td><code>restore</code></td><td>Restore one database, all or nothing, with a safety copy first.</td></tr>
+<tr><td><code>ops</code></td><td>Workspace health, encrypted backups, restore rehearsals, alerts, metrics, <code>restore-workspace</code>.</td></tr>
+<tr><td><code>maintenance</code></td><td>Maintenance mode on/off: API answers 503, Desk shows an upgrading page.</td></tr>
+<tr><td><code>readiness</code> / <code>manifest</code></td><td>Production readiness check; integrity manifest of deployed files.</td></tr>
+<tr><td><code>deploy</code></td><td>Promote validated apps from staging to production, backing up first.</td></tr>
+<tr><td rowspan="5">Platform</td><td><code>platform</code></td><td>Control plane: <code>init</code>, <code>status</code>, <code>audit</code>.</td></tr>
+<tr><td><code>tenant</code></td><td>Create and list tenants (groups).</td></tr>
+<tr><td><code>company</code></td><td><code>create</code> (provisions database and apps), <code>list</code>, <code>suspend</code>, <code>activate</code>, <code>drop</code>.</td></tr>
+<tr><td><code>user</code></td><td><code>create</code>, <code>list</code>, <code>grant</code>, <code>revoke</code>, <code>set-password</code>, <code>deactivate</code>, <code>activate</code>: people, which companies they may use and with which roles.</td></tr>
+<tr><td><code>domain</code></td><td><code>add</code>, <code>check</code>, <code>list</code>, <code>remove</code>: registers the address, writes the nginx site, gets HTTPS.</td></tr>
+<tr><td rowspan="9">Apps</td><td><code>new-app</code>, <code>new-doctype</code>, <code>new-doctypes</code></td><td>Scaffold an app, a DocType (<code>--submittable</code>, <code>--child</code>) or many DocTypes from a JSON file (Velora or Frappe format, <code>--dry-run</code>, <code>--on-conflict</code>).</td></tr>
+<tr><td><code>get-app</code>, <code>list-apps</code></td><td>Clone an app from git; list apps.</td></tr>
+<tr><td><code>install-app</code>, <code>uninstall-app</code></td><td>Install on every company (or one with <code>--company</code>); uninstall after a dependency check and backup, data kept unless <code>--purge</code>.</td></tr>
+<tr><td><code>validate-app</code>, <code>export-app</code>, <code>import-app-package</code></td><td>Validate without running code; build a verified ZIP with hashes; import a ZIP safely.</td></tr>
+<tr><td><code>marketplace</code></td><td>Trusted local repositories of validated packages, optional SHA-256 check.</td></tr>
+<tr><td><code>deps</code></td><td>Optional Python packages (PDF, QR, data analysis, SFTP...) checked and installed by name.</td></tr>
+<tr><td><code>import-data</code>, <code>export-data</code>, <code>import-template</code></td><td>Load, export and template files for any DocType.</td></tr>
+<tr><td><code>doctypes</code></td><td>List a database's DocTypes.</td></tr>
+<tr><td><code>pg</code></td><td>PostgreSQL status; <code>optimize</code> applies safe improvements.</td></tr>
+<tr><td>Process</td><td><code>worker</code></td><td>Run scheduled work on its own (the server already does this unless started with <code>--no-worker</code>).</td></tr>
+<tr><td>Older mode</td><td><code>init</code>, <code>new-site</code>, <code>drop-site</code>, <code>list-sites</code>, <code>use</code></td><td>Single-site workflow kept for compatibility; new installs use companies.</td></tr>
+</table>
+<div class="ok"><b>Safe by design.</b> Anything that can lose data is preceded by a backup; every database change is all-or-nothing per company; during an update users see a friendly "upgrading" screen that reloads by itself.</div>
+
+</section>
+<section id="install" data-g="Install and run" data-t="install server ubuntu debian postgresql nginx https update upgrade github">
+<h2><span class="n">5</span>Installing, updating and removing</h2>
+
+<h3>Where it runs</h3>
+<p>Python 3.10 or newer and PostgreSQL 13 or newer for a server. Ubuntu 22.04, 24.04, 26.04 and Debian 12 and 13 work with what they ship; Ubuntu 20.04 and Debian 11 work too (the installer fetches a private Python and the official PostgreSQL packages). SQLite is for trying things out.</p>
+<h3>Install on a server</h3>
+<pre><code>sudo bash install.sh --email you@company.com
+sudo velora doctor</code></pre>
+<p>It installs packages and PostgreSQL, creates a service user, the first company, one service (web + worker), the <code>velora</code> command and, optionally, nginx and HTTPS.</p>
+<h3>Update</h3>
+<pre><code>sudo velora update</code></pre>
+<p>Order: new code, Python packages, <b>backup</b>, upgrade every company, new built-in features, restart. If any step fails everything is put back as it was. To update from your own GitHub repository see <code>docs/install-from-github.md</code>; apps can be pushed from the Desk (<b>Publish to GitHub</b>).</p>
+<h3>Preview an upgrade</h3>
+<pre><code>velora upgrade --dry-run
+velora upgrade-plan</code></pre>
+<h3>Add and remove apps</h3>
+<pre><code>sudo velora install-app velora_erp
+sudo velora --company COMP-001 install-app velora_notify
+sudo velora uninstall-app inventory           # data kept
+sudo velora uninstall-app inventory --purge   # needs the backup</code></pre>
+<p>An app may declare <code>required_apps</code>, <code>required_packages</code> and <code>required_velora</code> (for example <code>&gt;=1.16.4,&lt;1.16.4</code>); the installer refuses to install when they are not met and refuses to uninstall an app another app depends on.</p>
+<h3>Remove everything</h3>
+<pre><code>sudo bash uninstall.sh</code></pre>
+<p>A final backup is taken first; your data is kept unless you add <code>--purge</code>.</p>
+<div class="warn"><b>After every update</b> run <code>velora migrate</code> (or simply <code>velora update</code>, which does it) so that new record types, account types and workspaces are created in each company.</div>
+
+</section>
+<section id="layout" data-g="Install and run" data-t="workspace folders files apps config platform backups logs permissions move restore">
+<h2><span class="n">6</span>Where everything lives</h2>
+
+<p class="lead">One folder, six places. It can be moved, renamed, copied or restored anywhere and it still opens its own data.</p>
+<table><tr><th>Folder</th><th>Holds</th></tr>
+<tr><td><code>apps/</code></td><td>Your code and installed apps. The only folder you edit or keep in version control.</td></tr>
+<tr><td><code>config/</code></td><td>Which apps are on, installation settings, a plain history of installs and updates.</td></tr>
+<tr><td><code>platform/</code></td><td>Sign-in, people, companies, the master key (keep it safe), one database file per SQLite company.</td></tr>
+<tr><td><code>files/</code></td><td>Attachments, one folder per company.</td></tr>
+<tr><td><code>backups/</code></td><td>Database and workspace backups.</td></tr>
+<tr><td><code>logs/</code></td><td>Server and worker logs.</td></tr>
+</table>
+<p>Everything except <code>apps/</code> is readable only by you, and the generated <code>.gitignore</code> means committing the folder can never publish a key or a database. <code>velora layout</code> shows it; <code>velora layout --fix</code> repairs it; <code>velora start</code> does that by itself. To back it all up use <code>velora ops backup</code>; on a new machine use <code>velora ops restore-workspace BACKUP --into NEWFOLDER</code>.</p>
+
+</section>
+<section id="companies" data-g="Platform" data-t="company tenant user domain sso oidc login multi company group suspend">
+<h2><span class="n">7</span>Companies, tenants, users and domains</h2>
+
+<h3>Create and manage</h3>
+<pre><code>velora tenant create "Acme Group"
+velora company create "Acme Nigeria Ltd" --tenant "Acme Group" --apps velora_erp,velora_notify
+velora company list
+velora user create boss@acme.com --name "The Boss"
+velora user grant boss@acme.com COMP-001 --roles "System Manager"
+velora company suspend COMP-002        # blocks access, deletes nothing
+velora company activate COMP-002
+sudo velora domain add erp.acme.com COMP-001 --primary</code></pre>
+<p>Passwords are never printed; give one with <code>--password</code>, the <code>VELORA_USER_PASSWORD</code> variable, or let it be generated. <code>--unlocked</code> on a domain lets people on that address reach their other companies too.</p>
+<h3>People and roles</h3>
+<p>A person signs in once. The control plane records which companies they may use and the roles they hold in each: Finance Manager in Company A, Accounts User in Company B. Roles live in the company database. The Desk offers user, role and permission administration, including module-level and DocType-level permission editors.</p>
+<h3>Single sign-on</h3>
+<p>The control plane includes an OpenID Connect client, federation, directory and SSO provisioning. Secrets are referred to by environment variable name, never stored in the database.</p>
+<h3>Domains</h3>
+<p>One company can have its own web address. <code>velora domain check</code> verifies DNS before the certificate is requested. In platform mode, public pages resolve only through an active domain mapping.</p>
+<h3>Groups and intercompany</h3>
+<p>Companies in the same tenant relate through group administration, consolidation reporting and explicit intercompany transactions. They never read each other's databases.</p>
+
+</section>
+<section id="apps" data-g="Build" data-t="build app hooks.py scaffold new-app structure required_apps lifecycle after_install after_migrate">
+<h2><span class="n">8</span>Building an app</h2>
+
+<p class="lead">An app is a Python package under <code>apps/</code>.</p>
+<pre><code>apps/inventory/
+  pyproject.toml
+  inventory/
+    __init__.py
+    hooks.py
+    stock/                      # a module
+      doctype/stock_item/
+        stock_item.json         # the definition
+        stock_item.py           # controller (class StockItem(Document))
+        stock_item.js           # client script (optional)
+      report/low_stock/low_stock.json + low_stock.py
+</code></pre>
+<p>Velora finds DocTypes by scanning for <code>doctype/&lt;name&gt;/&lt;name&gt;.json</code> anywhere under the package. If a controller is missing, the plain Document behaviour is used. The class must be the PascalCase of the file name.</p>
+<h3><code>hooks.py</code> reference</h3>
+<table><tr><th>Hook</th><th>Purpose</th></tr>
+<tr><td><code>app_title</code>, <code>app_description</code></td><td>Shown in the Desk and installer.</td></tr>
+<tr><td><code>required_apps</code>, <code>required_packages</code>, <code>required_velora</code></td><td>Dependency checks at install and uninstall.</td></tr>
+<tr><td><code>before_install</code>, <code>after_install</code>, <code>before_uninstall</code>, <code>after_uninstall</code>, <code>before_migrate</code>, <code>after_migrate</code></td><td>Lifecycle functions (callable or dotted path). Use <code>after_install</code> to seed settings and workspaces; keep it idempotent.</td></tr>
+<tr><td><code>doc_events</code></td><td>Dictionary DocType &rarr; event &rarr; list of dotted functions.</td></tr>
+<tr><td><code>scheduler_events</code></td><td>Keys <code>every_tick</code>, <code>every_minute</code>, <code>hourly</code>, <code>daily</code> with dotted functions. Times are naive UTC.</td></tr>
+<tr><td><code>job_handlers</code></td><td>Names of callables that may be queued as durable jobs.</td></tr>
+<tr><td><code>api_routes_provider</code></td><td>Dotted module exposing <code>install_routes(app, scope, run)</code> to add HTTP routes (also discoverable by the <code>velora.api_routes</code> entry point).</td></tr>
+<tr><td><code>financial_reporting_provider</code>, <code>document_flow_provider</code>, <code>document_pricing_provider</code>, <code>setup_readiness_provider</code></td><td>Contracts that let the generic framework use an app's ledger, document chains, price lists and setup checks without depending on it.</td></tr>
+<tr><td><code>ai_advisors</code></td><td>Read-only declarative advisors for the AI gateway.</td></tr>
+<tr><td><code>frontend_assets</code></td><td>Extra scripts or styles the Desk should load for the app.</td></tr>
+<tr><td><code>portal providers</code></td><td>Registered in code with <code>register_resource_provider</code>, <code>register_action_provider</code> and <code>register_public_action</code> (section 18).</td></tr>
+</table>
+<h3>Document events, in order</h3>
+<pre><code>insert  : permission(create) -> defaults -> before_insert -> naming -> before_validate -> validate -> before_save
+          -> field checks -> DB write -> after_insert -> on_update -> after_save
+save    : permission(write) -> row lock + optimistic-lock check -> before_validate -> validate -> before_save
+          -> field checks -> DB write -> on_update -> after_save
+submit  : permission(submit) -> docstatus=1 -> before_validate -> validate -> before_submit -> DB write
+          -> on_update -> on_submit -> after_save
+cancel  : permission(cancel) -> docstatus=2 -> before_cancel -> DB write -> on_update -> on_cancel -> after_save
+delete  : permission(delete) -> before_delete -> link-integrity check -> DB delete -> after_delete</code></pre>
+<p>Everything in one event runs in <b>one database transaction</b>; any exception rolls the whole thing back. Each event runs the controller method first, then the handlers registered in <code>doc_events</code>.</p>
+<h3>A controller</h3>
+<pre><code>from velora.document import Document
+from velora.exceptions import ValidationError
+
+class StockItem(Document):
+    def validate(self):
+        if (self.quantity or 0) &lt; 0:
+            raise ValidationError("Quantity cannot be negative")
+        self.total = (self.quantity or 0) * (self.price or 0)</code></pre>
+
+</section>
+<section id="doctypes" data-g="Build" data-t="doctype json field types naming series autoname depends_on fetch_from permissions child table link select currency">
+<h2><span class="n">9</span>DocType reference</h2>
+
+<h3>Field types</h3>
+<table><tr><th>Type</th><th>Stored as</th><th>Notes</th></tr>
+<tr><td>Data</td><td>text up to <code>length</code> (default 255)</td><td>Names, codes, emails.</td></tr>
+<tr><td>Text</td><td>long text</td><td>Descriptions, notes.</td></tr>
+<tr><td>Int / Float</td><td>integer / float</td><td>Float is for measures, not money.</td></tr>
+<tr><td>Currency</td><td>exact decimal, 21 digits, 6 places</td><td>Always use for money; options are ignored.</td></tr>
+<tr><td>Check</td><td>0 or 1</td><td>Yes/no.</td></tr>
+<tr><td>Date / Datetime</td><td>date / timestamp</td><td>Naive UTC for timestamps.</td></tr>
+<tr><td>Select</td><td>text</td><td><code>options</code> lists the choices, one per line.</td></tr>
+<tr><td>Link</td><td>text</td><td><code>options</code> names the target DocType; integrity is checked.</td></tr>
+<tr><td>Table</td><td>child rows</td><td><code>options</code> names the child DocType.</td></tr>
+<tr><td>JSON</td><td>JSON column</td><td>Structured settings and snapshots.</td></tr>
+<tr><td>Section Break / Column Break / Tab Break</td><td>layout only</td><td>Shape the form.</td></tr>
+</table>
+<p>Field names are lower-case letters, digits and underscores, starting with a letter. System fields on every record: <code>name, owner, creation, modified, modified_by, docstatus, idx</code>; child rows also have <code>parent, parenttype, parentfield</code>.</p>
+<h3>A complete small DocType</h3>
+<pre><code>{
+ "name": "Stock Item",
+ "module": "Stock",
+ "autoname": "series:ITM-.####",
+ "title_field": "item_name",
+ "is_submittable": 0,
+ "fields": [
+  {"fieldname": "item_name", "fieldtype": "Data", "label": "Item Name", "reqd": 1},
+  {"fieldname": "category", "fieldtype": "Link", "options": "Item Category"},
+  {"fieldname": "quantity", "fieldtype": "Float", "default": 0},
+  {"fieldname": "price", "fieldtype": "Currency"},
+  {"fieldname": "supplier", "fieldtype": "Link", "options": "Supplier"},
+  {"fieldname": "supplier_email", "fieldtype": "Data", "fetch_from": "supplier.email", "read_only": 1},
+  {"fieldname": "reason", "fieldtype": "Data", "depends_on": "eval:doc.quantity &lt; 5", "mandatory_depends_on": "eval:doc.quantity &lt; 5"}
+ ],
+ "permissions": [
+  {"role": "Stock Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "report": 1, "export": 1},
+  {"role": "Stock User", "read": 1, "write": 1, "create": 1}
+ ]
+}</code></pre>
+<h3>Naming</h3>
+<table><tr><th><code>autoname</code></th><th>Result</th></tr>
+<tr><td><code>series:ITM-.####</code></td><td>ITM-0001, ITM-0002 ... (an app can offer Naming Series Rules so users control prefixes)</td></tr>
+<tr><td><code>field:item_code</code></td><td>The value of a field becomes the record's ID (must be unique).</td></tr>
+</table>
+<h3>Behaviour properties</h3>
+<table><tr><th>Property</th><th>Meaning</th></tr>
+<tr><td><code>reqd</code>, <code>read_only</code>, <code>hidden</code>, <code>unique</code>, <code>default</code></td><td>Standard field behaviour.</td></tr>
+<tr><td><code>depends_on</code>, <code>mandatory_depends_on</code>, <code>read_only_depends_on</code></td><td>Conditions, Frappe-compatible: <code>eval:doc.status=="Approved"</code>. See <code>docs/conditional-fields.md</code>.</td></tr>
+<tr><td><code>fetch_from</code></td><td><code>link_field.target_field</code>: copy a value from the linked record when the link changes.</td></tr>
+<tr><td><code>in_list_view</code>, <code>in_standard_filter</code>, <code>search_index</code></td><td>List columns, filters and indexes.</td></tr>
+<tr><td><code>is_submittable</code></td><td>Adds Draft/Submitted/Cancelled and an <code>amended_from</code> field automatically.</td></tr>
+<tr><td><code>istable</code></td><td>The DocType is a child table.</td></tr>
+<tr><td><code>permissions</code></td><td>Rows of role plus any of <code>read, write, create, delete, submit, cancel, amend, report, export, import, share, print, email</code>.</td></tr>
+</table>
+<div class="tip">Customizations made in the Desk (field order, sizes, extra fields) are stored as overrides and survive app updates.</div>
+
+</section>
+<section id="docapi" data-g="Build" data-t="document api python get_doc new_doc get_list get_count append db transaction">
+<h2><span class="n">10</span>Working with documents in Python</h2>
+
+<pre><code>import velora
+
+doc = velora.new_doc("Stock Item", item_name="Cable", quantity=10, price=1500)
+doc.insert()
+
+doc = velora.get_doc("Stock Item", "ITM-0001")
+doc.quantity = 4
+doc.save()
+
+rows = velora.get_list("Stock Item", filters=[["quantity", "&lt;", 5]], order_by="modified desc", limit=50)
+n = velora.get_count("Stock Item", {"category": "Cables"})
+
+order = velora.new_doc("Stock Movement", movement_date="2026-11-18")
+order.append("lines", {"item": "ITM-0001", "qty": 3})
+order.insert(); order.submit()</code></pre>
+<ul>
+<li><b>Filters</b> are lists <code>[["field","op",value]]</code> or dictionaries.</li>
+<li><b>Fields</b>: <code>get_list</code> does not accept <code>"*"</code>; name the columns (<code>registry.get(doctype).column_names()</code> lists them).</li>
+<li><b>Transactions</b>: inside a request or document event you are already in one. A script or job that calls services directly wraps its work in <code>with db.transaction():</code>.</li>
+<li><b>Permissions</b>: calls made on behalf of a user enforce DocType, module and row-level permissions; internal code can run privileged.</li>
+<li><b>Optimistic locking</b>: saving a stale copy is refused, so two people never silently overwrite each other.</li>
+<li><b>Submittable documents</b>: <code>submit()</code>, <code>cancel()</code>, and an amend creates a new draft linked through <code>amended_from</code>. Cancel needs the <code>cancel</code> permission.</li>
+<li><b>Linked documents</b>: a document cannot be cancelled while another <i>submitted</i> document still points at it (through a Link field, in the document or in one of its child tables). The error names them. <code>GET /api/linked-documents/{doctype}/{name}</code> lists them and <code>POST /api/cancel-all/{doctype}/{name}</code> cancels the chain, newest first, in one transaction.</li>
+<li><b>Things a document cleans up itself</b>: a controller lists them in <code>ignore_linked_doctypes = ("Payment", ...)</code> so they do not block the cancel, and removes or unlinks them in <code>on_cancel</code>. An app that keeps links in plain fields (a <code>source_doctype</code> next to a <code>source_document</code>) supplies them through the hook <code>linked_documents_provider</code> (a module with <code>dynamic_links(doctype, name)</code>).</li>
+<li><b>One cancel routine for every document</b>: a hook <code>doc_events = {"*": {"on_cancel": "app.module.function"}}</code> runs for every document type. A DocType with <code>"hide_from_menu": true</code> is a system record, kept in the database but shown in no sidebar.</li>
+</ul>
+
+</section>
+<section id="desk" data-g="Build" data-t="desk forms list view customize designer grid doctype creator layout tabs columns">
+<h2><span class="n">11</span>The Desk, forms and the designers</h2>
+
+<p class="lead">The Desk is the browser interface: sidebar, list views, forms, reports, settings and centres.</p>
+<h3>Lists</h3>
+<p>Filter, sort, choose columns, group by, save filters, bulk actions (submit, cancel, delete, update field), export, import, and open a record with the keyboard. A list can have <b>listview settings</b> from a client script (indicators, extra columns).</p>
+<h3>Forms</h3>
+<p>Tabs, sections and columns; child-table grids with duplicate, move, drag and full-row edit; comments, attachments, tags, sharing, version history, copy ("duplicate"), amend, and the timeline of everything that happened to the record. Conditional fields (<code>depends_on</code>) are checked in the browser <i>and</i> enforced on the server.</p>
+<h3>Customize form (form designer)</h3>
+<p>A System Manager presses <b>Customize form</b> (<code>#/settings/layout/&lt;DocType&gt;</code>). A form can have a 12-column layout:</p>
+<pre><code>"layout": {"tabs": [{"label": "Details", "sections": [{"label": "Customer", "collapsible": false,
+   "rows": [[{"field": "customer", "span": 6}, {"field": "posting_date", "span": 3}, {"field": "due_date", "span": 3}],
+            [{"field": "items", "span": 12}]]}]}]}</code></pre>
+<ul>
+<li>A cell is one field with width 1&ndash;12; a row adds up to at most 12.</li>
+<li><b>No field is ever lost</b>: fields not in the layout go to a "More" section.</li>
+<li>On a phone every cell is full width, so one layout serves both.</li>
+<li><b>Save for everyone</b> stores it for this company only; <b>Save into the app</b> (developer mode) writes it into the DocType JSON; <b>Reset</b> removes the company layout.</li>
+<li>The designer has drag and drop, resize by edge, arrow keys, presets, sections, tabs, undo and redo.</li>
+</ul>
+<h3>Customize Form (settings page)</h3>
+<p><b>Settings &rarr; Customize Form</b> (<code>#/settings/customize-form</code>, for administrators and designers) lists every DocType. For any field you can change the label, required, hidden, read-only, in list view and in the filter bar; <b>Add field</b> creates a custom field (any supported type) and puts it right after the field you choose (<code>insert_after</code>); a custom field can be removed again. Fields that ship with an app can be hidden but not deleted. Percent is not a field type: use Float.</p>
+<h3>Child-table grids</h3>
+<p>A child table opens with <b>at most six columns</b> (item, name, quantity, rate, amount, unit or warehouse and similar; fields flagged <code>in_list_view</code> come first, and bookkeeping fields such as source links never lead). Rows look like an Excel / Dynamics 365 sheet: thin grid lines, compact height, <b>no zebra striping</b>, a clear selected cell; Link cells are pink, currency cells light blue and data cells light yellow (tokens in the stylesheet, with dark-mode variants). A child row may have any number of fields; the grid shows the ones you choose and the row's edit button opens every field. The <b>Columns</b> button shows, hides, reorders and sizes columns: <b>Save for me</b> (this browser) or, for a System Manager, <b>Save for everyone</b> (or <code>grid_columns</code> in the child DocType).</p>
+<h3>Link fields: search like Frappe</h3>
+<p>Every Link field uses <code>GET /api/search-link?doctype=&amp;txt=&amp;filters=</code>: permission-aware, disabled records left out, the field's own filters applied, best match first (exact, starts with, title, contains) with a short description next to the ID. The old <code>/api/search</code> routes keep working.</p>
+<h3>Get Items From (copy and merge documents)</h3>
+<p>A draft document can fill its lines from other documents, as in ERPNext. The Desk shows a <b>Get Items From</b> button when the app can supply sources; a picker lists the documents that still have something open, you tick one or several, and their lines are added with a note of where each came from. The framework only provides the routes and the dialog; the <b>app</b> decides the rules through its <code>document_flow_provider</code> (hook), which may implement three optional methods:</p>
+<pre><code>GET  /api/pull-items/{target}/sources     -> provider.pull_sources(target)       list of source DocTypes
+POST /api/pull-items/candidates           -> provider.pull_candidates(body)      {target, source, party, txt, exclude}
+POST /api/pull-items/lines                -> provider.pull_items(body)           {target, source, names, party} -> {header, lines}</code></pre>
+<p>A provider that has none of them simply shows no button. VeloraERP implements them for Purchase Receipt, Purchase Invoice, Delivery Note and Sales Invoice (see the ERP manual).</p>
+<h3>Reports in the Desk</h3>
+<p>A report opens already run with its default filters. A <b>Check</b> filter is a tick box; switching it off is sent as an explicit <code>false</code>, so it never falls back to a default of &ldquo;on&rdquo;. The sheet has a header block, summary cards, right-aligned numbers, subtotal and total rows, <b>Export to Excel</b> and <b>Print</b> (menus are hidden when printing).</p>
+<h3>DocType Creator</h3>
+<p><code>#/settings/doctype-creator</code> (developer mode and System Manager) or <code>velora new-doctypes APP FILE --dry-run</code>. It reads Velora's own format and Frappe DocType exports: field types, options, <code>depends_on</code>, <code>fetch_from</code>, permissions, naming, child tables and submittable flags are mapped; unsupported items are reported, not guessed.</p>
+<h3>Other Desk tools</h3>
+<table><tr><th>Tool</th><th>For</th></tr>
+<tr><td>Server Console</td><td>File explorer with framework and app code editing, database browser, SQL and stuck-document repair, behind a password unlock.</td></tr>
+<tr><td>Publish to GitHub</td><td>Push apps and the project to your repository.</td></tr>
+<tr><td>Dashboards</td><td>Number, group-by and aggregate widgets with DocType permissions applied.</td></tr>
+<tr><td>Dashboard Studio</td><td>Compose richer dashboards visually.</td></tr>
+<tr><td>Operations console</td><td>Backups, alerts, metrics, readiness (System Manager).</td></tr>
+<tr><td>Corrections inbox and timelines</td><td>Review document corrections and see a universal timeline for any document.</td></tr>
+</table>
+
+</section>
+<section id="clientscripts" data-g="Build" data-t="client script javascript velora.ui.form.on add_button add_table_row velora.api new_doc reload msgprint navigate listview_settings">
+<h2><span class="n">12</span>Client scripts</h2>
+
+<p class="lead">A <code>.js</code> file beside the DocType JSON is served by <code>/api/client_script/&lt;DocType&gt;</code> and runs in the form.</p>
+<pre><code>velora.ui.form.on("Investment", {
+  refresh(frm) {
+    if (frm.doc.docstatus === 1 &amp;&amp; frm.doc.status === "Active") {
+      frm.add_button("Accrue income", async () =&gt; {
+        const r = await velora.api("POST", `/api/investments/${frm.doc.name}/accrue`, {});
+        velora.msgprint("Accrued", "green");
+        velora.reload();
+      });
+    }
+  },
+  validate(frm) {
+    if (!frm.doc.counterparty) throw new Error("Counterparty is required");   // aborts the save
+  }
+});</code></pre>
+<table><tr><th>Helper</th><th>What it does</th></tr>
+<tr><td><code>velora.ui.form.on(doctype, {event: fn})</code></td><td>Register handlers: <code>refresh</code>, <code>validate</code>, field-change handlers by fieldname, child-row events.</td></tr>
+<tr><td><code>frm.add_button(label, fn)</code></td><td>Add a button to the form.</td></tr>
+<tr><td><code>frm.add_table_row(table, values)</code></td><td>Add a child row with values.</td></tr>
+<tr><td><code>velora.api(method, path, body)</code></td><td>Call any of the application's <code>/api/</code> routes with the user's own session.</td></tr>
+<tr><td><code>velora.new_doc(doctype, values)</code></td><td>Open a new, unsaved form with some fields pre-filled (for example roll over a matured placement).</td></tr>
+<tr><td><code>velora.reload()</code></td><td>Reload the current form from the server after an action.</td></tr>
+<tr><td><code>velora.msgprint(message, indicator)</code></td><td>Show a message (<code>info</code>, <code>red</code>, <code>green</code>).</td></tr>
+<tr><td><code>velora.navigate(doctype, name, query)</code></td><td>Go to a list, form or filtered list.</td></tr>
+<tr><td><code>velora.listview_settings[doctype]</code></td><td>List indicators and extra columns.</td></tr>
+</table>
+<div class="tip">Client scripts are a convenience, not a security boundary: every rule that matters is also enforced on the server.</div>
+<div class="tip">Scripts ship in the wheel only if the package-data in <code>pyproject.toml</code> lists <code>*.js</code> next to the DocType folders. This was a real packaging bug once; check it for your own apps.</div>
+
+</section>
+<section id="logic" data-g="Build" data-t="server scripts hooks doc_events scheduler_events every_minute hourly daily sandbox rules">
+<h2><span class="n">13</span>Server logic: events, scheduler and server scripts</h2>
+
+<h3>Document events</h3>
+<pre><code># hooks.py
+doc_events = {
+    "Sales Invoice": {
+        "validate": ["my_app.sales.check_credit"],
+        "on_submit": ["my_app.sales.notify_warehouse"],
+    },
+    "Employee": {"before_validate": ["my_app.entity.fill_default_company"]},
+}</code></pre>
+<p>Events: <code>before_insert, after_insert, before_validate, validate, before_save, on_update, after_save, before_submit, on_submit, before_cancel, on_cancel, before_delete, after_delete</code>. A handler that raises aborts and rolls back the whole operation.</p>
+<h3>Scheduler events</h3>
+<pre><code>scheduler_events = {
+    "every_minute": ["my_app.jobs.check_sla"],
+    "hourly":       ["my_app.jobs.run_bank_matching"],
+    "daily":        ["my_app.jobs.accrue_interest", "my_app.jobs.watch_maturities"],
+}</code></pre>
+<p>They run once for every company that has the app installed, inside that company's database. Times are naive UTC. Functions must be safe to run twice. A function that is called outside a request wraps its work in <code>with db.transaction():</code>.</p>
+<h3>Server scripts</h3>
+<p>Administrators can write small sandboxed scripts in the Desk for rules that do not justify an app. The sandbox has length and operation limits, no imports and no file or network access; see <code>docs/server-scripts-limits.md</code>.</p>
+<h3>Rules and conditions</h3>
+<p>Notification conditions and rules use a small expression language (no <code>eval</code>): <code>doc.status == "Approved" and doc.grand_total &gt; 1000000</code>, <code>changed("status")</code>, <code>transition("status","Draft","Approved")</code>, <code>days_until(doc.due_date) &lt;= 3</code>, <code>has_role("Auditor")</code>.</p>
+
+</section>
+<section id="jobs" data-g="Build" data-t="jobs background queue enqueue_job retry dead idempotency schedule worker">
+<h2><span class="n">14</span>Background jobs</h2>
+
+<p class="lead">Durable jobs live in the company database, survive restarts and retry with backoff.</p>
+<pre><code># my_app/jobs.py
+def rebuild_customer_balance(payload):
+    return {"customer": payload["customer"], "rebuilt": True}
+
+# hooks.py
+job_handlers = ["my_app.jobs.rebuild_customer_balance"]
+
+# anywhere
+from velora.jobs import enqueue_job
+enqueue_job("my_app.jobs.rebuild_customer_balance", {"customer": "CUST-0001"},
+            priority=2, max_attempts=5, idempotency_key="rebuild:CUST-0001:2027-01")</code></pre>
+<table><tr><th>Item</th><th>Rule</th></tr>
+<tr><td>Priority</td><td>1 (highest) to 10 (lowest)</td></tr>
+<tr><td>Idempotency key</td><td>The same key never queues twice</td></tr>
+<tr><td><code>depends_on</code></td><td>Waits for prerequisite jobs; blocked if one dies</td></tr>
+<tr><td>Retry</td><td>Bounded backoff; after <code>max_attempts</code> the job is <b>Dead</b> (dead-letter queue)</td></tr>
+<tr><td>Recovery</td><td>A job whose worker lease is older than 15 minutes returns to Retry</td></tr>
+<tr><td>Pass size</td><td>Up to 20 due jobs per worker pass</td></tr>
+<tr><td>Recurring schedules</td><td>60 seconds to 365 days; missed intervals are skipped, not flooded</td></tr>
+</table>
+<h3>API (System Manager)</h3>
+<pre><code>GET  /api/jobs?status=Queued&amp;limit=100
+POST /api/jobs                    {handler, payload, priority, run_at, max_attempts, idempotency_key, depends_on}
+POST /api/jobs/{id}/retry         (Dead or Blocked)
+POST /api/jobs/{id}/cancel        (Queued or Retry)
+GET/POST /api/job-schedules       POST /api/job-schedules/{id}/active  {"active": false}</code></pre>
+<p>Handlers should be idempotent: a worker can crash after the business action commits but before the job is marked Completed.</p>
+
+</section>
+<section id="workflows" data-g="Build" data-t="workflow approval states transitions delegation sla parallel quorum visual designer inbox">
+<h2><span class="n">15</span>Workflows and approvals</h2>
+
+<p class="lead">Per-company workflow definitions drive approvals for any DocType. <b>Approval is only ever a workflow</b>: the framework has no built-in approval of its own.</p>
+<div class="ok"><b>The rule since 1.12.3.</b> If no workflow is switched on for a DocType, its documents simply save and submit; nothing is blocked, and a Select <code>approval_status</code> left at <i>Pending</i> is settled automatically (<code>velora.workflows.settle</code>). When a workflow <i>is</i> on, it alone decides who may do what. A company that wants maker-checker ticks &ldquo;the creator cannot approve&rdquo; in the workflow itself.</div>
+<h3>Tutorial: draw a workflow in the builder</h3>
+<ol class="steps">
+<li>Open <b>Settings &rarr; Workflows</b> and press <b>New</b>; choose the DocType.</li>
+<li>Under <i>Start from</i> pick a preset: <b>One approver</b>, <b>Two levels</b>, <b>Parallel sign-off</b> or <b>By amount</b>. The states and transitions appear as plain sentences (&ldquo;from Draft, action Send for approval, to Pending Approval&rdquo;).</li>
+<li>For each transition choose who may act: anyone, role chips (the list comes from <code>GET /api/roles</code>), or named people; choose the approval mode (single, any, all or a number of approvers).</li>
+<li>Add <b>conditions</b> (field, operator, value) so that, for example, only totals above a limit need the second approval, or add parallel groups that must all sign off.</li>
+<li>Check the automatic diagram and the <b>problems list</b>, switch the workflow on and save. Test it first with <code>POST /api/workflows/{name}/simulate</code> if you like.</li>
+</ol>
+<ul>
+<li><b>Definition</b>: DocType, initial state, states, optional state field, transitions (action, from, to, allowed roles or named users, conditions, approval policy).</li>
+<li><b>Approval policy</b>: single, any, all or quorum; conditions with all/any logic; <b>parallel branches</b> with their own approvers; delegations.</li>
+<li><b>Versioning</b>: definitions are immutable-versioned; each running instance keeps the version it started on; restore an old version as a new one.</li>
+<li><b>Visual designer</b>: drag states, draw transitions; transitions can run registered activities (notify, task, timer, sub-process, custom) and delayed activities use the job queue.</li>
+<li><b>Inbox</b>: <code>GET /api/workflow-inbox</code> lists what waits for the signed-in user; <code>POST /api/workflows/{name}/simulate</code> tests a definition.</li>
+<li><b>Notifications</b>: workflow events can fire notification rules.</li>
+</ul>
+<div class="warn"><b>Authority is configuration.</b> The approval role authorises the state transition; it does not give general write access. Apps built on Velora (VeloraERP included) keep who-may-approve in settings, never hard-coded.</div>
+<h3>Sample workflows, approval policy and gaps</h3>
+<ul>
+<li><b>Samples.</b> An app can ship sample workflows (hook <code>workflow_template_provider</code>, one module or a list). They install <b>inactive</b>: a company opens them in the designer, edits them and switches them on. Under <i>Settings &gt; Workflows &gt; Sample approval workflows</i> a System Manager can install any that are missing.</li>
+<li><b>Policy decides, workflow routes.</b> An app may hold a company's approval <i>policy</i> in its own settings and tell the framework through the hook <code>approval_policy_provider</code> (<code>decide(doctype)</code> returns True, False or None; <code>workflow_changed(doctype, enabled)</code> keeps the policy in step when someone switches a workflow on or off in the designer). True: approval is required. False: documents are approved on save. None: defer to whether a workflow is switched on.</li>
+<li><b>No silent gaps.</b> When policy requires approval but no workflow is active, submission is refused with a message naming the fix, and nothing can be approved by typing the status.</li>
+<li><b>Setup Copy of settings.</b> An app declares <code>"settings": {"doctype", "fields", "tables"}</code> in a Setup Copy section; the other company previews it ("N to update") and applies it. Links to records that do not exist there are skipped. A copied workflow replaces an unused inactive sample of the same name instead of colliding with it.</li>
+<li><b>Create From.</b> A document flow can declare a <code>stage</code> (<code>submitted</code>, <code>draft</code> or <code>open</code>) and <code>ready</code> conditions on fields, so follow-on actions appear for requests that are approved but not submitted.</li>
+</ul>
+
+</section>
+<section id="reports" data-g="Build" data-t="report script summary adhoc builder dashboard print format excel export financial statement">
+<h2><span class="n">16</span>Reports, dashboards and printing</h2>
+
+<h3>Three kinds of report</h3>
+<table><tr><th>Kind</th><th>How</th></tr>
+<tr><td>Script report</td><td><code>report/&lt;name&gt;/&lt;name&gt;.json</code> + <code>.py</code> with <code>execute(filters)</code> returning a <code>ReportBuilder</code> (sections, data rows, subtotals, totals). Typed filters with defaults like <code>Today</code>, <code>Month Start</code>, <code>Year Start</code>.</td></tr>
+<tr><td>Summary report</td><td>JSON only: <code>group_by</code> one or two fields, measures <code>count/sum/avg/min/max</code>, date buckets day/month/quarter/year. Cancelled documents never count.</td></tr>
+<tr><td>Ad-hoc / builder</td><td>Desk &rarr; Reports &rarr; New report: pick a DocType, group, measure, filter, run, export. <b>Save report</b> stores the definition only; saved reports are private until a System Manager shares them and always re-check the current user's permissions.</td></tr>
+</table>
+<pre><code>from velora.reporting import Column, ReportBuilder
+def execute(filters):
+    rb = ReportBuilder("Sales by Customer Group", [Column("name","Customer"), Column("amount","Amount","Currency")])
+    rb.section("Retail"); rb.row({"name": "Acme", "amount": 1250.5}); rb.subtotal("Total Retail")
+    rb.total("TOTAL")
+    return rb</code></pre>
+<h3>Excel export</h3>
+<p>QuickBooks-style: title, period and filters, soft theme palette, real numbers and dates, accounting formats, real <code>SUM</code> formulas, A4 fit-to-width, repeating header, page numbers. Strings are always text so a cell can never become a formula. Every export is logged.</p>
+<h3>Dashboards and Dashboard Studio</h3>
+<p>Widgets: number, group-by, aggregate. Private dashboards belong to the owner; public ones are visible company-wide. Authoring is for System Managers; widgets run through the permission layer.</p>
+<h3>Print formats</h3>
+<p>Per-company HTML templates with escaped placeholders such as <code>{{ customer_name }}</code>; browser print preview; PDF with <code>pip install velora[pdf]</code> (text-oriented fallback renderer, so rich layouts are best printed from the browser).</p>
+<h3>Financial statement designer</h3>
+<p>Apps with a ledger expose it through the <code>financial_reporting_provider</code> hook; the framework designs statements (rows, mapping, comparatives, publication, disclosure notes) without knowing the app's tables. See the ERP manual.</p>
+<h3>Theme engine</h3>
+<p>Settings &rarr; Theme: light and dark palettes with live <b>preview boxes</b>, brand colours and logo. The same palette tints Excel exports.</p>
+
+</section>
+<section id="import" data-g="Build" data-t="import export excel csv json dry run upsert template migrate files">
+<h2><span class="n">17</span>Importing and exporting data</h2>
+
+<p class="lead">Any DocType can be loaded from Excel and moved out again. In the Desk it is Excel only, and every child-table grid in a form has its own Import Excel and Export Excel buttons. The command line still reads CSV and JSON.</p>
+<ol class="steps">
+<li><b>Get the template</b> (<code>velora import-template</code> or the Import button): right headings, required fields starred, an Instructions sheet. Or bring your own file: columns are matched by name, in any order.</li>
+<li><b>Check file</b> (<code>--dry-run</code>): the real validation (links, required fields, duplicates, your rules) with nothing saved. Every problem is listed by line, column and reason; failed rows come back as a file to fix and re-import.</li>
+<li><b>Import</b>: good rows are saved, bad rows reported. Choose all-or-nothing when a partial import would be worse than none.</li>
+</ol>
+<table><tr><th>Mode</th><th>Behaviour</th></tr>
+<tr><td>insert</td><td>New records only.</td></tr>
+<tr><td>update / upsert</td><td>Change existing records by ID or a unique field you choose; empty cells never erase data.</td></tr>
+<tr><td>Keep the IDs</td><td>Preserve original names when moving between companies or servers.</td></tr>
+</table>
+<pre><code>velora import-template "Stock Item" --format xlsx --out stock_item.xlsx
+velora import-data "Stock Item" stock_item.xlsx --dry-run
+velora import-data "Stock Item" stock_item.xlsx --report failed.csv
+velora import-data "Stock Item" changes.csv --mode upsert --match item_code
+velora export-data "Stock Item" --format xlsx --out stock_items.xlsx</code></pre>
+<p>Documents with several rows (invoice lines) keep the extra rows on the lines under them. Imports obey the person's permissions; every import and export is logged with who did it. Company file attachments and whole-company migration packages are covered in <code>docs/data-import.md</code>.</p>
+<p>More options: <code>--submit</code> (submit imported documents), <code>--atomic</code> (all or nothing), <code>--keep-names</code>, <code>--date-format DMY|MDY|YMD</code>, <code>--max-rows</code>, and <code>--filters</code> on export.</p>
+<div class="warn">Open item: Excel import and export of <i>child tables on their own</i>, separately from the parent, is not built yet.</div>
+
+</section>
+<section id="api" data-g="Build" data-t="rest api resource filters bearer api key routes provider openapi swagger">
+<h2><span class="n">18</span>REST API and route providers</h2>
+
+<h3>The generic API</h3>
+<pre><code>GET    /api/meta/{doctype}                       fields, permissions, layout
+GET    /api/resource/{doctype}?filters=[..]&amp;fields=[..]&amp;order_by=..&amp;limit=..&amp;offset=..
+POST   /api/resource/{doctype}
+GET    /api/resource/{doctype}/{name}
+PUT    /api/resource/{doctype}/{name}            (send `modified` back for optimistic locking)
+DELETE /api/resource/{doctype}/{name}
+POST   /api/resource/{doctype}/{name}/submit | cancel
+GET    /api/linked-documents/{doctype}/{name}
+POST   /api/cancel-all/{doctype}/{name}   {"reason": "..."}
+GET    /api/count/{doctype}   /api/group_by/{doctype}   /api/aggregate/{doctype}
+POST   /api/bulk/{doctype}   GET /api/export/{doctype}   GET /api/health   GET /api/doctypes</code></pre>
+<p>One set of routes serves every DocType; permissions are enforced inside the Document engine. Interactive documentation is available at <code>/docs</code> on a running server.</p>
+<h3>API credentials</h3>
+<p>System Managers create company-specific keys (<code>POST /api/integrations/api-keys</code> with label, scopes, expiry). The raw key is shown once; only its SHA-256 digest is stored. Use <code>Authorization: Bearer vla_...</code> plus <code>X-Velora-Company: COMPANY-ID</code>. Keys have roles <code>API Key</code> and <code>API:&lt;scope&gt;</code> and never inherit the creator's roles.</p>
+<h3>Adding your own routes</h3>
+<pre><code># hooks.py
+api_routes_provider = "my_app.api_routes"
+
+# my_app/api_routes.py
+from fastapi import Request
+
+def install_routes(app, scope, run):
+    @app.get("/api/stock/summary")
+    def summary(request: Request):
+        return run(request, lambda: build_summary())    # run() opens the company database and session</code></pre>
+<p>The <code>run(request, fn)</code> helper opens the correct company database, applies the signed-in user's session, runs <code>fn()</code> in a transaction and wraps errors the standard way; check permissions inside <code>fn</code> with <code>check_permission</code>. Operation IDs must be unique: if one function serves GET and POST, register it with two <code>add_api_route</code> calls with different operation ids (a test fails on duplicates).</p>
+<h3>Outbound webhooks and messages</h3>
+<p>Subscribe with <code>POST /api/integrations/webhooks</code>; deliveries carry <code>X-Velora-Event</code>, <code>X-Velora-Delivery</code> and an HMAC <code>X-Velora-Signature</code>. Destinations must be https and are re-validated by the worker; failures retry and are visible in <code>/api/integrations/logs</code>. Apps queue events with <code>enqueue_event("invoice.submitted", {...})</code>. Set <code>VELORA_INTEGRATION_MASTER_KEY</code> (a Fernet key) to encrypt signing secrets.</p>
+<p>Inbound webhooks and OAuth2 client-credential grants are not included.</p>
+
+</section>
+<section id="portals" data-g="Build" data-t="portal customer supplier public website action provider register_public_action form blocks">
+<h2><span class="n">19</span>Portals, public actions and the website</h2>
+
+<h3>Portal users</h3>
+<p>Portal accounts are separate from staff users (own password hashing, throttling, tokens, status). An app registers what a portal user may see and do:</p>
+<pre><code>from velora import portal
+portal.register_resource_provider("invoices", provider)   # read lists/records for the signed-in portal user
+portal.register_action_provider("complaint", provider)    # actions that need a signed-in portal user
+portal.register_public_action("unsubscribe", handler)     # actions that need NO sign-in: GET/POST /api/public/actions/{key}
+portal.register_public_form("contact", fields)            # simple public forms stored as submissions</code></pre>
+<p>A public action is for things a stranger must be able to do from a link in an email, such as one-click unsubscribe. The handler must verify its own signed token; Velora throttles and logs. Public routes are registered once under distinct operation ids.</p>
+<h3>Public website</h3>
+<p>Pages at <code>/site/&lt;slug&gt;</code> with text, image and link blocks. Apps add block types with <code>registerWebsiteBlock(type, Component)</code> from the website renderer. Commerce (catalogue, cart, payment) is application-level, not framework core.</p>
+
+</section>
+<section id="workspaces" data-g="Build" data-t="application workspace shortcuts hub sidebar favourites recent route theme">
+<h2><span class="n">20</span>Application workspaces, Shortcut Hub and the sidebar</h2>
+
+<h3>Application Workspaces</h3>
+<p>A workspace is a landing page for an app or role: grouped shortcuts to lists, forms, reports and centres. Apps create theirs in <code>after_install</code> / <code>after_migrate</code> with an idempotent <code>ensure_*_workspace</code> function. A shortcut route may point to a DocType list, a record, a report or a centre (for example <code>#/investments</code>, <code>#/support</code>, <code>#/broadcasts</code>, <code>#/gl-review</code>, <code>#/shortcuts</code>); the framework validates routes with a regular expression, extended whenever a new centre is added.</p>
+<h3>Shortcut Hub (<code>#/shortcuts</code>)</h3>
+<p>Search every record type and screen in one place, pin favourites and see recent places. Pins and recents are kept in the browser, so they follow the browser, not the account.</p>
+<h3>Global search</h3>
+<p>Ctrl+K searches records across DocTypes with accent and typo tolerance (PostgreSQL trigram and full-text when available). Results respect permissions.</p>
+<h3>Sidebar</h3>
+<p>Modules, workspaces, <b>My reports</b>, and a Tools group whose items (Investment Portfolio, Support Desk, Broadcast Centre, GL Review, Shortcut Hub) appear only when the app that provides them is installed.</p>
+
+</section>
+<section id="notify" data-g="Communicate" data-t="notification rule email sms whatsapp webhook in-app cc bcc html test send outbox retry digest quiet hours escalation termii twilio meta gateway">
+<h2><span class="n">21</span>Notifications</h2>
+
+<p class="lead">A rule says <b>when</b> something happens to a DocType, <b>if</b> a condition holds, <b>whom</b> to tell, through <b>which channels</b>, with <b>what message</b>. Bundled app: <code>velora_notify</code>.</p>
+<pre><code>velora --company COMP-001 install-app velora_notify</code></pre>
+<h3>Rule anatomy</h3>
+<table><tr><th>Part</th><th>Options</th></tr>
+<tr><td>When</td><td>New, Save, Value Change, Submit, Cancel, N days before / after a date field, or a Custom event fired from code.</td></tr>
+<tr><td>Condition</td><td>Safe expression: <code>doc.status == "Approved" and doc.grand_total &gt; 1000000</code>, <code>changed("status")</code>, <code>days_until(doc.due_date) &lt;= 3</code>.</td></tr>
+<tr><td>Channels</td><td>In-App (bell and inbox), Email, Webhook, <b>SMS</b>, <b>WhatsApp</b>; more by registering a sender.</td></tr>
+<tr><td>Recipients</td><td>A field holding a user or email; everyone with a role; a fixed user or email; an expression; a <b>Phone Field</b> or fixed <b>Phone</b> (for SMS and WhatsApp); <b>CC Field</b>, <b>CC Email</b>, <b>BCC Field</b>, <b>BCC Email</b>. The person who made the change is excluded by default.</td></tr>
+<tr><td>Message</td><td>Plain text or <b>HTML</b> (<code>message_format</code>). Sandboxed templates: <code>Invoice {{ doc.name }} for {{ doc.grand_total|money }} is due {{ doc.due_date|date }}</code>; a missing value prints nothing, never "None".</td></tr>
+<tr><td>Priority</td><td>Low, Normal, High, Urgent (urgent ignores quiet hours and digests).</td></tr>
+<tr><td>Throttle</td><td>Do not repeat within N minutes, per recipient.</td></tr>
+<tr><td>Escalation</td><td>If the in-app notification is unread after N minutes, pass it once to a role or user.</td></tr>
+<tr><td>Preview and test</td><td><code>POST /api/notification-rules/preview</code> shows who would be told what without sending; <b>Send test</b> on a rule (<code>POST /api/notify/rules/{name}/test</code>) really sends to you and reports the real result.</td></tr>
+</table>
+<h3>Per-person preferences</h3>
+<p>Turn email off, set <b>quiet hours</b> (may cross midnight), choose an hourly or daily <b>digest</b>, mute a rule.</p>
+<h3>Email</h3>
+<p>SMTP with STARTTLS. Supports <b>CC, BCC, reply-to, from-name, HTML bodies, inline pictures, attachments</b> and a <code>List-Unsubscribe</code> header for broadcasts. Configure in <code>notify.settings</code> (API <code>PUT /api/notification-settings</code>, administrators only); secrets are always the <i>name of an environment variable</i>:</p>
+<pre><code>{"email": {"host": "smtp.example.com", "port": 587, "user": "mailer", "password_env": "SMTP_PASSWORD",
+           "from_addr": "noreply@example.com", "starttls": true},
+ "webhook": {"secret_env": "NOTIFY_WEBHOOK_SECRET"},
+ "base_url": "https://erp.example.com"}</code></pre>
+<p><code>POST /api/notification-settings/test-email</code> sends a test message; <code>base_url</code> makes links absolute.</p>
+<h3>SMS and WhatsApp</h3>
+<pre><code>"sms":      {"provider": "termii", "api_key_env": "SMS_KEY", "sender": "VALUEIMPACT", "default_country_code": "234"},
+"whatsapp": {"provider": "meta", "token_env": "WA_TOKEN", "phone_number_id": "1234567890", "template_name": "optional"}</code></pre>
+<table><tr><th>Channel</th><th>Providers</th></tr>
+<tr><td>SMS</td><td><code>termii</code>, <code>twilio</code>, <code>custom</code> (any HTTPS gateway)</td></tr>
+<tr><td>WhatsApp</td><td><code>meta</code> (WhatsApp Cloud API), <code>twilio</code>, <code>custom</code></td></tr>
+</table>
+<ul>
+<li>Phone numbers are normalised to international digits; <code>0803 123 4567</code> becomes <code>2348031234567</code> with the default country code 234. Change it in settings.</li>
+<li>Test a gateway with <code>POST /api/notification-settings/test-gateway</code> (administrators only), and test any rule with <b>Send test</b>, before relying on them.</li>
+<li>WhatsApp business-initiated messages outside the 24-hour window need a pre-approved template: set <code>template_name</code>.</li>
+<li>Gateways must be https and cannot point at private or internal addresses.</li>
+</ul>
+<div class="warn"><b>Honest limit.</b> The SMS and WhatsApp request formats follow each provider's public documentation but were <b>not run against the live services</b>. Always press Send test first. Email was tested against a fake SMTP server and webhooks against a real local HTTP server.</div>
+<h3>Why it is reliable</h3>
+<ul>
+<li><b>Written with the document</b>: notifications are created in the same transaction inside a savepoint, so none is lost on commit, none exists for a rolled-back change, and a broken rule can never make a save fail (it is logged under <code>notify.errors</code>).</li>
+<li><b>Exactly once</b>: idempotency key of rule + document + version + recipient + channel.</li>
+<li><b>Outbox with retries</b>: deliveries are sent by the worker outside any transaction; failure backs off 1 min, 5 min, 30 min, 2 h, 12 h, then Dead (visible; administrators can retry). A permanent error (bad address, not configured) is Dead at once.</li>
+<li><b>Safe by construction</b>: conditions run in a small interpreter (no <code>eval</code>), templates in Jinja's sandbox, email headers cannot be injected, webhooks cannot reach internal addresses.</li>
+<li><b>Private</b>: you see only your own notifications; the log and outbox are administrator-only.</li>
+</ul>
+<h3>From your own code</h3>
+<pre><code>from velora_notify import trigger
+trigger("Payment Failed", doc, key="attempt-3")     # fires Custom rules named "Payment Failed"; same key twice is a no-op
+
+from velora_notify import channels
+channels.register("Telegram", send)                  # send(delivery, settings); raise PermanentError for "never retry"</code></pre>
+<h3>Limits</h3>
+<p>Quiet hours, digests (08:00) and "N days before" use the server's time zone. A rule cannot be attached to a child table (attach to the parent). Approve-by-link buttons are not built. At-least-once delivery means a rare duplicate if the process dies between sending and committing.</p>
+
+</section>
+<section id="broadcast" data-g="Communicate" data-t="broadcast centre bulk email sms whatsapp opt-out unsubscribe template personalise audience schedule test send tracking">
+<h2><span class="n">22</span>Broadcast Centre</h2>
+
+<p class="lead">Send one message to many people by Email, SMS or WhatsApp, with delivery tracked per recipient. Screen: <code>#/broadcasts</code>. Record types: <b>Broadcast</b>, <b>Message Template</b>, <b>Communication Opt-Out</b>.</p>
+<h3>Send a broadcast in five steps</h3>
+<ol class="steps">
+<li><b>Create</b> a Broadcast: title, channel (Email, SMS or WhatsApp), optional Message Template, sender name, reply-to, CC and BCC.</li>
+<li><b>Write the message</b>: subject, body (plain or HTML), optional video link. Personalise with <code>{{ full_name }}</code>, <code>{{ salutation }}</code>, <code>{{ sender_name }}</code>, <code>{{ video_url }}</code>, <code>{{ unsubscribe_url }}</code>.</li>
+<li><b>Choose the audience</b>: <i>A typed list</i> (paste names and addresses or numbers), <i>Records of a document type</i> (pick a DocType, filters as JSON, and which fields hold the name, email, phone and salutation), or <i>Both</i>.</li>
+<li><b>Build recipients</b>: Velora removes duplicates and opted-out people, drops invalid addresses or numbers and reports each reason. Inspect the preview of one personalised message.</li>
+<li><b>Test, then send</b>: <b>Send test</b> goes to the test address and reports the real result; <b>Send now</b> or <b>Schedule</b> for a date and time. A send rate per minute spreads the load. <b>Cancel</b> stops what has not been sent.</li>
+</ol>
+<h3>Statuses</h3>
+<p>Draft, Scheduled, Sending, Sent, Partly Sent, Cancelled. Counters: total, queued, sent, failed, skipped, opted-out. Recipients carry their own status; <b>Sync</b> refreshes counters from the delivery outbox.</p>
+<h3>Opt-out and unsubscribe</h3>
+<ul>
+<li>Every email can carry a signed one-click unsubscribe link and a <code>List-Unsubscribe</code> header.</li>
+<li>The unsubscribe page needs no sign-in (a public action). A link merely <i>opened</i> by a mail scanner does not unsubscribe anyone; the person must confirm.</li>
+<li>Opted-out addresses and numbers go on the <b>Communication Opt-Out</b> list and are skipped in future broadcasts of that channel. You can add or remove entries manually.</li>
+</ul>
+<h3>Images and attachments</h3>
+<p>Pictures attached to a broadcast show <i>inside</i> an HTML email; other files are attached. Attachments use the file store.</p>
+<h3>API</h3>
+<pre><code>GET  /api/broadcast-centre/summary
+POST /api/broadcasts/{name}/build | send | test | cancel | sync
+GET  /api/broadcasts/{name}/preview</code></pre>
+<div class="tip">Check local rules on marketing messages and keep the unsubscribe link in every promotional email.</div>
+
+</section>
+<section id="security" data-g="Platform" data-t="security roles permissions row level tenant isolation api key audit sso encryption secrets">
+<h2><span class="n">23</span>Security, roles and permissions</h2>
+
+<h3>Design principle</h3>
+<p>Security is as simple as it can be and enforced on the server. Nothing the browser hides is the only protection.</p>
+<table><tr><th>Layer</th><th>What it does</th></tr>
+<tr><td>Authentication</td><td>Sign-in through the control plane (password with hashing and throttling, or SSO/OIDC). Developer-mode header authentication is refused outside developer mode.</td></tr>
+<tr><td>Company isolation</td><td>A request is bound to one company database; a user without a role in that company cannot reach it. A <b>tenant security boundary</b> stops credentials of one tenant being used on another.</td></tr>
+<tr><td>Roles</td><td>Per company. A DocType lists which roles may <code>read, write, create, delete, submit, cancel, amend, report, export, import, share, print, email</code>. The Desk also has module-level and DocType-level permission editors.</td></tr>
+<tr><td>Row-level security</td><td>Policies per role, DocType and permission with structured conditions (<code>equals_user</code>, <code>eq</code>, <code>ne</code>, <code>in</code>, <code>not_in</code>, <code>is_set</code>, <code>is_not_set</code>, <code>in_user_roles</code>). Conditions combine with AND within a policy, OR across roles; no raw SQL.</td></tr>
+<tr><td>Field rules</td><td><code>mandatory_depends_on</code> and validation are enforced on the server.</td></tr>
+<tr><td>API credentials</td><td>Company-local keys, shown once, stored hashed, scoped, expiring, never inheriting a person's roles.</td></tr>
+<tr><td>Secrets</td><td>Only referred to by environment-variable name in settings; webhook secrets are encrypted with Fernet.</td></tr>
+<tr><td>Audit</td><td>Version history on documents, export and import logs, platform audit trail (<code>velora platform audit</code>), activity log, and event log.</td></tr>
+<tr><td>Outbound safety</td><td>Webhooks and gateways must be https and cannot target private addresses unless explicitly allowed.</td></tr>
+</table>
+<h3>Setting permissions in practice</h3>
+<ol class="steps">
+<li>Create roles that match jobs, not people (Accounts Officer, Store Keeper).</li>
+<li>For each DocType in the Desk's permission editor tick what the role may do; submit and cancel are separate rights.</li>
+<li>Grant roles to people per company (<code>velora user grant</code> or the Desk user admin).</li>
+<li>Where users must see only their own rows, add a row policy.</li>
+<li>Sign in as a test user to confirm, and review the audit trail.</li>
+</ol>
+<div class="warn">Hosting: read <code>docs/hosting.md</code> first. Do not expose a developer-mode server to the internet.</div>
+
+</section>
+<section id="pg" data-g="Platform" data-t="postgresql extensions jsonb trigram triggers append-only pg_objects optimize wal backup connections">
+<h2><span class="n">24</span>PostgreSQL, SQLite and the database layer</h2>
+
+<p class="lead">Everything works on both; rules are always enforced in Python and, on PostgreSQL, also by the database.</p>
+<ul>
+<li><b>Money</b> is exact decimal (21 digits, 6 places).</li>
+<li><b>JSON</b> columns are JSONB on PostgreSQL; mark a field <code>"json_index": true</code> for a GIN index; filters <code>json_contains</code> and <code>json_has_key</code>.</li>
+<li><b>Ledger protection</b> (financial apps): append-only triggers, deferred balance checks, non-overlapping fiscal years, BRIN and covering indexes.</li>
+<li><b>Search</b> uses <code>pg_trgm</code> and <code>unaccent</code> when present.</li>
+<li><b>Reports</b> gain <code>count_distinct</code>, per-measure filters, <code>median</code>, <code>percentile</code>, <code>stddev</code>, <code>rollup</code> subtotals and <code>gap_fill</code> time series.</li>
+<li><b>Apps add database objects</b> with <code>pg_objects</code> in <code>hooks.py</code> (idempotent statements, allowed extensions: pg_trgm, unaccent, btree_gist, citext, pgcrypto, hstore, tablefunc, pg_stat_statements).</li>
+</ul>
+<pre><code>velora pg                 # version, extensions, rules applied, largest tables, advice
+velora pg optimize        # apply the safe improvements
+velora doctor</code></pre>
+<div class="warn"><b>Before go-live</b> turn on WAL archiving (or use pgBackRest) so you can recover to a point in time. Replication, TLS and tuning are for your host or DBA; Velora reports and advises. Mind the connection budget: see <code>docs/connections.md</code>.</div>
+
+</section>
+<section id="ops" data-g="Platform" data-t="operations backup restore encrypted rehearse disaster recovery monitoring alerts maintenance readiness deploy staging production manifest">
+<h2><span class="n">25</span>Operations: backups, recovery, monitoring, promotion</h2>
+
+<h3>Two kinds of backup</h3>
+<table><tr><th>Kind</th><th>Command</th><th>Holds</th></tr>
+<tr><td>Company database</td><td><code>velora backup --all</code>, <code>velora restore FILE</code></td><td>One company's database; restore is all-or-nothing with a safety copy first.</td></tr>
+<tr><td>Whole workspace</td><td><code>velora ops backup</code>, <code>velora ops restore-workspace PATH --into NEWDIR</code></td><td>Apps, settings, keys, control plane, databases, uploaded files; <b>encrypted</b> with the password in <code>VELORA_BACKUP_PASSWORD</code>.</td></tr>
+</table>
+<pre><code>velora ops configure --every-hours 24 --keep 14     # policy
+velora ops run-scheduled                              # schedule this with cron or systemd
+velora ops verify BACKUPFILE                          # decrypt and check integrity
+velora ops rehearse DBBACKUP                          # prove a database backup restores
+velora ops recovery-report                            # how old is your evidence of a working recovery?
+velora ops alerts                                     # exit code 1 if critical
+velora ops metrics --format prometheus
+velora ops dashboard --out ops.html</code></pre>
+<h3>Release safely</h3>
+<h3>Update Centre and database speed</h3>
+<p><b>Settings &rarr; Update Centre</b> (platform administrators) installs updates and can put the company into maintenance mode while it works. If maintenance is left on, install the new release and run <code>velora maintenance off</code>. Under <b>Database speed</b> a System Manager sees a preview and presses <b>Tune the database now</b> (<code>GET/POST /api/database/tune</code>): it adds missing indexes (and trigram indexes on PostgreSQL) for filter, date and status columns, refreshes statistics and reclaims space. It never changes data. Run it after large imports and every few months.</p>
+<pre><code>velora readiness                 # is this workspace ready for production?
+velora manifest                  # hashes of deployed files
+velora upgrade-plan              # what an upgrade WOULD change; review the plan file
+velora maintenance on --message "Back at 18:00"   # users see an upgrading page
+velora maintenance off
+velora deploy profile-create prod --source /srv/staging --target /srv/prod
+velora deploy plan prod --app my-app
+velora deploy promote prod --app my-app --yes      # databases are backed up first</code></pre>
+<div class="ok">Restore rehearsals are the only honest proof that backups work. Rehearse regularly and read <code>docs/disaster-recovery.md</code>. Note that rehearsals measure restore time, not how much data a disaster would lose.</div>
+
+</section>
+<section id="console" data-g="Platform" data-t="server console file explorer edit framework code sql database browse tables stuck document unlock password audit backup history restore">
+<h2><span class="n">26</span>The Server Console: files, database and SQL</h2>
+<p class="lead">For platform administrators. <b>Company Administration &rarr; Server Console</b> lets you see and edit the server's files, browse the database and run SQL from the Desk, with the safeguards a production server needs.</p>
+<h3>Unlocking</h3>
+<p>Reading is free. Anything that changes framework or installed-app code, or changes data, first asks for your password again (and your authenticator code if you use one). The unlock lasts <b>ten minutes</b>, belongs to that one browser session and cannot be copied to another. Five wrong passwords lock the unlock for ten minutes. Every unlock, failed attempt, file edit and SQL statement is written to the audit log.</p>
+<h3>Files</h3>
+<table><tr><th>Folder</th><th>What it holds</th><th>Allowed</th></tr>
+<tr><td><code>apps</code></td><td>Apps in this workspace</td><td>Read, edit, upload, copy, rename, delete</td></tr>
+<tr><td><code>files</code></td><td>Uploaded attachments</td><td>Read, edit, upload, copy, rename, delete</td></tr>
+<tr><td><code>backups</code>, <code>logs</code></td><td>Backups and logs</td><td>Read, download, delete</td></tr>
+<tr><td><code>framework</code></td><td>The Velora framework's own code</td><td>Read; edit, copy and upload need the unlock; no rename or delete</td></tr>
+<tr><td><code>installed</code></td><td>Code of installed apps such as VeloraERP</td><td>Read; edit, copy and upload need the unlock; no rename or delete</td></tr></table>
+<ul>
+<li>You can paste new content into the editor, upload a file over an existing one (tick replace), or use <b>Save a copy as</b> and <b>Copy</b> to duplicate a file. Copies never replace an existing name.</li>
+<li>A <code>.py</code> file with a syntax error or a <code>.json</code> file that does not parse is refused, so a typo cannot stop the server.</li>
+<li>Before a file is replaced or deleted, the old version is kept in <code>backups/file-history</code> (the newest 25 per file). <b>Earlier versions</b> in the editor restores one.</li>
+<li>Editing framework or app code changes files on disk; <b>restart the service</b> afterwards for it to take effect. Files that look like secrets (keys, passwords, .env) are never listed or opened, and symbolic links are never followed.</li></ul>
+<h3>Database and SQL</h3>
+<ol class="steps"><li>Choose a company, then a table to see its columns, key and rows (50 a page).</li>
+<li><b>Run</b> a SELECT. It runs in a read-only transaction with a 15-second limit and shows at most 500 rows.</li>
+<li>To change data, write the statement and choose <b>Preview changes</b>. It is executed and rolled back, and you see how many rows it would touch. Only that exact statement can then be applied, after an automatic backup of the company.</li>
+<li>To remove rows, tick them in the table and choose <b>Prepare delete</b>; it writes the DELETE for you to preview.</li></ol>
+<div class="warn">Always one statement at a time. Statements that reach outside the company's own data (attach, copy, extensions, roles, grants, reading server files, server settings) are refused. On SQLite a schema change (CREATE, ALTER, DROP) cannot be previewed.</div>
+<h3>A stuck document</h3>
+<p>Type the document type and name, choose <b>Mark as cancelled</b>, <b>Reopen as draft</b> or <b>Delete</b>, and preview. Delete removes the document with its table rows. You must type the document's name to confirm, and a backup is made first. Postings and links made from the document are <b>not</b> reversed, so use this to clear a stuck record, not to correct accounts: cancel and amend properly whenever the document allows it.</p>
+<h3>Switching it off</h3>
+<p>Set <code>VELORA_SERVER_CONSOLE=off</code> in the service's environment and every console action, including file edits, is refused.</p>
+</section>
+<section id="extend" data-g="Platform" data-t="ai advisors developer studio app package marketplace export validate integrations extras optional packages">
+<h2><span class="n">27</span>Packaging, marketplace and AI tooling</h2>
+
+<ul>
+<li><b>App packages</b>: <code>velora validate-app</code> checks a package without running its code, <code>velora export-app</code> builds a hash-verified ZIP, <code>velora import-app-package</code> imports it (rejecting unsafe archives) and <code>velora marketplace</code> manages trusted local repositories with SHA-256 checks.</li>
+<li><b>Optional packages</b>: <code>velora deps</code> lists and installs by name (PDF, QR codes, data analysis, SFTP, machine learning).</li>
+<li><b>AI advisors</b>: apps declare read-only advisors (<code>ai_advisors</code> hook) that the AI gateway can consult with provider settings. No advisor executes business actions.</li>
+<li><b>AI Developer Studio and app builder</b>: describe a record type or small app and get proposed DocTypes and migrations to review before anything is applied.</li>
+<li><b>Application builder API</b> and <b>Studio</b> help create apps and DocTypes from the Desk in developer mode.</li>
+</ul>
+<div class="tip">Treat AI-generated definitions like any contribution: validate, read, test, then install.</div>
+
+</section>
+<section id="trouble" data-g="Reference" data-t="troubleshooting errors problems doctor migrate no active transaction packaging controller class missing">
+<h2><span class="n">28</span>When something is wrong</h2>
+
+<table><tr><th>Symptom</th><th>Likely cause and fix</th></tr>
+<tr><td>New record types or workspaces missing after an update</td><td>Run <code>velora migrate</code> for each company (or <code>velora update</code>).</td></tr>
+<tr><td>"must define class SomeName" when loading a DocType</td><td>The controller class must be the PascalCase of the file name; with acronyms (SLA) delete the controller to use plain Document behaviour.</td></tr>
+<tr><td>"No active transaction"</td><td>A script or job called a service outside a request; wrap it in <code>with db.transaction():</code>.</td></tr>
+<tr><td>Form button or list script not appearing after install</td><td>The <code>.js</code> or doctype JSON was not packaged: add them to <code>package-data</code> in <code>pyproject.toml</code> and rebuild.</td></tr>
+<tr><td>Duplicate operation id error in tests</td><td>One function registered for GET and POST; register two routes with different operation ids.</td></tr>
+<tr><td>Workspace shortcut rejected</td><td>The route is not in the allowed pattern; use a known centre route or extend the pattern.</td></tr>
+<tr><td>Emails or SMS not arriving</td><td>Open the Notification Delivery list: <i>Retry</i> shows backoff, <i>Dead</i> shows the reason. Check the worker is running (<code>velora doctor</code>) and use Send test.</td></tr>
+<tr><td>Server returns 503 and shows "upgrading"</td><td>Maintenance mode is on (an update is running or it was set with <code>velora maintenance on</code>); turn it off with <code>velora maintenance off</code>.</td></tr>
+<tr><td>Import rejects rows</td><td>Run with <code>--dry-run --report failed.csv</code>, fix the listed lines, re-import.</td></tr>
+<tr><td>Database slots run out</td><td>See <code>docs/connections.md</code> for the PostgreSQL connection budget.</td></tr>
+</table>
+<p>Start with <code>velora doctor</code>; it names what is wrong and how to fix it.</p>
+
+</section>
+<section id="status" data-g="Reference" data-t="what is built coming limits roadmap not built honest">
+<h2><span class="n">29</span>What is built, and what is still open</h2>
+
+<div class="cards">
+<div class="card"><b>Built and tested</b>Documents, forms, designers, permissions, row policies, reports, dashboards, workflows, jobs, notifications (In-App, Email, Webhook, SMS, WhatsApp), Broadcast Centre, portals and public actions, import/export, control plane, one-command install/update, backups, PostgreSQL protections.</div>
+<div class="card"><b>Not verified here</b>PostgreSQL runs (everything in 1.12.x was tested on SQLite only); live SMS and WhatsApp gateways; live SMTP provider; a real upgrade from every older version; every Desk screen in a real browser (Get Items From and the report sheet were checked by eye; others are covered by tests).</div>
+<div class="card"><b>Open items</b>Excel import/export of child tables alone; separate doctype-level and module-level permission editors in one screen; GitHub "new update available" notice; a <i>Dynamic Link</i> field type; truly deleting retired fields; richer PDF layout; inbound webhooks and OAuth2 grants.</div>
+</div>
+<p>Everything marked "not verified" is listed so you can test it before relying on it.</p>
+
+</section>
+<section id="cheat" data-g="Reference" data-t="cheat sheet quick reference glossary">
+<h2 id="whats-new-1190">What is new in 1.19.2 (and everything since 1.16.4)</h2>
+<ul>
+<li><b>Company Administration</b> (1.19.2): creating or duplicating a company with apps that need each other (VeloraERP and ProjectOne) works in any order. <i>Duplicate company</i> copies the setup sections you tick (chart of accounts, masters, workflows, permissions, finance policy), parents first and all or nothing; if the copy fails the new company is removed again. <i>Grant access</i> checks every role in every company first and grants nothing if one is wrong. Copying setup and Data Import are about 3.5 times faster: the scripts, automations, workflows and permissions of a DocType are read once per import instead of once per record and event (inside <code>permissions.memoized()</code>).</li>
+<li><b>Update Centre</b> (1.19.1): a new first step checks every wheel and runs the command line once before maintenance mode goes on, so a bad update changes nothing. pip runs offline (<code>--no-index</code>). Apps already installed are upgraded, not re-installed; only an app new in the update is installed, and the server restarts once, at the end. The worker no longer depends on <code>python -m velora</code>.</li>
+<li><b>Publish on top of GitHub</b> (1.19.1): if the repository already has commits this copy does not (a README created on GitHub, an earlier push from your computer), a plain push is refused. <i>Publish on top of GitHub…</i> lists the files that would be added, changed and removed, and on Yes adds one commit after the repository's own history. Nothing is ever force-pushed.</li>
+<li><b>Install / Update from GitHub</b> (1.19.1): on an app profile, one button brings the app from the repository (using the saved token, so private repositories work) and installs it in the profile's company. A new app is cloned; an existing one only moves forward. Local changes on the server, or histories that have gone different ways, stop it with an explanation. The restart command in <code>update.restart_command</code> is run if configured; otherwise restart the server, and databases upgrade themselves at start with a backup. To install an app that is not on the server yet, create an app profile and tick <i>The app is only on GitHub so far</i>.</li>
+<li><b>Errors that help</b> (1.19.0): an error answer carries <code>advice</code>: <code>{"hint", "actions": [{"label", "href"}], "field"}</code>. Raise it yourself with <code>velora.throw(message, advice={...})</code>, or let rules supply it: the framework has rules for missing fields, missing links, permissions, duplicates, stale edits and cancelled or submitted documents; an app adds its own with the hook <code>error_advice</code> (a module with <code>RULES = [{"pattern": regex, "hint": ..., "actions": [...]}]</code>; named groups fill <code>{name}</code> and <code>{name_q}</code>). The Desk shows the hint, the buttons and <i>Go to the field</i>.</li>
+<li><b>Notes that do not block</b> (1.19.0): <code>velora.warn(message, hint=..., actions=[...])</code> lets the work go through and returns the note with the answer (<code>warnings</code>); the Desk shows it as a dismissible note. Use it for what is worth knowing but must not stop anyone; keep <code>throw</code> for controls.</li>
+<li><b>Built-in workflow state</b> (1.19.0): every submittable DocType gets a hidden, read-only <code>workflow_state</code> field (like <code>amended_from</code>), so a workflow can gate any document without Customize Form. The simple designer prefers <code>approval_status</code>, then <code>workflow_state</code>, and never a business status such as Document Status; its <i>Quick approval</i> row builds a one- or two-step approval with self-approval prevented.</li>
+<li><b>People &amp; Access</b> (1.19.0): <code>/api/people</code> (list, add in one step, change roles, remove) for the company you are in, allowed to a platform administrator or that company's System Manager. Roles are validated against the roles the company's DocTypes use, with suggestions; the last System Manager cannot be removed; an existing sign-in is never given a new password by a company administrator. Apps describe jobs with the hook <code>access_profiles</code> (<code>{"Accountant": {"roles": [...], "description": ...}}</code>).</li>
+<li><b>Fixed: roles set from the platform user screen</b> (1.19.0): granting or changing a person's roles there wrote only the control-plane index, which sign-in ignores once the company holds its own role row, so later changes had no effect and a removed person's roles came back when they were added again. Grants and removals now go to the company database.</li>
+<li><b>Create From can open a form unsaved</b> (1.18.0): a document-flow provider's <code>create_document_from</code> may return <code>{"prefill": True, "doctype": ..., "values": {...}}</code> instead of a saved document. The API answers with <code>name: null</code> and the values, and the Desk opens a new form filled with them, marked "Started from ...", so nothing is created until the user saves. VeloraERP uses this for the actions of a Fixed Asset.</li>
+<li><b>No silent failures in workflows</b> (1.18.0): an approval-policy or workflow-template provider that fails to load, or a running instance whose frozen definition cannot be read, is now logged (logger <code>velora.workflows</code>) instead of being skipped quietly.</li>
+<li><b>App hubs</b> (1.16.5): every installed app has a sectioned hub in the sidebar and every parent document type belongs to a named section (a test covers all of them). <b>Customise a hub</b> lets each person drag shortcuts and sections, add their own, hide built-ins and reset; it is kept per person and company in that browser.</li>
+<li><b>Hub registration for a new area</b> (1.17.8): an app area appears in the sidebar by adding one entry to <code>frontend/src/hubs.ts</code> (<code>id</code>, <code>title</code>, <code>owns</code> by app and module, optional section patterns and centres). Debt &amp; Treasury and Tax Management are examples. A screen of your own is a route in <code>router.ts</code> plus a lazy component in <code>App.tsx</code>; a workspace shortcut may point to it once the route is allowed in <code>application_workspaces.py</code> (<code>tax-centre</code> and <code>treasury-centre</code> were added).</li>
+<li><b>Printing</b> (1.17.0): saved print formats render with a sandboxed Jinja2 engine, so formats designed in Frappe or ERPNext show their content instead of raw template text; private attributes, imports and the filesystem are blocked and a template that does not compile is refused at save time. PDF output keeps tables. Print from every document and list with the format designed for it.</li>
+<li><b>Amount in words</b> (1.17.5): <code>money_in_words</code> writes the amount in words (naira and kobo, dollars and cents, and a few other currencies; other currencies use their code).</li>
+<li><b>Child rows added during validation</b> (1.17.1): rows a DocType adds while it validates now get their parent link and name before saving, for insert, save and submit.</li>
+<li><b>Registry safety</b> (1.17.3): the registry proxy refuses attribute patching; a leaked test patch had caused &ldquo;DocType does not exist&rdquo; failures in full runs. Patch the Registry class in tests instead.</li>
+<li><b>Passwords and users</b> (1.16.x): one password standard for sign-in, change, reset and administrators; administrator-issued temporary passwords; Forgot password with a one-time link or an administrator-handled request; a two-table simple workflow designer.</li>
+<li><b>Applications released on this framework</b>: VeloraERP 2.106.1 with Tax Management, Tax Report Library and Debt &amp; Treasury (see its manual), ProjectOne, Velora Admin, Governance and Farepoint.</li>
+</ul>
+<h2 id="whats-new-1160">What is new in 1.16.4</h2>
+<ul>
+<li>Velora Admin installs as an app beside VeloraERP; its DocTypes lost the &ldquo;Administrative&rdquo; prefix (an upgrade patch renames existing records).</li>
+<li>Link search makes far fewer database calls (permission lookups are remembered for one request); link boxes in grids open above the grid instead of being clipped.</li>
+<li>Short signatures: <code>velora.signatures</code> (<code>/api/me/signature</code>, <code>/api/signatures/&lt;doctype&gt;/&lt;name&gt;</code>); workflow approvals call <code>signatures.sign()</code>.</li>
+<li>Print links carry the company (<code>?company=</code>), because a new tab cannot send headers.</li>
+<li>Report screens: row search, fitted columns, dd/mm/yyyy dates; Excel export layout redesigned.</li>
+</ul>
+<h2><span class="n">30</span>Cheat sheet</h2>
+
+<table><tr><th>I want to</th><th>Do</th></tr>
+<tr><td>Try it</td><td><code>velora quickstart</code></td></tr>
+<tr><td>Check health</td><td><code>velora doctor</code></td></tr>
+<tr><td>Update</td><td><code>sudo velora update</code></td></tr>
+<tr><td>Preview an upgrade</td><td><code>velora upgrade --dry-run</code></td></tr>
+<tr><td>New app / record type</td><td><code>velora new-app X</code>, <code>velora new-doctype "Y" --app X</code></td></tr>
+<tr><td>Install on one company</td><td><code>velora --company COMP-001 install-app X</code></td></tr>
+<tr><td>Back up</td><td><code>velora backup --all</code>, <code>velora ops backup</code></td></tr>
+<tr><td>Load data safely</td><td><code>velora import-data DT file --dry-run</code></td></tr>
+<tr><td>Own address</td><td><code>sudo velora domain add erp.acme.com COMP-001</code></td></tr>
+<tr><td>Find anything</td><td>Ctrl+K, or Shortcut Hub <code>#/shortcuts</code></td></tr>
+<tr><td>Notify by SMS</td><td>Rule channel SMS + Phone Field recipient; configure <code>sms</code> in notification settings; Send test</td></tr>
+<tr><td>Mail many people</td><td>Broadcast Centre <code>#/broadcasts</code></td></tr>
+<tr><td>Call a route from a form</td><td><code>await velora.api("POST", path, body)</code></td></tr>
+<tr><td>Run something every day</td><td><code>scheduler_events["daily"]</code> in <code>hooks.py</code></td></tr>
+<tr><td>Queue durable work</td><td><code>enqueue_job(handler, payload, idempotency_key=...)</code></td></tr>
+</table>
+<h3>Where to read more</h3>
+<p>Folder <code>docs/</code>: <code>commands.md</code> (every option), <code>notifications.md</code>, <code>jobs.md</code>, <code>designer.md</code>, <code>theme-and-reports.md</code>, <code>integrations.md</code>, <code>postgresql.md</code>, <code>multicompany.md</code>, <code>hosting.md</code>, <code>disaster-recovery.md</code>, <code>upgrading.md</code>, <code>lifecycle.md</code>. Companion document: the VeloraERP tutorial and manual.</p>
+
+</section>
+<footer>Velora framework 1.19.2 &middot; administrator and developer manual<br>Powered by <b>Velora BiZ Solutions</b></footer>
+</main>
+</div>
+<script>
+(function(){
+  var secs=[].slice.call(document.querySelectorAll("section[id]")), nav=document.getElementById("nav");
+  var last=null;nav.innerHTML=secs.map(function(s){var h=s.querySelector("h2"),g=s.getAttribute("data-g"),pre="";if(g&&g!==last){pre='<div class="grp">'+g+'</div>';last=g}return pre+'<a href="#'+s.id+'">'+h.textContent.replace(/^(\d+)/,'$1. ')+'</a>'}).join("");
+  var links=[].slice.call(nav.querySelectorAll("a"));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id)})}})},{rootMargin:"-20% 0px -70% 0px"});
+  secs.forEach(function(s){io.observe(s)});
+  links.forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open")})});
+  document.getElementById("menu").onclick=function(){nav.classList.toggle("open")};
+  document.querySelectorAll("pre").forEach(function(p){var b=document.createElement("button");b.className="cp";b.textContent="Copy";b.onclick=function(){var t=p.querySelector("code").innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent="Copied"},function(){b.textContent="Select + copy"});setTimeout(function(){b.textContent="Copy"},1600)};p.appendChild(b)});
+  var q=document.getElementById("q");
+  q.addEventListener("input",function(){var t=q.value.trim().toLowerCase();secs.forEach(function(s){var hit=!t||(s.textContent+" "+(s.getAttribute("data-t")||"")).toLowerCase().indexOf(t)>=0;s.classList.toggle("hide",!hit)});links.forEach(function(a,i){a.classList.toggle("hide",secs[i].classList.contains("hide"))})});
+  var th=document.getElementById("theme"),root=document.documentElement,saved=null;try{saved=localStorage.getItem("velora-tutorial-theme")}catch(e){}
+  if(saved)root.setAttribute("data-theme",saved);else if(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)root.setAttribute("data-theme","dark");
+  th.onclick=function(){var d=root.getAttribute("data-theme")==="dark"?"light":"dark";root.setAttribute("data-theme",d);try{localStorage.setItem("velora-tutorial-theme",d)}catch(e){}};
+})();
+</script>
+</body>
+</html>

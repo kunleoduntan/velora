@@ -1,0 +1,30 @@
+{
+  "name": "Employee Loan Register",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Employee Loan",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Payroll Manager",
+    "Auditor"
+  ],
+  "description": "Employee loan principal, interest, amortisation, outstanding balances and disbursement status.",
+  "filters": [
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Disbursed",
+        "Settled"
+      ]
+    }
+  ]
+}

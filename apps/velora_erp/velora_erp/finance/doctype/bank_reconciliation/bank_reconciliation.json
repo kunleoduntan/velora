@@ -1,0 +1,271 @@
+{
+  "name": "Bank Reconciliation",
+  "module": "Finance",
+  "autoname": "series:BREC-.######",
+  "track_changes": true,
+  "description": "Period-end bank reconciliation: proves the ledger bank balance agrees with the bank statement once outstanding items are accounted for.",
+  "fields": [
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank Account",
+      "options": "Bank Account",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "gl_account",
+      "fieldtype": "Link",
+      "label": "Ledger (GL) Account",
+      "options": "Account",
+      "read_only": true,
+      "fetch_from": "bank_account.gl_account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "read_only": true,
+      "options": "Currency",
+      "fetch_from": "bank_account.currency"
+    },
+    {
+      "fieldname": "from_date",
+      "fieldtype": "Date",
+      "label": "From Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "to_date",
+      "fieldtype": "Date",
+      "label": "Reconciled Up To",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "statement_opening_balance",
+      "fieldtype": "Currency",
+      "label": "Statement Opening Balance"
+    },
+    {
+      "fieldname": "statement_closing_balance",
+      "fieldtype": "Currency",
+      "label": "Statement Closing Balance",
+      "required": true
+    },
+    {
+      "fieldname": "sec1",
+      "fieldtype": "Section Break",
+      "label": "Reconciliation Statement"
+    },
+    {
+      "fieldname": "ledger_balance",
+      "fieldtype": "Currency",
+      "label": "Balance per Ledger",
+      "read_only": true
+    },
+    {
+      "fieldname": "deposits_in_transit",
+      "fieldtype": "Currency",
+      "label": "Add: Deposits in Transit",
+      "read_only": true,
+      "description": "Receipts in the ledger the bank has not yet credited."
+    },
+    {
+      "fieldname": "outstanding_payments",
+      "fieldtype": "Currency",
+      "label": "Less: Outstanding Payments",
+      "read_only": true,
+      "description": "Payments in the ledger the bank has not yet debited."
+    },
+    {
+      "fieldname": "adjusted_bank_balance",
+      "fieldtype": "Currency",
+      "label": "Adjusted Bank Balance",
+      "read_only": true
+    },
+    {
+      "fieldname": "col1",
+      "fieldtype": "Column Break",
+      "label": "Col1"
+    },
+    {
+      "fieldname": "unrecorded_receipts",
+      "fieldtype": "Currency",
+      "label": "Add: Bank Receipts not in Ledger",
+      "read_only": true
+    },
+    {
+      "fieldname": "unrecorded_payments",
+      "fieldtype": "Currency",
+      "label": "Less: Bank Payments not in Ledger",
+      "read_only": true
+    },
+    {
+      "fieldname": "adjusted_book_balance",
+      "fieldtype": "Currency",
+      "label": "Adjusted Book Balance",
+      "read_only": true
+    },
+    {
+      "fieldname": "variance",
+      "fieldtype": "Currency",
+      "label": "Variance (must be nil)",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "statement_check",
+      "fieldtype": "Currency",
+      "label": "Statement Arithmetic Check",
+      "read_only": true,
+      "description": "Opening + statement lines - closing. Should be nil when the statement is complete."
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Reconciled",
+        "Unbalanced",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "sec2",
+      "fieldtype": "Section Break",
+      "label": "Progress"
+    },
+    {
+      "fieldname": "statement_lines_total",
+      "fieldtype": "Int",
+      "label": "Statement Lines Total",
+      "read_only": true
+    },
+    {
+      "fieldname": "matched_lines",
+      "fieldtype": "Int",
+      "label": "Matched Lines",
+      "read_only": true
+    },
+    {
+      "fieldname": "suggested_lines",
+      "fieldtype": "Int",
+      "label": "Suggested Lines",
+      "read_only": true
+    },
+    {
+      "fieldname": "unmatched_lines",
+      "fieldtype": "Int",
+      "label": "Unmatched Lines",
+      "read_only": true
+    },
+    {
+      "fieldname": "match_rate",
+      "fieldtype": "Float",
+      "label": "Match Rate",
+      "read_only": true
+    },
+    {
+      "fieldname": "sec3",
+      "fieldtype": "Section Break",
+      "label": "Reconciling Items"
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "label": "Items",
+      "options": "Bank Reconciliation Item",
+      "read_only": true
+    },
+    {
+      "fieldname": "sec4",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "options": "Bank Reconciliation",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ],
+  "is_submittable": true
+}

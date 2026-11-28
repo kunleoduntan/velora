@@ -1,0 +1,60 @@
+{
+  "name": "Payroll Pay Basis Rule",
+  "module": "Finance",
+  "istable": true,
+  "track_changes": true,
+  "description": "Which pay basis applies to a staff category (for example factory workers are paid on attendance).",
+  "fields": [
+    {
+      "fieldname": "classification_value",
+      "label": "Staff Category (Classification Value)",
+      "fieldtype": "Link",
+      "options": "Employee Classification Value",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "pay_basis",
+      "label": "Pay Basis",
+      "fieldtype": "Select",
+      "options": [
+        "Fixed Monthly",
+        "Attendance Based"
+      ],
+      "required": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true
+    },
+    {
+      "role": "Auditor",
+      "read": true
+    }
+  ]
+}

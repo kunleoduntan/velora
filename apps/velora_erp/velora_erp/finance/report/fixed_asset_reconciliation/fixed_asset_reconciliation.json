@@ -1,0 +1,21 @@
+{
+  "name": "Fixed Asset Reconciliation",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Fixed Asset",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Accountant",
+    "Auditor"
+  ],
+  "description": "Reconciles asset subledger gross cost, accumulated depreciation and impairment balances to immutable Account Ledger Records by control account.",
+  "filters": [
+    {
+      "fieldname": "asset_category",
+      "label": "Asset Category",
+      "fieldtype": "Link",
+      "options": "Fixed Asset Category"
+    }
+  ]
+}

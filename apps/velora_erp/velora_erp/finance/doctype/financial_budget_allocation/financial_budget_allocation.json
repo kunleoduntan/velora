@@ -1,0 +1,51 @@
+{
+  "name": "Financial Budget Allocation",
+  "module": "Finance",
+  "istable": true,
+  "description": "Share of the budget given to one branch or cost centre.",
+  "fields": [
+    {
+      "fieldname": "branch",
+      "fieldtype": "Link",
+      "label": "Branch",
+      "options": "Branch",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "basis_value",
+      "fieldtype": "Float",
+      "label": "Basis Value",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "allocation_percent",
+      "fieldtype": "Float",
+      "label": "Allocation %",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "allocated_amount",
+      "fieldtype": "Currency",
+      "label": "Allocated Amount",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "is_locked",
+      "fieldtype": "Check",
+      "label": "Keep this %"
+    },
+    {
+      "fieldname": "allocation_notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

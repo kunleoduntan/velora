@@ -1,0 +1,33 @@
+{
+  "name": "Customer Credit Exposure",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Accountant",
+    "Auditor"
+  ],
+  "description": "Customer receivables plus uninvoiced commitments from submitted Sales Orders. A zero credit limit is treated as unlimited.",
+  "filters": [
+    {
+      "fieldname": "customer",
+      "label": "Customer",
+      "fieldtype": "Link",
+      "options": "Customer"
+    },
+    {
+      "fieldname": "only_over_limit",
+      "label": "Only Over Limit",
+      "fieldtype": "Check",
+      "default": 0
+    },
+    {
+      "fieldname": "include_open_orders",
+      "label": "Include Open Sales Orders",
+      "fieldtype": "Check",
+      "default": 1
+    }
+  ]
+}

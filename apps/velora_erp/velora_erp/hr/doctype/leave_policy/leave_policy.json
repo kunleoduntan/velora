@@ -1,0 +1,123 @@
+{
+  "name": "Leave Policy",
+  "module": "HR",
+  "autoname": "field:policy_code",
+  "track_changes": true,
+  "description": "Versioned package of leave entitlements and eligibility rules for a defined employee population.",
+  "fields": [
+    {
+      "fieldname": "policy_code",
+      "fieldtype": "Data",
+      "label": "Policy Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_name",
+      "fieldtype": "Data",
+      "label": "Policy Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_version",
+      "fieldtype": "Int",
+      "label": "Version",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From",
+      "required": true
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Policy Status",
+      "options": [
+        "Draft",
+        "Active",
+        "Retired"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "eligibility_rules",
+      "fieldtype": "Table",
+      "label": "Eligibility Rules",
+      "options": "Leave Policy Eligibility Rule"
+    },
+    {
+      "fieldname": "entitlements",
+      "fieldtype": "Table",
+      "label": "Leave Entitlements",
+      "options": "Leave Policy Entitlement",
+      "required": true
+    },
+    {
+      "fieldname": "allow_manual_override",
+      "fieldtype": "Check",
+      "label": "Allow Controlled Employee Override",
+      "default": 0
+    },
+    {
+      "fieldname": "override_reason_required",
+      "fieldtype": "Check",
+      "label": "Require Reason for Override",
+      "default": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "policy_name"
+}

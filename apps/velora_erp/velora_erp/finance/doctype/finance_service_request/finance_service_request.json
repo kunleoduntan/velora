@@ -1,0 +1,276 @@
+{
+  "name": "Finance Service Request",
+  "module": "Finance",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Controlled internal request for Finance review, assessment, approval and resolution. This request is not itself a financial posting document.",
+  "fields": [
+    {
+      "fieldname": "requester",
+      "fieldtype": "Link",
+      "label": "Requester",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "request_type",
+      "fieldtype": "Data",
+      "label": "Request Type",
+      "options": [],
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "business_purpose",
+      "fieldtype": "Text",
+      "label": "Business Purpose",
+      "required": true
+    },
+    {
+      "fieldname": "requested_amount",
+      "fieldtype": "Currency",
+      "label": "Requested Amount"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "required_by",
+      "fieldtype": "Date",
+      "label": "Required By"
+    },
+    {
+      "fieldname": "priority",
+      "fieldtype": "Data",
+      "label": "Priority",
+      "options": [],
+      "in_list_view": true
+    },
+    {
+      "fieldname": "request_status",
+      "fieldtype": "Select",
+      "label": "Request Status",
+      "options": [
+        "Submitted",
+        "Under Review",
+        "Waiting for Information",
+        "Pending Approval",
+        "Approved",
+        "Declined",
+        "Converted",
+        "Resolved",
+        "Closed"
+      ],
+      "default": "Submitted",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Data",
+      "label": "Assigned To"
+    },
+    {
+      "fieldname": "approval_reference",
+      "fieldtype": "Data",
+      "label": "Approval Workflow Reference"
+    },
+    {
+      "fieldname": "linked_transaction_doctype",
+      "fieldtype": "Data",
+      "label": "Linked Financial Transaction Type"
+    },
+    {
+      "fieldname": "linked_transaction",
+      "fieldtype": "Data",
+      "label": "Linked Financial Transaction"
+    },
+    {
+      "fieldname": "resolution_notes",
+      "fieldtype": "Text",
+      "label": "Resolution Notes"
+    },
+    {
+      "fieldname": "attachment_reference",
+      "fieldtype": "Data",
+      "label": "Attachment Reference"
+    },
+    {
+      "fieldname": "submitted_on",
+      "fieldtype": "Datetime",
+      "label": "Submitted On"
+    },
+    {
+      "fieldname": "resolved_on",
+      "fieldtype": "Datetime",
+      "label": "Resolved On"
+    },
+    {
+      "fieldname": "approved_amount",
+      "fieldtype": "Currency",
+      "label": "Approved Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "clarification_request",
+      "fieldtype": "Text",
+      "label": "Clarification Requested",
+      "read_only": true
+    },
+    {
+      "fieldname": "clarification_response",
+      "fieldtype": "Text",
+      "label": "Requester Response",
+      "read_only": true
+    },
+    {
+      "fieldname": "clarification_requested_on",
+      "fieldtype": "Datetime",
+      "label": "Clarification Requested On",
+      "read_only": true
+    },
+    {
+      "fieldname": "clarification_responded_on",
+      "fieldtype": "Datetime",
+      "label": "Clarification Responded On",
+      "read_only": true
+    },
+    {
+      "fieldname": "recommendation_notes",
+      "fieldtype": "Text",
+      "label": "Recommendation Notes",
+      "read_only": true
+    },
+    {
+      "fieldname": "recommended_by",
+      "fieldtype": "Data",
+      "label": "Recommended By",
+      "read_only": true
+    },
+    {
+      "fieldname": "recommended_on",
+      "fieldtype": "Datetime",
+      "label": "Recommended On",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "converted_by",
+      "fieldtype": "Data",
+      "label": "Linked By",
+      "read_only": true
+    },
+    {
+      "fieldname": "converted_on",
+      "fieldtype": "Datetime",
+      "label": "Linked On",
+      "read_only": true
+    },
+    {
+      "fieldname": "closed_on",
+      "fieldtype": "Datetime",
+      "label": "Closed On",
+      "read_only": true
+    },
+    {
+      "fieldname": "workflow_instance",
+      "fieldtype": "Data",
+      "label": "Workflow Instance",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Finance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Employee",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "subject"
+}

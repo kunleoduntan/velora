@@ -1,0 +1,163 @@
+{
+  "name": "HR Service Request",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Employee self-service request for HR assistance, corrections, certificates and employment services.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "request_type",
+      "fieldtype": "Select",
+      "label": "Request Type",
+      "options": [
+        "Personal Information Update",
+        "Employment Letter",
+        "Salary Confirmation Letter",
+        "Document Request",
+        "Leave Query",
+        "Attendance Correction",
+        "Benefits Query",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "required": true
+    },
+    {
+      "fieldname": "details",
+      "fieldtype": "Text",
+      "label": "Request Details",
+      "required": true
+    },
+    {
+      "fieldname": "priority",
+      "fieldtype": "Select",
+      "label": "Priority",
+      "options": [
+        "Low",
+        "Normal",
+        "High",
+        "Urgent"
+      ],
+      "default": "Normal"
+    },
+    {
+      "fieldname": "request_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Open",
+        "In Progress",
+        "Waiting for Employee",
+        "Resolved",
+        "Closed",
+        "Rejected"
+      ],
+      "default": "Open",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Data",
+      "label": "Assigned To"
+    },
+    {
+      "fieldname": "resolution",
+      "fieldtype": "Text",
+      "label": "Resolution"
+    },
+    {
+      "fieldname": "resolved_on",
+      "fieldtype": "Datetime",
+      "label": "Resolved On"
+    },
+    {
+      "fieldname": "attachment_reference",
+      "fieldtype": "Data",
+      "label": "Attachment Reference"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Employee",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

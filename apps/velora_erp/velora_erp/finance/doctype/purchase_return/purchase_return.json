@@ -1,0 +1,200 @@
+{
+  "name": "Purchase Return",
+  "module": "Finance",
+  "autoname": "series:PRT-.########",
+  "is_submittable": true,
+  "track_changes": true,
+  "description": "Purchase Return records a controlled physical/commercial return and reverses the related invoice value through the central Financial Posting Engine. Inventory quantity/valuation movements require the inventory integration release.",
+  "fields": [
+    {
+      "fieldname": "return_date",
+      "label": "Return Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_date",
+      "label": "Posting Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party",
+      "label": "Supplier",
+      "fieldtype": "Link",
+      "options": "Supplier",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "supplier_name",
+      "label": "Supplier Name",
+      "fieldtype": "Data",
+      "fetch_from": "party.supplier_name",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_invoice",
+      "label": "Original Purchase Invoice",
+      "fieldtype": "Link",
+      "options": "Purchase Invoice",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "label": "Transaction Currency",
+      "fieldtype": "Link",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "label": "Exchange Rate",
+      "fieldtype": "Float",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "lines",
+      "label": "Return Lines",
+      "fieldtype": "Table",
+      "options": "Purchase Return Line",
+      "required": true
+    },
+    {
+      "fieldname": "net_amount",
+      "label": "Net Return Amount",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "tax_amount",
+      "label": "Tax Reversal Amount",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "grand_total",
+      "label": "Total Return Amount",
+      "fieldtype": "Currency",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_comments",
+      "label": "Approval Comments",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "narration",
+      "label": "Reason / Narration",
+      "fieldtype": "Text",
+      "required": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "label": "Financial Posting Batch",
+      "fieldtype": "Link",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "warehouse",
+      "label": "Return Warehouse",
+      "fieldtype": "Link",
+      "options": "Warehouse",
+      "required": false,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "inventory_posting_batch",
+      "label": "Inventory Posting Batch",
+      "fieldtype": "Link",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

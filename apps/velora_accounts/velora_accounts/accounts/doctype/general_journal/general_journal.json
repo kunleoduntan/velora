@@ -1,0 +1,144 @@
+{
+  "name": "General Journal",
+  "module": "Accounts",
+  "autoname": "series:GJ-.#####",
+  "is_submittable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "journal_type",
+      "fieldtype": "Select",
+      "label": "Journal Type",
+      "options": [
+        "General",
+        "Adjusting",
+        "Reversing",
+        "Recurring",
+        "Opening Balance",
+        "Depreciation",
+        "Accrual",
+        "Prepayment",
+        "Intercompany",
+        "Bank Transfer",
+        "Year-End Closing"
+      ],
+      "default": "General",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "reverse_on",
+      "fieldtype": "Date",
+      "label": "Reverse On"
+    },
+    {
+      "fieldname": "reference",
+      "fieldtype": "Data",
+      "label": "Reference"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Lines",
+      "options": "General Journal Line"
+    },
+    {
+      "fieldname": "total_debit",
+      "fieldtype": "Currency",
+      "label": "Total Debit",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_credit",
+      "fieldtype": "Currency",
+      "label": "Total Credit",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "is_auto_reversal",
+      "fieldtype": "Check",
+      "label": "Auto Reversal",
+      "read_only": true
+    },
+    {
+      "fieldname": "reversal_of",
+      "fieldtype": "Data",
+      "label": "Reversal Of",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_type",
+      "fieldtype": "Data",
+      "label": "Source Type",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_ref",
+      "fieldtype": "Data",
+      "label": "Source",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ]
+}

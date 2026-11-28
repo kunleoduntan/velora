@@ -1,0 +1,206 @@
+{
+  "name": "Payroll Automation Settings",
+  "module": "Finance",
+  "autoname": "field:settings_name",
+  "title_field": "settings_name",
+  "track_changes": true,
+  "description": "Defaults that let payroll set itself up: tax rule, salary structure, rent relief and the checks run before each payroll.",
+  "fields": [
+    {
+      "fieldname": "settings_name",
+      "label": "Settings Profile",
+      "fieldtype": "Data",
+      "required": true,
+      "default": "Payroll Automation",
+      "read_only": true,
+      "unique": true
+    },
+    {
+      "fieldname": "tax_section",
+      "label": "PAYE",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "default_jurisdiction",
+      "label": "Tax Jurisdiction",
+      "fieldtype": "Link",
+      "options": "Payroll Tax Jurisdiction",
+      "description": "Used when an employee has no tax profile yet; one is created automatically."
+    },
+    {
+      "fieldname": "default_tax_rule",
+      "label": "Tax Rule",
+      "fieldtype": "Link",
+      "options": "Payroll Tax Rule"
+    },
+    {
+      "fieldname": "rent_relief_rate",
+      "label": "Rent Relief Rate %",
+      "fieldtype": "Float",
+      "default": 20,
+      "description": "Relief is this % of the annual rent in the employee's Rent Declaration."
+    },
+    {
+      "fieldname": "rent_relief_cap",
+      "label": "Rent Relief Cap",
+      "fieldtype": "Currency",
+      "default": 500000,
+      "description": "Largest rent relief for one employee in a tax year."
+    },
+    {
+      "fieldname": "salary_section",
+      "label": "Salary",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "default_salary_structure",
+      "label": "Default Salary Structure",
+      "fieldtype": "Link",
+      "options": "Salary Structure",
+      "description": "Used for an employee with no salary assignment."
+    },
+    {
+      "fieldname": "basic_percent_of_gross",
+      "label": "Base Salary % of Gross Pay",
+      "fieldtype": "Float",
+      "description": "Base Salary = this % of the employee's Gross Pay. Leave empty to create assignments by hand."
+    },
+    {
+      "fieldname": "payroll_payable_account",
+      "label": "Payroll Payable Account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ],
+      "description": "Used on payroll runs prepared automatically."
+    },
+    {
+      "fieldname": "basis_section",
+      "label": "How people are paid",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "default_pay_basis",
+      "label": "Default Pay Basis",
+      "fieldtype": "Select",
+      "options": [
+        "Fixed Monthly",
+        "Attendance Based"
+      ],
+      "default": "Fixed Monthly",
+      "description": "Fixed Monthly pays the full salary. Attendance Based reduces the components marked 'Prorate by Attendance' for recorded absences."
+    },
+    {
+      "fieldname": "pay_basis_rules",
+      "label": "Pay Basis by Staff Category",
+      "fieldtype": "Table",
+      "options": "Payroll Pay Basis Rule",
+      "description": "A staff category listed here overrides the default, e.g. Factory Workers = Attendance Based. An employee's own Pay Basis overrides both."
+    },
+    {
+      "fieldname": "only_approved_attendance",
+      "label": "Only approved attendance counts",
+      "fieldtype": "Check",
+      "default": 1
+    },
+    {
+      "fieldname": "checks_section",
+      "label": "Checks before each payroll",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "expect_pension",
+      "label": "Structure must have a Pension component",
+      "fieldtype": "Check",
+      "default": 1
+    },
+    {
+      "fieldname": "expect_nhf",
+      "label": "Structure must have an NHF component",
+      "fieldtype": "Check",
+      "default": 1
+    },
+    {
+      "fieldname": "expect_nsitf",
+      "label": "Structure must have an NSITF component",
+      "fieldtype": "Check",
+      "default": 1
+    },
+    {
+      "fieldname": "automation_section",
+      "label": "Automation",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "auto_prepare_on_employee_save",
+      "label": "Set up tax profile and salary assignment when an Employee is saved",
+      "fieldtype": "Check",
+      "default": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true
+    }
+  ]
+}

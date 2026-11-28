@@ -1,0 +1,144 @@
+{
+  "name": "Performance Cycle Assignment",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Employee-level appraisal workflow assignment and milestone tracking within a performance cycle.",
+  "fields": [
+    {
+      "fieldname": "cycle",
+      "fieldtype": "Link",
+      "label": "Performance Cycle",
+      "options": "Performance Cycle",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "manager",
+      "fieldtype": "Link",
+      "label": "Review Manager",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "review",
+      "fieldtype": "Link",
+      "label": "Performance Review",
+      "options": "Performance Review"
+    },
+    {
+      "fieldname": "assignment_date",
+      "fieldtype": "Date",
+      "label": "Assignment Date"
+    },
+    {
+      "fieldname": "self_review_due",
+      "fieldtype": "Date",
+      "label": "Self Review Due"
+    },
+    {
+      "fieldname": "manager_review_due",
+      "fieldtype": "Date",
+      "label": "Manager Review Due"
+    },
+    {
+      "fieldname": "reminder_count",
+      "fieldtype": "Int",
+      "label": "Reminder Count",
+      "default": 0
+    },
+    {
+      "fieldname": "last_reminder_date",
+      "fieldtype": "Date",
+      "label": "Last Reminder Date"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Assigned",
+        "Self Review Pending",
+        "Manager Review Pending",
+        "Completed",
+        "Overdue",
+        "Cancelled"
+      ],
+      "default": "Assigned",
+      "required": true,
+      "in_list_view": true
+    }
+  ],
+  "title_field": "employee_name",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": 1,
+      "create": 1,
+      "delete": false,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": 1,
+      "create": 1,
+      "delete": false,
+      "export": false,
+      "print": 1,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": false,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": 1,
+      "print": false,
+      "report": true
+    }
+  ]
+}

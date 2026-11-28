@@ -1,0 +1,3 @@
+{"name": "Goods in Transit", "module": "Finance", "type": "script", "ref_doctype": "Stock Transfer", "roles": ["System Manager", "Finance Manager", "Inventory Manager", "Storekeeper", "Auditor"],
+ "description": "Stock that has left one warehouse and not yet been received at the other, line by line, with days on the way. Overdue ones are flagged.",
+ "filters": [{"fieldname":"warehouse","label":"Warehouse","fieldtype":"Link","options":"Warehouse"}]}

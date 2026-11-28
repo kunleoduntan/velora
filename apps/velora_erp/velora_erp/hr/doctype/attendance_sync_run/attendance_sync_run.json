@@ -1,0 +1,152 @@
+{
+  "name": "Attendance Sync Run",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Auditable execution record for attendance provider synchronisation.",
+  "fields": [
+    {
+      "fieldname": "integration",
+      "fieldtype": "Link",
+      "label": "Integration",
+      "options": "Attendance Integration",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "provider",
+      "fieldtype": "Data",
+      "label": "Provider",
+      "read_only": true
+    },
+    {
+      "fieldname": "sync_mode",
+      "fieldtype": "Select",
+      "label": "Sync Mode",
+      "options": [
+        "API Pull",
+        "Event Push",
+        "CSV Import",
+        "Manual Reconciliation"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "period_start",
+      "fieldtype": "Date",
+      "label": "Period Start"
+    },
+    {
+      "fieldname": "period_end",
+      "fieldtype": "Date",
+      "label": "Period End"
+    },
+    {
+      "fieldname": "run_status",
+      "fieldtype": "Select",
+      "label": "Run Status",
+      "options": [
+        "Running",
+        "Completed",
+        "Completed With Warnings",
+        "Failed"
+      ],
+      "default": "Running",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "records_fetched",
+      "fieldtype": "Int",
+      "label": "Records Fetched",
+      "default": 0
+    },
+    {
+      "fieldname": "records_created",
+      "fieldtype": "Int",
+      "label": "Records Created",
+      "default": 0
+    },
+    {
+      "fieldname": "records_skipped",
+      "fieldtype": "Int",
+      "label": "Records Skipped",
+      "default": 0
+    },
+    {
+      "fieldname": "records_unmapped",
+      "fieldtype": "Int",
+      "label": "Records Unmapped",
+      "default": 0
+    },
+    {
+      "fieldname": "error_count",
+      "fieldtype": "Int",
+      "label": "Error Count",
+      "default": 0
+    },
+    {
+      "fieldname": "started_on",
+      "fieldtype": "Datetime",
+      "label": "Started On"
+    },
+    {
+      "fieldname": "finished_on",
+      "fieldtype": "Datetime",
+      "label": "Finished On"
+    },
+    {
+      "fieldname": "summary",
+      "fieldtype": "Text",
+      "label": "Summary"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "name": "Corporate Event",
+  "module": "Governance",
+  "autoname": "series:CEV-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "event_type",
+      "fieldtype": "Link",
+      "label": "Corporate Event Type",
+      "options": "Corporate Event Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Effective Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "related_board_member",
+      "fieldtype": "Link",
+      "label": "Related Board Member",
+      "options": "Board Member"
+    },
+    {
+      "fieldname": "shareholder",
+      "fieldtype": "Link",
+      "label": "Shareholder",
+      "options": "Shareholder"
+    },
+    {
+      "fieldname": "filing_requirement",
+      "fieldtype": "Link",
+      "label": "Filing Requirement",
+      "options": "Filing Requirement"
+    },
+    {
+      "fieldname": "corporate_filing",
+      "fieldtype": "Link",
+      "label": "Corporate Filing",
+      "options": "Corporate Filing",
+      "read_only": true
+    },
+    {
+      "fieldname": "event_status",
+      "fieldtype": "Select",
+      "label": "Event Status",
+      "options": [
+        "Draft",
+        "Recorded",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "document_reference",
+      "fieldtype": "Data",
+      "label": "Document File Reference"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "event_type"
+}

@@ -1,0 +1,112 @@
+{
+  "name": "Consolidation Elimination Rule",
+  "module": "Finance",
+  "istable": true,
+  "description": "A rule that removes what two group companies owe, earn or hold from each other.",
+  "grid_columns": [
+    {
+      "field": "description",
+      "width": 2
+    },
+    {
+      "field": "rule_type",
+      "width": 2
+    },
+    {
+      "field": "company_one",
+      "width": 1
+    },
+    {
+      "field": "account_one",
+      "width": 1
+    },
+    {
+      "field": "company_two",
+      "width": 1
+    },
+    {
+      "field": "account_two",
+      "width": 1
+    },
+    {
+      "field": "enabled",
+      "width": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "rule_type",
+      "fieldtype": "Select",
+      "label": "Type",
+      "options": [
+        "Intercompany balance",
+        "Intercompany income and expense",
+        "Investment in subsidiary",
+        "Dividend",
+        "Other"
+      ],
+      "default": "Intercompany balance",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "company_one",
+      "fieldtype": "Data",
+      "label": "Company one",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "account_one",
+      "fieldtype": "Data",
+      "label": "Account one (code or name)",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "company_two",
+      "fieldtype": "Data",
+      "label": "Company two",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "account_two",
+      "fieldtype": "Data",
+      "label": "Account two (code or name)",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "basis",
+      "fieldtype": "Select",
+      "label": "Amount to eliminate",
+      "options": [
+        "Matching balance",
+        "Side one balance",
+        "Side two balance",
+        "Fixed amount"
+      ],
+      "default": "Matching balance",
+      "description": "Matching balance removes the smaller of the two sides and reports any difference."
+    },
+    {
+      "fieldname": "fixed_amount",
+      "fieldtype": "Float",
+      "label": "Fixed amount"
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": 1,
+      "in_list_view": true
+    }
+  ]
+}

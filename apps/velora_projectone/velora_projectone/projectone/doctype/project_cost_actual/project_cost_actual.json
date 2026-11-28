@@ -1,0 +1,141 @@
+{
+  "name": "Project Cost Actual",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Read-only mirror of posted source-system cost transactions. ProjectOne never posts or changes the source ledger.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "label": "Source Document Type",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "source_name",
+      "label": "Source Document",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "source_line",
+      "label": "Source Line",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "posting_reference",
+      "label": "Accounting Posting Reference",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "posting_date",
+      "label": "Posting Date",
+      "fieldtype": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cost_category",
+      "label": "Cost Category",
+      "fieldtype": "Link",
+      "options": "Project Cost Category",
+      "required": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "label": "Cost Centre",
+      "fieldtype": "Link",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "options": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "amount",
+      "label": "Posted Amount",
+      "fieldtype": "Currency",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_status",
+      "label": "Source Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Submitted",
+        "Posted",
+        "Cancelled"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "source_updated_at",
+      "label": "Source Updated At",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "is_cancelled",
+      "label": "Cancelled",
+      "fieldtype": "Check",
+      "default": false
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Project Finance Integration",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "project"
+}

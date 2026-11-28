@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProjectOne Guide - Powered by Velora BiZ Solutions</title>
+<style>
+:root{--bg:#f6f7fb;--panel:#fff;--ink:#1c2033;--muted:#667085;--line:#e4e7ef;--brand:#5b5bf0;--brand2:#14b8a6;--brand-soft:#eef0ff;--ok:#12b76a;--warn:#f79009;--code:#0f172a;--codeink:#e2e8f0;--shadow:0 6px 24px rgba(28,32,51,.08)}
+:root[data-theme=dark]{--bg:#0f1220;--panel:#171b2e;--ink:#e8eaf6;--muted:#9aa3c0;--line:#272d47;--brand:#8b8bff;--brand2:#2dd4bf;--brand-soft:#1d2240;--code:#0a0d1a;--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--brand)}
+header.top{position:sticky;top:0;z-index:20;display:flex;gap:12px;align-items:center;padding:10px 18px;background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;text-decoration:none;color:var(--ink)}
+.logo svg{width:32px;height:32px}
+.top .grow{flex:1}.top input{width:min(320px,45vw);padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);font:inherit}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer;font:inherit}
+.btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0;font-weight:700}
+#menu{display:none}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;max-width:1240px;margin:0 auto;padding:0 18px}
+nav.side{position:sticky;top:64px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;padding:22px 0}
+nav.side a{display:block;padding:7px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:14.5px}
+nav.side a:hover{background:var(--brand-soft);color:var(--ink)}nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side .grp{margin:16px 12px 4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+main{padding:26px 0 80px;min-width:0}
+.hero{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 45%,#14b8a6 100%);color:#fff;border-radius:26px;padding:42px 36px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px);line-height:1.15}.hero p{margin:0 0 18px;max-width:640px;font-size:18px;opacity:.95}
+.hero .chips span{display:inline-block;margin:0 8px 8px 0;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.18);font-size:14px}
+section{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:26px 30px;margin:22px 0;box-shadow:var(--shadow)}
+section h2{margin:0 0 4px;font-size:26px}section h2 .n{display:inline-grid;place-items:center;width:34px;height:34px;margin-right:10px;border-radius:12px;background:var(--brand-soft);color:var(--brand);font-size:16px;vertical-align:middle}
+section h3{margin:26px 0 6px;font-size:18px}.lead{color:var(--muted);margin:4px 0 16px}
+pre{position:relative;margin:12px 0;padding:16px 18px;background:var(--code);color:var(--codeink);border-radius:14px;overflow:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre .cp{position:absolute;top:8px;right:8px;padding:3px 10px;font-size:12px;border-radius:999px;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:var(--brand-soft);padding:1px 6px;border-radius:6px}pre code{background:none;padding:0;font-size:inherit}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--bg)}.card b{display:block;margin-bottom:4px}
+.tip,.warn,.ok{border-left:4px solid var(--brand);background:var(--brand-soft);padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0}.warn{border-color:var(--warn);background:color-mix(in srgb,var(--warn) 12%,var(--panel))}.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 11%,var(--panel))}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:15px}th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+.steps{counter-reset:s;list-style:none;padding:0}.steps li{counter-increment:s;position:relative;padding:4px 0 14px 50px}.steps li:before{content:counter(s);position:absolute;left:0;top:2px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;font-weight:700}
+.pill{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;background:var(--brand-soft);color:var(--brand);font-weight:700}.pill.no{background:color-mix(in srgb,var(--warn) 18%,var(--panel));color:var(--warn)}
+footer{margin:36px 0;text-align:center;color:var(--muted);font-size:14px}footer b{color:var(--ink)}
+.hide{display:none!important}mark{background:#fde68a;color:#111;border-radius:4px;padding:0 2px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}nav.side{display:none;position:fixed;inset:56px 0 0 0;z-index:15;background:var(--panel);padding:16px;max-height:none}nav.side.open{display:block}#menu{display:inline-block}section{padding:20px 18px}}
+@media print{header.top,nav.side,.cp,.hero:after{display:none}.layout{display:block}section{box-shadow:none;break-inside:avoid}body{background:#fff}}
+nav.side .grp{margin:16px 12px 4px}
+table{display:block;overflow-x:auto}
+.kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:0 6px;background:var(--bg)}
+section h4{margin:18px 0 4px;font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+code{overflow-wrap:anywhere}pre code{overflow-wrap:normal}
+@media(max-width:700px){header.top{flex-wrap:wrap;gap:8px}.top .grow{display:none}.top input{order:9;width:100%}.btn.primary{display:none}.hero{padding:28px 20px}}
+
+.welcome{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--brand);border-radius:18px;padding:22px 26px;margin:0 0 22px;box-shadow:var(--shadow)}.welcome h2{margin:0 0 8px;font-size:21px;border:0;padding:0}.welcome p{margin:8px 0;line-height:1.7}.welcome .more{font-size:14px;color:var(--muted);margin-top:14px}.welcome .more a{font-weight:600}
+</style>
+</head>
+<body>
+<header class="top">
+  <button class="btn" id="menu" aria-label="Contents">&#9776;</button>
+  <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5bf0"/><stop offset="1" stop-color="#14b8a6"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#g)"/><path d="M9 12l11 18 11-18" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Velora <span class="pill">VeloraERP</span></a>
+  <span class="grow"></span>
+  <input id="q" type="search" placeholder="Search this guide..." aria-label="Search this manual">
+  <button class="btn" id="theme" aria-label="Switch light or dark">&#9680;</button>
+  <button class="btn primary" onclick="window.print()">Print / PDF</button>
+</header>
+<div class="layout">
+<nav class="side" id="nav" aria-label="Contents"></nav>
+<main id="top"><div class="hero">
+  <h1>The ProjectOne guide.</h1>
+  <p>Features, step-by-step tutorials and administrator setup for ProjectOne 2.25.2: portfolios, programmes and projects, plans, resources, budgets and cost control, risk and governance, programme intelligence, dashboards and the mobile app.</p>
+  <div class="chips"><span>Features</span><span>Tutorials</span><span>Administrators</span><span>Version 2.25.2</span><span>Mobile</span></div>
+  <p style="margin:6px 0 0;font-size:14px;opacity:.9">Powered by <b>Velora BiZ Solutions</b></p>
+</div>
+<div class="welcome" id="welcome"><h2>Welcome to ProjectOne</h2><p>A project is a promise made to other people. <b>ProjectOne helps you keep it</b>, from the first business case to the closing report: portfolios and programmes that show what matters, plans with real dependencies, resources that are neither idle nor overbooked, risks that are named before they bite, and budgets that come from the same ledger the accountants use.</p>
+<p>Because ProjectOne lives inside Velora beside VeloraERP, a purchase, a timesheet or an invoice for the project is never copied by hand: it is the same record, seen from the project's side. Programme managers, project managers, team members and finance officers all read the same truth, and each sees what is theirs to act on.</p>
+<p>This guide is written for each of them. Find your part in section 1, follow the tutorials once with a small real project, and you will be running with confidence.</p><p class="more">Other guides on this server: <a href="/tutorial">Velora framework</a> · <a href="/guide/velora_erp">VeloraERP</a> · <a href="/guide/velora_projectone">ProjectOne</a> · <a href="/guide/velora_admin">Velora Admin</a>. A guide opens only if that application is installed.</p></div>
+<section id="who" data-g="Start here" data-t="guide audience users administrators developers">
+<h2><span class="n">1</span>Which part is for whom</h2>
+<p class="lead">One guide, three readers. Skip what is not yours.</p>
+<table><tr><th>You are</th><th>Read</th></tr>
+<tr><td>A project manager, team member, finance officer or executive</td><td>Sections 2, then <b>Using ProjectOne</b> (6 to 13), then the questions in section 15.</td></tr>
+<tr><td>An administrator who installs, sets up roles and approvals</td><td>Sections 3 to 5, then 14 (how ProjectOne works with the other apps).</td></tr>
+<tr><td>A developer extending Velora or ProjectOne</td><td>The Velora framework manual (opens at <code>/tutorial</code> on your server) and the architecture and integration notes shipped with the app.</td></tr></table>
+</section>
+<section id="what" data-g="Start here" data-t="features overview portfolio programme project risk budget">
+<h2><span class="n">2</span>What ProjectOne is</h2>
+<p class="lead">ProjectOne manages the whole project life from business case to closure. It runs inside Velora next to VeloraERP, and its figures come from the same ledger the accountants use.</p>
+<div class="cards">
+<div class="card"><b>Portfolio and programmes</b>Portfolios, programmes, business cases, benefits, stage gates, charters and stakeholders.</div>
+<div class="card"><b>Planning</b>Work breakdown, tasks with four kinds of dependency and lags, milestones, baselines, deliverables, sprints and user stories for agile teams.</div>
+<div class="card"><b>Resources</b>Resource profiles, skills, calendars, availability exceptions, allocations, capacity and timesheets.</div>
+<div class="card"><b>Financial control</b>Budgets with lines and changes, commitments, actual costs, revenue forecasts and recognition, performance obligations, snapshots.</div>
+<div class="card"><b>Governance</b>Risks, issues, change requests, corrective actions, quality inspections, decisions, meetings, documents and closure.</div>
+<div class="card"><b>Intelligence</b>Eleven dashboards, executive and manager workspaces, programme critical-path schedule, risk simulation and cost and resource position.</div>
+</div>
+<h3>Rules that run through the product</h3>
+<ul>
+<li><b>One Project record.</b> Every app that names a project (budgets, journal lines, HR documents) links to the same Project. There is no second project list.</li>
+<li><b>Approval is a workflow you draw.</b> ProjectOne never decides who approves; your administrator does that in the Workflow Designer, per organisation.</li>
+<li><b>Permissions follow the Velora pattern</b> used by every app: read, write, create, delete and the document rights (export, print, email, share) per role.</li>
+<li><b>Money stays in its own currency.</b> Totals are shown per currency and never converted silently.</li>
+</ul>
+</section>
+<section id="install" data-g="Administrators" data-t="install upgrade wheels velora_projectone velora_erp migrate patch">
+<h2><span class="n">3</span>Installing and upgrading</h2>
+<p class="lead">ProjectOne and VeloraERP belong together: each requires the other.</p>
+<pre><code>pip install velora==1.15.5 velora_erp==2.94.1 velora_projectone==2.25.2   # or the supplied wheels
+velora upgrade                                                              # applies the schema and the patches
+velora doctor</code></pre>
+<ol class="steps"><li>Stop the service, install the three wheels together, run <code>velora upgrade</code>, start the service.</li>
+<li>The install creates a <b>Projects</b> workspace in the sidebar and registers ProjectOne's screens.</li>
+<li><b>Coming from an earlier VeloraERP?</b> Its Finance module had its own Project record. The upgrade patch <code>adopt_projectone_projects</code> carries those projects over: the name becomes the Title, the budget becomes the Approved Budget, Planned becomes Draft, Active becomes In Progress and the Project Manager is filled from the record's owner. Review them once and set the real manager and currency.</li></ol>
+<div class="tip">The patch fills only blank values and can be run again safely. Projects that already have ProjectOne values are left alone.</div>
+</section>
+<section id="roles" data-g="Administrators" data-t="roles permissions project manager project user auditor finance">
+<h2><span class="n">4</span>Roles and permissions</h2>
+<p class="lead">ProjectOne uses the same permission rows as every Velora app. Give people roles in <b>Users</b>; change what a role may do in <b>Role Permissions</b>.</p>
+<table><tr><th>Role</th><th>What it can do</th></tr>
+<tr><td>System Manager</td><td>Everything, including delete and set-up.</td></tr>
+<tr><td>Project Manager</td><td>Create, change and delete every project record; export, print, email and share.</td></tr>
+<tr><td>Project User</td><td>Create and change records in their projects, export and print; cannot delete.</td></tr>
+<tr><td>Auditor</td><td>Read, report, export and print only.</td></tr>
+<tr><td>Finance Manager</td><td>Financial-control documents where finance owns the figures.</td></tr>
+<tr><td>Project Finance Integration</td><td>The integration service account that posts source figures.</td></tr></table>
+<p>A person who can fill a Link field (for example choosing a Customer on a project) but not open that list still sees the choices in the picker; a role that may not read the target at all sees none.</p>
+</section>
+<section id="workflows" data-g="Administrators" data-t="approval workflow designer budget change request timesheet corrective">
+<h2><span class="n">5</span>Approvals are workflows</h2>
+<p class="lead">Nothing in ProjectOne is blocked by a built-in approval. If no workflow is switched on for a document, it simply saves; when one is on, it alone decides who approves.</p>
+<ol class="steps"><li>Open <b>Workflows</b> and create one for the document, for example <b>Project Budget Change</b>, <b>Project Change Request</b>, <b>Project Timesheet</b> or <b>Project Corrective Action</b>.</li>
+<li>Name the states, the role that may act at each, and tick &ldquo;the creator cannot approve&rdquo; for a maker-checker rule.</li>
+<li>Switch it on. People see waiting items in the approval inbox and in the mobile app's Approvals tab.</li></ol>
+</section>
+<section id="tut-project" data-g="Using ProjectOne" data-t="tutorial create project charter budget">
+<h2><span class="n">6</span>Tutorial: create a project</h2>
+<ol class="steps">
+<li>Open <b>Projects &rarr; Project &rarr; New</b>. Give the Title, a Project Code (it is upper-cased and becomes the record's name), the Project Manager, the Currency, the dates and the Approved Budget.</li>
+<li>Choose the Programme or Portfolio if there is one, and the Cost Centre or Business Unit so finance can report by them.</li>
+<li>Save. Status starts as <b>Draft</b>; move it to Open and In Progress as work begins.</li>
+<li>Add a <b>Project Charter</b> and <b>Project Stakeholders</b> from the project's connections.</li></ol>
+<div class="tip">The progress percent must be between 0 and 100, the finish cannot be before the start, and the budget cannot be negative. The form tells you which one to fix.</div>
+</section>
+<section id="plan" data-g="Using ProjectOne" data-t="wbs task dependency milestone baseline sprint critical path">
+<h2><span class="n">7</span>Plan the work</h2>
+<ul><li><b>Project WBS</b> breaks the scope down; <b>Project Task</b> carries dates, hours, an assignee and a status. A task's finish cannot be before its start.</li>
+<li><b>Task Dependency</b> joins two tasks as Finish to Start, Start to Start, Finish to Finish or Start to Finish, with a lag in days.</li>
+<li><b>Project Milestone</b>, <b>Project Deliverable</b> and <b>Project Baseline</b> record promises and the plan you will measure against.</li>
+<li>Agile teams use <b>Project Sprint</b> and <b>Project User Story</b>; the <b>Project Schedule Workspace</b> shows the schedule and critical path.</li></ul>
+</section>
+<section id="resources" data-g="Using ProjectOne" data-t="resource profile allocation capacity timesheet calendar">
+<h2><span class="n">8</span>Resources and timesheets</h2>
+<ol class="steps"><li>Create a <b>Resource Calendar</b> (working weekdays such as 0,1,2,3,4 and a list of holiday dates) and mark one as the default.</li>
+<li>Create a <b>Resource Profile</b> per person, consultant, contractor or equipment with a daily capacity.</li>
+<li>Allocate people to projects with <b>Project Resource Allocation</b> (dates, hours, percentage and rates).</li>
+<li>People record time on a <b>Project Timesheet</b>; the <b>Enterprise Capacity Workspace</b> shows who is over or under loaded.</li></ol>
+</section>
+<section id="finance" data-g="Using ProjectOne" data-t="budget commitment cost actual revenue recognition ledger currency">
+<h2><span class="n">9</span>Budgets, costs and revenue</h2>
+<p class="lead">Budgets are planned in ProjectOne; actual cost and recognised revenue are read from the Account Ledger, so ProjectOne and the accountants always agree.</p>
+<ol class="steps"><li>Create a <b>Project Budget</b> with <b>Project Budget Lines</b> by cost category. Later changes go through a <b>Project Budget Change</b> so there is a trail.</li>
+<li>In VeloraERP, tag expense and income lines with the project (the Project field on journal and invoice lines). The posting engine writes it to the ledger.</li>
+<li>Open the <b>Project Financial Control</b> dashboard: budget, commitments, actual cost, recognised revenue and forecast, each in the project's own currency.</li></ol>
+<div class="warn">If a project is in one currency and its ledger rows in another, ProjectOne reports the mismatch instead of converting.</div>
+</section>
+<section id="governance" data-g="Using ProjectOne" data-t="risk issue change request corrective action quality">
+<h2><span class="n">10</span>Risks, issues, changes and corrective action</h2>
+<ul><li><b>Project Risk</b> scores probability (1 to 5) times impact. To feed the simulation, also fill the best, likely and worst delay in working days and the best, likely and worst cost.</li>
+<li><b>Project Issue</b> and <b>Project Change Request</b> record problems and scope changes; approval follows the workflow you drew.</li>
+<li><b>Project Corrective Action</b> is created from an exception on the manager workbench: give it a title, an owner and a due date. It is saved as a Draft for its owner and sent to approval when a workflow exists.</li></ul>
+</section>
+<section id="intelligence" data-g="Using ProjectOne" data-t="programme intelligence schedule monte carlo risk simulation cost resource position">
+<h2><span class="n">11</span>Programme intelligence</h2>
+<p class="lead">Open a Programme and use <b>Programme Intelligence</b>. Everything is calculated from your real tasks, dependencies, risks, allocations and ledger, read with your own permissions; you only choose the programme and the assumptions.</p>
+<table><tr><th>Tool</th><th>What you get</th></tr>
+<tr><td>Calendar schedule</td><td>Start and finish dates, float and the critical path using the project's working days and holidays.</td></tr>
+<tr><td>Risk simulation</td><td>A repeatable simulation (100 to 10,000 runs, a seed you choose) giving likely and pessimistic finish and cost.</td></tr>
+<tr><td>Cost and resource position</td><td>Budget, actual and forecast by currency, and each person's demand against capacity.</td></tr>
+<tr><td>Scenario comparison</td><td>Compare alternative plans side by side; advisory only, nothing is applied.</td></tr></table>
+<div class="tip">With no tasks or no risk figures the answers say so rather than inventing numbers.</div>
+</section>
+<section id="dash" data-g="Using ProjectOne" data-t="dashboards executive workspace manager workbench">
+<h2><span class="n">12</span>Dashboards and workspaces</h2>
+<p>Eleven dashboards: Portfolio Executive, Project Delivery, Schedule and Critical Path, Resource and Capacity, Project Financial Control, Commercial and Contracts, Risk and Governance, Agile Delivery, Quality and Deliverables, Programme Performance and Benefits Realisation.</p>
+<ul><li><b>Portfolio Executive Workspace</b> for executives.</li><li><b>Project Manager Workbench</b> for daily work: what is late, over budget or waiting for you.</li><li><b>Project Schedule Workspace</b> and <b>Enterprise Capacity Workspace</b> for planners.</li></ul>
+</section>
+<section id="mobile" data-g="Using ProjectOne" data-t="mobile app expo android approvals timesheets">
+<h2><span class="n">13</span>The mobile app</h2>
+<p class="lead">The ProjectOne mobile app signs in with your Velora account (and your authenticator code if you use one).</p>
+<ul><li><b>Home</b>: portfolio snapshot, data quality and source health.</li><li><b>Projects</b>: search the list and open a project.</li><li><b>Approvals</b>: the items waiting for you.</li><li><b>Timesheets</b>: a quick hours check.</li><li><b>More</b>: company, appearance (light, dark or system, five colour themes) and sign out.</li></ul>
+<p>What you see is what your roles allow; the server decides every request.</p>
+</section>
+<section id="together" data-g="Reference" data-t="erp hr accounts integration project link employee ledger">
+<h2><span class="n">14</span>How ProjectOne works with the other apps</h2>
+<table><tr><th>App</th><th>Connection</th></tr>
+<tr><td>VeloraERP finance</td><td>Budgets, journal lines and reports link to the one Project; ledger rows tagged with it give ProjectOne its actual cost and recognised revenue.</td></tr>
+<tr><td>VeloraERP purchasing, sales, stock and assets</td><td>The Project field on Purchase Order, Sales Order, Stock Entry and Fixed Asset feeds commitments, billing, materials used and assets assigned, shown with the other sources on the executive workspace.</td></tr>
+<tr><td>VeloraERP HR</td><td>Resource Profiles can point to an Employee; ProjectOne never copies salary data.</td></tr>
+<tr><td>Workflow Designer</td><td>All approvals; the inbox lists what waits for you.</td></tr>
+<tr><td>Audit</td><td>Every change to a project record is kept with who and when.</td></tr></table>
+</section>
+<section id="faq" data-g="Reference" data-t="questions answers troubleshooting">
+<h2><span class="n">15</span>Questions and answers</h2>
+<table><tr><th>Question</th><th>Answer</th></tr>
+<tr><td>The picker shows nothing for a Project or Customer.</td><td>Type at least a letter; the list shows what your role may read. If it stays empty, ask your administrator to give your role read on that document.</td></tr>
+<tr><td>I see projects that came from the old Finance module with no manager.</td><td>Open them once and set the Project Manager and Currency; the upgrade patch could only fill what it knew.</td></tr>
+<tr><td>Why is there no total across currencies?</td><td>By design: ProjectOne never converts money silently.</td></tr>
+<tr><td>Programme intelligence says no tasks.</td><td>Add tasks with durations (or start and finish dates) to the programme's projects.</td></tr>
+<tr><td>Who approves a budget change?</td><td>Whoever the workflow for Project Budget Change names. With no workflow nothing needs approval.</td></tr></table>
+</section>
+<section id="limits" data-g="Reference" data-t="limits honest not built">
+<h2 id="whats-new-225">What is new in 2.25.2</h2>
+<ul><li>Projects appears once in the sidebar and in the App Hub; every project page is reached from there.</li><li>Link boxes in tables fetch as you type, and report screens search rows and print dates as dd/mm/yyyy.</li></ul>
+<h2><span class="n">16</span>Limits you should know</h2>
+<ul><li>Risk simulation uses the risk figures you enter; with none it reports no exposure.</li>
+<li>Forecast cost equals the cost posted so far until you enter <b>Forecast Cost at Completion</b> on the project.</li>
+<li>Dates and numbers follow the company's Date &amp; Number Format setting in lists and reports; the date pickers in forms follow your browser's own setting.</li>
+<li>Procurement, sales, stock and asset figures come from the Project field on Purchase Orders, Sales Orders, Stock Entries (material issues) and Fixed Assets; invoices and receipts are tied to a project through journal lines.</li>
+<li>The mobile app needs a network connection; it does not work offline.</li></ul>
+</section>
+<footer>ProjectOne 2.25.2 on Velora 1.16.2 &middot; user and administrator guide<br>Powered by <b>Velora BiZ Solutions</b></footer>
+</main>
+</div>
+<script>
+(function(){
+  var secs=[].slice.call(document.querySelectorAll("section[id]")), nav=document.getElementById("nav");
+  var last=null;nav.innerHTML=secs.map(function(s){var h=s.querySelector("h2"),g=s.getAttribute("data-g"),pre="";if(g&&g!==last){pre='<div class="grp">'+g+'</div>';last=g}return pre+'<a href="#'+s.id+'">'+h.textContent.replace(/^(\d+)/,'$1. ')+'</a>'}).join("");
+  var links=[].slice.call(nav.querySelectorAll("a"));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id)})}})},{rootMargin:"-20% 0px -70% 0px"});
+  secs.forEach(function(s){io.observe(s)});
+  links.forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open")})});
+  document.getElementById("menu").onclick=function(){nav.classList.toggle("open")};
+  document.querySelectorAll("pre").forEach(function(p){var b=document.createElement("button");b.className="cp";b.textContent="Copy";b.onclick=function(){var t=p.querySelector("code").innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent="Copied"},function(){b.textContent="Select + copy"});setTimeout(function(){b.textContent="Copy"},1600)};p.appendChild(b)});
+  var q=document.getElementById("q");
+  q.addEventListener("input",function(){var t=q.value.trim().toLowerCase();secs.forEach(function(s){var hit=!t||(s.textContent+" "+(s.getAttribute("data-t")||"")).toLowerCase().indexOf(t)>=0;s.classList.toggle("hide",!hit)});links.forEach(function(a,i){a.classList.toggle("hide",secs[i].classList.contains("hide"))})});
+  var th=document.getElementById("theme"),root=document.documentElement,saved=null;try{saved=localStorage.getItem("projectone-guide-theme")}catch(e){}
+  if(saved)root.setAttribute("data-theme",saved);else if(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)root.setAttribute("data-theme","dark");
+  th.onclick=function(){var d=root.getAttribute("data-theme")==="dark"?"light":"dark";root.setAttribute("data-theme",d);try{localStorage.setItem("projectone-guide-theme",d)}catch(e){}};
+})();
+</script>
+</body>
+</html>

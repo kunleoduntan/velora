@@ -1,0 +1,60 @@
+{
+  "name": "Request Approval",
+  "module": "Administration",
+  "autoname": "hash",
+  "is_submittable": false,
+  "istable": true,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "level_no",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Level",
+      "read_only": 1
+    },
+    {
+      "fieldname": "approver_type",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Approver Type",
+      "read_only": 1
+    },
+    {
+      "fieldname": "assigned_approver",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Assigned Approver (User or Role)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Pending",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Pending\nApproved\nRejected\nSkipped",
+      "read_only": 1
+    },
+    {
+      "fieldname": "action_on",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "Action On",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_comments",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "comments",
+      "fieldtype": "Text",
+      "label": "Comments"
+    }
+  ]
+}

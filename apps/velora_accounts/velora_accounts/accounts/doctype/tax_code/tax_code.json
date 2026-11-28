@@ -1,0 +1,89 @@
+{
+  "name": "Tax Code",
+  "module": "Accounts",
+  "autoname": "field:tax_name",
+  "fields": [
+    {
+      "fieldname": "tax_name",
+      "fieldtype": "Data",
+      "label": "Tax Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "tax_type",
+      "fieldtype": "Select",
+      "label": "Type",
+      "options": [
+        "VAT Output",
+        "VAT Input"
+      ],
+      "required": true,
+      "in_list_view": true,
+      "description": "Output = charged on sales; Input = recoverable on purchases."
+    },
+    {
+      "fieldname": "rate",
+      "fieldtype": "Float",
+      "label": "Rate %",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Tax Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ]
+}

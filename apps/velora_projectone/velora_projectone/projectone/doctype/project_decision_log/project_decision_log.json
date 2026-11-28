@@ -1,0 +1,138 @@
+{
+  "name": "Project Decision Log",
+  "module": "Governance",
+  "track_changes": true,
+  "description": "Traceable project governance decision and accountable action.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "decision_date",
+      "label": "Decision Date",
+      "fieldtype": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "decision_title",
+      "label": "Decision Title",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "decision_type",
+      "label": "Decision Type",
+      "fieldtype": "Select",
+      "options": [
+        "Scope",
+        "Schedule",
+        "Cost",
+        "Resource",
+        "Quality",
+        "Risk",
+        "Commercial",
+        "Technical",
+        "Governance",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "decision_maker",
+      "label": "Decision Maker",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "context",
+      "label": "Context",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "decision",
+      "label": "Decision",
+      "fieldtype": "Text",
+      "required": true
+    },
+    {
+      "fieldname": "rationale",
+      "label": "Rationale",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "action_owner",
+      "label": "Action Owner",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "due_date",
+      "label": "Due Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Open",
+        "In Progress",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Open",
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "decision_title"
+}

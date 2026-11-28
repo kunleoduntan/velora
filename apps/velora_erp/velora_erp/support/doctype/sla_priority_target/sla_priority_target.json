@@ -1,0 +1,34 @@
+{
+ "name": "SLA Priority Target",
+ "module": "Support",
+ "istable": true,
+ "fields": [
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": [
+    "Low",
+    "Medium",
+    "High",
+    "Urgent"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "first_response_hours",
+   "fieldtype": "Float",
+   "label": "First response within (hours)",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "resolution_hours",
+   "fieldtype": "Float",
+   "label": "Resolution within (hours)",
+   "required": true,
+   "in_list_view": true
+  }
+ ]
+}

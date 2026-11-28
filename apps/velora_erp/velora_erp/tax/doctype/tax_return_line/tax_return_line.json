@@ -1,0 +1,95 @@
+{
+ "name": "Tax Return Line",
+ "module": "Tax Management",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "section",
+   "fieldtype": "Select",
+   "label": "Section",
+   "options": [
+    "Output tax",
+    "Input tax"
+   ],
+   "in_list_view": true
+  },
+  {
+   "fieldname": "tax_code",
+   "fieldtype": "Data",
+   "label": "Tax code",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "tax_rate",
+   "fieldtype": "Float",
+   "label": "Rate %"
+  },
+  {
+   "fieldname": "net_amount",
+   "fieldtype": "Currency",
+   "label": "Net amount",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "tax_amount",
+   "fieldtype": "Currency",
+   "label": "Tax",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "recoverable_amount",
+   "fieldtype": "Currency",
+   "label": "Recoverable"
+  },
+  {
+   "fieldname": "non_recoverable_amount",
+   "fieldtype": "Currency",
+   "label": "Not recoverable"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  }
+ ],
+ "istable": true,
+ "description": "One tax code and rate in a tax return."
+}

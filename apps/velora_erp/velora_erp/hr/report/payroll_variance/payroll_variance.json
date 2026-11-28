@@ -1,0 +1,48 @@
+{
+  "name": "Payroll Variance",
+  "module": "HR",
+  "type": "script",
+  "ref_doctype": "Salary Slip",
+  "roles": [
+    "System Manager",
+    "HR Manager",
+    "Payroll Manager",
+    "Finance Manager",
+    "Auditor"
+  ],
+  "description": "Compares two payroll periods employee by employee to expose new joiners, leavers and unexplained pay changes before approval.",
+  "filters": [
+    {
+      "fieldname": "current_from",
+      "label": "Current From",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "current_to",
+      "label": "Current To",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "previous_from",
+      "label": "Previous From",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "previous_to",
+      "label": "Previous To",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "branch",
+      "label": "Branch",
+      "fieldtype": "Link",
+      "options": "Branch"
+    }
+  ]
+}

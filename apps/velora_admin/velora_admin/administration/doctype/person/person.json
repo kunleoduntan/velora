@@ -1,0 +1,158 @@
+{
+  "name": "Person",
+  "module": "Administration",
+  "autoname": "series:PERSON-.####",
+  "title_field": "person_name",
+  "image_field": "image",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "PERSON-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "person_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Full Name",
+      "required": true
+    },
+    {
+      "default": "Employee",
+      "fieldname": "person_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Person Type",
+      "options": "Employee\nConsultant\nContractor\nIntern\nVolunteer\nTemporary Worker\nBoard Member\nDirector\nPartner\nExternal Contact",
+      "required": true
+    },
+    {
+      "fieldname": "image",
+      "fieldtype": "Data",
+      "hidden": 1,
+      "label": "Image"
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Active",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Active\nOn Leave\nInactive\nOffboarded"
+    },
+    {
+      "fieldname": "linked_employee",
+      "fieldtype": "Link",
+      "label": "Linked Employee",
+      "options": "Employee"
+    },
+    {
+      "description": "Optional: gives this Person portal / login access",
+      "fieldname": "user",
+      "fieldtype": "Data",
+      "label": "User"
+    },
+    {
+      "fieldname": "section_break_org",
+      "fieldtype": "Section Break",
+      "label": "Organisation"
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "organisation_unit",
+      "fieldtype": "Link",
+      "label": "Organisation Unit",
+      "options": "Organisation Unit"
+    },
+    {
+      "fieldname": "designation",
+      "fieldtype": "Link",
+      "label": "Designation",
+      "options": "Designation"
+    },
+    {
+      "fieldname": "column_break_org2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Link",
+      "label": "Location",
+      "options": "Office Location"
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date"
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date"
+    },
+    {
+      "fieldname": "section_break_contact",
+      "fieldtype": "Section Break",
+      "label": "Contact"
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email",
+      "options": "Email"
+    },
+    {
+      "fieldname": "mobile_no",
+      "fieldtype": "Data",
+      "label": "Mobile No"
+    },
+    {
+      "fieldname": "column_break_contact",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "emergency_contact_name",
+      "fieldtype": "Data",
+      "label": "Emergency Contact Name"
+    },
+    {
+      "fieldname": "emergency_contact_number",
+      "fieldtype": "Data",
+      "label": "Emergency Contact Number"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "name": "Landed Cost Voucher",
+  "module": "Finance",
+  "autoname": "series:LCV-.########",
+  "track_changes": true,
+  "description": "Capitalises directly attributable acquisition costs into inventory valuation and reclassifies the related expense accounts through the central Financial Posting Engine.",
+  "fields": [
+    {
+      "fieldname": "voucher_date",
+      "label": "Voucher Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "purchase_receipt",
+      "label": "Purchase Receipt",
+      "fieldtype": "Link",
+      "options": "Purchase Receipt",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "supplier",
+      "label": "Supplier",
+      "fieldtype": "Link",
+      "options": "Supplier",
+      "read_only": true
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "label": "Exchange Rate",
+      "fieldtype": "Float",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "charges",
+      "label": "Landed Cost Charges",
+      "fieldtype": "Table",
+      "options": "Landed Cost Charge",
+      "required": true
+    },
+    {
+      "fieldname": "allocation_method",
+      "label": "Allocation Method",
+      "fieldtype": "Select",
+      "options": [
+        "By Value",
+        "By Quantity",
+        "By Weight",
+        "By Volume",
+        "Equal"
+      ],
+      "default": "By Value",
+      "required": true
+    },
+    {
+      "fieldname": "allocations",
+      "label": "Item Allocations",
+      "fieldtype": "Table",
+      "options": "Landed Cost Allocation",
+      "required": true
+    },
+    {
+      "fieldname": "total_charges",
+      "label": "Total Additional Cost",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "allocated_total",
+      "label": "Total Allocated",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "allocation_status",
+      "label": "Allocation Status",
+      "fieldtype": "Select",
+      "options": [
+        "Not Calculated",
+        "Balanced",
+        "Unbalanced"
+      ],
+      "default": "Not Calculated",
+      "read_only": true
+    },
+    {
+      "fieldname": "narration",
+      "label": "Narration",
+      "fieldtype": "Text",
+      "required": true
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "label": "Rejected By",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "label": "Rejected On",
+      "fieldtype": "Datetime",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "label": "Financial Posting Batch",
+      "fieldtype": "Link",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "is_submittable": true
+}

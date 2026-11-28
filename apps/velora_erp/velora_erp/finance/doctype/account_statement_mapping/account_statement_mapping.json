@@ -1,0 +1,106 @@
+{
+  "name": "Account Statement Mapping",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Maps accounts or account groups to financial statement rows without embedding report presentation in the account master.",
+  "fields": [
+    {
+      "fieldname": "mapping_code",
+      "fieldtype": "Data",
+      "label": "Mapping Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 60
+    },
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "account_group",
+      "fieldtype": "Link",
+      "label": "Account Group",
+      "options": "Account Group",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "statement_row",
+      "fieldtype": "Link",
+      "label": "Financial Statement Row",
+      "options": "Financial Statement Row",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "mapping_basis",
+      "fieldtype": "Select",
+      "label": "Mapping Basis",
+      "options": [
+        "Account",
+        "Account Group"
+      ],
+      "required": true,
+      "default": "Account"
+    },
+    {
+      "fieldname": "include_descendants",
+      "fieldtype": "Check",
+      "label": "Include Descendant Accounts",
+      "default": 1
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ],
+  "autoname": "field:mapping_code"
+}

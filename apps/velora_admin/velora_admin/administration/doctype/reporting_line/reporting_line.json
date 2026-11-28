@@ -1,0 +1,69 @@
+{
+  "name": "Reporting Line",
+  "module": "Administration",
+  "autoname": "series:RPTLINE-.####",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "RPTLINE-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "person",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Person",
+      "options": "Person",
+      "required": true
+    },
+    {
+      "fieldname": "reports_to",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Reports To",
+      "options": "Person",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Today",
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Effective Date",
+      "required": true
+    },
+    {
+      "default": "1",
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Is Active"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

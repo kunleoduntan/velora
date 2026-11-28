@@ -1,0 +1,184 @@
+{
+ "name": "Activity Feed Run",
+ "module": "Governance",
+ "track_changes": true,
+ "autoname": "series:AFR-.####",
+ "title_field": "governance_entity",
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reporting_period",
+   "fieldtype": "Data",
+   "label": "Reporting period",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "date_from",
+   "fieldtype": "Date",
+   "label": "From"
+  },
+  {
+   "fieldname": "date_to",
+   "fieldtype": "Date",
+   "label": "To"
+  },
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Data",
+   "label": "Source documents",
+   "default": "Purchase Invoice"
+  },
+  {
+   "fieldname": "run_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Preview",
+    "Posted",
+    "Failed"
+   ],
+   "in_list_view": true
+  },
+  {
+   "fieldname": "invoices",
+   "fieldtype": "Int",
+   "label": "Invoices read"
+  },
+  {
+   "fieldname": "lines_total",
+   "fieldtype": "Int",
+   "label": "Lines read"
+  },
+  {
+   "fieldname": "spend_total",
+   "fieldtype": "Float",
+   "label": "Spend read"
+  },
+  {
+   "fieldname": "spend_estimated",
+   "fieldtype": "Float",
+   "label": "Spend estimated"
+  },
+  {
+   "fieldname": "spend_excluded",
+   "fieldtype": "Float",
+   "label": "Spend excluded"
+  },
+  {
+   "fieldname": "spend_unmapped",
+   "fieldtype": "Float",
+   "label": "Spend not mapped"
+  },
+  {
+   "fieldname": "coverage_percent",
+   "fieldtype": "Float",
+   "label": "Coverage % (estimated + excluded)",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "emissions_tco2e",
+   "fieldtype": "Float",
+   "label": "Emissions estimated (tCO2e)"
+  },
+  {
+   "fieldname": "results",
+   "fieldtype": "Table",
+   "label": "Results",
+   "options": "Activity Feed Run Result"
+  },
+  {
+   "fieldname": "warnings",
+   "fieldtype": "Text",
+   "label": "Warnings"
+  },
+  {
+   "fieldname": "run_by",
+   "fieldtype": "Data",
+   "label": "Run by"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

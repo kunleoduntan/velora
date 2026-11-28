@@ -1,0 +1,323 @@
+{
+  "name": "Financial Budget",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Approved, version-controlled financial budget used by budget-versus-actual reporting. Budgets never post to the General Ledger.",
+  "autoname": "series:FB-.########",
+  "is_submittable": true,
+  "fields": [
+    {
+      "fieldname": "budget_name",
+      "fieldtype": "Data",
+      "label": "Budget Name",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "in_standard_filter": true,
+      "length": 100
+    },
+    {
+      "fieldname": "budget_scenario",
+      "fieldtype": "Select",
+      "label": "Scenario",
+      "options": [
+        "Original",
+        "Revised",
+        "Forecast",
+        "Stretch"
+      ],
+      "default": "Original",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "financial_year",
+      "fieldtype": "Link",
+      "label": "Financial Year",
+      "options": "Financial Year",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "budget_type",
+      "fieldtype": "Select",
+      "label": "Budget Type",
+      "options": [
+        "Operational",
+        "Capital",
+        "Project-Based"
+      ],
+      "default": "Operational",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "is_group_budget",
+      "fieldtype": "Check",
+      "label": "Group (roll-up) Budget",
+      "description": "A group budget only totals its child budgets. It does not control postings."
+    },
+    {
+      "fieldname": "parent_budget",
+      "fieldtype": "Link",
+      "label": "Parent Budget",
+      "options": "Financial Budget",
+      "depends_on": "eval:!doc.is_group_budget"
+    },
+    {
+      "fieldname": "budget_against",
+      "fieldtype": "Select",
+      "label": "Budget Against",
+      "options": [
+        "Whole Company",
+        "Cost Centre",
+        "Branch",
+        "Project"
+      ],
+      "default": "Whole Company",
+      "description": "Rows without their own cost centre, branch or project take this one."
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre",
+      "depends_on": "eval:doc.budget_against == \"Cost Centre\""
+    },
+    {
+      "fieldname": "branch",
+      "fieldtype": "Link",
+      "label": "Branch",
+      "options": "Branch",
+      "depends_on": "eval:doc.budget_against == \"Branch\""
+    },
+    {
+      "fieldname": "project",
+      "fieldtype": "Link",
+      "label": "Project",
+      "options": "Project",
+      "depends_on": "eval:doc.budget_against == \"Project\""
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Company Base Currency",
+      "read_only": true,
+      "required": true,
+      "length": 3,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "plan_tab",
+      "fieldtype": "Tab Break",
+      "label": "Monthly Plan"
+    },
+    {
+      "fieldname": "account_budgets",
+      "fieldtype": "Table",
+      "label": "Account Plan (Jan - Dec)",
+      "options": "Financial Budget Account"
+    },
+    {
+      "fieldname": "total_budget_amount",
+      "fieldtype": "Currency",
+      "label": "Total Budget",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "allocation_tab",
+      "fieldtype": "Tab Break",
+      "label": "Allocation"
+    },
+    {
+      "fieldname": "allocate_by",
+      "fieldtype": "Select",
+      "label": "Share the plan across",
+      "options": [
+        "None",
+        "Branch",
+        "Cost Centre"
+      ],
+      "default": "None",
+      "description": "Plan rows that name no branch / cost centre are shared out by the percentages below."
+    },
+    {
+      "fieldname": "allocation_method",
+      "fieldtype": "Select",
+      "label": "Allocation Method",
+      "options": [
+        "Equal",
+        "Proportional to Basis",
+        "Custom %"
+      ],
+      "default": "Equal",
+      "depends_on": "eval:doc.allocate_by != \"None\""
+    },
+    {
+      "fieldname": "allocation_basis",
+      "fieldtype": "Select",
+      "label": "Basis",
+      "options": [
+        "Revenue",
+        "Headcount",
+        "Historical Spend",
+        "Square Footage",
+        "Units",
+        "Weight"
+      ],
+      "depends_on": "eval:doc.allocation_method == \"Proportional to Basis\""
+    },
+    {
+      "fieldname": "allocations",
+      "fieldtype": "Table",
+      "label": "Allocations",
+      "options": "Financial Budget Allocation",
+      "depends_on": "eval:doc.allocate_by != \"None\""
+    },
+    {
+      "fieldname": "scenario_tab",
+      "fieldtype": "Tab Break",
+      "label": "Scenarios"
+    },
+    {
+      "fieldname": "scenarios",
+      "fieldtype": "Table",
+      "label": "What-if Scenarios",
+      "options": "Financial Budget Scenario"
+    },
+    {
+      "fieldname": "budget_lines_section",
+      "fieldtype": "Tab Break",
+      "label": "Generated Lines"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Budget Lines (generated from the Monthly Plan when a plan exists)",
+      "options": "Financial Budget Line",
+      "required": false
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Independent Approval",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "budget_notes",
+      "fieldtype": "Text",
+      "label": "Budget Notes"
+    },
+    {
+      "fieldname": "budget_status",
+      "fieldtype": "Select",
+      "label": "Budget Status",
+      "options": [
+        "Draft",
+        "Approved",
+        "Rejected",
+        "Active",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "budget_name"
+}

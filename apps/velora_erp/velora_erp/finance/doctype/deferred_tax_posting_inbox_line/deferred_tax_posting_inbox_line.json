@@ -1,0 +1,65 @@
+{
+  "name": "Deferred Tax Posting Inbox Line",
+  "module": "Finance",
+  "istable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "entry_type",
+      "fieldtype": "Select",
+      "label": "Entry Type",
+      "options": [
+        "Deferred Tax Asset",
+        "Deferred Tax Liability",
+        "Deferred Tax Expense",
+        "Deferred Tax Benefit"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "debit",
+      "fieldtype": "Currency",
+      "label": "Debit",
+      "default": 0,
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "credit",
+      "fieldtype": "Currency",
+      "label": "Credit",
+      "default": 0,
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "line_description",
+      "fieldtype": "Data",
+      "label": "Description",
+      "required": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": []
+}

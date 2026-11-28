@@ -1,0 +1,45 @@
+{
+  "name": "Quality Parameter Row",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "parameter",
+      "fieldtype": "Data",
+      "label": "Parameter",
+      "required": true,
+      "in_list_view": true,
+      "length": 120
+    },
+    {
+      "fieldname": "kind",
+      "fieldtype": "Select",
+      "label": "Measured as",
+      "options": [
+        "Numeric",
+        "Pass/Fail"
+      ],
+      "default": "Numeric",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "min_value",
+      "fieldtype": "Float",
+      "label": "Minimum",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "max_value",
+      "fieldtype": "Float",
+      "label": "Maximum",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "unit",
+      "fieldtype": "Data",
+      "label": "Unit",
+      "length": 30
+    }
+  ]
+}

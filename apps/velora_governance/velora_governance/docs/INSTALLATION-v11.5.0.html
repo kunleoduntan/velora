@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Velora Governance v11.5.0 — Installation Guide</title><style>body{font-family:Inter,Segoe UI,Arial,sans-serif;color:#172b3a;background:#f4f7fb;margin:0}header{background:#143b5b;color:white;padding:24px 30px}header h1{margin:0;font-size:28px}header p{margin:8px 0 0;color:#d7e6f3}.tabs{position:sticky;top:0;background:#fff;padding:10px 18px;border-bottom:1px solid #d7e0e8;display:flex;gap:8px;flex-wrap:wrap;z-index:4}.tabs a{padding:9px 14px;border-radius:20px;background:#eaf1f7;color:#16446a;text-decoration:none;font-weight:600}.wrap{max-width:1200px;margin:auto;padding:20px}.panel{background:white;border:1px solid #dce4eb;border-radius:14px;padding:22px;margin:18px 0;box-shadow:0 2px 7px #163a5b08}.panel h1{font-size:25px}.panel h2{margin-top:26px;color:#16446a}.panel h3{margin-top:22px;color:#2b587a}.notice{background:#fff6df;border-left:4px solid #d7a43c;padding:12px 16px;border-radius:6px}.illustration{display:block;max-width:100%;height:auto;border:1px solid #e0e8ef;border-radius:12px;margin:16px 0}pre{background:#142a3d;color:#e7f2fb;padding:14px;border-radius:9px;overflow:auto}code{background:#edf3f7;padding:2px 4px;border-radius:4px}table{width:100%;border-collapse:collapse}td,th{border:1px solid #d7e0e8;padding:8px;text-align:left}th{background:#eaf1f7}.doctype-list{columns:2;column-gap:30px}.doctype-list li{break-inside:avoid;padding:3px 0}.footer{color:#6b7c8b;font-size:12px;padding:24px}</style></head><body><header><h1>Velora Governance v11.5.0</h1><p>Installation Guide · Internal application documentation · Illustrations are examples</p></header><nav class="tabs"><a href="INSTALLATION-v11.5.0.html">Installation</a><a href="USER-MANUAL-v11.5.0.html">User Manual</a><a href="FEATURE-NOTES-v11.5.0.html">Feature Notes / DocTypes</a></nav><main class="wrap"><article class="panel"><section id="install"><h1>Velora Governance v11.5.0 — Installation Guide</h1><p class="notice"><strong>Version:</strong> 11.5.0 · <strong>Framework compatibility:</strong> Velora ≥1.19.0 and &lt;1.20.0. Commands below use a typical Linux deployment layout. Confirm the exact app-install and migrate syntax with your installed Velora CLI help before executing, because CLI command names may differ between deployments.</p><h2>1. Pre-install checklist</h2><ul><li>Take a database and file backup of the target company/site.</li><li>Confirm Velora Framework is within the supported version range.</li><li>Confirm Python/pip environment is the same one used by the Velora service.</li><li>Confirm company identifier and deployment path.</li><li>Install first in test/staging before production.</li></ul><h2>Application installation flow</h2><img class="illustration" src="governance-exception-flow.svg" alt="Illustrative application workflow"><p>The application installation itself follows the package deployment sequence: backup, stage the app source, register/install through the supported Velora CLI, migrate, restart, and qualify.</p><h2>Core DocTypes present in the app</h2><ul><li>Governance Entity</li><li>Board</li><li>Board Member</li><li>Board Appointment</li><li>Board Meeting</li><li>Board Paper</li><li>Board Resolution</li><li>Board Action</li><li>Governance Obligation</li><li>Governance Exception</li><li>Compliance Assessment</li><li>Corporate Filing</li><li>Statutory Register</li><li>Sustainability Report</li><li>GHG Calculation</li></ul><h2>2. Discover the exact CLI syntax</h2><pre>velora --help
+velora app --help
+velora migrate --help
+velora company --help</pre><p>Use the help output to confirm the equivalent commands for app installation, migration, and company/site targeting.</p><h2>3. Copy and unpack release bundle</h2><pre># On the server, create a staging directory
+mkdir -p /opt/velora/releases/governance-11.5.0
+cd /opt/velora/releases/governance-11.5.0
+
+# Copy the downloaded release bundle here, then:
+unzip velora-governance-v11.5.0-release-bundle.zip
+unzip velora-governance-v11.5.0-source.zip
+
+# Inspect the extracted application
+ls -la velora_governance
+cat velora_governance/README-v11.5.0.md</pre><h2>4. Install source into the Velora apps directory</h2><pre># Example app path — change to your actual Velora installation
+sudo mkdir -p /opt/velora/apps
+sudo cp -a velora_governance /opt/velora/apps/velora_governance
+
+# Activate the Velora Python environment (example only)
+source /opt/velora/venv/bin/activate
+python -m pip install -e /opt/velora/apps/velora_governance</pre><p class="notice">If your Velora deployment uses an app registry, app loader, Git checkout, or managed application installer instead of a Python editable install, use that deployment's supported mechanism. Do not install into a separate system Python.</p><h2>5. Install app and migrate</h2><pre># Confirm exact syntax first from: velora app --help
+# Typical command pattern (use only if supported by your CLI):
+velora app install velora_governance --company COMP-001
+
+# Typical migration command pattern (verify help):
+velora migrate --company COMP-001</pre><p>Replace <code>COMP-001</code> with the actual company/site identifier. Do not run a guessed command if your CLI help uses different syntax.</p><h2>6. Restart services and verify</h2><pre># Use your deployment's service names; examples only:
+sudo systemctl restart velora-web
+sudo systemctl restart velora-worker
+sudo systemctl restart velora-scheduler
+
+# Check service status (adjust names to actual units)
+sudo systemctl status velora-web --no-pager
+sudo systemctl status velora-worker --no-pager
+sudo systemctl status velora-scheduler --no-pager</pre><ul><li>Open the Governance workspace and confirm the app shortcuts load.</li><li>Verify Governance roles are created and assigned.</li><li>Check Governance Automation Monitor.</li><li>Confirm exception centre, dashboard, export, print, and report pages.</li><li>Run staging UAT before enabling production scheduler activity.</li></ul><h2>7. Rollback plan</h2><ol><li>Disable Governance scheduled jobs if a migration or runtime defect is found.</li><li>Stop application services if required.</li><li>Restore the database and files from the pre-install backup according to your Velora backup procedure.</li><li>Remove/disable the app only through the supported Velora app lifecycle command; do not manually drop DocType tables.</li><li>Record the defect and retain logs before retrying.</li></ol></section></article></main><div class="footer">Velora Governance v11.5.0 · Documentation packaged with the application</div></body></html>

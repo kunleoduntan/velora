@@ -1,0 +1,21 @@
+{
+  "name": "Aged Payables",
+  "module": "Accounts",
+  "type": "script",
+  "ref_doctype": "Purchase Invoice",
+  "roles": [
+    "System Manager",
+    "Accounts Manager",
+    "Accountant",
+    "Accounts User"
+  ],
+  "description": "What you owe suppliers, by how overdue it is. Uses each invoice's CURRENT outstanding; ageing is measured from the due date.",
+  "filters": [
+    {
+      "fieldname": "as_of",
+      "label": "Age as of",
+      "fieldtype": "Date",
+      "default": "Today"
+    }
+  ]
+}

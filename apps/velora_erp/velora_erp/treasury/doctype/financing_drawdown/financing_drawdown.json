@@ -1,0 +1,336 @@
+{
+ "name": "Financing Drawdown",
+ "module": "Debt and Treasury",
+ "autoname": "series:DRW-.######",
+ "track_changes": true,
+ "title_field": "title",
+ "description": "Money borrowed under a facility. Submitting it pays the money into the bank account, books the loan and builds the repayment schedule.",
+ "is_submittable": true,
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "submit": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "report": true,
+   "export": true,
+   "print": true
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "details",
+   "fieldtype": "Section Break",
+   "label": "Drawdown"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "read_only": true,
+   "hidden": true
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "label": "Facility",
+   "options": "Financing Facility",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true,
+   "link_filters": [
+    [
+     "docstatus",
+     "=",
+     1
+    ]
+   ]
+  },
+  {
+   "fieldname": "drawdown_date",
+   "fieldtype": "Date",
+   "label": "Drawdown date",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount drawn",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange rate",
+   "default": 1
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank account receiving the money",
+   "options": "Account",
+   "required": true,
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Data",
+   "label": "Purpose"
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "label": "Lender's reference"
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Section Break",
+   "label": "Terms (default from the facility)"
+  },
+  {
+   "fieldname": "interest_rate",
+   "fieldtype": "Float",
+   "label": "Interest rate at drawdown (% a year)"
+  },
+  {
+   "fieldname": "interest_rate_type",
+   "fieldtype": "Select",
+   "label": "Rate type",
+   "options": [
+    "Fixed",
+    "Floating"
+   ],
+   "read_only": true
+  },
+  {
+   "fieldname": "repayment_structure",
+   "fieldtype": "Select",
+   "label": "Repayment structure",
+   "options": [
+    "Annuity",
+    "Equal principal",
+    "Interest only, principal at maturity",
+    "Bullet (principal and interest at maturity)"
+   ]
+  },
+  {
+   "fieldname": "repayment_frequency",
+   "fieldtype": "Select",
+   "label": "Repayment frequency",
+   "options": [
+    "Monthly",
+    "Quarterly",
+    "Half-yearly",
+    "Annual"
+   ]
+  },
+  {
+   "fieldname": "day_count_basis",
+   "fieldtype": "Select",
+   "label": "Day count",
+   "options": [
+    "Actual/365",
+    "Actual/360",
+    "30/360"
+   ],
+   "read_only": true
+  },
+  {
+   "fieldname": "tenor_months",
+   "fieldtype": "Int",
+   "label": "Tenor (months)"
+  },
+  {
+   "fieldname": "grace_period_months",
+   "fieldtype": "Int",
+   "label": "Principal grace (months)"
+  },
+  {
+   "fieldname": "maturity_date",
+   "fieldtype": "Date",
+   "label": "Final repayment",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "arrangement_fee",
+   "fieldtype": "Currency",
+   "label": "Arrangement fee",
+   "description": "Leave blank to use the facility's percentage. Paid out of the amount drawn."
+  },
+  {
+   "fieldname": "schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Repayment schedule"
+  },
+  {
+   "fieldname": "schedule",
+   "fieldtype": "Table",
+   "label": "Schedule",
+   "options": "Repayment Schedule Line"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Section Break",
+   "label": "Position (maintained by the system)"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Draft",
+    "Active",
+    "Repaid"
+   ],
+   "default": "Draft",
+   "in_list_view": true,
+   "in_standard_filter": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "outstanding_principal",
+   "fieldtype": "Currency",
+   "label": "Outstanding principal",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "interest_accrued_to",
+   "fieldtype": "Date",
+   "label": "Interest accrued up to",
+   "read_only": true
+  },
+  {
+   "fieldname": "accrued_interest_balance",
+   "fieldtype": "Currency",
+   "label": "Accrued interest unpaid",
+   "read_only": true
+  },
+  {
+   "fieldname": "interest_paid",
+   "fieldtype": "Currency",
+   "label": "Interest paid",
+   "read_only": true
+  },
+  {
+   "fieldname": "principal_repaid",
+   "fieldtype": "Currency",
+   "label": "Principal repaid",
+   "read_only": true
+  },
+  {
+   "fieldname": "narration",
+   "fieldtype": "Text",
+   "label": "Narration"
+  },
+  {
+   "fieldname": "approval",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval status",
+   "options": [
+    "Pending",
+    "Approved",
+    "Rejected"
+   ],
+   "required": true,
+   "default": "Pending",
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved by",
+   "read_only": true
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved on",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_by",
+   "fieldtype": "Data",
+   "label": "Rejected by",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_on",
+   "fieldtype": "Datetime",
+   "label": "Rejected on",
+   "read_only": true
+  },
+  {
+   "fieldname": "approval_comments",
+   "fieldtype": "Text",
+   "label": "Approval comments"
+  },
+  {
+   "fieldname": "posting_batch",
+   "fieldtype": "Link",
+   "label": "Financial Posting Batch",
+   "options": "Financial Posting Batch",
+   "read_only": true,
+   "hidden": true
+  }
+ ]
+}

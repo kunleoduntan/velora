@@ -1,0 +1,121 @@
+{
+  "name": "Account Type",
+  "module": "Finance",
+  "autoname": "field:type_code",
+  "track_changes": true,
+  "description": "Configurable classification defining an account financial class, normal balance and control requirements.",
+  "fields": [
+    {
+      "fieldname": "type_code",
+      "fieldtype": "Data",
+      "label": "Type Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "in_standard_filter": true,
+      "length": 40
+    },
+    {
+      "fieldname": "type_name",
+      "fieldtype": "Data",
+      "label": "Type Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "root_type",
+      "fieldtype": "Select",
+      "label": "Financial Class",
+      "options": [
+        "Asset",
+        "Liability",
+        "Equity",
+        "Income",
+        "Expense"
+      ],
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "normal_balance",
+      "fieldtype": "Select",
+      "label": "Normal Balance",
+      "options": [
+        "Debit",
+        "Credit"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "requires_party",
+      "fieldtype": "Check",
+      "label": "Requires Party Tracking"
+    },
+    {
+      "fieldname": "allows_control_account",
+      "fieldtype": "Check",
+      "label": "Can Be a Control Account"
+    },
+    {
+      "fieldname": "default_reconciliation",
+      "fieldtype": "Check",
+      "label": "Allow Reconciliation by Default"
+    },
+    {
+      "fieldname": "is_system_type",
+      "fieldtype": "Check",
+      "label": "System Defined",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ],
+  "title_field": "type_name"
+}

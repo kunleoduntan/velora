@@ -1,0 +1,202 @@
+{
+  "name": "Board Appointment",
+  "module": "Governance",
+  "autoname": "series:BAP-.####",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board_member",
+      "fieldtype": "Link",
+      "label": "Board Member",
+      "options": "Board Member",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "appointment_type",
+      "fieldtype": "Link",
+      "label": "Appointment Type",
+      "options": "Board Appointment Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "director_classification",
+      "fieldtype": "Link",
+      "label": "Director Classification",
+      "options": "Director Classification",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "independence_status",
+      "fieldtype": "Link",
+      "label": "Independence Status",
+      "options": "Director Independence Status",
+      "default": "Pending Assessment",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "position",
+      "fieldtype": "Data",
+      "label": "Position"
+    },
+    {
+      "fieldname": "appointment_date",
+      "fieldtype": "Date",
+      "label": "Appointment Date",
+      "required": true
+    },
+    {
+      "fieldname": "effective_date",
+      "fieldtype": "Date",
+      "label": "Effective Date",
+      "required": true
+    },
+    {
+      "fieldname": "term_start_date",
+      "fieldtype": "Date",
+      "label": "Term Start Date",
+      "required": true
+    },
+    {
+      "fieldname": "term_end_date",
+      "fieldtype": "Date",
+      "label": "Term End Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "appointment_letter",
+      "fieldtype": "Data",
+      "label": "Appointment Letter File Reference"
+    },
+    {
+      "fieldname": "appointed_by",
+      "fieldtype": "Data",
+      "label": "Appointed By"
+    },
+    {
+      "fieldname": "resolution_reference",
+      "fieldtype": "Data",
+      "label": "Appointment Resolution Reference"
+    },
+    {
+      "fieldname": "reappointment_date",
+      "fieldtype": "Date",
+      "label": "Reappointment Date"
+    },
+    {
+      "fieldname": "resignation_date",
+      "fieldtype": "Date",
+      "label": "Resignation Date"
+    },
+    {
+      "fieldname": "retirement_date",
+      "fieldtype": "Date",
+      "label": "Retirement Date"
+    },
+    {
+      "fieldname": "removal_date",
+      "fieldtype": "Date",
+      "label": "Removal Date"
+    },
+    {
+      "fieldname": "appointment_status",
+      "fieldtype": "Select",
+      "label": "Appointment Status",
+      "options": [
+        "Draft",
+        "Active",
+        "Expired",
+        "Resigned",
+        "Retired",
+        "Removed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reason_for_exit",
+      "fieldtype": "Text",
+      "label": "Reason for Exit"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "board_member"
+}

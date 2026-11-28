@@ -1,0 +1,146 @@
+{
+  "name": "Moment Template",
+  "module": "Engagement",
+  "autoname": "field:template_name",
+  "title_field": "template_name",
+  "fields": [
+    {
+      "fieldname": "sb_t",
+      "fieldtype": "Section Break",
+      "label": "Template"
+    },
+    {
+      "fieldname": "template_name",
+      "fieldtype": "Data",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "moment_kind",
+      "fieldtype": "Select",
+      "label": "For",
+      "required": true,
+      "in_list_view": true,
+      "options": [
+        "Birthday",
+        "Work Anniversary",
+        "Partnership Anniversary",
+        "Holiday",
+        "Win Back",
+        "Custom"
+      ]
+    },
+    {
+      "fieldname": "audience",
+      "fieldtype": "Select",
+      "label": "Audience",
+      "default": "All",
+      "in_list_view": true,
+      "options": [
+        "All",
+        "Customer",
+        "Supplier",
+        "Employee"
+      ]
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": 1
+    },
+    {
+      "fieldname": "cb_t",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "emblem",
+      "fieldtype": "Data",
+      "label": "Emblem",
+      "description": "One emoji shown on the message banner."
+    },
+    {
+      "fieldname": "accent_colour",
+      "fieldtype": "Data",
+      "label": "Accent colour",
+      "description": "Overrides the brand colour for this template."
+    },
+    {
+      "fieldname": "sb_c",
+      "fieldtype": "Section Break",
+      "label": "Content"
+    },
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "required": true
+    },
+    {
+      "fieldname": "heading",
+      "fieldtype": "Data",
+      "label": "Heading"
+    },
+    {
+      "fieldname": "body",
+      "fieldtype": "Text",
+      "label": "Message",
+      "required": true,
+      "description": "Blank line starts a new paragraph. Placeholders: {{ first_name }} {{ full_name }} {{ company }} {{ occasion }} {{ years_text }} {{ days_text }}"
+    },
+    {
+      "fieldname": "button_label",
+      "fieldtype": "Data",
+      "label": "Button label"
+    },
+    {
+      "fieldname": "button_url",
+      "fieldtype": "Data",
+      "label": "Button address"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Engagement Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Sales Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    }
+  ]
+}

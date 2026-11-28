@@ -1,0 +1,87 @@
+{
+  "name": "Fixed Asset Component Depreciation Line",
+  "module": "Finance",
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "asset",
+      "fieldtype": "Link",
+      "label": "Parent Fixed Asset",
+      "options": "Fixed Asset",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "component_code",
+      "fieldtype": "Data",
+      "label": "Component Code",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "units_produced",
+      "fieldtype": "Float",
+      "label": "Units Produced This Period",
+      "default": 0,
+      "depends_on": "eval:doc.asset"
+    },
+    {
+      "fieldname": "opening_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Opening Carrying Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "depreciation_amount",
+      "fieldtype": "Currency",
+      "label": "Depreciation Amount",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "closing_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "Closing Carrying Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Depreciation Expense Account",
+      "options": "Account",
+      "read_only": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accumulated_depreciation_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Depreciation Account",
+      "options": "Account",
+      "read_only": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    }
+  ],
+  "istable": true
+}

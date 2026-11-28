@@ -1,0 +1,11 @@
+{
+  "name": "Sales Order Item",
+  "module": "Demo",
+  "istable": true,
+  "fields": [
+    {"fieldname": "description", "fieldtype": "Data", "required": true, "in_list_view": true},
+    {"fieldname": "qty", "fieldtype": "Float", "required": true, "default": 1},
+    {"fieldname": "rate", "fieldtype": "Currency", "required": true},
+    {"fieldname": "amount", "fieldtype": "Currency", "read_only": true}
+  ]
+}

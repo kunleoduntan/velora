@@ -1,0 +1,182 @@
+{
+  "name": "Shareholder",
+  "module": "Governance",
+  "autoname": "series:SHD-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "shareholder_name",
+      "fieldtype": "Data",
+      "label": "Shareholder Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "shareholder_type",
+      "fieldtype": "Select",
+      "label": "Shareholder Type",
+      "options": [
+        "Individual",
+        "Organization"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "registration_or_identification",
+      "fieldtype": "Data",
+      "label": "Registration/Identification Number",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "nationality_or_country",
+      "fieldtype": "Data",
+      "label": "Nationality/Country",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "phone",
+      "fieldtype": "Data",
+      "label": "Phone",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "address",
+      "fieldtype": "Text",
+      "label": "Address",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "shareholder_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Active",
+        "Inactive",
+        "Archived"
+      ],
+      "default": "Active",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "System Manager",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Governance Administrator",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Company Secretary",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "shareholder_name"
+}

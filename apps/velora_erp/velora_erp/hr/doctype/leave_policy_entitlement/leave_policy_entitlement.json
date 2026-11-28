@@ -1,0 +1,50 @@
+{
+  "name": "Leave Policy Entitlement",
+  "module": "HR",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "leave_type",
+      "fieldtype": "Link",
+      "label": "Leave Type",
+      "options": "Leave Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "annual_entitlement_days",
+      "fieldtype": "Float",
+      "label": "Annual Entitlement (Days)",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "proration_method",
+      "fieldtype": "Select",
+      "label": "Proration Method",
+      "options": [
+        "Full Entitlement",
+        "Completed Months",
+        "Calendar Days"
+      ],
+      "default": "Full Entitlement"
+    },
+    {
+      "fieldname": "allow_carry_forward",
+      "fieldtype": "Check",
+      "label": "Allow Carry Forward",
+      "default": 0
+    },
+    {
+      "fieldname": "maximum_carry_forward_days",
+      "fieldtype": "Float",
+      "label": "Maximum Carry Forward Days",
+      "default": 0
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Data",
+      "label": "Notes"
+    }
+  ]
+}

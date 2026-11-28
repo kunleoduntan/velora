@@ -1,0 +1,27 @@
+{
+  "name": "Board Pack Paper",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "board_paper",
+      "fieldtype": "Link",
+      "label": "Board Paper",
+      "options": "Board Paper",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "sequence",
+      "fieldtype": "Int",
+      "label": "Sequence",
+      "default": 1,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

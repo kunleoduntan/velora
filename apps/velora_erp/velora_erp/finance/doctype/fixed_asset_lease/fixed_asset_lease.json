@@ -1,0 +1,362 @@
+{
+  "name": "Fixed Asset Lease",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Lease contract with discounted payment schedule and initial right-of-use asset / lease liability recognition. Subsequent payments are settled through Payment.",
+  "fields": [
+    {
+      "fieldname": "lease_type",
+      "fieldtype": "Select",
+      "label": "Lease Type",
+      "options": [
+        "Lease In (Lessee)"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "asset_name",
+      "fieldtype": "Data",
+      "label": "Asset / Right-of-Use Description",
+      "required": true
+    },
+    {
+      "fieldname": "asset_category",
+      "fieldtype": "Link",
+      "label": "Asset Category",
+      "options": "Fixed Asset Category",
+      "required": true
+    },
+    {
+      "fieldname": "counterparty",
+      "fieldtype": "Link",
+      "label": "Lessor / Supplier",
+      "required": true,
+      "options": "Supplier"
+    },
+    {
+      "fieldname": "lease_start_date",
+      "fieldtype": "Date",
+      "label": "Commencement Date",
+      "required": true
+    },
+    {
+      "fieldname": "lease_end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "required": true
+    },
+    {
+      "fieldname": "classification",
+      "fieldtype": "Select",
+      "label": "Lease Classification",
+      "options": [
+        "IFRS 16 Lessee"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "payment_frequency",
+      "fieldtype": "Select",
+      "label": "Payment Frequency",
+      "options": [
+        "Monthly",
+        "Quarterly",
+        "Half-yearly",
+        "Yearly"
+      ],
+      "default": "Monthly",
+      "required": true
+    },
+    {
+      "fieldname": "payment_timing",
+      "fieldtype": "Select",
+      "label": "Payment Timing",
+      "options": [
+        "Arrears",
+        "In Advance"
+      ],
+      "default": "Arrears",
+      "required": true
+    },
+    {
+      "fieldname": "discount_rate",
+      "fieldtype": "Float",
+      "label": "Annual Discount Rate (%)",
+      "required": true
+    },
+    {
+      "fieldname": "payment_section",
+      "fieldtype": "Section Break",
+      "label": "Lease Payment Schedule",
+      "collapsible": true
+    },
+    {
+      "fieldname": "payments",
+      "fieldtype": "Table",
+      "label": "Payment Schedule",
+      "options": "Fixed Asset Lease Payment",
+      "required": true
+    },
+    {
+      "fieldname": "present_value",
+      "fieldtype": "Currency",
+      "label": "Present Value of Lease Payments",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "lease_liability_balance",
+      "fieldtype": "Currency",
+      "label": "Current Lease Liability",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "accounts_section",
+      "fieldtype": "Section Break",
+      "label": "Accounting",
+      "collapsible": true
+    },
+    {
+      "fieldname": "rou_asset_account",
+      "fieldtype": "Link",
+      "label": "Right-of-Use Asset Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "lease_liability_account",
+      "fieldtype": "Link",
+      "label": "Lease Liability Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "remeasurement_gain_account",
+      "fieldtype": "Link",
+      "label": "Lease Remeasurement Gain Account",
+      "options": "Account",
+      "depends_on": "eval:doc.lease_liability_balance",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "interest_expense_account",
+      "fieldtype": "Link",
+      "label": "Lease Interest Expense Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "accumulated_depreciation_account",
+      "fieldtype": "Link",
+      "label": "ROU Accumulated Depreciation Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "depreciation_expense_account",
+      "fieldtype": "Link",
+      "label": "ROU Depreciation Expense Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "right_of_use_asset",
+      "fieldtype": "Data",
+      "label": "Created Right-of-Use Asset",
+      "read_only": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Initial Recognition Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Active",
+        "Expired",
+        "Terminated",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "autoname": "series:FIX-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "asset_name"
+}

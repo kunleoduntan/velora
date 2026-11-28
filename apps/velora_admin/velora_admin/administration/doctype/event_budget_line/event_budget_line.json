@@ -1,0 +1,36 @@
+{
+  "name": "Event Budget Line",
+  "module": "Administration",
+  "autoname": "hash",
+  "is_submittable": false,
+  "istable": true,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Line Item",
+      "required": true
+    },
+    {
+      "fieldname": "vendor",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Vendor",
+      "options": "Vendor Administration Profile"
+    },
+    {
+      "fieldname": "estimated_cost",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Estimated Cost"
+    },
+    {
+      "fieldname": "actual_cost",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Actual Cost"
+    }
+  ]
+}

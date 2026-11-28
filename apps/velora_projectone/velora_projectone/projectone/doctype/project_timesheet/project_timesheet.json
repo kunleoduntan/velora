@@ -1,0 +1,150 @@
+{
+  "name": "Project Timesheet",
+  "module": "Resources",
+  "track_changes": true,
+  "description": "Approved project time capture; payroll integration requires explicit mapping.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "required": true
+    },
+    {
+      "fieldname": "week_ending",
+      "label": "Week Ending",
+      "fieldtype": "Date",
+      "required": true
+    },
+    {
+      "fieldname": "total_hours",
+      "label": "Total Hours",
+      "fieldtype": "Float"
+    },
+    {
+      "fieldname": "billable_hours",
+      "label": "Billable Hours",
+      "fieldtype": "Float"
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Draft"
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "submitted_by",
+      "label": "Submitted By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "submitted_on",
+      "label": "Submitted On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "approval_reference",
+      "label": "Approval Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "rejection_reason",
+      "label": "Rejection Reason",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "entries",
+      "label": "Daily Entries",
+      "fieldtype": "Table",
+      "options": "Project Timesheet Entry"
+    },
+    {
+      "fieldname": "handoff_batch_id",
+      "label": "Payroll Handoff Batch",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "handoff_status",
+      "label": "Handoff Status",
+      "fieldtype": "Select",
+      "options": [
+        "Not Sent",
+        "Pending Acknowledgement",
+        "Acknowledged",
+        "Failed"
+      ],
+      "default": "Not Sent"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "project"
+}

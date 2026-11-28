@@ -1,0 +1,299 @@
+{
+ "name": "Income Tax Computation",
+ "module": "Tax Management",
+ "autoname": "series:CIT-.######",
+ "is_submittable": true,
+ "track_changes": true,
+ "title_field": "title",
+ "description": "Company income tax for a period: profit from the ledger, add-backs from accounts marked not tax allowed, deductions and capital allowances, losses brought forward, levies and withholding tax credits.",
+ "fields": [
+  {
+   "fieldname": "basis",
+   "fieldtype": "Section Break",
+   "label": "Period and rates"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "jurisdiction",
+   "fieldtype": "Link",
+   "label": "Jurisdiction",
+   "options": "Tax Jurisdiction",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "period_start",
+   "fieldtype": "Date",
+   "label": "Period start",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "period_end",
+   "fieldtype": "Date",
+   "label": "Period end",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "income_tax_rule",
+   "fieldtype": "Data",
+   "label": "Income tax rule code",
+   "description": "Approved Tax Rule of type Income Tax (rate, or tiers for small-company bands)."
+  },
+  {
+   "fieldname": "minimum_tax_rule",
+   "fieldtype": "Data",
+   "label": "Minimum tax rule code",
+   "description": "Optional approved Income Tax rule charged on turnover; the higher of the two is payable."
+  },
+  {
+   "fieldname": "levy_rules",
+   "fieldtype": "Text",
+   "label": "Levy rule codes",
+   "description": "Optional: codes of approved Levy rules, separated by commas. Each is charged on assessable profit."
+  },
+  {
+   "fieldname": "computation",
+   "fieldtype": "Section Break",
+   "label": "Computation"
+  },
+  {
+   "fieldname": "lines",
+   "fieldtype": "Table",
+   "label": "Adjustments",
+   "options": "Income Tax Computation Line"
+  },
+  {
+   "fieldname": "turnover",
+   "fieldtype": "Currency",
+   "label": "Turnover (income accounts)",
+   "read_only": true
+  },
+  {
+   "fieldname": "total_expenses",
+   "fieldtype": "Currency",
+   "label": "Expenses in books",
+   "read_only": true
+  },
+  {
+   "fieldname": "accounting_profit",
+   "fieldtype": "Currency",
+   "label": "Profit per books",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "total_add_backs",
+   "fieldtype": "Currency",
+   "label": "Add backs",
+   "read_only": true
+  },
+  {
+   "fieldname": "total_deductions",
+   "fieldtype": "Currency",
+   "label": "Deductions and exempt income",
+   "read_only": true
+  },
+  {
+   "fieldname": "total_capital_allowances",
+   "fieldtype": "Currency",
+   "label": "Capital allowances",
+   "read_only": true
+  },
+  {
+   "fieldname": "adjusted_profit",
+   "fieldtype": "Currency",
+   "label": "Adjusted profit",
+   "read_only": true
+  },
+  {
+   "fieldname": "loss_brought_forward",
+   "fieldtype": "Currency",
+   "label": "Loss brought forward",
+   "description": "Unrelieved losses of earlier periods. Proposed from the last approved computation."
+  },
+  {
+   "fieldname": "loss_relieved",
+   "fieldtype": "Currency",
+   "label": "Loss relieved",
+   "read_only": true
+  },
+  {
+   "fieldname": "assessable_profit",
+   "fieldtype": "Currency",
+   "label": "Assessable profit",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "loss_carried_forward",
+   "fieldtype": "Currency",
+   "label": "Loss carried forward",
+   "read_only": true
+  },
+  {
+   "fieldname": "tax",
+   "fieldtype": "Section Break",
+   "label": "Tax"
+  },
+  {
+   "fieldname": "income_tax",
+   "fieldtype": "Currency",
+   "label": "Income tax",
+   "read_only": true
+  },
+  {
+   "fieldname": "minimum_tax",
+   "fieldtype": "Currency",
+   "label": "Minimum tax",
+   "read_only": true
+  },
+  {
+   "fieldname": "income_tax_charge",
+   "fieldtype": "Currency",
+   "label": "Income tax chargeable",
+   "read_only": true
+  },
+  {
+   "fieldname": "levies",
+   "fieldtype": "Currency",
+   "label": "Levies",
+   "read_only": true
+  },
+  {
+   "fieldname": "wht_available",
+   "fieldtype": "Currency",
+   "label": "Withholding tax credits in period",
+   "read_only": true
+  },
+  {
+   "fieldname": "wht_utilised",
+   "fieldtype": "Currency",
+   "label": "Withholding tax credit used",
+   "description": "Cannot exceed the credits available or the income tax charged. Blank uses the maximum."
+  },
+  {
+   "fieldname": "net_payable",
+   "fieldtype": "Currency",
+   "label": "Net tax payable",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "calculated_on",
+   "fieldtype": "Datetime",
+   "label": "Calculated on",
+   "read_only": true
+  },
+  {
+   "fieldname": "source_hash",
+   "fieldtype": "Data",
+   "label": "Ledger fingerprint",
+   "read_only": true,
+   "hidden": true
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Basis of preparation and notes"
+  },
+  {
+   "fieldname": "approval",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval status",
+   "options": [
+    "Pending",
+    "Approved",
+    "Rejected"
+   ],
+   "default": "Pending",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved by",
+   "read_only": true
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved on",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_by",
+   "fieldtype": "Data",
+   "label": "Rejected by",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_on",
+   "fieldtype": "Datetime",
+   "label": "Rejected on",
+   "read_only": true
+  },
+  {
+   "fieldname": "approval_comments",
+   "fieldtype": "Text",
+   "label": "Approval comments"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "report": true,
+   "export": true
+  }
+ ]
+}

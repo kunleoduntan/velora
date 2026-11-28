@@ -1,0 +1,112 @@
+{
+  "name": "Fixed Asset Purchase Line",
+  "module": "Finance",
+  "track_changes": false,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "asset_name",
+      "fieldtype": "Data",
+      "label": "Asset Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "asset_category",
+      "fieldtype": "Link",
+      "label": "Asset Category",
+      "options": "Fixed Asset Category",
+      "required": true
+    },
+    {
+      "fieldname": "quantity",
+      "fieldtype": "Int",
+      "label": "Quantity",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "unit_cost",
+      "fieldtype": "Currency",
+      "label": "Unit Cost",
+      "required": true
+    },
+    {
+      "fieldname": "asset_account",
+      "fieldtype": "Link",
+      "label": "Asset Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "useful_life_months",
+      "fieldtype": "Int",
+      "label": "Useful Life (Months)",
+      "default": 60
+    },
+    {
+      "fieldname": "residual_value",
+      "fieldtype": "Currency",
+      "label": "Residual Value per Asset",
+      "default": 0
+    },
+    {
+      "fieldname": "serial_number",
+      "fieldtype": "Data",
+      "label": "Serial Number"
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Data",
+      "label": "Location"
+    },
+    {
+      "fieldname": "depreciation_method",
+      "fieldtype": "Select",
+      "label": "Depreciation Method",
+      "options": [
+        "Straight Line",
+        "Reducing Balance",
+        "Units of Production"
+      ],
+      "depends_on": "eval:doc.asset_category"
+    },
+    {
+      "fieldname": "depreciation_rate",
+      "fieldtype": "Float",
+      "label": "Reducing Balance Rate (%)",
+      "depends_on": "eval:doc.depreciation_method == \"Reducing Balance\""
+    },
+    {
+      "fieldname": "total_units_of_production",
+      "fieldtype": "Float",
+      "label": "Estimated Total Production Units",
+      "depends_on": "eval:doc.depreciation_method == \"Units of Production\""
+    }
+  ],
+  "istable": true
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Consolidation Account Map",
+  "module": "Finance",
+  "istable": true,
+  "description": "Maps one company's account to a group account when the account codes differ between companies.",
+  "grid_columns": [
+    {
+      "field": "company_id",
+      "width": 2
+    },
+    {
+      "field": "account",
+      "width": 2
+    },
+    {
+      "field": "group_code",
+      "width": 1
+    },
+    {
+      "field": "group_name",
+      "width": 2
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "company_id",
+      "fieldtype": "Data",
+      "label": "Company",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "account",
+      "fieldtype": "Data",
+      "label": "Account (code or name)",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "group_code",
+      "fieldtype": "Data",
+      "label": "Group account code",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "group_name",
+      "fieldtype": "Data",
+      "label": "Group account name",
+      "in_list_view": true
+    }
+  ]
+}

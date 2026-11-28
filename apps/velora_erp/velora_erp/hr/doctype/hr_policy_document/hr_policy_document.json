@@ -1,0 +1,155 @@
+{
+  "name": "HR Policy Document",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Central HR policy register with controlled version history, approval, publication, review and employee acknowledgement.",
+  "fields": [
+    {
+      "fieldname": "policy_code",
+      "label": "Policy Code",
+      "fieldtype": "Data",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "policy_title",
+      "label": "Policy Title",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_category",
+      "label": "Category",
+      "fieldtype": "Select",
+      "options": [
+        "Employment",
+        "Leave",
+        "Attendance",
+        "Compensation",
+        "Conduct",
+        "Disciplinary",
+        "Health and Safety",
+        "Information Security",
+        "Data Protection",
+        "Learning and Development",
+        "Benefits",
+        "Separation",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_owner",
+      "label": "Policy Owner",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "department",
+      "label": "Responsible Department",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "current_version",
+      "label": "Current Version",
+      "fieldtype": "Data",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "In Review",
+        "Approved",
+        "Published",
+        "Under Review",
+        "Retired"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "confidentiality",
+      "label": "Access Classification",
+      "fieldtype": "Select",
+      "options": [
+        "All Employees",
+        "Managers",
+        "HR Only",
+        "Restricted"
+      ],
+      "default": "All Employees",
+      "required": true
+    },
+    {
+      "fieldname": "versions",
+      "label": "Versions",
+      "fieldtype": "Table",
+      "options": "HR Policy Version"
+    },
+    {
+      "fieldname": "review_cycle_months",
+      "label": "Review Cycle (Months)",
+      "fieldtype": "Int",
+      "default": 12
+    },
+    {
+      "fieldname": "next_review_date",
+      "label": "Next Review Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "acknowledgement_required",
+      "label": "Acknowledgement Required",
+      "fieldtype": "Check",
+      "default": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

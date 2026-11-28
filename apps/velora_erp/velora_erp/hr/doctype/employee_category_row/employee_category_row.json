@@ -1,0 +1,39 @@
+{
+  "name": "Employee Category Row",
+  "module": "HR",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "category_name",
+      "fieldtype": "Link",
+      "label": "Classification Category",
+      "required": true,
+      "in_list_view": true,
+      "options": "Employee Classification Category"
+    },
+    {
+      "fieldname": "category_value",
+      "fieldtype": "Link",
+      "label": "Classification Value",
+      "required": true,
+      "in_list_view": true,
+      "options": "Employee Classification Value"
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From"
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "is_primary",
+      "fieldtype": "Check",
+      "label": "Primary",
+      "default": 0
+    }
+  ]
+}

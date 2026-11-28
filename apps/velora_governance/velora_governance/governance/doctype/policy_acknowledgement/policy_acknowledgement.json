@@ -1,0 +1,55 @@
+{
+  "name": "Policy Acknowledgement",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "board_member",
+      "fieldtype": "Link",
+      "label": "Board Member",
+      "options": "Board Member",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_or_recipient",
+      "fieldtype": "Data",
+      "label": "Employee/Recipient"
+    },
+    {
+      "fieldname": "acknowledged_on",
+      "fieldtype": "Date",
+      "label": "Acknowledged On",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_version",
+      "fieldtype": "Data",
+      "label": "Policy Version",
+      "required": true
+    },
+    {
+      "fieldname": "acknowledgement_method",
+      "fieldtype": "Select",
+      "label": "Method",
+      "options": [
+        "Portal",
+        "Electronic Signature",
+        "Email",
+        "Physical",
+        "Other"
+      ],
+      "default": "Portal"
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

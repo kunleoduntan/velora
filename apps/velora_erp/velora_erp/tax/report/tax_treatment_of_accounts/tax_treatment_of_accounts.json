@@ -1,0 +1,27 @@
+{
+ "name": "Tax Treatment of Accounts",
+ "module": "Tax Management",
+ "type": "script",
+ "ref_doctype": "Account",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Income and expense accounts with their company income tax treatment and the balance for the period: what is added back, what is exempt, and which accounts have not been reviewed.",
+ "filters": [
+  {
+   "fieldname": "from_date",
+   "label": "From Date",
+   "fieldtype": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "label": "To Date",
+   "fieldtype": "Date",
+   "reqd": 1
+  }
+ ]
+}

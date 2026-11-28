@@ -1,0 +1,8 @@
+# VeloraERP 2.95.1 - payroll that sets itself up
+- **Payroll Automation Settings**: tax jurisdiction and rule, default salary structure, Base Salary % of Gross Pay, payroll payable account, rent relief rate (20%) and cap (500,000), and the NHF / NSITF / pension checks.
+- **Employee Rent Declaration**: annual rent per employee and tax year. When Verified, rent relief (rate x rent, up to the cap) reaches the employee's Tax Profile and so PAYE automatically. Checked: 500,000 gross a month with 1,200,000 rent gives 240,000 relief and PAYE of 68,900 a month under the test bands.
+- **Payroll Preparation**: pick the period and save. Missing Employee Tax Profiles and Salary Structure Assignments are created, a draft Payroll Run is built, and a "Needs Attention" list shows each problem, who it affects and how to fix it (no gross pay, no bank details, no tax ID, no pension PIN / NHF number, a salary structure without PAYE / pension / NHF / NSITF lines). An employee whose line cannot be validated is left out and listed; the rest go through. Saving again reuses the same draft run.
+- Saving an Employee sets up their tax profile and assignment quietly (switch off in the settings).
+- Approvals are unchanged: with no workflow they are automatic; with one, the created profiles and assignments wait for it and are listed.
+
+Limits: NHF, NSITF and pension are Salary Components in the structure (their accounts are yours), so the checks tell you when one is missing but do not invent accounts. A pay change mid-year is flagged, not rewritten: add a new assignment from the change date. Attendance days are not pulled in yet; the run assumes the full period.

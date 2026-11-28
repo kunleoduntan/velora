@@ -1,0 +1,181 @@
+{
+  "name": "Employee Relations Case",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Restricted employee relations case register for grievances, disciplinary matters, welfare and investigations. Limit access to authorised HR personnel.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "case_type",
+      "fieldtype": "Select",
+      "label": "Case Type",
+      "options": [
+        "Grievance",
+        "Disciplinary",
+        "Harassment",
+        "Workplace Conflict",
+        "Welfare",
+        "Ethics Concern",
+        "Investigation",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "required": true
+    },
+    {
+      "fieldname": "reported_date",
+      "fieldtype": "Date",
+      "label": "Reported Date",
+      "required": true
+    },
+    {
+      "fieldname": "incident_date",
+      "fieldtype": "Date",
+      "label": "Incident Date"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Case Description",
+      "required": true
+    },
+    {
+      "fieldname": "severity",
+      "fieldtype": "Select",
+      "label": "Severity",
+      "options": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "default": "Medium",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "confidentiality",
+      "fieldtype": "Select",
+      "label": "Confidentiality",
+      "options": [
+        "Restricted",
+        "Highly Restricted"
+      ],
+      "default": "Restricted",
+      "required": true
+    },
+    {
+      "fieldname": "case_status",
+      "fieldtype": "Select",
+      "label": "Case Status",
+      "options": [
+        "Open",
+        "Triage",
+        "Under Investigation",
+        "Awaiting Response",
+        "Decision Pending",
+        "Resolved",
+        "Closed",
+        "Withdrawn"
+      ],
+      "default": "Open",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_investigator",
+      "fieldtype": "Data",
+      "label": "Assigned Investigator"
+    },
+    {
+      "fieldname": "target_resolution_date",
+      "fieldtype": "Date",
+      "label": "Target Resolution Date"
+    },
+    {
+      "fieldname": "outcome",
+      "fieldtype": "Select",
+      "label": "Outcome",
+      "options": [
+        "",
+        "Substantiated",
+        "Partially Substantiated",
+        "Not Substantiated",
+        "Mediated",
+        "No Further Action",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "resolution_summary",
+      "fieldtype": "Text",
+      "label": "Resolution Summary"
+    },
+    {
+      "fieldname": "actions",
+      "fieldtype": "Table",
+      "label": "Case Actions",
+      "options": "Employee Relations Action"
+    },
+    {
+      "fieldname": "closed_by",
+      "fieldtype": "Data",
+      "label": "Closed By"
+    },
+    {
+      "fieldname": "closed_on",
+      "fieldtype": "Datetime",
+      "label": "Closed On"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

@@ -1,0 +1,177 @@
+{
+ "name": "Emission Source",
+ "module": "Governance",
+ "autoname": "series:EMS-.####",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Select",
+   "label": "Scope",
+   "options": [
+    "Scope 1",
+    "Scope 2",
+    "Scope 3"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "scope3_category",
+   "fieldtype": "Select",
+   "label": "Scope 3 category",
+   "options": [
+    "1. Purchased goods and services",
+    "2. Capital goods",
+    "3. Fuel- and energy-related activities",
+    "4. Upstream transportation and distribution",
+    "5. Waste generated in operations",
+    "6. Business travel",
+    "7. Employee commuting",
+    "8. Upstream leased assets",
+    "9. Downstream transportation and distribution",
+    "10. Processing of sold products",
+    "11. Use of sold products",
+    "12. End-of-life treatment of sold products",
+    "13. Downstream leased assets",
+    "14. Franchises",
+    "15. Investments"
+   ],
+   "depends_on": "eval:doc.scope=='Scope 3'"
+  },
+  {
+   "fieldname": "scope2_method",
+   "fieldtype": "Select",
+   "label": "Scope 2 method",
+   "options": [
+    "Location-based",
+    "Market-based"
+   ],
+   "depends_on": "eval:doc.scope=='Scope 2'"
+  },
+  {
+   "fieldname": "source_category",
+   "fieldtype": "Link",
+   "label": "Source Category",
+   "options": "Emission Source Category",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "source_name",
+   "fieldtype": "Data",
+   "label": "Source Name",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Sustainability Unit",
+   "required": true
+  },
+  {
+   "fieldname": "data_owner",
+   "fieldtype": "Data",
+   "label": "Data Owner"
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ],
+ "title_field": "source_name"
+}

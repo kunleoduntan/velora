@@ -1,0 +1,149 @@
+{
+  "name": "Payroll Preparation",
+  "module": "Finance",
+  "title_field": "period_end",
+  "track_changes": true,
+  "description": "Pick the pay period and save: tax profiles and salary assignments are set up, a draft Payroll Run is built, and anything needing attention is listed with the fix.",
+  "fields": [
+    {
+      "fieldname": "period_start",
+      "label": "Period Start",
+      "fieldtype": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "period_end",
+      "label": "Period End",
+      "fieldtype": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "pay_frequency",
+      "label": "Pay Frequency",
+      "fieldtype": "Select",
+      "options": [
+        "Weekly",
+        "Biweekly",
+        "Semi-monthly",
+        "Monthly",
+        "Quarterly",
+        "Annual"
+      ],
+      "default": "Monthly",
+      "required": true
+    },
+    {
+      "fieldname": "posting_date",
+      "label": "Posting Date",
+      "fieldtype": "Date",
+      "description": "Defaults to the period end."
+    },
+    {
+      "fieldname": "result_section",
+      "label": "Result",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Prepared"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "payroll_run",
+      "label": "Payroll Run",
+      "fieldtype": "Link",
+      "options": "Payroll Run",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employees_included",
+      "label": "Employees in the Run",
+      "fieldtype": "Int",
+      "read_only": true
+    },
+    {
+      "fieldname": "employees_flagged",
+      "label": "Employees Needing Attention",
+      "fieldtype": "Int",
+      "read_only": true
+    },
+    {
+      "fieldname": "summary",
+      "label": "Summary",
+      "fieldtype": "Text",
+      "read_only": true
+    },
+    {
+      "fieldname": "issues",
+      "label": "Needs Attention",
+      "fieldtype": "Table",
+      "options": "Payroll Preparation Issue",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true
+    }
+  ]
+}

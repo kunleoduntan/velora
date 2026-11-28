@@ -1,0 +1,53 @@
+{
+ "name": "Facility Security",
+ "module": "Debt and Treasury",
+ "istable": true,
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "security_type",
+   "fieldtype": "Select",
+   "label": "Security",
+   "options": [
+    "Debenture",
+    "Mortgage / Legal charge",
+    "Pledge of shares",
+    "Cash collateral",
+    "Guarantee",
+    "Domiciliation of receipts",
+    "Negative pledge",
+    "Other"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "value",
+   "fieldtype": "Currency",
+   "label": "Value",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "registered",
+   "fieldtype": "Check",
+   "label": "Registered",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "registration_reference",
+   "fieldtype": "Data",
+   "label": "Registration reference"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expires"
+  }
+ ]
+}

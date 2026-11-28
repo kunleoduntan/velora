@@ -1,0 +1,122 @@
+{
+  "name": "Project Baseline",
+  "module": "Planning",
+  "track_changes": true,
+  "description": "Versioned approved scope/schedule/cost baseline.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "baseline_name",
+      "label": "Baseline Name",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "baseline_type",
+      "label": "Baseline Type",
+      "fieldtype": "Select",
+      "options": [
+        "Initial",
+        "Approved Revision",
+        "Forecast"
+      ]
+    },
+    {
+      "fieldname": "version",
+      "label": "Version",
+      "fieldtype": "Int",
+      "default": 1
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "schedule_snapshot",
+      "label": "Schedule Snapshot",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "budget_snapshot",
+      "label": "Budget Snapshot",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "is_current",
+      "label": "Current Baseline",
+      "fieldtype": "Check",
+      "default": 0
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Superseded"
+      ],
+      "default": "Draft"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "project"
+}

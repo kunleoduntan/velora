@@ -1,0 +1,136 @@
+{
+  "name": "Facility Asset",
+  "module": "Administration",
+  "autoname": "series:FASSET-.####",
+  "title_field": "asset_name",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "FASSET-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "asset_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Asset Name",
+      "required": true
+    },
+    {
+      "default": "Other",
+      "fieldname": "asset_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Asset Type",
+      "options": "Generator\nAir Conditioner\nElevator\nElectrical System\nPlumbing\nFire Equipment\nSecurity System\nFurniture\nOther",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Operational",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Operational\nUnder Maintenance\nFaulty\nDecommissioned",
+      "read_only": 1
+    },
+    {
+      "fieldname": "facility_space",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Facility Space",
+      "options": "Facility Space",
+      "required": true
+    },
+    {
+      "fieldname": "section_break_install",
+      "fieldtype": "Section Break",
+      "label": "Installation"
+    },
+    {
+      "fieldname": "install_date",
+      "fieldtype": "Date",
+      "label": "Install Date"
+    },
+    {
+      "fieldname": "serial_no",
+      "fieldtype": "Data",
+      "label": "Serial No."
+    },
+    {
+      "fieldname": "column_break_install",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "warranty_expiry",
+      "fieldtype": "Date",
+      "label": "Warranty Expiry"
+    },
+    {
+      "fieldname": "section_break_maintenance",
+      "fieldtype": "Section Break",
+      "label": "Maintenance Schedule"
+    },
+    {
+      "default": "90",
+      "fieldname": "maintenance_frequency_days",
+      "fieldtype": "Int",
+      "label": "Maintenance Frequency (Days)"
+    },
+    {
+      "fieldname": "last_maintenance_date",
+      "fieldtype": "Date",
+      "label": "Last Maintenance Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_maintenance",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "next_maintenance_date",
+      "fieldtype": "Date",
+      "label": "Next Maintenance Due",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_notes",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

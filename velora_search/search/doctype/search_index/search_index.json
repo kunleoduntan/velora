@@ -1,0 +1,44 @@
+{
+  "name": "Search Index",
+  "module": "Search",
+  "fields": [
+    {
+      "fieldname": "ref_doctype",
+      "fieldtype": "Data",
+      "label": "DocType",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "ref_name",
+      "fieldtype": "Data",
+      "label": "Document",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "label": "Title",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "title_norm",
+      "fieldtype": "Data",
+      "label": "Title (normalised)"
+    },
+    {
+      "fieldname": "body_norm",
+      "fieldtype": "Text",
+      "label": "Text (normalised)"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "export": true
+    }
+  ]
+}

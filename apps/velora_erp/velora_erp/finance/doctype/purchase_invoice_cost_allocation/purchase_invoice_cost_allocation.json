@@ -1,0 +1,79 @@
+{
+  "name": "Purchase Invoice Cost Allocation",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "allocation_type",
+      "fieldtype": "Select",
+      "label": "Allocation Type",
+      "options": [
+        "Cost Centre",
+        "Business Unit",
+        "Intercompany"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre",
+      "depends_on": "eval:doc.allocation_type == \"Cost Centre\"",
+      "mandatory_depends_on": "eval:doc.allocation_type == \"Cost Centre\"",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit",
+      "depends_on": "eval:doc.allocation_type == \"Business Unit\"",
+      "mandatory_depends_on": "eval:doc.allocation_type == \"Business Unit\"",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "target_company",
+      "fieldtype": "Data",
+      "label": "Receiving Company",
+      "depends_on": "eval:doc.allocation_type == \"Intercompany\"",
+      "mandatory_depends_on": "eval:doc.allocation_type == \"Intercompany\"",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "intercompany_receivable_account",
+      "fieldtype": "Link",
+      "label": "Due From Affiliate Account",
+      "options": "Account",
+      "depends_on": "eval:doc.allocation_type == \"Intercompany\"",
+      "mandatory_depends_on": "eval:doc.allocation_type == \"Intercompany\"",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "percentage",
+      "fieldtype": "Float",
+      "label": "Allocation %",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "allocated_amount",
+      "fieldtype": "Currency",
+      "label": "Allocated Amount",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+ "name": "Tax Report Library",
+ "module": "Tax Management",
+ "type": "script",
+ "ref_doctype": "Account Ledger Record",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "One report, 125 tax reports: VAT, withholding tax, income tax, deferred tax, compliance, liabilities, credits, analytics, data quality and audit trail. Pick the report; the columns follow it. Built from the tax ledger and the tax documents.",
+ "filters": [
+  {
+   "fieldname": "report",
+   "label": "Report",
+   "fieldtype": "Select",
+   "options": "Account Mapping Quality\nAllowable Expense Analysis\nAuthority Account Statement\nAuthority Acknowledgment Register\nBackdated Transaction Register\nCIT Provision\nCIT Rate and Levy Analysis\nCIT Return Reconciliation\nCapital Allowance Computation\nCapital Allowance Register\nCompany Tax Summary\nCompliance Scorecard\nCompliance Trend\nCompliance by Authority\nCompliance by Owner\nCompliance by Tax Type\nControl Failures\nCurrent Tax Provision\nDTA Register\nDTL Register\nData Quality Trend\nDeferred Tax by Category\nDuplicate Tax Records\nETR Reconciliation\nEffective Tax Rate Analysis\nExecutive Tax Report\nExpired Tax Configuration\nFiling Evidence Register\nGroup Tax Summary\nJurisdiction Tax Summary\nLoss Carryforward Register\nLoss Utilization\nMinimum Tax Analysis\nMissing Tax Data\nMy Tax Work\nNon-Recoverable VAT Register\nOverdue Obligations\nPartial VAT Recovery Register\nProfit Sensitivity\nProfit to Taxable Profit Bridge\nRate Sensitivity\nRegistration Quality\nReturn Rejections\nReturn Review Queue\nReturn Versions and Amendments\nSegregation of Duties Conflicts\nSuspicious Tax Activity\nTax Adjustment Register\nTax Anomaly Register\nTax Anomaly Severity\nTax Approval History\nTax Cash Flow Forecast\nTax Comparative Analysis\nTax Cost by Business Unit\nTax Cost by Company\nTax Cost by Department\nTax Cost by Jurisdiction\nTax Credit Aging\nTax Credit Movement\nTax Data Quality Scorecard\nTax Expense Analysis\nTax Forecast\nTax Jurisdiction Register\nTax Liability Aging\nTax Liability Register\nTax Liability by Authority\nTax Liability by Period\nTax Month-over-Month\nTax Obligation Register\nTax Payment Reconciliation\nTax Payments Register\nTax Provision Movement\nTax Quarter-over-Quarter\nTax Return Detail\nTax Return Register\nTax Rule Change Register\nTax Rule Quality\nTax Transaction Quality\nTax Trend Analysis\nTax Type Summary\nTax Work Queue\nTax Year-over-Year\nTax by Account\nTax by Business Unit\nTax by Cost Centre\nTax by Counterparty\nTax by Department\nTax by Jurisdiction\nTax by Tax Type\nTax by Transaction\nTax to Revenue Ratio\nTaxable Income Summary\nTemporary Difference Register\nUnassigned Work\nUnrecognized DTA Register\nUpcoming Obligations\nVAT Adjustment Register\nVAT Credit Balance\nVAT Credit and Debit Note Register\nVAT Exceptions and Variances\nVAT Inclusive and Exclusive Transactions\nVAT Ledger Movement\nVAT Payable and Receivable\nVAT Payment Register\nVAT Reconciliation\nVAT Recoverability Analysis\nVAT Return Line Reconciliation\nVAT by Account\nVAT by Customer\nVAT by Item\nVAT by Jurisdiction\nVAT by Supplier\nVAT by Tax Category\nVAT by Tax Rate\nWHT Certificate Expiry\nWHT Certificate Issued Register\nWHT Certificate Received Register\nWHT Certificate Verification\nWHT Credit Aging\nWHT Credit Utilization\nWHT Exceptions\nWHT Remittance Reconciliation\nWHT Remittance Register\nWHT by Category\nWHT by Rate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "label": "From Date",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "to_date",
+   "label": "To Date",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "tax_type",
+   "label": "Tax Type",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "jurisdiction",
+   "label": "Jurisdiction",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "party",
+   "label": "Party",
+   "fieldtype": "Data"
+  }
+ ]
+}

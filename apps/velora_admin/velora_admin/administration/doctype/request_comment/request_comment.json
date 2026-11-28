@@ -1,0 +1,38 @@
+{
+  "name": "Request Comment",
+  "module": "Administration",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "comment_by",
+      "fieldtype": "Data",
+      "label": "Comment By",
+      "required": true
+    },
+    {
+      "fieldname": "comment_on",
+      "fieldtype": "Datetime",
+      "label": "Comment On",
+      "required": true
+    },
+    {
+      "fieldname": "comment",
+      "fieldtype": "Text",
+      "label": "Comment",
+      "required": true
+    },
+    {
+      "fieldname": "visibility",
+      "fieldtype": "Select",
+      "label": "Visibility",
+      "options": "Requester and Staff\nStaff Only",
+      "default": "Requester and Staff",
+      "required": true
+    },
+    {
+      "fieldname": "attachment_reference",
+      "fieldtype": "Data",
+      "label": "Attachment Reference"
+    }
+  ]
+}

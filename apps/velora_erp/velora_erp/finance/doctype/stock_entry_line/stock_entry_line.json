@@ -1,0 +1,101 @@
+{
+  "name": "Stock Entry Line",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "fieldtype": "Link",
+      "label": "Item Code",
+      "options": "Inventory Item",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_name",
+      "fieldtype": "Data",
+      "label": "Item Name",
+      "fetch_from": "item_code.item_name",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "quantity",
+      "fieldtype": "Float",
+      "label": "Quantity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "Uom",
+      "options": "Unit of Measure",
+      "fetch_from": "item_code.stock_uom",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "conversion_factor",
+      "fieldtype": "Float",
+      "label": "Conversion Factor",
+      "default": 1,
+      "description": "Stock units in one unit of the line's unit of measure."
+    },
+    {
+      "fieldname": "batch",
+      "fieldtype": "Link",
+      "label": "Batch",
+      "options": "Batch"
+    },
+    {
+      "fieldname": "serial_number",
+      "fieldtype": "Link",
+      "label": "Serial Number",
+      "options": "Serial Number"
+    },
+    {
+      "fieldname": "basic_rate",
+      "fieldtype": "Currency",
+      "label": "Basic Rate",
+      "depends_on": "eval:doc.stock_entry_type=='Material Receipt'",
+      "description": "Unit cost of received stock; the item's standard cost is used when empty."
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Expense Account",
+      "options": "Account",
+      "description": "Account charged for stock issued (the item's expense account when empty).",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "source_line",
+      "fieldtype": "Data",
+      "label": "Source Line",
+      "read_only": true
+    },
+    {
+      "fieldname": "note",
+      "fieldtype": "Data",
+      "label": "Note"
+    }
+  ],
+  "permissions": []
+}

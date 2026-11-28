@@ -1,0 +1,38 @@
+{
+ "name": "WHT All Sources",
+ "module": "Tax Management",
+ "type": "script",
+ "ref_doctype": "Account Ledger Record",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Every withholding tax line in the general ledger, from every source: Tax Journals, receipts and payments, invoices and investment income. Credits suffered and tax payable are shown apart, each with the document it came from.",
+ "filters": [
+  {
+   "fieldname": "from_date",
+   "label": "From Date",
+   "fieldtype": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "label": "To Date",
+   "fieldtype": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "direction",
+   "label": "Direction",
+   "fieldtype": "Select",
+   "options": "\nCredit suffered\nPayable (withheld by us)"
+  },
+  {
+   "fieldname": "source",
+   "label": "Source document type",
+   "fieldtype": "Data"
+  }
+ ]
+}

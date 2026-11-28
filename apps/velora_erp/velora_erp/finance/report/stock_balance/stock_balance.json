@@ -1,0 +1,14 @@
+{
+  "name": "Stock Balance",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Stock Ledger Record",
+  "roles": ["System Manager", "Finance Manager", "Inventory Manager", "Storekeeper", "Auditor"],
+  "description": "Current on-hand quantity and carrying value by item, warehouse, batch and serial number, derived from the immutable Stock Ledger.",
+  "filters": [
+    {"fieldname":"item_code","label":"Item","fieldtype":"Link","options":"Inventory Item"},
+    {"fieldname":"warehouse","label":"Warehouse","fieldtype":"Link","options":"Warehouse"},
+    {"fieldname":"batch","label":"Batch","fieldtype":"Link","options":"Batch"},
+    {"fieldname":"serial_number","label":"Serial Number","fieldtype":"Link","options":"Serial Number"}
+  ]
+}

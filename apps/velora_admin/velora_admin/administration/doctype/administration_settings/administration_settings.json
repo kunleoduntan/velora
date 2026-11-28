@@ -1,0 +1,115 @@
+{
+  "name": "Administration Settings",
+  "module": "Administration",
+  "autoname": "series:ADMINISTRATION_SETTINGS-.####",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "fiscal_year",
+      "fieldtype": "Data",
+      "label": "Current Fiscal Year"
+    },
+    {
+      "fieldname": "default_currency",
+      "fieldtype": "Link",
+      "label": "Default Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "column_break_org",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Monday",
+      "fieldname": "week_start_day",
+      "fieldtype": "Select",
+      "label": "Week Start Day",
+      "options": "Monday\nSunday"
+    },
+    {
+      "default": "08:00:00",
+      "fieldname": "working_hours_start",
+      "fieldtype": "Data",
+      "label": "Working Hours Start"
+    },
+    {
+      "default": "17:00:00",
+      "fieldname": "working_hours_end",
+      "fieldtype": "Data",
+      "label": "Working Hours End"
+    },
+    {
+      "fieldname": "section_break_numbering",
+      "fieldtype": "Section Break",
+      "label": "Numbering"
+    },
+    {
+      "default": "PERSON-.#####",
+      "fieldname": "person_naming_series",
+      "fieldtype": "Data",
+      "label": "Person Naming Series"
+    },
+    {
+      "default": "OU-.#####",
+      "fieldname": "organisation_unit_naming_series",
+      "fieldtype": "Data",
+      "label": "Organisation Unit Naming Series"
+    },
+    {
+      "fieldname": "column_break_numbering",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "RPTLINE-.#####",
+      "fieldname": "reporting_line_naming_series",
+      "fieldtype": "Data",
+      "label": "Reporting Line Naming Series"
+    },
+    {
+      "fieldname": "section_break_notify",
+      "fieldtype": "Section Break",
+      "label": "Notifications"
+    },
+    {
+      "default": "1",
+      "fieldname": "enable_email_notifications",
+      "fieldtype": "Check",
+      "label": "Enable Email Notifications"
+    },
+    {
+      "default": "0",
+      "fieldname": "enable_sms_notifications",
+      "fieldtype": "Check",
+      "label": "Enable SMS Notifications"
+    },
+    {
+      "fieldname": "column_break_notify",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "notification_from_email",
+      "fieldtype": "Data",
+      "label": "Notification From Email",
+      "options": "Email"
+    },
+    {
+      "default": "3",
+      "fieldname": "default_escalation_days",
+      "fieldtype": "Int",
+      "label": "Default Escalation (Days)"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

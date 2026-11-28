@@ -1,0 +1,67 @@
+{
+  "name": "Fixed Asset Lease Payment",
+  "module": "Finance",
+  "track_changes": false,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "payment_amount",
+      "fieldtype": "Currency",
+      "label": "Payment Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "payment_status",
+      "fieldtype": "Select",
+      "label": "Payment Status",
+      "options": [
+        "Scheduled",
+        "Paid",
+        "Overdue",
+        "Superseded"
+      ],
+      "default": "Scheduled",
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "payment_reference",
+      "fieldtype": "Data",
+      "label": "Payment Reference",
+      "read_only": true
+    },
+    {
+      "fieldname": "opening_liability",
+      "fieldtype": "Currency",
+      "label": "Opening Lease Liability",
+      "read_only": true
+    },
+    {
+      "fieldname": "interest_expense",
+      "fieldtype": "Currency",
+      "label": "Interest Expense",
+      "read_only": true
+    },
+    {
+      "fieldname": "principal_reduction",
+      "fieldtype": "Currency",
+      "label": "Principal Reduction",
+      "read_only": true
+    },
+    {
+      "fieldname": "closing_liability",
+      "fieldtype": "Currency",
+      "label": "Closing Lease Liability",
+      "read_only": true
+    }
+  ],
+  "istable": true
+}

@@ -1,0 +1,27 @@
+{
+ "name": "WHT Position by Party",
+ "module": "Tax Management",
+ "type": "script",
+ "ref_doctype": "Tax Journal",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Tax withheld per customer and supplier with the invoices settled and certificates still outstanding.",
+ "filters": [
+  {
+   "fieldname": "from_date",
+   "label": "From Date",
+   "fieldtype": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "label": "To Date",
+   "fieldtype": "Date",
+   "reqd": 1
+  }
+ ]
+}

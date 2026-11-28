@@ -1,0 +1,129 @@
+{
+  "name": "Notification Delivery",
+  "module": "Notify",
+  "fields": [
+    {
+      "fieldname": "rule",
+      "fieldtype": "Data",
+      "label": "Rule",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "channel",
+      "fieldtype": "Data",
+      "label": "Channel",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "recipient",
+      "fieldtype": "Data",
+      "label": "Recipient",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "user",
+      "fieldtype": "Data",
+      "label": "User"
+    },
+    {
+      "fieldname": "subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "body",
+      "fieldtype": "Text",
+      "label": "Body"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Queued",
+        "Sending",
+        "Sent",
+        "Dead",
+        "Skipped",
+        "Held"
+      ],
+      "default": "Queued",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "attempts",
+      "fieldtype": "Int",
+      "label": "Attempts",
+      "default": 0
+    },
+    {
+      "fieldname": "next_attempt",
+      "fieldtype": "Datetime",
+      "label": "Next Attempt"
+    },
+    {
+      "fieldname": "claimed_at",
+      "fieldtype": "Datetime",
+      "label": "Claimed At"
+    },
+    {
+      "fieldname": "last_error",
+      "fieldtype": "Text",
+      "label": "Last Error"
+    },
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "label": "Idempotency Key",
+      "unique": true
+    },
+    {
+      "fieldname": "ref_doctype",
+      "fieldtype": "Data",
+      "label": "DocType"
+    },
+    {
+      "fieldname": "ref_name",
+      "fieldtype": "Data",
+      "label": "Document"
+    },
+    {
+      "fieldname": "payload",
+      "fieldtype": "JSON",
+      "label": "Payload",
+      "json_index": true
+    },
+    {
+      "fieldname": "sent_on",
+      "fieldtype": "Datetime",
+      "label": "Sent On"
+    },
+    {
+      "fieldname": "priority",
+      "fieldtype": "Select",
+      "label": "Priority",
+      "options": [
+        "Low",
+        "Normal",
+        "High",
+        "Urgent"
+      ],
+      "default": "Normal"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "export": true
+    },
+    {
+      "role": "Notification Manager",
+      "read": true,
+      "export": true
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "name": "Board Meeting Minutes",
+  "module": "Governance",
+  "autoname": "series:BMM-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "meeting",
+      "fieldtype": "Link",
+      "label": "Meeting",
+      "options": "Board Meeting",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "committee",
+      "fieldtype": "Link",
+      "label": "Committee",
+      "options": "Board Committee"
+    },
+    {
+      "fieldname": "minutes_version",
+      "fieldtype": "Data",
+      "label": "Minutes Version",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "minutes_status",
+      "fieldtype": "Select",
+      "label": "Minutes Status",
+      "options": [
+        "Draft",
+        "Reviewed",
+        "Finalized",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "prepared_by",
+      "fieldtype": "Data",
+      "label": "Prepared By"
+    },
+    {
+      "fieldname": "prepared_on",
+      "fieldtype": "Date",
+      "label": "Prepared On"
+    },
+    {
+      "fieldname": "reviewed_by",
+      "fieldtype": "Data",
+      "label": "Reviewed By"
+    },
+    {
+      "fieldname": "reviewed_on",
+      "fieldtype": "Date",
+      "label": "Reviewed On"
+    },
+    {
+      "fieldname": "finalized_by",
+      "fieldtype": "Data",
+      "label": "Finalized By"
+    },
+    {
+      "fieldname": "finalized_on",
+      "fieldtype": "Date",
+      "label": "Finalized On"
+    },
+    {
+      "fieldname": "document_reference",
+      "fieldtype": "Data",
+      "label": "Minutes File Reference"
+    },
+    {
+      "fieldname": "summary",
+      "fieldtype": "Text",
+      "label": "Meeting Summary"
+    },
+    {
+      "fieldname": "decisions",
+      "fieldtype": "Table",
+      "label": "Decisions and Actions",
+      "options": "Meeting Decision"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "minutes_version"
+}

@@ -1,0 +1,148 @@
+{
+  "name": "Security Incident",
+  "module": "Administration",
+  "autoname": "series:INCIDENT-.YYYY.-.####",
+  "title_field": "incident_title",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "INCIDENT-.YYYY.-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "incident_title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Incident Title",
+      "required": true
+    },
+    {
+      "default": "Other",
+      "fieldname": "incident_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Type",
+      "options": "Theft\nUnauthorized Access\nVandalism\nFire\nSafety\nData Breach\nOther",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Reported",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Reported\nUnder Investigation\nResolved\nClosed",
+      "read_only": 1
+    },
+    {
+      "default": "Medium",
+      "fieldname": "severity",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Severity",
+      "options": "Low\nMedium\nHigh\nCritical"
+    },
+    {
+      "fieldname": "section_break_where",
+      "fieldtype": "Section Break",
+      "label": "Where & Who"
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Link",
+      "label": "Location",
+      "options": "Office Location"
+    },
+    {
+      "fieldname": "facility_space",
+      "fieldtype": "Link",
+      "label": "Facility Space",
+      "options": "Facility Space"
+    },
+    {
+      "fieldname": "column_break_where",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "reported_by",
+      "fieldtype": "Link",
+      "label": "Reported By",
+      "options": "Person"
+    },
+    {
+      "default": "now",
+      "fieldname": "incident_datetime",
+      "fieldtype": "Datetime",
+      "label": "Incident Date/Time",
+      "required": true
+    },
+    {
+      "fieldname": "section_break_desc",
+      "fieldtype": "Section Break",
+      "label": "Description"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "section_break_resolution",
+      "fieldtype": "Section Break",
+      "label": "Resolution"
+    },
+    {
+      "fieldname": "resolution_notes",
+      "fieldtype": "Text",
+      "label": "Resolution Notes"
+    },
+    {
+      "fieldname": "resolved_on",
+      "fieldtype": "Datetime",
+      "label": "Resolved On",
+      "read_only": 1
+    },
+    {
+      "description": "Optional: escalate to a formal Risk Register entry",
+      "fieldname": "linked_risk",
+      "fieldtype": "Link",
+      "label": "Linked Risk",
+      "options": "Risk Register"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+ "name": "Facility Amendment",
+ "module": "Debt and Treasury",
+ "autoname": "series:FAM-.######",
+ "track_changes": true,
+ "title_field": "title",
+ "description": "A change to a facility's rate, limit or end date. A new rate reprices the unpaid instalments of floating-rate loans from the effective date.",
+ "is_submittable": true,
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "submit": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "report": true,
+   "export": true,
+   "print": true
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "details",
+   "fieldtype": "Section Break",
+   "label": "Amendment"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "read_only": true,
+   "hidden": true
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "label": "Facility",
+   "options": "Financing Facility",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true,
+   "link_filters": [
+    [
+     "docstatus",
+     "=",
+     1
+    ]
+   ]
+  },
+  {
+   "fieldname": "effective_date",
+   "fieldtype": "Date",
+   "label": "Effective from",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Text",
+   "label": "Reason / lender's notice",
+   "required": true
+  },
+  {
+   "fieldname": "changes",
+   "fieldtype": "Section Break",
+   "label": "What changes (leave blank to keep as it is)"
+  },
+  {
+   "fieldname": "new_interest_rate",
+   "fieldtype": "Float",
+   "label": "New all-in interest rate (%)",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "new_approved_limit",
+   "fieldtype": "Currency",
+   "label": "New approved limit",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "new_expiry_date",
+   "fieldtype": "Date",
+   "label": "New availability end date",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "before",
+   "fieldtype": "Section Break",
+   "label": "Before the amendment (recorded when submitted)"
+  },
+  {
+   "fieldname": "old_interest_rate",
+   "fieldtype": "Float",
+   "label": "Previous rate (%)",
+   "read_only": true
+  },
+  {
+   "fieldname": "old_approved_limit",
+   "fieldtype": "Currency",
+   "label": "Previous limit",
+   "read_only": true
+  },
+  {
+   "fieldname": "old_expiry_date",
+   "fieldtype": "Date",
+   "label": "Previous end date",
+   "read_only": true
+  },
+  {
+   "fieldname": "approval",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval status",
+   "options": [
+    "Pending",
+    "Approved",
+    "Rejected"
+   ],
+   "required": true,
+   "default": "Pending",
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved by",
+   "read_only": true
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved on",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_by",
+   "fieldtype": "Data",
+   "label": "Rejected by",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_on",
+   "fieldtype": "Datetime",
+   "label": "Rejected on",
+   "read_only": true
+  },
+  {
+   "fieldname": "approval_comments",
+   "fieldtype": "Text",
+   "label": "Approval comments"
+  },
+  {
+   "fieldname": "posting_batch",
+   "fieldtype": "Link",
+   "label": "Financial Posting Batch",
+   "options": "Financial Posting Batch",
+   "read_only": true,
+   "hidden": true
+  }
+ ]
+}

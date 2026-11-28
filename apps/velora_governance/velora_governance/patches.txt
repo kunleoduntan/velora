@@ -1,0 +1,4 @@
+# Velora Governance data patches
+[pre_model_sync]
+
+[post_model_sync]

@@ -1,0 +1,95 @@
+{
+  "name": "Organisation Unit",
+  "module": "Administration",
+  "autoname": "field:unit_name",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "unit_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Unit Name",
+      "unique": 1,
+      "required": true
+    },
+    {
+      "default": "Unit",
+      "fieldname": "unit_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Unit Type",
+      "options": "Group\nRegion\nDivision\nSection\nUnit\nTeam",
+      "required": true
+    },
+    {
+      "fieldname": "parent_organisation_unit",
+      "fieldtype": "Link",
+      "label": "Parent Organisation Unit",
+      "options": "Organisation Unit"
+    },
+    {
+      "default": "0",
+      "fieldname": "is_group",
+      "fieldtype": "Check",
+      "label": "Is Group"
+    },
+    {
+      "fieldname": "column_break_main",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Linked Department",
+      "options": "Department"
+    },
+    {
+      "default": "Active",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Active\nInactive"
+    },
+    {
+      "fieldname": "section_break_lead",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "head_of_unit",
+      "fieldtype": "Link",
+      "label": "Head of Unit",
+      "options": "Person"
+    },
+    {
+      "fieldname": "column_break_lead",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Center",
+      "options": "Cost Centre"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

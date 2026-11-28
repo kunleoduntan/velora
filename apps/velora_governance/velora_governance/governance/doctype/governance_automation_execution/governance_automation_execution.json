@@ -1,0 +1,26 @@
+{
+  "name": "Governance Automation Execution",
+  "module": "Governance",
+  "autoname": "series:GAE-.########",
+  "track_changes": true,
+  "fields": [
+    {"fieldname": "idempotency_key", "fieldtype": "Data", "label": "Idempotency Key", "required": true, "unique": true, "in_list_view": true},
+    {"fieldname": "correlation_id", "fieldtype": "Data", "label": "Correlation ID", "in_list_view": true},
+    {"fieldname": "action_type", "fieldtype": "Data", "label": "Action Type", "required": true, "in_list_view": true},
+    {"fieldname": "action_payload", "fieldtype": "Text", "label": "Action Payload", "required": true},
+    {"fieldname": "execution_status", "fieldtype": "Select", "label": "Execution Status", "options": ["Queued", "Running", "Completed", "Failed", "Retry Pending", "Cancelled"], "default": "Queued", "required": true, "in_list_view": true},
+    {"fieldname": "attempts", "fieldtype": "Int", "label": "Attempts", "default": 0, "required": true, "in_list_view": true},
+    {"fieldname": "actor", "fieldtype": "Data", "label": "Actor", "in_list_view": true},
+    {"fieldname": "last_result", "fieldtype": "Text", "label": "Last Result"},
+    {"fieldname": "last_error", "fieldtype": "Text", "label": "Last Error"},
+    {"fieldname": "next_retry_at", "fieldtype": "Datetime", "label": "Next Retry At"},
+    {"fieldname": "started_at", "fieldtype": "Datetime", "label": "Started At"},
+    {"fieldname": "completed_at", "fieldtype": "Datetime", "label": "Completed At"}
+  ],
+  "permissions": [
+    {"role": "Governance Administrator", "read": true, "create": true, "write": true, "delete": false},
+    {"role": "Company Secretary", "read": true, "create": true, "write": true, "delete": false},
+    {"role": "Governance Officer", "read": true, "create": true, "write": true, "delete": false},
+    {"role": "Internal Auditor", "read": true, "create": false, "write": false, "delete": false}
+  ]
+}

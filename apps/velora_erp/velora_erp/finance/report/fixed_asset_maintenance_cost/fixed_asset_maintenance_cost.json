@@ -1,0 +1,13 @@
+{
+  "name": "Fixed Asset Maintenance Cost",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Fixed Asset",
+  "roles": ["System Manager", "Finance Manager", "Accountant", "Auditor", "Fixed Asset Manager"],
+  "description": "Repairs and maintenance expense posted against each fixed asset, with the vouchers behind it.",
+  "filters": [
+    {"fieldname": "asset", "label": "Fixed Asset", "fieldtype": "Link", "options": "Fixed Asset"},
+    {"fieldname": "from_date", "label": "From Date", "fieldtype": "Date"},
+    {"fieldname": "to_date", "label": "To Date", "fieldtype": "Date"}
+  ]
+}

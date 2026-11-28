@@ -1,0 +1,188 @@
+{
+ "name": "Tax Journal",
+ "module": "Tax Management",
+ "autoname": "series:TJ-.######",
+ "is_submittable": true,
+ "track_changes": true,
+ "title_field": "title",
+ "description": "Record withholding tax in one batch: tax customers withheld from you (a credit you will use) and tax you withheld from suppliers (payable to the tax authority). Each row posts to the party account and the tax account, and settles the invoice it names.",
+ "fields": [
+  {
+   "fieldname": "details",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting date",
+   "required": true,
+   "default": "Today",
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "length": 3
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange rate",
+   "default": 1
+  },
+  {
+   "fieldname": "lines_section",
+   "fieldtype": "Section Break",
+   "label": "Withholding tax rows"
+  },
+  {
+   "fieldname": "lines",
+   "fieldtype": "Table",
+   "label": "Rows",
+   "options": "Tax Journal Line",
+   "required": true
+  },
+  {
+   "fieldname": "totals",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_suffered",
+   "fieldtype": "Currency",
+   "label": "Withheld by customers (credit to us)",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "total_payable",
+   "fieldtype": "Currency",
+   "label": "Withheld from suppliers (payable)",
+   "read_only": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "approval",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval status",
+   "options": [
+    "Pending",
+    "Approved",
+    "Rejected"
+   ],
+   "default": "Pending",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved by",
+   "read_only": true
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved on",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_by",
+   "fieldtype": "Data",
+   "label": "Rejected by",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_on",
+   "fieldtype": "Datetime",
+   "label": "Rejected on",
+   "read_only": true
+  },
+  {
+   "fieldname": "approval_comments",
+   "fieldtype": "Text",
+   "label": "Approval comments"
+  },
+  {
+   "fieldname": "narration_s",
+   "fieldtype": "Section Break",
+   "label": "Narration"
+  },
+  {
+   "fieldname": "narration",
+   "fieldtype": "Text",
+   "label": "Narration",
+   "required": true
+  },
+  {
+   "fieldname": "posting_batch",
+   "fieldtype": "Link",
+   "label": "Financial Posting Batch",
+   "options": "Financial Posting Batch",
+   "read_only": true,
+   "hidden": true
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "submit": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "report": true,
+   "export": true
+  }
+ ]
+}

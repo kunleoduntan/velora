@@ -1,0 +1,68 @@
+{
+  "name": "Account Ledger",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Account Ledger Record",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Accountant",
+    "Auditor"
+  ],
+  "description": "Immutable account activity with opening balance, transaction and base currency amounts, source-document references and a running balance.",
+  "filters": [
+    {
+      "fieldname": "account_from",
+      "label": "Account From",
+      "fieldtype": "Link",
+      "options": "Account"
+    },
+    {
+      "fieldname": "account_to",
+      "label": "Account To",
+      "fieldtype": "Link",
+      "options": "Account"
+    },
+    {
+      "fieldname": "account",
+      "label": "Single Account (optional)",
+      "fieldtype": "Link",
+      "options": "Account"
+    },
+    {
+      "fieldname": "party_type",
+      "label": "Party Type",
+      "fieldtype": "Select",
+      "options": [
+        "Customer",
+        "Supplier",
+        "Employee",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "party",
+      "label": "Party",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "cost_centre",
+      "label": "Cost Centre",
+      "fieldtype": "Link",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date",
+      "required": false
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date",
+      "default": "Today",
+      "required": true
+    }
+  ]
+}

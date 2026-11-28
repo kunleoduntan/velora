@@ -1,0 +1,66 @@
+{
+  "name": "Approval Delegation",
+  "module": "Administration",
+  "istable": false,
+  "fields": [
+    {
+      "fieldname": "delegator_user",
+      "fieldtype": "Data",
+      "label": "Delegator User or Role",
+      "required": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "delegate_user",
+      "fieldtype": "Data",
+      "label": "Delegate User",
+      "required": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date",
+      "required": true
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "required": true
+    },
+    {
+      "fieldname": "doctype_scope",
+      "fieldtype": "Data",
+      "label": "Document Type Scope",
+      "description": "Use Request or * for all approval delegations."
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Draft\\nActive\\nExpired\\nCancelled",
+      "default": "Draft",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason",
+      "required": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "submit": true,
+      "cancel": true
+    }
+  ]
+}

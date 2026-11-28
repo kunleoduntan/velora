@@ -1,0 +1,103 @@
+{
+ "name": "Tax Jurisdiction",
+ "module": "Tax Management",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "jurisdiction_code",
+   "fieldtype": "Data",
+   "label": "Code",
+   "required": true,
+   "unique": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "jurisdiction_name",
+   "fieldtype": "Data",
+   "label": "Jurisdiction",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "country_code",
+   "fieldtype": "Data",
+   "label": "Country code"
+  },
+  {
+   "fieldname": "level",
+   "fieldtype": "Select",
+   "label": "Level of government",
+   "options": [
+    "",
+    "Federal",
+    "State",
+    "Local",
+    "Other"
+   ],
+   "description": "Which tier of government collects this tax. Federal and state taxes are separate jurisdictions with their own rules and deadlines."
+  },
+  {
+   "fieldname": "authority",
+   "fieldtype": "Data",
+   "label": "Tax authority",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  }
+ ],
+ "title_field": "jurisdiction_name",
+ "description": "Where a tax applies and who administers it. Shared by tax rules, obligations and returns."
+}

@@ -1,0 +1,86 @@
+{
+  "name": "HR Policy Version",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Immutable controlled version row for an HR policy; approved/published versions are retained as historical records.",
+  "fields": [
+    {
+      "fieldname": "version_number",
+      "label": "Version Number",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "version_title",
+      "label": "Version Title",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "version_content",
+      "label": "Policy Content",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "attachment",
+      "label": "Policy File",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "change_summary",
+      "label": "Change Summary",
+      "fieldtype": "Text",
+      "required": true
+    },
+    {
+      "fieldname": "effective_from",
+      "label": "Effective From",
+      "fieldtype": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "effective_to",
+      "label": "Effective To",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "version_status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "In Review",
+        "Approved",
+        "Published",
+        "Superseded",
+        "Withdrawn"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "published_on",
+      "label": "Published On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "supersedes_version",
+      "label": "Supersedes Version",
+      "fieldtype": "Data"
+    }
+  ],
+  "istable": true
+}

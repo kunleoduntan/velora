@@ -1,0 +1,151 @@
+{
+  "name": "Statutory Register",
+  "module": "Governance",
+  "autoname": "series:STR-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "register_type",
+      "fieldtype": "Link",
+      "label": "Register Type",
+      "options": "Statutory Register Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "register_title",
+      "fieldtype": "Data",
+      "label": "Register Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "register_status",
+      "fieldtype": "Select",
+      "label": "Register Status",
+      "options": [
+        "Active",
+        "Under Review",
+        "Inactive",
+        "Archived"
+      ],
+      "default": "Active",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "maintained_by",
+      "fieldtype": "Data",
+      "label": "Maintained By"
+    },
+    {
+      "fieldname": "last_reviewed",
+      "fieldtype": "Date",
+      "label": "Last Reviewed"
+    },
+    {
+      "fieldname": "review_frequency_months",
+      "fieldtype": "Int",
+      "label": "Review Frequency (Months)",
+      "default": 12
+    },
+    {
+      "fieldname": "next_review_date",
+      "fieldtype": "Date",
+      "label": "Next Review Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "entries",
+      "fieldtype": "Table",
+      "label": "Register Entries",
+      "options": "Statutory Register Entry"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "register_title"
+}

@@ -1,0 +1,163 @@
+{
+  "name": "Sustainability Metric",
+  "module": "Governance",
+  "autoname": "series:SMT-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "metric_code",
+      "fieldtype": "Data",
+      "label": "Metric Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "metric_name",
+      "fieldtype": "Data",
+      "label": "Metric Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Link",
+      "label": "Metric Category",
+      "options": "Sustainability Metric Category",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "default_unit",
+      "fieldtype": "Link",
+      "label": "Default Unit",
+      "options": "Sustainability Unit",
+      "required": true
+    },
+    {
+      "fieldname": "data_type",
+      "fieldtype": "Select",
+      "label": "Data Type",
+      "options": [
+        "Numeric",
+        "Percentage",
+        "Boolean",
+        "Text",
+        "Currency"
+      ],
+      "default": "Numeric",
+      "required": true
+    },
+    {
+      "fieldname": "frequency",
+      "fieldtype": "Select",
+      "label": "Reporting Frequency",
+      "options": [
+        "Annual",
+        "Semi-Annual",
+        "Quarterly",
+        "Monthly",
+        "Weekly",
+        "Daily",
+        "Event-Based"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "frameworks",
+      "fieldtype": "Table",
+      "label": "Framework Mapping",
+      "options": "Sustainability Metric Framework"
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "metric_name"
+}

@@ -1,0 +1,73 @@
+{
+  "name": "Facility",
+  "module": "Administration",
+  "autoname": "field:title",
+  "istable": false,
+  "is_submittable": false,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Facility / Location Name",
+      "fieldtype": "Data",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "facility_type",
+      "label": "Facility Type",
+      "fieldtype": "Select",
+      "options": "Office\nBuilding\nFloor\nRoom\nWarehouse\nParking\nOther",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "parent_location",
+      "label": "Parent Location",
+      "fieldtype": "Link",
+      "options": "Facility"
+    },
+    {
+      "fieldname": "address",
+      "label": "Address",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "capacity",
+      "label": "Capacity",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "occupancy",
+      "label": "Occupancy",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Active\nInactive\nUnder Maintenance",
+      "default": "Active",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "facility_manager",
+      "label": "Facility Manager",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "share": 1
+    }
+  ]
+}

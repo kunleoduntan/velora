@@ -1,0 +1,36 @@
+{
+  "name": "Project Request Key",
+  "module": "Projects",
+  "description": "Remembers the answer given to a repeated request so a retry never creates a duplicate.",
+  "autoname": "field:request_key",
+  "fields": [
+    {
+      "fieldname": "request_key",
+      "fieldtype": "Data",
+      "label": "Request Key",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "request_hash",
+      "fieldtype": "Data",
+      "label": "Request Hash",
+      "required": true
+    },
+    {
+      "fieldname": "response",
+      "fieldtype": "JSON",
+      "label": "Response"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

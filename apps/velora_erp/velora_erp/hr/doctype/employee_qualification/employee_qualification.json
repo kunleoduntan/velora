@@ -1,0 +1,147 @@
+{
+  "name": "Employee Qualification",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Employee education, professional qualification and credential register.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "qualification_type",
+      "fieldtype": "Select",
+      "label": "Qualification Type",
+      "options": [
+        "Academic",
+        "Professional",
+        "Technical",
+        "Vocational",
+        "Other"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "qualification",
+      "fieldtype": "Data",
+      "label": "Qualification / Award",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "field_of_study",
+      "fieldtype": "Data",
+      "label": "Field of Study"
+    },
+    {
+      "fieldname": "institution",
+      "fieldtype": "Data",
+      "label": "Institution",
+      "required": true
+    },
+    {
+      "fieldname": "country",
+      "fieldtype": "Data",
+      "label": "Country"
+    },
+    {
+      "fieldname": "date_awarded",
+      "fieldtype": "Date",
+      "label": "Date Awarded"
+    },
+    {
+      "fieldname": "expiry_date",
+      "fieldtype": "Date",
+      "label": "Expiry Date"
+    },
+    {
+      "fieldname": "certificate_number",
+      "fieldtype": "Data",
+      "label": "Certificate Number"
+    },
+    {
+      "fieldname": "certificate_attachment",
+      "fieldtype": "Data",
+      "label": "Certificate Attachment"
+    },
+    {
+      "fieldname": "verification_status",
+      "fieldtype": "Select",
+      "label": "Verification Status",
+      "options": [
+        "Pending",
+        "Verified",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "verified_by",
+      "fieldtype": "Data",
+      "label": "Verified By"
+    },
+    {
+      "fieldname": "verified_on",
+      "fieldtype": "Datetime",
+      "label": "Verified On"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

@@ -1,0 +1,107 @@
+{
+  "name": "Financial Budget Account",
+  "module": "Finance",
+  "istable": true,
+  "description": "One account (optionally with cost centre / branch) planned across the twelve months of the financial year. Generates the periodised budget lines.",
+  "fields": [
+    {
+      "fieldname": "account",
+      "fieldtype": "Link",
+      "label": "Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "branch",
+      "fieldtype": "Link",
+      "label": "Branch",
+      "options": "Branch"
+    },
+    {
+      "fieldname": "jan",
+      "fieldtype": "Currency",
+      "label": "Jan"
+    },
+    {
+      "fieldname": "feb",
+      "fieldtype": "Currency",
+      "label": "Feb"
+    },
+    {
+      "fieldname": "mar",
+      "fieldtype": "Currency",
+      "label": "Mar"
+    },
+    {
+      "fieldname": "apr",
+      "fieldtype": "Currency",
+      "label": "Apr"
+    },
+    {
+      "fieldname": "may",
+      "fieldtype": "Currency",
+      "label": "May"
+    },
+    {
+      "fieldname": "jun",
+      "fieldtype": "Currency",
+      "label": "Jun"
+    },
+    {
+      "fieldname": "jul",
+      "fieldtype": "Currency",
+      "label": "Jul"
+    },
+    {
+      "fieldname": "aug",
+      "fieldtype": "Currency",
+      "label": "Aug"
+    },
+    {
+      "fieldname": "sep",
+      "fieldtype": "Currency",
+      "label": "Sep"
+    },
+    {
+      "fieldname": "oct",
+      "fieldtype": "Currency",
+      "label": "Oct"
+    },
+    {
+      "fieldname": "nov",
+      "fieldtype": "Currency",
+      "label": "Nov"
+    },
+    {
+      "fieldname": "dec",
+      "fieldtype": "Currency",
+      "label": "Dec"
+    },
+    {
+      "fieldname": "total",
+      "fieldtype": "Currency",
+      "label": "Total",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "previous_year_actual",
+      "fieldtype": "Currency",
+      "label": "Last Year Actual",
+      "read_only": true
+    },
+    {
+      "fieldname": "row_notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

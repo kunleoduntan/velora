@@ -1,0 +1,156 @@
+{
+  "name": "Compliance Assessment",
+  "module": "Governance",
+  "autoname": "series:CAS-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "obligation",
+      "fieldtype": "Link",
+      "label": "Obligation",
+      "options": "Governance Obligation",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assessment_date",
+      "fieldtype": "Date",
+      "label": "Assessment Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assessor",
+      "fieldtype": "Data",
+      "label": "Assessor",
+      "required": true
+    },
+    {
+      "fieldname": "assessment_result",
+      "fieldtype": "Select",
+      "label": "Assessment Result",
+      "options": [
+        "Compliant",
+        "Partially Compliant",
+        "Non-Compliant",
+        "Not Applicable"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "findings",
+      "fieldtype": "Text",
+      "label": "Findings"
+    },
+    {
+      "fieldname": "evidence",
+      "fieldtype": "Table",
+      "label": "Evidence",
+      "options": "Compliance Evidence"
+    },
+    {
+      "fieldname": "remediation_due_date",
+      "fieldtype": "Date",
+      "label": "Remediation Due Date"
+    },
+    {
+      "fieldname": "remediation_action",
+      "fieldtype": "Link",
+      "label": "Remediation Action",
+      "options": "Board Action"
+    },
+    {
+      "fieldname": "assessment_status",
+      "fieldtype": "Select",
+      "label": "Assessment Status",
+      "options": [
+        "Draft",
+        "Completed",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "obligation"
+}

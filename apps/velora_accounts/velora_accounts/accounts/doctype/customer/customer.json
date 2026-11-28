@@ -1,0 +1,108 @@
+{
+  "name": "Customer",
+  "module": "Accounts",
+  "autoname": "field:customer_name",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "customer_name",
+      "fieldtype": "Data",
+      "label": "Customer Name",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "tax_id",
+      "fieldtype": "Data",
+      "label": "Tax ID (TIN)",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email"
+    },
+    {
+      "fieldname": "phone",
+      "fieldtype": "Data",
+      "label": "Phone"
+    },
+    {
+      "fieldname": "address",
+      "fieldtype": "Text",
+      "label": "Address"
+    },
+    {
+      "fieldname": "credit_days",
+      "fieldtype": "Int",
+      "label": "Payment Terms (days)",
+      "default": 0,
+      "description": "Due date = invoice date + this many days."
+    },
+    {
+      "fieldname": "credit_limit",
+      "fieldtype": "Currency",
+      "label": "Credit Limit"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Active",
+        "Blocked"
+      ],
+      "default": "Active",
+      "in_list_view": true,
+      "in_standard_filter": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ]
+}

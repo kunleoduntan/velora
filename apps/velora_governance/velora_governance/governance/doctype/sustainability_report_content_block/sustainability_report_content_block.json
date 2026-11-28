@@ -1,0 +1,172 @@
+{
+  "name": "Sustainability Report Content Block",
+  "module": "Governance",
+  "autoname": "series:SRC-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "report",
+      "fieldtype": "Link",
+      "label": "Report",
+      "options": "Sustainability Report",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reporting_period",
+      "fieldtype": "Link",
+      "label": "Reporting Period",
+      "options": "Sustainability Reporting Period"
+    },
+    {
+      "fieldname": "framework",
+      "fieldtype": "Link",
+      "label": "Framework",
+      "options": "Sustainability Framework",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "disclosure",
+      "fieldtype": "Link",
+      "label": "Disclosure",
+      "options": "Sustainability Disclosure"
+    },
+    {
+      "fieldname": "sequence",
+      "fieldtype": "Int",
+      "label": "Sequence",
+      "default": 10,
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "block_type",
+      "fieldtype": "Select",
+      "label": "Block Type",
+      "options": [
+        "Disclosure Narrative",
+        "Metric Summary",
+        "Target Progress",
+        "Risk and Opportunity",
+        "GHG Summary",
+        "Materiality Summary",
+        "Evidence List",
+        "Executive Summary"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "label": "Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "generated_content",
+      "fieldtype": "Text",
+      "label": "Generated Content"
+    },
+    {
+      "fieldname": "source_records",
+      "fieldtype": "Text",
+      "label": "Source Records"
+    },
+    {
+      "fieldname": "content_status",
+      "fieldtype": "Select",
+      "label": "Content Status",
+      "options": [
+        "Draft",
+        "Generated",
+        "Edited",
+        "Reviewed",
+        "Approved"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "last_generated",
+      "fieldtype": "Datetime",
+      "label": "Last Generated"
+    },
+    {
+      "fieldname": "editor",
+      "fieldtype": "Data",
+      "label": "Editor"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "title"
+}

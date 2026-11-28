@@ -1,0 +1,37 @@
+{
+ "spec_version": 1,
+ "name": "Customer Group",
+ "module": "Demo",
+ "app": "velora_demo",
+ "autoname": "field:group_name",
+ "title_field": null,
+ "is_submittable": false,
+ "istable": false,
+ "track_changes": false,
+ "sort_field": "modified",
+ "sort_order": "desc",
+ "fields": [
+  {
+   "fieldname": "group_name",
+   "fieldtype": "Data",
+   "label": "Group Name",
+   "required": true,
+   "unique": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  }
+ ],
+ "permissions": {
+  "read": true,
+  "write": false,
+  "create": false,
+  "delete": false,
+  "submit": false,
+  "cancel": false,
+  "export": false
+ }
+}

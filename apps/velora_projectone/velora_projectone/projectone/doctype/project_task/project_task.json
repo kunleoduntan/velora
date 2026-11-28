@@ -1,0 +1,200 @@
+{
+  "name": "Project Task",
+  "module": "Execution",
+  "track_changes": true,
+  "description": "Task execution and assignment record.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "task_code",
+      "label": "Task Code",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "title",
+      "label": "Task Name",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "wbs",
+      "label": "WBS",
+      "fieldtype": "Link",
+      "options": "Project WBS"
+    },
+    {
+      "fieldname": "parent_task",
+      "label": "Parent Task",
+      "fieldtype": "Link",
+      "options": "Project Task"
+    },
+    {
+      "fieldname": "assignee",
+      "label": "Assigned To",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "resource_profile",
+      "label": "Resource Profile",
+      "fieldtype": "Link",
+      "options": "Resource Profile",
+      "description": "Optional explicit resource assignment used for enterprise capacity projections."
+    },
+    {
+      "fieldname": "team",
+      "label": "Team",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "priority",
+      "label": "Priority",
+      "fieldtype": "Select",
+      "options": [
+        "Low",
+        "Normal",
+        "High",
+        "Critical"
+      ],
+      "default": "Normal"
+    },
+    {
+      "fieldname": "planned_start",
+      "label": "Planned Start",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "planned_finish",
+      "label": "Planned Finish",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "actual_start",
+      "label": "Actual Start",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "actual_finish",
+      "label": "Actual Finish",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "duration_days",
+      "label": "Duration (Days)",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "estimated_hours",
+      "label": "Estimated Hours",
+      "fieldtype": "Float"
+    },
+    {
+      "fieldname": "actual_hours",
+      "label": "Actual Hours",
+      "fieldtype": "Float"
+    },
+    {
+      "fieldname": "progress_percent",
+      "label": "Progress (%)",
+      "fieldtype": "Float",
+      "default": 0
+    },
+    {
+      "fieldname": "predecessors",
+      "label": "Predecessors",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "deliverable",
+      "label": "Deliverable",
+      "fieldtype": "Link",
+      "options": "Project Deliverable"
+    },
+    {
+      "fieldname": "cost_category",
+      "label": "Cost Category",
+      "fieldtype": "Link",
+      "options": "Project Cost Category"
+    },
+    {
+      "fieldname": "estimated_cost",
+      "label": "Estimated Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Open",
+        "In Progress",
+        "On Hold",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "title"
+}

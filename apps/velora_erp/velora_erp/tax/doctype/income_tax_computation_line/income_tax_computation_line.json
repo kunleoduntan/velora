@@ -1,0 +1,68 @@
+{
+ "name": "Income Tax Computation Line",
+ "module": "Tax Management",
+ "istable": true,
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "section",
+   "fieldtype": "Select",
+   "label": "Section",
+   "options": [
+    "Add back",
+    "Deduction",
+    "Capital allowance",
+    "Other"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Account",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ],
+   "in_list_view": true
+  },
+  {
+   "fieldname": "book_amount",
+   "fieldtype": "Currency",
+   "label": "Amount in books",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Tax adjustment",
+   "required": true,
+   "in_list_view": true,
+   "description": "Positive adds to profit (add back); for deductions and capital allowances enter the positive amount allowed."
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Source",
+   "options": [
+    "Automatic",
+    "Manual"
+   ],
+   "default": "Manual",
+   "read_only": true,
+   "in_list_view": true
+  }
+ ]
+}

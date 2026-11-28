@@ -1,0 +1,128 @@
+{
+  "name": "Office Asset",
+  "module": "Administration",
+  "autoname": "series:OASSET-.####",
+  "title_field": "asset_name",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "OASSET-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "asset_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Asset Name",
+      "required": true
+    },
+    {
+      "default": "IT Equipment",
+      "fieldname": "category",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Category",
+      "options": "IT Equipment\nFurniture\nVehicle\nMachinery\nSecurity Equipment\nOther",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "In Store",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "In Store\nAssigned\nUnder Maintenance\nDisposed",
+      "read_only": 1
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Assigned To",
+      "options": "Person",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_where",
+      "fieldtype": "Section Break",
+      "label": "Location & Value"
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Link",
+      "label": "Location",
+      "options": "Office Location"
+    },
+    {
+      "fieldname": "facility_space",
+      "fieldtype": "Link",
+      "label": "Facility Space",
+      "options": "Facility Space"
+    },
+    {
+      "fieldname": "column_break_where",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "purchase_date",
+      "fieldtype": "Date",
+      "label": "Purchase Date"
+    },
+    {
+      "fieldname": "purchase_value",
+      "fieldtype": "Currency",
+      "label": "Purchase Value"
+    },
+    {
+      "fieldname": "section_break_notes",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "section_break_movements",
+      "fieldtype": "Section Break",
+      "label": "Movement History"
+    },
+    {
+      "fieldname": "movement_log",
+      "fieldtype": "Table",
+      "label": "Movement History",
+      "options": "Office Asset Movement",
+      "read_only": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

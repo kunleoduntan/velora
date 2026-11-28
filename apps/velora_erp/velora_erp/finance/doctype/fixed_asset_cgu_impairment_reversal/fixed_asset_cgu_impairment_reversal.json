@@ -1,0 +1,135 @@
+{
+  "name": "Fixed Asset CGU Impairment Reversal",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Reverses prior CGU impairment for fixed assets, limited by remaining impairment and the no-impairment carrying amount ceiling.",
+  "fields": [
+    {
+      "fieldname": "cgu",
+      "fieldtype": "Link",
+      "label": "Cash-generating Unit",
+      "options": "Fixed Asset CGU",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reversal_date",
+      "fieldtype": "Date",
+      "label": "Reversal Date",
+      "required": true
+    },
+    {
+      "fieldname": "valuation_reference",
+      "fieldtype": "Data",
+      "label": "Valuation Reference",
+      "required": true
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Asset Reversal Lines",
+      "options": "Fixed Asset CGU Impairment Reversal Line"
+    },
+    {
+      "fieldname": "other_asset_lines",
+      "fieldtype": "Table",
+      "label": "Goodwill and Other Asset Reversal Lines",
+      "options": "Fixed Asset CGU Other Asset Reversal Line"
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason",
+      "required": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "autoname": "series:CGUR-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "cancel": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "submit": false,
+      "cancel": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

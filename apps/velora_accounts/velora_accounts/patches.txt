@@ -1,0 +1,6 @@
+# Data patches for velora_accounts (one dotted module path per line; each defines execute()).
+[pre_model_sync]
+
+[post_model_sync]
+velora_accounts.patches.v0_3.add_invoicing_defaults
+velora_accounts.patches.v0_4.flag_cancelled_vouchers

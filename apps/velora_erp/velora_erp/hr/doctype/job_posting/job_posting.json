@@ -1,0 +1,114 @@
+{
+  "name": "Job Posting",
+  "module": "HR",
+  "autoname": "series:JOB-.####",
+  "track_changes": true,
+  "description": "Internal and external vacancy publication record linked to an approved requisition.",
+  "fields": [
+    {
+      "fieldname": "posting_title",
+      "fieldtype": "Data",
+      "label": "Posting Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "requisition",
+      "fieldtype": "Link",
+      "label": "Approved Requisition",
+      "options": "Job Requisition",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_reference",
+      "fieldtype": "Data",
+      "label": "Posting Reference"
+    },
+    {
+      "fieldname": "public_description",
+      "fieldtype": "Text",
+      "label": "Public Job Description",
+      "required": true
+    },
+    {
+      "fieldname": "requirements",
+      "fieldtype": "Text",
+      "label": "Requirements"
+    },
+    {
+      "fieldname": "application_url",
+      "fieldtype": "Data",
+      "label": "Application URL"
+    },
+    {
+      "fieldname": "publish_date",
+      "fieldtype": "Date",
+      "label": "Publish Date"
+    },
+    {
+      "fieldname": "closing_date",
+      "fieldtype": "Date",
+      "label": "Closing Date"
+    },
+    {
+      "fieldname": "posting_channels",
+      "fieldtype": "Text",
+      "label": "Posting Channels"
+    },
+    {
+      "fieldname": "posting_status",
+      "fieldtype": "Select",
+      "label": "Posting Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Published",
+        "Paused",
+        "Closed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

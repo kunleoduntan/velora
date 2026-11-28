@@ -1,0 +1,28 @@
+{
+ "name": "Governance Code Practice",
+ "module": "Governance",
+ "istable": true,
+ "fields": [
+  {
+   "fieldname": "principle_number",
+   "fieldtype": "Int",
+   "label": "Principle",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "label": "Reference",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "requirement",
+   "fieldtype": "Text",
+   "label": "Recommended practice (paraphrased)",
+   "required": true,
+   "in_list_view": true
+  }
+ ]
+}

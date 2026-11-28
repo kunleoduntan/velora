@@ -1,0 +1,26 @@
+{
+  "name": "Sustainability Reporting Run",
+  "module": "Governance",
+  "autoname": "series:SRR-.####",
+  "track_changes": true,
+  "fields": [
+    {"fieldname":"governance_entity","fieldtype":"Link","label":"Governance Entity","options":"Governance Entity","required":true,"in_list_view":true},
+    {"fieldname":"reporting_period","fieldtype":"Link","label":"Reporting Period","options":"Sustainability Reporting Period","required":true,"in_list_view":true},
+    {"fieldname":"sustainability_report","fieldtype":"Link","label":"Sustainability Report","options":"Sustainability Report"},
+    {"fieldname":"run_status","fieldtype":"Select","label":"Run Status","options":["Queued","Running","Completed","Completed with Gaps","Failed"],"default":"Queued","required":true,"in_list_view":true},
+    {"fieldname":"frameworks","fieldtype":"JSON","label":"Frameworks"},
+    {"fieldname":"disclosure_assessments","fieldtype":"JSON","label":"Disclosure Assessments","read_only":true},
+    {"fieldname":"readiness_percent","fieldtype":"Float","label":"Readiness Percent","read_only":true,"in_list_view":true},
+    {"fieldname":"disclosures_ready","fieldtype":"Int","label":"Disclosures Ready","read_only":true},
+    {"fieldname":"disclosures_with_gaps","fieldtype":"Int","label":"Disclosures with Gaps","read_only":true},
+    {"fieldname":"missing_disclosures","fieldtype":"JSON","label":"Missing Disclosures","read_only":true},
+    {"fieldname":"content_blocks_generated","fieldtype":"Int","label":"Content Blocks Generated","read_only":true},
+    {"fieldname":"generated_at","fieldtype":"Datetime","label":"Generated At","read_only":true},
+    {"fieldname":"error_details","fieldtype":"Text","label":"Error Details","read_only":true}
+  ],
+  "permissions": [
+    {"role":"System Manager","read":true,"write":true,"create":true,"delete":true,"export":true,"import":true,"report":true,"print":true,"email":true,"share":true},
+    {"role":"Governance Administrator","read":true,"write":true,"create":true,"report":true,"print":true,"email":true},
+    {"role":"Governance Officer","read":true,"write":true,"create":true,"report":true,"print":true}
+  ]
+}

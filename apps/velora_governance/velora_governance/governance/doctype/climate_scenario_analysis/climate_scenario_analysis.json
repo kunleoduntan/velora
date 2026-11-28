@@ -1,0 +1,205 @@
+{
+ "name": "Climate Scenario Analysis",
+ "module": "Governance",
+ "track_changes": true,
+ "autoname": "series:CSA-.####",
+ "title_field": "governance_entity",
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reporting_period",
+   "fieldtype": "Data",
+   "label": "Reporting period in which the analysis was carried out",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "analysis_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Draft",
+    "In Progress",
+    "Completed"
+   ],
+   "default": "Draft",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "performed_on",
+   "fieldtype": "Date",
+   "label": "Performed on"
+  },
+  {
+   "fieldname": "scenarios",
+   "fieldtype": "Table",
+   "label": "Scenarios",
+   "options": "Climate Scenario Row"
+  },
+  {
+   "fieldname": "diverse_range",
+   "fieldtype": "Check",
+   "label": "A diverse range of scenarios was used"
+  },
+  {
+   "fieldname": "relevance_rationale",
+   "fieldtype": "Text",
+   "label": "Why these scenarios are relevant to the entity's resilience"
+  },
+  {
+   "fieldname": "time_horizons",
+   "fieldtype": "Data",
+   "label": "Time horizons used (e.g. 2030 / 2040 / 2050)"
+  },
+  {
+   "fieldname": "operations_covered",
+   "fieldtype": "Text",
+   "label": "Scope of operations covered (locations, business units)"
+  },
+  {
+   "fieldname": "policy_assumptions",
+   "fieldtype": "Text",
+   "label": "Assumptions: climate-related policies"
+  },
+  {
+   "fieldname": "macro_assumptions",
+   "fieldtype": "Text",
+   "label": "Assumptions: macroeconomic trends"
+  },
+  {
+   "fieldname": "regional_assumptions",
+   "fieldtype": "Text",
+   "label": "Assumptions: national or regional variables"
+  },
+  {
+   "fieldname": "energy_assumptions",
+   "fieldtype": "Text",
+   "label": "Assumptions: energy usage and mix"
+  },
+  {
+   "fieldname": "technology_assumptions",
+   "fieldtype": "Text",
+   "label": "Assumptions: technology developments"
+  },
+  {
+   "fieldname": "impacts",
+   "fieldtype": "Table",
+   "label": "Estimated effects",
+   "options": "Climate Scenario Impact"
+  },
+  {
+   "fieldname": "strategy_implications",
+   "fieldtype": "Text",
+   "label": "Implications for strategy and business model, and responses"
+  },
+  {
+   "fieldname": "uncertainties",
+   "fieldtype": "Text",
+   "label": "Significant areas of uncertainty"
+  },
+  {
+   "fieldname": "financial_resources",
+   "fieldtype": "Text",
+   "label": "Availability and flexibility of existing financial resources"
+  },
+  {
+   "fieldname": "asset_redeployment",
+   "fieldtype": "Text",
+   "label": "Ability to redeploy, repurpose, upgrade or decommission assets"
+  },
+  {
+   "fieldname": "investment_effect",
+   "fieldtype": "Text",
+   "label": "Effect of current and planned mitigation, adaptation and resilience investments"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

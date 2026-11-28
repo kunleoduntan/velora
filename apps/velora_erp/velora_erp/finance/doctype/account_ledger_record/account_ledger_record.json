@@ -1,0 +1,358 @@
+{
+ "name": "Account Ledger Record",
+ "module": "Finance",
+ "autoname": "field:entry_key",
+ "track_changes": false,
+ "description": "Append-only authoritative account-level record created exclusively by the Financial Posting Engine.",
+ "fields": [
+  {
+   "fieldname": "entry_key",
+   "fieldtype": "Data",
+   "label": "Entry Key",
+   "length": 64,
+   "required": true,
+   "unique": true,
+   "read_only": true,
+   "hidden": true
+  },
+  {
+   "fieldname": "posting_batch",
+   "fieldtype": "Link",
+   "label": "Financial Posting Batch",
+   "options": "Financial Posting Batch",
+   "required": true,
+   "in_list_view": true,
+   "hidden": true
+  },
+  {
+   "fieldname": "posting_line",
+   "fieldtype": "Link",
+   "label": "Financial Posting Line",
+   "options": "Financial Posting Line",
+   "required": true
+  },
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Data",
+   "label": "Source Document Type",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "source_name",
+   "fieldtype": "Data",
+   "label": "Source Document",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "posting_event",
+   "fieldtype": "Select",
+   "label": "Posting Event",
+   "options": [
+    "Original",
+    "Adjustment",
+    "Opening Balance"
+   ],
+   "required": true
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Financial Year",
+   "required": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "financial_period",
+   "fieldtype": "Link",
+   "label": "Financial Period",
+   "options": "Financial Period",
+   "required": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Account",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Transaction Currency",
+   "length": 3,
+   "required": true,
+   "options": "Currency"
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Currency",
+   "label": "Exchange Rate",
+   "required": true
+  },
+  {
+   "fieldname": "debit",
+   "fieldtype": "Currency",
+   "label": "Debit (Transaction Currency)",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "credit",
+   "fieldtype": "Currency",
+   "label": "Credit (Transaction Currency)",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "base_currency",
+   "fieldtype": "Link",
+   "label": "Base Currency",
+   "length": 3,
+   "required": true,
+   "options": "Currency"
+  },
+  {
+   "fieldname": "base_debit",
+   "fieldtype": "Currency",
+   "label": "Debit (Base Currency)",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "base_credit",
+   "fieldtype": "Currency",
+   "label": "Credit (Base Currency)",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Data",
+   "label": "Party Type",
+   "length": 80
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Data",
+   "label": "Party",
+   "length": 255,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "cost_centre",
+   "fieldtype": "Link",
+   "label": "Cost Centre",
+   "options": "Cost Centre",
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "dimensions",
+   "fieldtype": "JSON",
+   "label": "Accounting Dimensions"
+  },
+  {
+   "fieldname": "line_description",
+   "fieldtype": "Text",
+   "label": "Line Description"
+  },
+  {
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Transaction Date"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "value_date",
+   "fieldtype": "Date",
+   "label": "Value Date"
+  },
+  {
+   "fieldname": "source_line_reference",
+   "fieldtype": "Data",
+   "label": "Source Line Reference",
+   "length": 120
+  },
+  {
+   "fieldname": "external_reference",
+   "fieldtype": "Data",
+   "label": "External Reference",
+   "length": 120
+  },
+  {
+   "fieldname": "settlement_reference",
+   "fieldtype": "Data",
+   "label": "Settlement Reference",
+   "length": 120
+  },
+  {
+   "fieldname": "tax_code",
+   "fieldtype": "Data",
+   "label": "Tax Code",
+   "length": 80
+  },
+  {
+   "fieldname": "tax_rate",
+   "fieldtype": "Float",
+   "label": "Tax Rate"
+  },
+  {
+   "fieldname": "taxable_amount",
+   "fieldtype": "Currency",
+   "label": "Taxable Amount",
+   "default": 0
+  },
+  {
+   "fieldname": "tax_amount",
+   "fieldtype": "Currency",
+   "label": "Tax Amount",
+   "default": 0
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Data",
+   "label": "Item Reference",
+   "length": 140
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Data",
+   "label": "Warehouse Reference",
+   "length": 140
+  },
+  {
+   "fieldname": "asset",
+   "fieldtype": "Data",
+   "label": "Fixed Asset Reference",
+   "length": 140
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Data",
+   "label": "Project Reference",
+   "length": 140
+  },
+  {
+   "fieldname": "business_unit",
+   "fieldtype": "Data",
+   "label": "Business Unit",
+   "length": 140
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Data",
+   "label": "Branch",
+   "length": 140
+  },
+  {
+   "fieldname": "base_taxable_amount",
+   "fieldtype": "Currency",
+   "label": "Taxable Amount (Base Currency)",
+   "default": 0
+  },
+  {
+   "fieldname": "base_tax_amount",
+   "fieldtype": "Currency",
+   "label": "Tax Amount (Base Currency)",
+   "default": 0
+  },
+  {
+   "fieldname": "tax_jurisdiction",
+   "fieldtype": "Data",
+   "label": "Tax Jurisdiction",
+   "length": 100
+  },
+  {
+   "fieldname": "account_code_snapshot",
+   "fieldtype": "Data",
+   "label": "Account Code at Posting",
+   "length": 40
+  },
+  {
+   "fieldname": "account_name_snapshot",
+   "fieldtype": "Data",
+   "label": "Account Name at Posting"
+  },
+  {
+   "fieldname": "account_group_snapshot",
+   "fieldtype": "Data",
+   "label": "Account Group at Posting",
+   "length": 140
+  },
+  {
+   "fieldname": "root_type_snapshot",
+   "fieldtype": "Data",
+   "label": "Account Class at Posting",
+   "length": 40
+  },
+  {
+   "fieldname": "normal_balance_snapshot",
+   "fieldtype": "Data",
+   "label": "Normal Balance at Posting",
+   "length": 20
+  },
+  {
+   "fieldname": "fx_role",
+   "fieldtype": "Select",
+   "label": "Exchange Treatment",
+   "options": [
+    "",
+    "Carried at original rate",
+    "Exchange difference"
+   ],
+   "read_only": 1,
+   "description": "Set by the system when a settlement is carried at the invoice's rate or an exchange gain or loss is posted."
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "export": true,
+   "report": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  }
+ ],
+ "title_field": "source_name"
+}

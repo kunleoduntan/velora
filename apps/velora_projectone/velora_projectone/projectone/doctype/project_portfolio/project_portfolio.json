@@ -1,0 +1,96 @@
+{
+  "name": "Project Portfolio",
+  "module": "Portfolio",
+  "track_changes": true,
+  "description": "Strategic grouping and investment oversight for projects.",
+  "fields": [
+    {
+      "fieldname": "portfolio_name",
+      "label": "Portfolio Name",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "portfolio_owner",
+      "label": "Portfolio Owner",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "strategic_theme",
+      "label": "Strategic Theme",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "portfolio_budget",
+      "label": "Approved Portfolio Budget",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Open",
+        "In Progress",
+        "On Hold",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "portfolio_name"
+}

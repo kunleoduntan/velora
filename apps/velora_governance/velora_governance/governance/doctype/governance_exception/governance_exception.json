@@ -1,0 +1,175 @@
+{
+  "name": "Governance Exception",
+  "module": "Governance",
+  "autoname": "series:GE-.########",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "idempotency_key",
+      "fieldtype": "Data",
+      "label": "Idempotency Key",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "fieldtype": "Data",
+      "label": "Source DocType",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_name",
+      "fieldtype": "Data",
+      "label": "Source Record",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "exception_type",
+      "fieldtype": "Data",
+      "label": "Exception Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "label": "Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "overdue_days",
+      "fieldtype": "Int",
+      "label": "Overdue Days",
+      "default": 0,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "risk_score",
+      "fieldtype": "Int",
+      "label": "Risk Score"
+    },
+    {
+      "fieldname": "severity",
+      "fieldtype": "Select",
+      "label": "Severity",
+      "options": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "default": "Low",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Open",
+        "Assigned",
+        "In Progress",
+        "Escalated",
+        "Pending Evidence",
+        "Resolved",
+        "Closed"
+      ],
+      "default": "Open",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Data",
+      "label": "Assigned To",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "routing_status",
+      "fieldtype": "Select",
+      "label": "Routing Status",
+      "options": [
+        "Unconfigured",
+        "Configured",
+        "Routed"
+      ],
+      "default": "Unconfigured"
+    },
+    {
+      "fieldname": "route",
+      "fieldtype": "Data",
+      "label": "Route"
+    },
+    {
+      "fieldname": "resolution_evidence",
+      "fieldtype": "Text",
+      "label": "Resolution Evidence"
+    },
+    {
+      "fieldname": "resolved_by",
+      "fieldtype": "Data",
+      "label": "Resolved By"
+    },
+    {
+      "fieldname": "resolved_on",
+      "fieldtype": "Datetime",
+      "label": "Resolved On"
+    },
+    {
+      "fieldname": "closed_by",
+      "fieldtype": "Data",
+      "label": "Closed By"
+    },
+    {
+      "fieldname": "closed_on",
+      "fieldtype": "Datetime",
+      "label": "Closed On"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "create": true,
+      "write": true,
+      "delete": false
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "create": true,
+      "write": true,
+      "delete": false
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "create": true,
+      "write": true,
+      "delete": false
+    },
+    {
+      "role": "Internal Auditor",
+      "read": true,
+      "create": false,
+      "write": false,
+      "delete": false
+    }
+  ]
+}

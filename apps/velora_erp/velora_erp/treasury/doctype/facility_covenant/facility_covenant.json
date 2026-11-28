@@ -1,0 +1,78 @@
+{
+ "name": "Facility Covenant",
+ "module": "Debt and Treasury",
+ "istable": true,
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "covenant_name",
+   "fieldtype": "Data",
+   "label": "Covenant",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "metric",
+   "fieldtype": "Select",
+   "label": "Measure",
+   "options": [
+    "Debt to Equity",
+    "Debt Service Cover",
+    "Interest Cover",
+    "Net Debt to EBITDA",
+    "Current Ratio",
+    "Minimum Cash Balance",
+    "Facility Utilisation %",
+    "Other"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "operator",
+   "fieldtype": "Select",
+   "label": "Must be",
+   "options": [
+    "<=",
+    "<",
+    ">=",
+    ">"
+   ],
+   "required": true,
+   "default": ">=",
+   "in_list_view": true,
+   "description": "The test passes when the measured value is on this side of the limit."
+  },
+  {
+   "fieldname": "threshold",
+   "fieldtype": "Float",
+   "label": "Limit",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "warning_margin",
+   "fieldtype": "Float",
+   "label": "Warn within",
+   "description": "Show a warning when the value passes but is this close to the limit."
+  },
+  {
+   "fieldname": "test_frequency",
+   "fieldtype": "Select",
+   "label": "Tested",
+   "options": [
+    "Monthly",
+    "Quarterly",
+    "Half-yearly",
+    "Annual"
+   ],
+   "default": "Quarterly",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  }
+ ]
+}

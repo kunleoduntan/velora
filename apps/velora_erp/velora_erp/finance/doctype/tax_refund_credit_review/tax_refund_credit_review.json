@@ -1,0 +1,243 @@
+{
+  "name": "Tax Refund Credit Review",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Independent review and approval of cumulative PAYE over-withholding credits before payroll posting.",
+  "autoname": "series:TRC-.########",
+  "fields": [
+    {
+      "fieldname": "payroll_run",
+      "fieldtype": "Link",
+      "label": "Payroll Run",
+      "options": "Payroll Run",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "salary_slip",
+      "fieldtype": "Link",
+      "label": "Salary Slip",
+      "options": "Salary Slip",
+      "read_only": true
+    },
+    {
+      "fieldname": "tax_component_code",
+      "fieldtype": "Data",
+      "label": "Tax Component Code",
+      "required": true
+    },
+    {
+      "fieldname": "tax_rule",
+      "fieldtype": "Link",
+      "label": "Payroll Tax Rule",
+      "options": "Payroll Tax Rule",
+      "required": true
+    },
+    {
+      "fieldname": "tax_year_start",
+      "fieldtype": "Date",
+      "label": "Tax Year Start",
+      "required": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "tax_liability_account",
+      "fieldtype": "Link",
+      "label": "Tax Liability Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "proposed_credit_amount",
+      "fieldtype": "Currency",
+      "label": "Proposed Refund / Credit",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_credit_amount",
+      "fieldtype": "Currency",
+      "label": "Approved Refund / Credit",
+      "read_only": true
+    },
+    {
+      "fieldname": "calculation_snapshot",
+      "fieldtype": "JSON",
+      "label": "Calculation Snapshot",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_calculation_fingerprint",
+      "fieldtype": "Data",
+      "label": "Source Calculation Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Independent Approval"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Pending Review",
+        "Approved",
+        "Rejected",
+        "Applied",
+        "Superseded"
+      ],
+      "default": "Pending Review",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "applied_on",
+      "fieldtype": "Datetime",
+      "label": "Applied On",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": false,
+      "print": false,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

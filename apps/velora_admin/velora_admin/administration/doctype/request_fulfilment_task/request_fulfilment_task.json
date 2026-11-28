@@ -1,0 +1,106 @@
+{
+  "name": "Request Fulfilment Task",
+  "module": "Administration",
+  "autoname": "hash",
+  "is_submittable": false,
+  "istable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "task_title",
+      "fieldtype": "Data",
+      "label": "Task",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Data",
+      "label": "Assigned To",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "default": "Open",
+      "in_list_view": true,
+      "options": "Open\nIn Progress\nBlocked\nCompleted\nCancelled"
+    },
+    {
+      "fieldname": "completion_note",
+      "fieldtype": "Text",
+      "label": "Completion Note"
+    },
+    {
+      "fieldname": "completed_on",
+      "fieldtype": "Datetime",
+      "label": "Completed On",
+      "read_only": true
+    },
+    {
+      "fieldname": "depends_on_sequence",
+      "fieldtype": "Int",
+      "label": "Depends on Sequence"
+    },
+    {
+      "fieldname": "evidence_required",
+      "fieldtype": "Check",
+      "label": "Evidence Required",
+      "default": "0"
+    },
+    {
+      "fieldname": "is_required",
+      "fieldtype": "Check",
+      "label": "Required Task",
+      "default": "1"
+    },
+    {
+      "fieldname": "sequence",
+      "fieldtype": "Int",
+      "label": "Sequence",
+      "default": "10"
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Text",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "assigned_team",
+      "fieldtype": "Link",
+      "label": "Assigned Team",
+      "options": "Department"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true
+    },
+    {
+      "role": "Administration Manager",
+      "read": true,
+      "write": true,
+      "create": true
+    },
+    {
+      "role": "Administrative Manager",
+      "read": true,
+      "write": true,
+      "create": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

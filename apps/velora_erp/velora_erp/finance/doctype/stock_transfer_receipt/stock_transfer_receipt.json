@@ -1,0 +1,168 @@
+{
+  "name": "Stock Transfer Receipt",
+  "module": "Finance",
+  "track_changes": true,
+  "is_submittable": true,
+  "autoname": "series:STKRC-.########",
+  "description": "Takes stock that is in transit into its destination warehouse. Receive all of it or part now and the rest later; whatever is not received stays in transit and is reported.",
+  "fields": [
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Receiving Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "stock_transfer",
+      "fieldtype": "Link",
+      "label": "Stock Transfer",
+      "options": "Stock Transfer",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "transit_warehouse",
+      "fieldtype": "Link",
+      "label": "From Transit Warehouse",
+      "options": "Warehouse",
+      "read_only": true
+    },
+    {
+      "fieldname": "target_warehouse",
+      "fieldtype": "Link",
+      "label": "Into Warehouse",
+      "options": "Warehouse",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Goods Received",
+      "options": "Stock Transfer Receipt Line",
+      "required": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

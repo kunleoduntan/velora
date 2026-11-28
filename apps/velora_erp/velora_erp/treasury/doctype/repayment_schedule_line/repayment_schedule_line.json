@@ -1,0 +1,82 @@
+{
+ "name": "Repayment Schedule Line",
+ "module": "Debt and Treasury",
+ "istable": true,
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "number",
+   "fieldtype": "Int",
+   "label": "No.",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "opening_principal",
+   "fieldtype": "Currency",
+   "label": "Opening balance",
+   "read_only": true
+  },
+  {
+   "fieldname": "principal_due",
+   "fieldtype": "Currency",
+   "label": "Principal due",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "interest_due",
+   "fieldtype": "Currency",
+   "label": "Interest due",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "total_due",
+   "fieldtype": "Currency",
+   "label": "Total due",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "closing_principal",
+   "fieldtype": "Currency",
+   "label": "Closing balance",
+   "read_only": true
+  },
+  {
+   "fieldname": "principal_paid",
+   "fieldtype": "Currency",
+   "label": "Principal paid",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "interest_paid",
+   "fieldtype": "Currency",
+   "label": "Interest paid",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Scheduled",
+    "Part paid",
+    "Paid"
+   ],
+   "default": "Scheduled",
+   "in_list_view": true,
+   "read_only": true
+  }
+ ]
+}

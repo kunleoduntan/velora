@@ -1,0 +1,22 @@
+{
+  "name": "Customer Concentration",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Sales Manager",
+    "Accounts Manager",
+    "General Manager"
+  ],
+  "description": "How much of your sales rests on a few customers (the 80/20 view). Protect the A customers, grow the C customers.",
+  "filters": [
+    {
+      "fieldname": "days",
+      "label": "Days back",
+      "fieldtype": "Int",
+      "default": 365
+    }
+  ]
+}

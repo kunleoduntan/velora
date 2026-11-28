@@ -1,0 +1,428 @@
+{
+  "name": "Fixed Asset Component Adjustment",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled post-acquisition component additions, retirements, impairment, impairment reversal and revaluation.",
+  "fields": [
+    {
+      "fieldname": "asset",
+      "fieldtype": "Link",
+      "label": "Fixed Asset",
+      "options": "Fixed Asset",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "adjustment_type",
+      "fieldtype": "Select",
+      "label": "Adjustment Type",
+      "options": [
+        "Add Component",
+        "Retire Component",
+        "Partially Dispose Component",
+        "Impair Component",
+        "Reverse Component Impairment",
+        "Revalue Component"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "adjustment_date",
+      "fieldtype": "Date",
+      "label": "Adjustment Date",
+      "required": true
+    },
+    {
+      "fieldname": "component_section",
+      "fieldtype": "Section Break",
+      "label": "Component Details",
+      "collapsible": true
+    },
+    {
+      "fieldname": "component_code",
+      "fieldtype": "Data",
+      "label": "Component Code",
+      "required": true
+    },
+    {
+      "fieldname": "component_name",
+      "fieldtype": "Data",
+      "label": "Component Name",
+      "required": true
+    },
+    {
+      "fieldname": "component_reference",
+      "fieldtype": "Data",
+      "label": "Existing Component Row ID",
+      "description": "Required for retirement, impairment, impairment reversal and revaluation."
+    },
+    {
+      "fieldname": "acquisition_cost",
+      "fieldtype": "Currency",
+      "label": "Component Cost",
+      "default": 0
+    },
+    {
+      "fieldname": "residual_value",
+      "fieldtype": "Currency",
+      "label": "Residual Value",
+      "default": 0
+    },
+    {
+      "fieldname": "useful_life_months",
+      "fieldtype": "Int",
+      "label": "Useful Life (Months)",
+      "default": 1
+    },
+    {
+      "fieldname": "depreciation_method",
+      "fieldtype": "Select",
+      "label": "Depreciation Method",
+      "options": [
+        "Straight Line",
+        "Reducing Balance",
+        "Units of Production"
+      ],
+      "default": "Straight Line"
+    },
+    {
+      "fieldname": "depreciation_rate",
+      "fieldtype": "Float",
+      "label": "Reducing Balance Rate (%)"
+    },
+    {
+      "fieldname": "depreciation_start_date",
+      "fieldtype": "Date",
+      "label": "Depreciation Start Date"
+    },
+    {
+      "fieldname": "adjustment_amount",
+      "fieldtype": "Currency",
+      "label": "Adjustment Amount",
+      "default": 0
+    },
+    {
+      "fieldname": "new_carrying_amount",
+      "fieldtype": "Currency",
+      "label": "New Carrying Amount"
+    },
+    {
+      "fieldname": "disposal_percentage",
+      "fieldtype": "Float",
+      "label": "Disposal Percentage (%)",
+      "default": 0,
+      "depends_on": "eval:doc.adjustment_type == \"Partially Dispose Component\""
+    },
+    {
+      "fieldname": "revised_total_units_of_production",
+      "fieldtype": "Float",
+      "label": "Revised Estimated Total Production Units"
+    },
+    {
+      "fieldname": "proceeds",
+      "fieldtype": "Currency",
+      "label": "Retirement Proceeds",
+      "default": 0
+    },
+    {
+      "fieldname": "proceeds_account",
+      "fieldtype": "Link",
+      "label": "Proceeds Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "funding_account",
+      "fieldtype": "Link",
+      "label": "Capitalisation / Funding Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "impairment_account",
+      "fieldtype": "Link",
+      "label": "Accumulated Impairment Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "impairment_expense_account",
+      "fieldtype": "Link",
+      "label": "Impairment Expense Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "impairment_reversal_account",
+      "fieldtype": "Link",
+      "label": "Impairment Reversal Income Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "revaluation_surplus_account",
+      "fieldtype": "Link",
+      "label": "Revaluation Surplus Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "revaluation_loss_account",
+      "fieldtype": "Link",
+      "label": "Revaluation Loss Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "revaluation_gain_account",
+      "fieldtype": "Link",
+      "label": "Revaluation Gain Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "gain_account",
+      "fieldtype": "Link",
+      "label": "Gain on Retirement Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "loss_account",
+      "fieldtype": "Link",
+      "label": "Loss on Retirement Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason",
+      "required": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval and Posting",
+      "collapsible": true
+    },
+    {
+      "fieldname": "revaluation_surplus_transfer_account",
+      "fieldtype": "Link",
+      "label": "Component Revaluation Surplus Transfer Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "autoname": "series:FACA-.########",
+  "is_submittable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "cancel": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "submit": false,
+      "cancel": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "component_name"
+}

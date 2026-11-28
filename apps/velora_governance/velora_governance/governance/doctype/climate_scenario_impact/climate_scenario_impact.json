@@ -1,0 +1,82 @@
+{
+ "name": "Climate Scenario Impact",
+ "module": "Governance",
+ "istable": true,
+ "track_changes": false,
+ "fields": [
+  {
+   "fieldname": "scenario_name",
+   "fieldtype": "Data",
+   "label": "Scenario",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "horizon",
+   "fieldtype": "Select",
+   "label": "Horizon",
+   "options": [
+    "Short term",
+    "Medium term",
+    "Long term"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "risk_or_opportunity",
+   "fieldtype": "Data",
+   "label": "Risk / opportunity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "risk_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": [
+    "Transition risk",
+    "Physical risk",
+    "Opportunity"
+   ],
+   "required": true
+  },
+  {
+   "fieldname": "line_item",
+   "fieldtype": "Select",
+   "label": "Affects",
+   "options": [
+    "Revenue",
+    "Operating costs",
+    "Capital expenditure",
+    "Assets",
+    "Liabilities",
+    "Cash flows",
+    "Other"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "low_amount",
+   "fieldtype": "Currency",
+   "label": "Low estimate"
+  },
+  {
+   "fieldname": "high_amount",
+   "fieldtype": "Currency",
+   "label": "High estimate",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "not_quantified_reason",
+   "fieldtype": "Text",
+   "label": "If not quantified: why (S2 paragraphs 19-21)"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Text",
+   "label": "Note"
+  }
+ ]
+}

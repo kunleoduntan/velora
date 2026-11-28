@@ -1,0 +1,141 @@
+{
+  "name": "Training Program",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Approved programme grouping a course, target population, budget and learning objectives.",
+  "fields": [
+    {
+      "fieldname": "program_code",
+      "fieldtype": "Data",
+      "label": "Program Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "program_title",
+      "fieldtype": "Data",
+      "label": "Program Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "course",
+      "fieldtype": "Link",
+      "label": "Course",
+      "options": "Training Course",
+      "required": true
+    },
+    {
+      "fieldname": "program_type",
+      "fieldtype": "Select",
+      "label": "Program Type",
+      "options": [
+        "Mandatory",
+        "Developmental",
+        "Induction",
+        "Compliance",
+        "Certification",
+        "Other"
+      ],
+      "default": "Developmental"
+    },
+    {
+      "fieldname": "target_department",
+      "fieldtype": "Link",
+      "label": "Target Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "target_competency",
+      "fieldtype": "Link",
+      "label": "Target Competency",
+      "options": "Competency"
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date"
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date"
+    },
+    {
+      "fieldname": "budget_amount",
+      "fieldtype": "Currency",
+      "label": "Budget Amount"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected",
+        "Closed"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "program_objectives",
+      "fieldtype": "Text",
+      "label": "Program Objectives"
+    },
+    {
+      "fieldname": "program_owner",
+      "fieldtype": "Link",
+      "label": "Program Owner",
+      "options": "Employee"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "istable": false
+}

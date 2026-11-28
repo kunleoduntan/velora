@@ -1,0 +1,7 @@
+# Velora 1.16.5
+- **App hubs** are sectioned for every application (HR, Projects, Administration, Support, Notify, Governance, Farepoint, Finance), and every parent document type of every installed app sits in a named section. A test holds this for all 397 document types (`HubCoverage.test.ts`).
+- **Customise a hub** (button on every hub): drag a shortcut to another place or another section, drag a section by its grip, add your own shortcuts and sections, edit or remove the ones you added, hide a built-in one (and bring it back), reset to the standard layout. Arrow buttons do the same from the keyboard. The arrangement is kept per person, per company, **in that browser** (it does not follow you to another device yet). A shortcut can only lead to a place inside the desk (`#/...`).
+- **Printing from every document and every list** with the format designed for it (the built-in Standard page when none is designed), one document or many (each on its own page), on screen or as PDF.
+- **Lists can sort by several keys** (`order_by="severity desc, due_date"`), each key checked against the table's columns.
+- A document can check its own permission (`Document.check_permission`), and workspace shortcuts may point at `#/governance/...`.
+- New desk screens: Governance centre (reports with Excel export, exceptions, automation with retry, sustainability) and the Consolidation Centre (see VeloraERP 2.97.0).

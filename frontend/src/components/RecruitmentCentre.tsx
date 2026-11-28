@@ -1,0 +1,24 @@
+import { useEffect, useMemo, useState } from "react";
+import { api, errorMessage } from "../api";
+import type { Doc } from "../types";
+
+export default function RecruitmentCentre(){
+ const [applications,setApplications]=useState<Doc[]>([]),[vacancies,setVacancies]=useState<Doc[]>([]),[interviews,setInterviews]=useState<Doc[]>([]),[offers,setOffers]=useState<Doc[]>([]),[notifications,setNotifications]=useState<Doc[]>([]),[stages,setStages]=useState<string[]>([]),[error,setError]=useState(""),[busy,setBusy]=useState(false);
+ async function load(){setBusy(true);setError("");try{const results=await Promise.allSettled([api.list("Job Application",{limit:500,order_by:"modified desc"}),api.list("Job Posting",{limit:200,order_by:"modified desc"}),api.list("Interview",{limit:200,order_by:"scheduled_start asc"}),api.list("Job Offer",{limit:200,order_by:"modified desc"}),api.list("Recruitment Inbox Notification",{filters:[["notification_status","=","Unread"]],limit:100,order_by:"creation desc"}),api.get("Recruitment Settings","Recruitment Settings")]);
+ const pick=(i:number)=>results[i].status==="fulfilled"?(results[i] as PromiseFulfilledResult<Doc[]>).value:[];
+ setApplications(pick(0));setVacancies(pick(1));setInterviews(pick(2));setOffers(pick(3));setNotifications(pick(4));
+ const settings=results[5].status==="fulfilled"?(results[5] as PromiseFulfilledResult<Doc>).value:{};let configured:any=settings.pipeline_stages||[];if(typeof configured==="string"){try{configured=JSON.parse(configured)}catch{configured=[]}}setStages(Array.isArray(configured)?configured.map((x:any)=>typeof x==="string"?x:String(x.stage||x.name||"")).filter(Boolean):[]);
+ const failed=results.map((r,i)=>r.status==="rejected"?["applications","vacancies","interviews","offers","inbox","recruitment settings"][i]:null).filter(Boolean);if(failed.length)setError(`Some recruitment registers could not be loaded: ${failed.join(", ")}. Check your HR permissions.`);
+ }catch(e){setError(errorMessage(e));}finally{setBusy(false);}}
+ useEffect(()=>{load();},[]);
+ const stageCounts=useMemo(()=>stages.map(stage=>({stage,count:applications.filter(a=>String(a.application_stage||"")===stage).length})),[applications,stages]);
+ const upcoming=useMemo(()=>interviews.filter(i=>i.interview_status==="Scheduled"||i.interview_status==="Confirmed").slice(0,8),[interviews]);
+ const card=(label:string,value:number,href:string)=><button className="panel recruitment-kpi" onClick={()=>{window.location.hash=href;}}><span>{label}</span><strong>{value.toLocaleString()}</strong></button>;
+ return <main className="panel recruitment-centre"><header className="page-head"><div><h1>Recruitment Centre</h1><p className="muted">Applicant pipeline, vacancy activity, interviews and recruiter actions</p></div><button className="rbtn primary" onClick={load} disabled={busy}>{busy?"Refreshing…":"Refresh"}</button></header>
+ {error&&<div className="error" role="alert">{error}</div>}
+ <section className="recruitment-kpis">{card("Applications",applications.length,"#/app/Job Application")}{card("Open vacancies",vacancies.filter(v=>["Open","Published","Approved"].includes(String(v.status))).length,"#/app/Job Posting")}{card("Scheduled interviews",upcoming.length,"#/app/Interview")}{card("Unread inbox",notifications.length,"#/app/Recruitment Inbox Notification")}</section>
+ <section><h2>Application pipeline</h2><div className="recruitment-pipeline">{stageCounts.map(x=><button key={x.stage} className="recruitment-stage" onClick={()=>{window.location.hash=`#/app/Job Application?application_stage=${encodeURIComponent(x.stage)}`;}}><span>{x.stage}</span><strong>{x.count}</strong></button>)}</div></section>
+ <section className="recruitment-columns"><div><h2>Upcoming interviews</h2>{upcoming.length?upcoming.map(i=><article className="recruitment-row" key={i.name}><div><strong>{String(i.application||i.name)}</strong><p className="muted">{String(i.interview_round||"Interview")}</p></div><span>{String(i.scheduled_start||"")}</span><a href={`#/app/Interview/${encodeURIComponent(String(i.name))}`}>Open</a></article>):<p className="muted">No scheduled interviews in the loaded register.</p>}</div><div><h2>Recruiter inbox</h2>{notifications.slice(0,8).map(n=><article className="recruitment-row" key={n.name}><div><strong>{String(n.subject||"Notification")}</strong><p className="muted">{String(n.message||"")}</p></div><a href={`#/app/Recruitment Inbox Notification/${encodeURIComponent(String(n.name))}`}>Open</a></article>)}{!notifications.length&&<p className="muted">No unread recruitment notifications.</p>}</div></section>
+ <section className="recruitment-links"><h2>Recruitment registers</h2>{["Job Requisition","Job Posting","Candidate","Job Application","Interview","Job Offer","Recruitment Settings"].map(d=><a className="rbtn" key={d} href={`#/app/${encodeURIComponent(d)}`}>{d}</a>)}</section>
+ </main>;
+}

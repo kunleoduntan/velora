@@ -1,0 +1,149 @@
+{
+  "name": "Stakeholder Engagement",
+  "module": "Governance",
+  "autoname": "series:SEG-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "materiality_assessment",
+      "fieldtype": "Link",
+      "label": "Materiality Assessment",
+      "options": "Materiality Assessment"
+    },
+    {
+      "fieldname": "stakeholder",
+      "fieldtype": "Link",
+      "label": "Stakeholder",
+      "options": "Stakeholder",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "engagement_date",
+      "fieldtype": "Date",
+      "label": "Engagement Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "method",
+      "fieldtype": "Select",
+      "label": "Engagement Method",
+      "options": [
+        "Survey",
+        "Interview",
+        "Workshop",
+        "Meeting",
+        "Focus Group",
+        "Other"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "topic",
+      "fieldtype": "Link",
+      "label": "Topic",
+      "options": "Sustainability Topic"
+    },
+    {
+      "fieldname": "feedback",
+      "fieldtype": "Text",
+      "label": "Feedback"
+    },
+    {
+      "fieldname": "response",
+      "fieldtype": "Text",
+      "label": "Organization Response"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "stakeholder"
+}

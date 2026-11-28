@@ -1,0 +1,173 @@
+{
+  "name": "Travel Request",
+  "module": "Administration",
+  "autoname": "series:TRAVEL-.YYYY.-.####",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "TRAVEL-.YYYY.-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "traveller",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Traveller",
+      "options": "Person",
+      "required": true
+    },
+    {
+      "fieldname": "purpose",
+      "fieldtype": "Text",
+      "label": "Purpose"
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Draft\nBooked\nIn Progress\nCompleted\nCancelled",
+      "read_only": 1
+    },
+    {
+      "fieldname": "request",
+      "fieldtype": "Link",
+      "label": "Source Request",
+      "options": "Request",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_itinerary",
+      "fieldtype": "Section Break",
+      "label": "Itinerary"
+    },
+    {
+      "fieldname": "destination",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Destination",
+      "required": true
+    },
+    {
+      "fieldname": "departure_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Departure Date",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_itinerary",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "return_date",
+      "fieldtype": "Date",
+      "label": "Return Date"
+    },
+    {
+      "default": "Air",
+      "fieldname": "transportation_mode",
+      "fieldtype": "Select",
+      "label": "Transportation Mode",
+      "options": "Air\nRoad\nRail\nSea"
+    },
+    {
+      "fieldname": "section_break_accommodation",
+      "fieldtype": "Section Break",
+      "label": "Accommodation & Visa"
+    },
+    {
+      "default": "0",
+      "fieldname": "accommodation_required",
+      "fieldtype": "Check",
+      "label": "Accommodation Required"
+    },
+    {
+      "fieldname": "accommodation_details",
+      "fieldtype": "Text",
+      "label": "Accommodation Details"
+    },
+    {
+      "fieldname": "column_break_accommodation",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "visa_required",
+      "fieldtype": "Check",
+      "label": "Visa Required"
+    },
+    {
+      "default": "Not Required",
+      "fieldname": "visa_status",
+      "fieldtype": "Select",
+      "label": "Visa Status",
+      "options": "Not Required\nPending\nApproved\nRejected"
+    },
+    {
+      "fieldname": "section_break_cost",
+      "fieldtype": "Section Break",
+      "label": "Cost"
+    },
+    {
+      "fieldname": "estimated_cost",
+      "fieldtype": "Currency",
+      "label": "Estimated Cost"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "column_break_cost",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "actual_cost",
+      "fieldtype": "Currency",
+      "label": "Actual Cost",
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "name": "Resource Skill",
+  "module": "Resources",
+  "track_changes": true,
+  "description": "Skill or competency held by a resource with proficiency and validity.",
+  "istable": false,
+  "fields": [
+    {
+      "fieldname": "resource",
+      "label": "Resource",
+      "fieldtype": "Link",
+      "options": "Resource Profile",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "skill",
+      "label": "Skill",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "proficiency",
+      "label": "Proficiency",
+      "fieldtype": "Select",
+      "options": [
+        "1 - Awareness",
+        "2 - Basic",
+        "3 - Working",
+        "4 - Advanced",
+        "5 - Expert"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "certification",
+      "label": "Certification",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "valid_from",
+      "label": "Valid From",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "valid_to",
+      "label": "Valid To",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "verified",
+      "label": "Verified",
+      "fieldtype": "Check",
+      "default": false
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "resource"
+}

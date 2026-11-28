@@ -1,0 +1,11 @@
+{
+  "name": "Access by Role",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager"
+  ],
+  "description": "What each role can do across every form: read, change, submit, cancel, delete. Spot roles that are too powerful.",
+  "filters": []
+}

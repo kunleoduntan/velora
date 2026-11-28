@@ -1,0 +1,160 @@
+{
+  "name": "Risk Register",
+  "module": "Administration",
+  "autoname": "series:RISK-.####",
+  "title_field": "risk_title",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "RISK-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "risk_title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Risk Title",
+      "required": true
+    },
+    {
+      "default": "Operational",
+      "fieldname": "category",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Category",
+      "options": "Operational\nFinancial\nLegal\nCompliance\nSecurity\nFacility\nTechnology\nPeople\nVendor\nReputation",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Open",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Open\nMitigating\nClosed"
+    },
+    {
+      "fieldname": "risk_level",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Risk Level",
+      "options": "Low\nMedium\nHigh\nCritical",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_scope",
+      "fieldtype": "Section Break",
+      "label": "Scope"
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "column_break_scope",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "owner_person",
+      "fieldtype": "Link",
+      "label": "Risk Owner",
+      "options": "Person",
+      "required": true
+    },
+    {
+      "fieldname": "review_date",
+      "fieldtype": "Date",
+      "label": "Next Review Date"
+    },
+    {
+      "fieldname": "section_break_scoring",
+      "fieldtype": "Section Break",
+      "label": "Scoring"
+    },
+    {
+      "default": "Medium",
+      "fieldname": "probability",
+      "fieldtype": "Select",
+      "label": "Probability",
+      "options": "Low\nMedium\nHigh\nCritical",
+      "required": true
+    },
+    {
+      "default": "Medium",
+      "fieldname": "impact",
+      "fieldtype": "Select",
+      "label": "Impact",
+      "options": "Low\nMedium\nHigh\nCritical",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_scoring",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "risk_score",
+      "fieldtype": "Int",
+      "label": "Risk Score",
+      "read_only": 1
+    },
+    {
+      "default": "Mitigate",
+      "fieldname": "treatment",
+      "fieldtype": "Select",
+      "label": "Treatment",
+      "options": "Avoid\nMitigate\nTransfer\nAccept"
+    },
+    {
+      "fieldname": "section_break_desc",
+      "fieldtype": "Section Break",
+      "label": "Details"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "mitigation_plan",
+      "fieldtype": "Text",
+      "label": "Mitigation Plan"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

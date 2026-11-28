@@ -1,0 +1,116 @@
+{
+  "name": "Amortisation Schedule",
+  "module": "Accounts",
+  "fields": [
+    {
+      "fieldname": "source_type",
+      "fieldtype": "Data",
+      "label": "Source Type",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_ref",
+      "fieldtype": "Data",
+      "label": "Source",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "voucher_type",
+      "fieldtype": "Data",
+      "label": "Voucher Type"
+    },
+    {
+      "fieldname": "voucher_no",
+      "fieldtype": "Data",
+      "label": "Payment",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "line_no",
+      "fieldtype": "Int",
+      "label": "Row"
+    },
+    {
+      "fieldname": "period_no",
+      "fieldtype": "Int",
+      "label": "Period"
+    },
+    {
+      "fieldname": "period_count",
+      "fieldtype": "Int",
+      "label": "Of"
+    },
+    {
+      "fieldname": "period_date",
+      "fieldtype": "Date",
+      "label": "Period Date",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Expense Account",
+      "options": "Account"
+    },
+    {
+      "fieldname": "prepaid_account",
+      "fieldtype": "Link",
+      "label": "Prepaid Account",
+      "options": "Account"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Scheduled",
+        "Posted",
+        "Cancelled"
+      ],
+      "default": "Scheduled",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "journal",
+      "fieldtype": "Data",
+      "label": "Journal"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "export": true,
+      "report": true,
+      "share": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ]
+}

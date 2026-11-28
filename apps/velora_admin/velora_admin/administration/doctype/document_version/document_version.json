@@ -1,0 +1,50 @@
+{
+  "name": "Document Version",
+  "module": "Administration",
+  "autoname": "hash",
+  "is_submittable": false,
+  "istable": true,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "version_no",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Version",
+      "required": true
+    },
+    {
+      "fieldname": "file",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "File"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "uploaded_by",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Uploaded By",
+      "read_only": 1
+    },
+    {
+      "fieldname": "uploaded_on",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "Uploaded On",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_notes",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "change_notes",
+      "fieldtype": "Text",
+      "label": "Change Notes"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "name": "Sustainability Settings",
+  "module": "Governance",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "general_section",
+      "fieldtype": "Section Break",
+      "label": "General"
+    },
+    {
+      "fieldname": "default_reporting_period",
+      "fieldtype": "Data",
+      "label": "Default Reporting Period"
+    },
+    {
+      "fieldname": "default_framework",
+      "fieldtype": "Link",
+      "label": "Default Framework",
+      "options": "Sustainability Framework"
+    },
+    {
+      "fieldname": "enable_esg",
+      "fieldtype": "Check",
+      "label": "Enable ESG",
+      "default": 1
+    },
+    {
+      "fieldname": "enable_ghg",
+      "fieldtype": "Check",
+      "label": "Enable GHG Accounting",
+      "default": 1
+    },
+    {
+      "fieldname": "materiality_section",
+      "fieldtype": "Section Break",
+      "label": "Materiality"
+    },
+    {
+      "fieldname": "impact_materiality_threshold",
+      "fieldtype": "Int",
+      "label": "Impact Materiality Threshold (1-5)",
+      "default": 3
+    },
+    {
+      "fieldname": "financial_materiality_threshold",
+      "fieldtype": "Int",
+      "label": "Financial Materiality Threshold (1-5)",
+      "default": 3
+    },
+    {
+      "fieldname": "double_materiality_method",
+      "fieldtype": "Select",
+      "label": "Double Materiality Method",
+      "options": [
+        "Maximum",
+        "Average",
+        "Weighted"
+      ],
+      "default": "Maximum"
+    },
+    {
+      "fieldname": "ghg_section",
+      "fieldtype": "Section Break",
+      "label": "GHG"
+    },
+    {
+      "fieldname": "scope2_methodology",
+      "fieldtype": "Select",
+      "label": "Scope 2 Methodology",
+      "options": [
+        "Location Based",
+        "Market Based",
+        "Both"
+      ],
+      "default": "Both"
+    },
+    {
+      "fieldname": "default_data_quality",
+      "fieldtype": "Link",
+      "label": "Default Data Quality",
+      "options": "Sustainability Data Quality"
+    },
+    {
+      "fieldname": "reporting_section",
+      "fieldtype": "Section Break",
+      "label": "Reporting"
+    },
+    {
+      "fieldname": "report_readiness_threshold",
+      "fieldtype": "Int",
+      "label": "Report Readiness Threshold Percent",
+      "default": 100
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "autoname": "series:SUS-.####"
+}

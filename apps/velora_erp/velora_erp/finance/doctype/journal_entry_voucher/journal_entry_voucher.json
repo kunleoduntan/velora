@@ -1,0 +1,217 @@
+{
+  "name": "Journal Entry Voucher",
+  "module": "Finance",
+  "autoname": "series:JEV-.######",
+  "is_submittable": true,
+  "track_changes": true,
+  "title_field": "title",
+  "description": "Enter many journal transactions in one voucher. Each row is one transaction with a party or ledger account and its corresponding account; the opposite leg is created for you. Import rows from a spreadsheet with Data Import.",
+  "fields": [
+    {
+      "fieldname": "voucher_section",
+      "fieldtype": "Section Break",
+      "label": "Voucher Details"
+    },
+    {
+      "fieldname": "voucher_date",
+      "fieldtype": "Date",
+      "label": "Voucher Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "label": "Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "currency_section",
+      "fieldtype": "Section Break",
+      "label": "Currency"
+    },
+    {
+      "fieldname": "reference_number",
+      "fieldtype": "Data",
+      "label": "Reference"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Transaction Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate to Base Currency",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "lines_section",
+      "fieldtype": "Section Break",
+      "label": "Voucher Lines"
+    },
+    {
+      "fieldname": "totals_section",
+      "fieldtype": "Section Break",
+      "label": "Control Totals"
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Journal Lines",
+      "options": "Journal Entry Voucher Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_debit",
+      "fieldtype": "Currency",
+      "label": "Total Debit",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_credit",
+      "fieldtype": "Currency",
+      "label": "Total Credit",
+      "read_only": true
+    },
+    {
+      "fieldname": "difference",
+      "fieldtype": "Currency",
+      "label": "Difference (Dr - Cr)",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_comments",
+      "fieldtype": "Text",
+      "label": "Approval Comments"
+    },
+    {
+      "fieldname": "narration_section",
+      "fieldtype": "Section Break",
+      "label": "Narration"
+    },
+    {
+      "fieldname": "narration",
+      "fieldtype": "Text",
+      "label": "Voucher Narration",
+      "required": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

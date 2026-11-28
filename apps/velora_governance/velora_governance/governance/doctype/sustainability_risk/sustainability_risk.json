@@ -1,0 +1,192 @@
+{
+  "name": "Sustainability Risk",
+  "module": "Governance",
+  "autoname": "series:SUR-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "risk_category",
+      "fieldtype": "Link",
+      "label": "Risk Category",
+      "options": "Sustainability Risk Category",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "risk_title",
+      "fieldtype": "Data",
+      "label": "Risk Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "risk_type",
+      "fieldtype": "Select",
+      "label": "Risk Type",
+      "options": [
+        "Physical Climate",
+        "Transition Climate",
+        "Social",
+        "Environmental",
+        "Governance",
+        "Other"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "likelihood",
+      "fieldtype": "Int",
+      "label": "Likelihood (1-5)",
+      "required": true
+    },
+    {
+      "fieldname": "impact",
+      "fieldtype": "Int",
+      "label": "Impact (1-5)",
+      "required": true
+    },
+    {
+      "fieldname": "risk_score",
+      "fieldtype": "Int",
+      "label": "Risk Score",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "time_horizon",
+      "fieldtype": "Select",
+      "label": "Time Horizon",
+      "options": [
+        "Short Term",
+        "Medium Term",
+        "Long Term"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "financial_impact",
+      "fieldtype": "Float",
+      "label": "Potential Financial Impact"
+    },
+    {
+      "fieldname": "mitigation",
+      "fieldtype": "Text",
+      "label": "Mitigation"
+    },
+    {
+      "fieldname": "risk_owner",
+      "fieldtype": "Data",
+      "label": "Risk Owner"
+    },
+    {
+      "fieldname": "risk_status",
+      "fieldtype": "Select",
+      "label": "Risk Status",
+      "options": [
+        "Identified",
+        "Assessing",
+        "Mitigating",
+        "Monitoring",
+        "Closed"
+      ],
+      "default": "Identified",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "risk_title"
+}

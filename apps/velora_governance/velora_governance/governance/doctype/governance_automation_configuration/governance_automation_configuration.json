@@ -1,0 +1,121 @@
+{
+  "name": "Governance Automation Configuration",
+  "module": "Governance",
+  "autoname": "prompt",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "automation_section",
+      "fieldtype": "Section Break",
+      "label": "Automation Control"
+    },
+    {
+      "fieldname": "automation_enabled",
+      "fieldtype": "Check",
+      "label": "Automation Enabled",
+      "default": 1,
+      "in_list_view": 1,
+      "description": "Switch off to pause both action generation and queued dispatch. This is the global automation control."
+    },
+    {
+      "fieldname": "timing_column",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "reminder_days_before",
+      "fieldtype": "Data",
+      "label": "Reminder Days Before Due",
+      "default": "30,14,7,3,1,0",
+      "description": "Comma-separated day offsets. 0 means due today."
+    },
+    {
+      "fieldname": "escalation_days_overdue",
+      "fieldtype": "Data",
+      "label": "Escalation Days Overdue",
+      "default": "1,7,14,30",
+      "description": "Comma-separated overdue day offsets."
+    },
+    {
+      "fieldname": "terminal_statuses",
+      "fieldtype": "Data",
+      "label": "Terminal Statuses",
+      "default": "Completed,Cancelled,Closed,Resolved",
+      "description": "Comma-separated statuses treated as closed/terminal. Items in these states are excluded from reminders and escalation."
+    },
+    {
+      "fieldname": "execution_section",
+      "fieldtype": "Section Break",
+      "label": "Execution & Retry Limits"
+    },
+    {
+      "fieldname": "max_attempts",
+      "fieldtype": "Int",
+      "label": "Maximum Attempts",
+      "default": 5,
+      "description": "Maximum dispatch attempts per execution, including the first attempt. Range: 1\u201320."
+    },
+    {
+      "fieldname": "max_batch_size",
+      "fieldtype": "Int",
+      "label": "Maximum Scheduler Batch Size",
+      "default": 100,
+      "description": "Maximum number of queued executions processed per scheduler cycle. Range: 1\u2013250."
+    },
+    {
+      "fieldname": "retry_base_minutes",
+      "fieldtype": "Int",
+      "label": "Retry Base Minutes",
+      "default": 5,
+      "description": "Base delay used for exponential retry backoff. Range: 1\u20131440 minutes."
+    },
+    {
+      "fieldname": "retry_max_hours",
+      "fieldtype": "Int",
+      "label": "Retry Maximum Hours",
+      "default": 24,
+      "description": "Upper cap for retry delay. Range: 1\u2013168 hours."
+    },
+    {
+      "fieldname": "routing_section",
+      "fieldtype": "Section Break",
+      "label": "Recipient Routing"
+    },
+    {
+      "fieldname": "owner_field_mapping",
+      "fieldtype": "Text",
+      "label": "Owner Field Mapping (JSON)",
+      "default": "{}",
+      "description": "Optional mapping of source DocType to owner field. Only known fields are accepted by runtime allowlist."
+    },
+    {
+      "fieldname": "recipient_overrides",
+      "fieldtype": "Text",
+      "label": "Fallback Recipient Overrides (JSON)",
+      "default": "{}",
+      "description": "Explicit fallback user per source DocType for items without an owner. User is validated as active before delivery."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "create": true,
+      "write": true,
+      "delete": false
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "create": false,
+      "write": false,
+      "delete": false
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "create": false,
+      "write": false,
+      "delete": false
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Board Skill Matrix Result",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "skill",
+      "fieldtype": "Link",
+      "label": "Skill",
+      "options": "Governance Skill",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "required_skill_level",
+      "fieldtype": "Link",
+      "label": "Required Skill Level",
+      "options": "Governance Skill Level",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "required_coverage",
+      "fieldtype": "Int",
+      "label": "Required Coverage",
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "actual_coverage",
+      "fieldtype": "Int",
+      "label": "Actual Coverage",
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "coverage_gap",
+      "fieldtype": "Int",
+      "label": "Coverage Gap",
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "coverage_status",
+      "fieldtype": "Select",
+      "label": "Coverage Status",
+      "options": [
+        "Met",
+        "Gap"
+      ],
+      "in_list_view": true,
+      "read_only": true
+    },
+    {
+      "fieldname": "critical",
+      "fieldtype": "Check",
+      "label": "Critical Skill",
+      "read_only": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

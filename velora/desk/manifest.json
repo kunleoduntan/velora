@@ -1,0 +1,435 @@
+{
+  "_PortalApp-BmERoacF.js": {
+    "file": "assets/PortalApp-BmERoacF.js",
+    "name": "PortalApp",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html",
+      "_react-Cs6DZD4Z.js"
+    ],
+    "dynamicImports": [
+      "src/portal/EmployeePages.tsx"
+    ]
+  },
+  "_centre-Ccr-FIsW.js": {
+    "file": "assets/centre-Ccr-FIsW.js",
+    "name": "centre",
+    "imports": [
+      "_react-Cs6DZD4Z.js"
+    ]
+  },
+  "_react-Cs6DZD4Z.js": {
+    "file": "assets/react-Cs6DZD4Z.js",
+    "name": "react"
+  },
+  "_react-dom-yki-vDcg.js": {
+    "file": "assets/react-dom-yki-vDcg.js",
+    "name": "react-dom",
+    "imports": [
+      "_react-Cs6DZD4Z.js"
+    ]
+  },
+  "_typescript-DFYBja5q.js": {
+    "file": "assets/typescript-DFYBja5q.js",
+    "name": "typescript",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js"
+    ]
+  },
+  "index.html": {
+    "file": "assets/index-QM4PbpBp.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "_react-dom-yki-vDcg.js"
+    ],
+    "dynamicImports": [
+      "_typescript-DFYBja5q.js",
+      "_PortalApp-BmERoacF.js",
+      "src/components/ControlsCheck.tsx",
+      "src/components/InvestmentPortfolio.tsx",
+      "src/components/SupportDesk.tsx",
+      "src/components/BroadcastCentre.tsx",
+      "src/components/ConsolidationCentre.tsx",
+      "src/components/GovernanceCentre.tsx",
+      "src/components/GlReview.tsx",
+      "src/components/ShortcutHub.tsx",
+      "src/components/PortalAccess.tsx",
+      "src/components/PeopleAccess.tsx",
+      "src/components/BudgetWorkbench.tsx",
+      "src/components/DeveloperStudio.tsx",
+      "src/components/AIStudio.tsx",
+      "src/components/LayoutDesigner.tsx",
+      "src/components/FinancialReportDesigner.tsx",
+      "src/components/FinancialReportingCentre.tsx",
+      "src/components/OperationalCentre.tsx",
+      "src/components/TaxCentre.tsx",
+      "src/components/TreasuryCentre.tsx",
+      "src/components/FinanceRequestsCentre.tsx",
+      "src/components/RecruitmentCentre.tsx",
+      "src/components/UpdateCentre.tsx",
+      "src/components/BankReconciliationCentre.tsx",
+      "src/components/WorkspaceDesigner.tsx",
+      "src/components/NotificationAutomationCentre.tsx",
+      "src/components/RuleStudio.tsx",
+      "src/components/LeaveManagementCentre.tsx",
+      "src/components/TrainingCentre.tsx",
+      "src/components/HRGovernanceCentre.tsx",
+      "src/components/RolePermissionManager.tsx"
+    ],
+    "css": [
+      "assets/index-DMXFS70d.css"
+    ]
+  },
+  "src/components/AIStudio.tsx": {
+    "file": "assets/AIStudio-C7FOJDMO.js",
+    "name": "AIStudio",
+    "src": "src/components/AIStudio.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/BankReconciliationCentre.tsx": {
+    "file": "assets/BankReconciliationCentre-DQV6GX15.js",
+    "name": "BankReconciliationCentre",
+    "src": "src/components/BankReconciliationCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/BroadcastCentre.tsx": {
+    "file": "assets/BroadcastCentre-BxkRKRAj.js",
+    "name": "BroadcastCentre",
+    "src": "src/components/BroadcastCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_centre-Ccr-FIsW.js",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/BudgetWorkbench.tsx": {
+    "file": "assets/BudgetWorkbench-MPzcaASu.js",
+    "name": "BudgetWorkbench",
+    "src": "src/components/BudgetWorkbench.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/ConsolidationCentre.tsx": {
+    "file": "assets/ConsolidationCentre-BAswkQ0R.js",
+    "name": "ConsolidationCentre",
+    "src": "src/components/ConsolidationCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_centre-Ccr-FIsW.js",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/ControlsCheck.tsx": {
+    "file": "assets/ControlsCheck-n4MGUdop.js",
+    "name": "ControlsCheck",
+    "src": "src/components/ControlsCheck.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/DeveloperStudio.tsx": {
+    "file": "assets/DeveloperStudio-BEP3L3E4.js",
+    "name": "DeveloperStudio",
+    "src": "src/components/DeveloperStudio.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/FinanceRequestsCentre.tsx": {
+    "file": "assets/FinanceRequestsCentre-Bp7kGZsR.js",
+    "name": "FinanceRequestsCentre",
+    "src": "src/components/FinanceRequestsCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/FinancialReportDesigner.tsx": {
+    "file": "assets/FinancialReportDesigner-7g0L6O3c.js",
+    "name": "FinancialReportDesigner",
+    "src": "src/components/FinancialReportDesigner.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/FinancialReportingCentre.tsx": {
+    "file": "assets/FinancialReportingCentre-CAtErUNh.js",
+    "name": "FinancialReportingCentre",
+    "src": "src/components/FinancialReportingCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/GlReview.tsx": {
+    "file": "assets/GlReview-J3wStC6d.js",
+    "name": "GlReview",
+    "src": "src/components/GlReview.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_centre-Ccr-FIsW.js",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/GovernanceCentre.tsx": {
+    "file": "assets/GovernanceCentre-62LSL6dN.js",
+    "name": "GovernanceCentre",
+    "src": "src/components/GovernanceCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_centre-Ccr-FIsW.js",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/HRGovernanceCentre.tsx": {
+    "file": "assets/HRGovernanceCentre-DtgDEVa7.js",
+    "name": "HRGovernanceCentre",
+    "src": "src/components/HRGovernanceCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/InvestmentPortfolio.tsx": {
+    "file": "assets/InvestmentPortfolio-D9dnSt9_.js",
+    "name": "InvestmentPortfolio",
+    "src": "src/components/InvestmentPortfolio.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_centre-Ccr-FIsW.js",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/LayoutDesigner.tsx": {
+    "file": "assets/LayoutDesigner-B-3252XR.js",
+    "name": "LayoutDesigner",
+    "src": "src/components/LayoutDesigner.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/LeaveManagementCentre.tsx": {
+    "file": "assets/LeaveManagementCentre-DTU9zlby.js",
+    "name": "LeaveManagementCentre",
+    "src": "src/components/LeaveManagementCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/NotificationAutomationCentre.tsx": {
+    "file": "assets/NotificationAutomationCentre-CZDyPJST.js",
+    "name": "NotificationAutomationCentre",
+    "src": "src/components/NotificationAutomationCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/OperationalCentre.tsx": {
+    "file": "assets/OperationalCentre-DsMP8dsE.js",
+    "name": "OperationalCentre",
+    "src": "src/components/OperationalCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/PeopleAccess.tsx": {
+    "file": "assets/PeopleAccess-RcNlJkpQ.js",
+    "name": "PeopleAccess",
+    "src": "src/components/PeopleAccess.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/PortalAccess.tsx": {
+    "file": "assets/PortalAccess-wMl0NVGt.js",
+    "name": "PortalAccess",
+    "src": "src/components/PortalAccess.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/RecruitmentCentre.tsx": {
+    "file": "assets/RecruitmentCentre-0L1_CPK6.js",
+    "name": "RecruitmentCentre",
+    "src": "src/components/RecruitmentCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/RolePermissionManager.tsx": {
+    "file": "assets/RolePermissionManager-B2WXshOg.js",
+    "name": "RolePermissionManager",
+    "src": "src/components/RolePermissionManager.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/RuleStudio.tsx": {
+    "file": "assets/RuleStudio-DbrB-pLM.js",
+    "name": "RuleStudio",
+    "src": "src/components/RuleStudio.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/ShortcutHub.tsx": {
+    "file": "assets/ShortcutHub-CyWJG9-U.js",
+    "name": "ShortcutHub",
+    "src": "src/components/ShortcutHub.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/SupportDesk.tsx": {
+    "file": "assets/SupportDesk-BxT9Kldt.js",
+    "name": "SupportDesk",
+    "src": "src/components/SupportDesk.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_centre-Ccr-FIsW.js",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/TaxCentre.tsx": {
+    "file": "assets/TaxCentre-BxMF3tj7.js",
+    "name": "TaxCentre",
+    "src": "src/components/TaxCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/TrainingCentre.tsx": {
+    "file": "assets/TrainingCentre-vImCM5zn.js",
+    "name": "TrainingCentre",
+    "src": "src/components/TrainingCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/TreasuryCentre.tsx": {
+    "file": "assets/TreasuryCentre-ChtoW2XO.js",
+    "name": "TreasuryCentre",
+    "src": "src/components/TreasuryCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/UpdateCentre.tsx": {
+    "file": "assets/UpdateCentre-6EwvNPV2.js",
+    "name": "UpdateCentre",
+    "src": "src/components/UpdateCentre.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/components/WorkspaceDesigner.tsx": {
+    "file": "assets/WorkspaceDesigner-DeETyMCb.js",
+    "name": "WorkspaceDesigner",
+    "src": "src/components/WorkspaceDesigner.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  },
+  "src/portal/EmployeePages.tsx": {
+    "file": "assets/EmployeePages-xxRwDH3U.js",
+    "name": "EmployeePages",
+    "src": "src/portal/EmployeePages.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-Cs6DZD4Z.js",
+      "_PortalApp-BmERoacF.js",
+      "index.html",
+      "_react-dom-yki-vDcg.js"
+    ]
+  }
+}

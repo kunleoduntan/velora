@@ -1,0 +1,45 @@
+{
+  "name": "Board Evaluation Response",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "sequence",
+      "fieldtype": "Int",
+      "label": "Question Sequence",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Data",
+      "label": "Category",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "question_text",
+      "fieldtype": "Text",
+      "label": "Question Text",
+      "required": true
+    },
+    {
+      "fieldname": "rating",
+      "fieldtype": "Int",
+      "label": "Rating (1-5)",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "weight",
+      "fieldtype": "Float",
+      "label": "Weight",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "comments",
+      "fieldtype": "Text",
+      "label": "Comments"
+    }
+  ]
+}

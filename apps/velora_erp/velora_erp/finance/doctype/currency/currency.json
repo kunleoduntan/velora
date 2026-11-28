@@ -1,0 +1,90 @@
+{
+  "name": "Currency",
+  "module": "Finance",
+  "autoname": "field:currency_code",
+  "title_field": "currency_name",
+  "track_changes": true,
+  "description": "A currency (ISO 4217 code). Pre-loaded with the major world currencies; every currency field in the system links here.",
+  "fields": [
+    {
+      "fieldname": "currency_code",
+      "fieldtype": "Data",
+      "label": "Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 3,
+      "description": "Three-letter ISO code, e.g. USD, EUR, GBP, NGN, KES"
+    },
+    {
+      "fieldname": "currency_name",
+      "fieldtype": "Data",
+      "label": "Currency Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "symbol",
+      "fieldtype": "Data",
+      "label": "Symbol",
+      "in_list_view": true,
+      "length": 10
+    },
+    {
+      "fieldname": "fraction_name",
+      "fieldtype": "Data",
+      "label": "Fraction (e.g. Kobo, Cent)"
+    },
+    {
+      "fieldname": "decimal_places",
+      "fieldtype": "Int",
+      "label": "Decimal Places",
+      "default": 2
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true
+    }
+  ]
+}

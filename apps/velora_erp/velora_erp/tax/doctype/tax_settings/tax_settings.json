@@ -1,0 +1,139 @@
+{
+ "name": "Tax Settings",
+ "module": "Tax Management",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "settings_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "required": true,
+   "unique": true,
+   "default": "Tax Settings"
+  },
+  {
+   "fieldname": "require_registered_codes",
+   "fieldtype": "Check",
+   "label": "Invoice tax codes must be approved Tax Rules",
+   "description": "When on, an invoice line with a tax rate must use a Tax Code that matches an approved rule in force on the invoice date."
+  },
+  {
+   "fieldname": "default_jurisdiction",
+   "fieldtype": "Link",
+   "label": "Default jurisdiction",
+   "options": "Tax Jurisdiction"
+  },
+  {
+   "fieldname": "filing_reminder_days",
+   "fieldtype": "Int",
+   "label": "Remind before due (days)",
+   "default": 7
+  },
+  {
+   "fieldname": "wht_section",
+   "fieldtype": "Section Break",
+   "label": "Withholding tax and income tax defaults"
+  },
+  {
+   "fieldname": "require_wht_certificate",
+   "fieldtype": "Check",
+   "label": "Require a certificate number on customer withholding tax",
+   "description": "A Tax Journal cannot be submitted until every customer row has its certificate number."
+  },
+  {
+   "fieldname": "default_income_tax_rule",
+   "fieldtype": "Data",
+   "label": "Default income tax rule code"
+  },
+  {
+   "fieldname": "default_minimum_tax_rule",
+   "fieldtype": "Data",
+   "label": "Default minimum tax rule code"
+  },
+  {
+   "fieldname": "default_levy_rules",
+   "fieldtype": "Data",
+   "label": "Default levy rule codes",
+   "description": "Separated by commas."
+  },
+  {
+   "fieldname": "cal",
+   "fieldtype": "Section Break",
+   "label": "Deadlines and exposure"
+  },
+  {
+   "fieldname": "wht_remittance_day",
+   "fieldtype": "Int",
+   "label": "WHT remittance day of the following month",
+   "description": "Blank switches automatic WHT deadlines off. Take the day from the law in force."
+  },
+  {
+   "fieldname": "vat_filing_day",
+   "fieldtype": "Int",
+   "label": "VAT filing day of the following month",
+   "description": "Blank switches automatic VAT deadlines off."
+  },
+  {
+   "fieldname": "late_penalty_flat",
+   "fieldtype": "Currency",
+   "label": "Late filing / remittance penalty (first month)",
+   "description": "Used only to estimate exposure. Take it from the law in force."
+  },
+  {
+   "fieldname": "late_penalty_monthly_percent",
+   "fieldtype": "Float",
+   "label": "Penalty % of tax for each further month"
+  },
+  {
+   "fieldname": "late_interest_annual_percent",
+   "fieldtype": "Float",
+   "label": "Interest % a year on unpaid tax"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  }
+ ],
+ "autoname": "field:settings_name",
+ "title_field": "settings_name",
+ "description": "How strictly invoices must use registered tax codes."
+}

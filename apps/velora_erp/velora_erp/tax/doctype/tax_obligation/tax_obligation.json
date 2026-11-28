@@ -1,0 +1,145 @@
+{
+ "name": "Tax Obligation",
+ "module": "Tax Management",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "tax_type",
+   "fieldtype": "Select",
+   "label": "Tax type",
+   "options": [
+    "VAT",
+    "WHT",
+    "Excise",
+    "Customs",
+    "Levy",
+    "Income Tax",
+    "Other"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "jurisdiction",
+   "fieldtype": "Link",
+   "label": "Jurisdiction",
+   "options": "Tax Jurisdiction",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "period_start",
+   "fieldtype": "Date",
+   "label": "Period start",
+   "required": true
+  },
+  {
+   "fieldname": "period_end",
+   "fieldtype": "Date",
+   "label": "Period end",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due date",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Open",
+    "In Preparation",
+    "Under Review",
+    "Filed",
+    "Accepted",
+    "Rejected",
+    "Closed"
+   ],
+   "default": "Open",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Data",
+   "label": "Owner"
+  },
+  {
+   "fieldname": "tax_return",
+   "fieldtype": "Link",
+   "label": "Tax return",
+   "options": "Tax Return",
+   "read_only": true
+  },
+  {
+   "fieldname": "filing_reference",
+   "fieldtype": "Data",
+   "label": "Filing reference"
+  },
+  {
+   "fieldname": "evidence_reference",
+   "fieldtype": "Data",
+   "label": "Evidence reference"
+  },
+  {
+   "fieldname": "overdue",
+   "fieldtype": "Check",
+   "label": "Overdue",
+   "read_only": true
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  }
+ ],
+ "title_field": "tax_type",
+ "description": "A filing or payment the entity owes a tax authority for a period."
+}

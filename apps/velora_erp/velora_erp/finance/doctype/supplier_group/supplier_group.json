@@ -1,0 +1,90 @@
+{
+  "name": "Supplier Group",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Supplier classification for reporting and procurement policy.",
+  "autoname": "field:group_code",
+  "fields": [
+    {
+      "fieldname": "group_code",
+      "fieldtype": "Data",
+      "label": "Group Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "in_standard_filter": true,
+      "length": 30
+    },
+    {
+      "fieldname": "group_name",
+      "fieldtype": "Data",
+      "label": "Group Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "parent_group",
+      "fieldtype": "Link",
+      "label": "Parent Group",
+      "options": "Supplier Group",
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "is_group",
+      "fieldtype": "Check",
+      "label": "Can Contain Subgroups",
+      "default": 1
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ],
+  "title_field": "group_name"
+}

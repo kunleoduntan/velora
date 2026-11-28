@@ -1,0 +1,207 @@
+{
+  "name": "Leave Allocation",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Employee leave entitlement allocation for a defined leave year. Balances are controlled and not silently recalculated.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "leave_type",
+      "fieldtype": "Link",
+      "label": "Leave Type",
+      "options": "Leave Type",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "period_start",
+      "fieldtype": "Date",
+      "label": "Period Start",
+      "required": true
+    },
+    {
+      "fieldname": "period_end",
+      "fieldtype": "Date",
+      "label": "Period End",
+      "required": true
+    },
+    {
+      "fieldname": "allocated_days",
+      "fieldtype": "Float",
+      "label": "Allocated Days",
+      "required": true
+    },
+    {
+      "fieldname": "allocation_source",
+      "fieldtype": "Select",
+      "label": "Allocation Source",
+      "options": [
+        "Manual",
+        "Leave Policy Assignment"
+      ],
+      "default": "Manual",
+      "read_only": true
+    },
+    {
+      "fieldname": "policy_version",
+      "fieldtype": "Int",
+      "label": "Policy Version",
+      "read_only": true
+    },
+    {
+      "fieldname": "leave_policy_assignment",
+      "fieldtype": "Link",
+      "label": "Policy Assignment",
+      "options": "Leave Policy Assignment",
+      "read_only": true
+    },
+    {
+      "fieldname": "leave_policy",
+      "fieldtype": "Link",
+      "label": "Source Leave Policy",
+      "options": "Leave Policy",
+      "read_only": true
+    },
+    {
+      "fieldname": "carry_forward_days",
+      "fieldtype": "Float",
+      "label": "Carry Forward Days",
+      "default": 0
+    },
+    {
+      "fieldname": "adjustment_days",
+      "fieldtype": "Float",
+      "label": "Approved Adjustments",
+      "default": 0
+    },
+    {
+      "fieldname": "used_days",
+      "fieldtype": "Float",
+      "label": "Used Days",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "pending_days",
+      "fieldtype": "Float",
+      "label": "Pending Days",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "available_days",
+      "fieldtype": "Float",
+      "label": "Available Days",
+      "read_only": true
+    },
+    {
+      "fieldname": "allocation_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Closed"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_notes",
+      "fieldtype": "Text",
+      "label": "Approval Notes"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Employee",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

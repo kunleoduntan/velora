@@ -1,0 +1,42 @@
+{
+ "spec_version": 1,
+ "name": "Sales Order Item",
+ "module": "Demo",
+ "app": "velora_demo",
+ "autoname": null,
+ "title_field": null,
+ "is_submittable": false,
+ "istable": true,
+ "track_changes": false,
+ "sort_field": "modified",
+ "sort_order": "desc",
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "label": "Qty",
+   "required": true,
+   "default": 1
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "required": true
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "read_only": true
+  }
+ ],
+ "permissions": {}
+}

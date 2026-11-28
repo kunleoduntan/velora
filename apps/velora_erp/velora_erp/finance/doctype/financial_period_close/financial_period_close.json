@@ -1,0 +1,188 @@
+{
+  "name": "Financial Period Close",
+  "module": "Finance",
+  "track_changes": true,
+  "autoname": "series:FPC-.########",
+  "is_submittable": true,
+  "fields": [
+    {
+      "fieldname": "financial_period",
+      "fieldtype": "Link",
+      "label": "Financial Period",
+      "options": "Financial Period",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "financial_year",
+      "fieldtype": "Link",
+      "label": "Financial Year",
+      "options": "Financial Year",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "close_date",
+      "fieldtype": "Date",
+      "label": "Close Date",
+      "required": true
+    },
+    {
+      "fieldname": "checklist_section",
+      "fieldtype": "Section Break",
+      "label": "Period End Review Checklist"
+    },
+    {
+      "fieldname": "checklist",
+      "fieldtype": "Table",
+      "label": "Review Checklist",
+      "options": "Financial Period Close Checklist",
+      "required": true
+    },
+    {
+      "fieldname": "system_check_section",
+      "fieldtype": "Section Break",
+      "label": "Automated Close Controls",
+      "collapsible": true
+    },
+    {
+      "fieldname": "trial_balance_difference",
+      "fieldtype": "Currency",
+      "label": "Trial Balance Difference",
+      "read_only": true
+    },
+    {
+      "fieldname": "unresolved_deferred_tax_proposals",
+      "fieldtype": "Int",
+      "label": "Unresolved Deferred Tax Proposals",
+      "read_only": true
+    },
+    {
+      "fieldname": "system_checks_passed",
+      "fieldtype": "Check",
+      "label": "Automated Controls Passed",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Independent Approval",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approval_hash",
+      "fieldtype": "Data",
+      "label": "Approval Fingerprint",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "close_notes",
+      "fieldtype": "Text",
+      "label": "Closing Notes"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Approved",
+        "Rejected",
+        "Closed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

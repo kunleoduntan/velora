@@ -1,0 +1,209 @@
+{
+  "name": "Engagement Settings",
+  "module": "Engagement",
+  "autoname": "field:settings_name",
+  "title_field": "settings_name",
+  "fields": [
+    {
+      "fieldname": "sb_main",
+      "fieldtype": "Section Break",
+      "label": "Sending"
+    },
+    {
+      "fieldname": "settings_name",
+      "fieldtype": "Data",
+      "label": "Name",
+      "required": true,
+      "unique": true,
+      "default": "Primary"
+    },
+    {
+      "fieldname": "send_automatically",
+      "fieldtype": "Check",
+      "label": "Send messages automatically",
+      "default": 0,
+      "description": "Off: each moment is prepared and held for someone to review and release. On: messages go out by themselves."
+    },
+    {
+      "fieldname": "by_email",
+      "fieldtype": "Check",
+      "label": "By email",
+      "default": 1
+    },
+    {
+      "fieldname": "by_whatsapp",
+      "fieldtype": "Check",
+      "label": "By WhatsApp",
+      "default": 0,
+      "description": "Needs a WhatsApp gateway in Notification settings."
+    },
+    {
+      "fieldname": "cb_a",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "birthdays_customers",
+      "fieldtype": "Check",
+      "label": "Birthdays: customers",
+      "default": 1
+    },
+    {
+      "fieldname": "birthdays_suppliers",
+      "fieldtype": "Check",
+      "label": "Birthdays: suppliers",
+      "default": 1
+    },
+    {
+      "fieldname": "birthdays_employees",
+      "fieldtype": "Check",
+      "label": "Birthdays: employees",
+      "default": 1
+    },
+    {
+      "fieldname": "work_anniversaries",
+      "fieldtype": "Check",
+      "label": "Employee work anniversaries",
+      "default": 1
+    },
+    {
+      "fieldname": "partnership_anniversaries",
+      "fieldtype": "Check",
+      "label": "Customer and supplier anniversaries",
+      "default": 1
+    },
+    {
+      "fieldname": "holidays_enabled",
+      "fieldtype": "Check",
+      "label": "Holiday and festive messages",
+      "default": 1
+    },
+    {
+      "fieldname": "sb_winback",
+      "fieldtype": "Section Break",
+      "label": "It's been a while"
+    },
+    {
+      "fieldname": "winback_enabled",
+      "fieldtype": "Check",
+      "label": "Win back quiet customers",
+      "default": 1
+    },
+    {
+      "fieldname": "winback_customer_days",
+      "fieldtype": "Int",
+      "label": "Customer quiet for (days)",
+      "default": 180
+    },
+    {
+      "fieldname": "winback_suppliers",
+      "fieldtype": "Check",
+      "label": "Also reach out to quiet suppliers",
+      "default": 0
+    },
+    {
+      "fieldname": "cb_b",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "winback_supplier_days",
+      "fieldtype": "Int",
+      "label": "Supplier quiet for (days)",
+      "default": 365
+    },
+    {
+      "fieldname": "winback_repeat_days",
+      "fieldtype": "Int",
+      "label": "Do not repeat within (days)",
+      "default": 120
+    },
+    {
+      "fieldname": "sb_brand",
+      "fieldtype": "Section Break",
+      "label": "Brand"
+    },
+    {
+      "fieldname": "brand_name",
+      "fieldtype": "Data",
+      "label": "Company name in messages"
+    },
+    {
+      "fieldname": "logo_url",
+      "fieldtype": "Data",
+      "label": "Logo address (https)"
+    },
+    {
+      "fieldname": "brand_colour",
+      "fieldtype": "Data",
+      "label": "Brand colour",
+      "default": "#0f6cbd",
+      "description": "Hex colour, for example #0f6cbd."
+    },
+    {
+      "fieldname": "cb_c",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "sender_name",
+      "fieldtype": "Data",
+      "label": "Sender name"
+    },
+    {
+      "fieldname": "reply_to",
+      "fieldtype": "Data",
+      "label": "Reply-to email"
+    },
+    {
+      "fieldname": "website_url",
+      "fieldtype": "Data",
+      "label": "Website or contact page"
+    },
+    {
+      "fieldname": "signature",
+      "fieldtype": "Text",
+      "label": "Signature",
+      "default": "With warm regards,\nThe Team"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Engagement Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Sales Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "report": true,
+      "export": true
+    }
+  ]
+}

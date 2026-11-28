@@ -1,0 +1,233 @@
+{
+  "name": "Project",
+  "module": "Projects",
+  "track_changes": true,
+  "description": "Canonical project record; separate from programmes and portfolios.",
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Project Name",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "project_code",
+      "label": "Project Code",
+      "fieldtype": "Data",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "portfolio",
+      "label": "Portfolio",
+      "fieldtype": "Link",
+      "options": "Project Portfolio"
+    },
+    {
+      "fieldname": "programme",
+      "label": "Programme",
+      "fieldtype": "Link",
+      "options": "Project Programme"
+    },
+    {
+      "fieldname": "project_type",
+      "label": "Project Type",
+      "fieldtype": "Link",
+      "options": "Project Type"
+    },
+    {
+      "fieldname": "methodology",
+      "label": "Methodology",
+      "fieldtype": "Select",
+      "options": [
+        "Waterfall",
+        "Agile",
+        "Hybrid",
+        "Kanban",
+        "Custom"
+      ],
+      "default": "Waterfall"
+    },
+    {
+      "fieldname": "resource_calendar",
+      "label": "Working Calendar",
+      "fieldtype": "Link",
+      "options": "Resource Calendar"
+    },
+    {
+      "fieldname": "project_manager",
+      "label": "Project Manager",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "sponsor",
+      "label": "Project Sponsor",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "customer",
+      "label": "Customer",
+      "fieldtype": "Link",
+      "options": "Customer"
+    },
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Link",
+      "options": "Department"
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "start_date",
+      "label": "Planned Start",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "end_date",
+      "label": "Planned Finish",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "actual_start_date",
+      "label": "Actual Start",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "actual_end_date",
+      "label": "Actual Finish",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "approved_budget",
+      "label": "Approved Budget",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "forecast_cost",
+      "label": "Forecast Cost at Completion",
+      "fieldtype": "Currency",
+      "description": "Your latest estimate of the total cost when the project finishes. Left blank, programme intelligence uses the cost posted so far."
+    },
+    {
+      "fieldname": "progress_percent",
+      "label": "Progress (%)",
+      "fieldtype": "Float",
+      "default": 0
+    },
+    {
+      "fieldname": "health",
+      "label": "Project Health",
+      "fieldtype": "Select",
+      "options": [
+        "Not Assessed",
+        "Green",
+        "Amber",
+        "Red"
+      ],
+      "default": "Not Assessed"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Open",
+        "In Progress",
+        "On Hold",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "scope_statement",
+      "label": "Scope Statement",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "success_criteria",
+      "label": "Success Criteria",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "description": "A disabled project cannot be selected on new transactions."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "title",
+  "autoname": "field:project_code"
+}

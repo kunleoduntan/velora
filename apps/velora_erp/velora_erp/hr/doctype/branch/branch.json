@@ -1,0 +1,93 @@
+{
+  "name": "Branch",
+  "module": "HR",
+  "autoname": "field:branch_code",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "branch_code",
+      "fieldtype": "Data",
+      "label": "Branch Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 40
+    },
+    {
+      "fieldname": "branch_name",
+      "fieldtype": "Data",
+      "label": "Branch Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "is_head_office",
+      "fieldtype": "Check",
+      "label": "Head Office",
+      "default": 0
+    },
+    {
+      "fieldname": "city",
+      "fieldtype": "Data",
+      "label": "City",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "state",
+      "fieldtype": "Data",
+      "label": "State / Region"
+    },
+    {
+      "fieldname": "country",
+      "fieldtype": "Data",
+      "label": "Country"
+    },
+    {
+      "fieldname": "address",
+      "fieldtype": "Text",
+      "label": "Address"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0,
+      "in_standard_filter": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true
+    }
+  ],
+  "title_field": "branch_name"
+}

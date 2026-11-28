@@ -1,0 +1,181 @@
+{
+  "name": "Bank Account",
+  "module": "Finance",
+  "autoname": "field:account_code",
+  "track_changes": true,
+  "title_field": "account_name",
+  "description": "A company bank or cash account: the real-world account (bank, number, currency) linked to its general-ledger account. Selected on Payments and Receipts.",
+  "fields": [
+    {
+      "fieldname": "account_code",
+      "fieldtype": "Data",
+      "label": "Bank Account Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 40
+    },
+    {
+      "fieldname": "account_name",
+      "fieldtype": "Data",
+      "label": "Account Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "bank_name",
+      "fieldtype": "Data",
+      "label": "Bank",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "account_number",
+      "fieldtype": "Data",
+      "label": "Account Number",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "gl_account",
+      "fieldtype": "Link",
+      "label": "General Ledger Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "description": "The Bank or Cash account in the chart of accounts that this bank account posts to.",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "in_standard_filter": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "branch_name",
+      "fieldtype": "Data",
+      "label": "Bank Branch"
+    },
+    {
+      "fieldname": "sort_code",
+      "fieldtype": "Data",
+      "label": "Sort / Branch Code"
+    },
+    {
+      "fieldname": "iban",
+      "fieldtype": "Data",
+      "label": "IBAN / SWIFT"
+    },
+    {
+      "fieldname": "is_default",
+      "fieldtype": "Check",
+      "label": "Default Account",
+      "default": 0
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "reconcile_section",
+      "fieldtype": "Section Break",
+      "label": "Bank Reconciliation"
+    },
+    {
+      "fieldname": "auto_reconcile",
+      "fieldtype": "Check",
+      "label": "Reconcile Automatically",
+      "description": "The scheduler matches new statement lines and ledger entries for this account every hour."
+    },
+    {
+      "fieldname": "auto_accept_threshold",
+      "fieldtype": "Float",
+      "label": "Auto-accept at Confidence",
+      "default": 90,
+      "description": "Matches at or above this confidence are confirmed without review; lower ones wait for review."
+    },
+    {
+      "fieldname": "date_tolerance_days",
+      "fieldtype": "Int",
+      "label": "Date Tolerance (days)",
+      "default": 4,
+      "description": "How far apart the bank date and the ledger date may be."
+    },
+    {
+      "fieldname": "amount_tolerance",
+      "fieldtype": "Currency",
+      "label": "Amount Tolerance",
+      "default": 0,
+      "description": "Largest difference accepted as a suggestion (never auto-confirmed)."
+    },
+    {
+      "fieldname": "auto_post_coded",
+      "fieldtype": "Check",
+      "label": "Create Bank Batch for Coded Lines",
+      "description": "Statement lines with no ledger entry that a coding rule can classify are placed into a Bank Batch for approval automatically."
+    },
+    {
+      "fieldname": "statement_date_order",
+      "fieldtype": "Select",
+      "label": "Statement Date Order",
+      "options": [
+        "Day first (31/12/2026)",
+        "Month first (12/31/2026)"
+      ],
+      "default": "Day first (31/12/2026)"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true
+    }
+  ]
+}

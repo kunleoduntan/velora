@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "velora_admin"
+version = "1.9.2"
+description = "Administrative management application for the Velora platform"
+requires-python = ">=3.10"
+dependencies = ["velora>=1.16.2,<1.20.0", "velora-erp>=2.95.4"]
+
+[tool.setuptools.packages.find]
+include = ["velora_admin*"]
+
+[tool.setuptools.package-data]
+velora_admin = ["*.json", "*.js", "*.md", "*.txt", "docs/*.html"]
+"velora_admin.patches" = ["*.json"]
+"velora_admin.patches.v1_9" = ["*.json"]
+"velora_admin.administration" = ["*.json", "*.js", "*.md"]
+"velora_admin.administration.doctype" = ["**/*.json", "**/*.js"]

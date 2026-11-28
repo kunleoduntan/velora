@@ -1,0 +1,12 @@
+[project]
+name = "velora_accounts"
+version = "0.4.0"
+description = "Velora financial engine"
+requires-python = ">=3.10"
+dependencies = ["velora", "openpyxl>=3.1"]
+
+[tool.setuptools.packages.find]
+include = ["velora_accounts*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.js", "patches.txt"]

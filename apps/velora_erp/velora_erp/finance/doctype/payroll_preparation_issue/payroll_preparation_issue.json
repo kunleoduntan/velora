@@ -1,0 +1,95 @@
+{
+  "name": "Payroll Preparation Issue",
+  "module": "Finance",
+  "istable": true,
+  "track_changes": true,
+  "description": "A person or setting that needs attention before payroll.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "area",
+      "label": "Area",
+      "fieldtype": "Data",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "problem",
+      "label": "What is wrong",
+      "fieldtype": "Text",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "how_to_fix",
+      "label": "How to fix",
+      "fieldtype": "Text",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "blocking",
+      "label": "Left out of the run",
+      "fieldtype": "Check",
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true
+    }
+  ]
+}

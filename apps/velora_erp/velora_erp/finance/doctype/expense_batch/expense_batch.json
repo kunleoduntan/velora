@@ -1,0 +1,193 @@
+{
+  "name": "Expense Batch",
+  "module": "Finance",
+  "track_changes": true,
+  "autoname": "series:EXB-.########",
+  "is_submittable": true,
+  "description": "Petty-cash / imprest expense batch. Every row is pre-validated and duplicate-checked; submission posts all rows in one balanced posting through the Financial Posting Engine, with optional withholding tax per row.",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "petty_cash_account",
+      "fieldtype": "Link",
+      "label": "Petty Cash / Imprest Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "reference",
+      "fieldtype": "Data",
+      "label": "Batch Reference"
+    },
+    {
+      "fieldname": "wht_payable_account",
+      "fieldtype": "Link",
+      "label": "Withholding Tax Payable Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "lines_section",
+      "fieldtype": "Section Break",
+      "label": "Expenses"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Expense Lines",
+      "options": "Expense Batch Line"
+    },
+    {
+      "fieldname": "total_expenses",
+      "fieldtype": "Currency",
+      "label": "Total Expenses (Gross)",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_wht",
+      "fieldtype": "Currency",
+      "label": "Total Withholding Tax",
+      "read_only": true
+    },
+    {
+      "fieldname": "net_cash",
+      "fieldtype": "Currency",
+      "label": "Net Cash Paid Out",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval",
+      "collapsible": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Data",
+      "label": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    }
+  ]
+}

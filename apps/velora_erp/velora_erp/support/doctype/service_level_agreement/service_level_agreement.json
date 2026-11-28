@@ -1,0 +1,206 @@
+{
+  "name": "Service Level Agreement",
+  "module": "Support",
+  "autoname": "field:sla_name",
+  "title_field": "sla_name",
+  "track_changes": true,
+  "description": "Response and resolution targets by priority, counted in working hours. A customer-specific agreement beats a category one, which beats the default.",
+  "fields": [
+    {
+      "fieldname": "sla_name",
+      "fieldtype": "Data",
+      "label": "Agreement",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 120
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": 1,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "is_default",
+      "fieldtype": "Check",
+      "label": "Default agreement",
+      "default": 0,
+      "in_list_view": true,
+      "description": "Used when no customer or category agreement applies."
+    },
+    {
+      "fieldname": "column_break_who",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "label": "Only for customer",
+      "options": "Customer"
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Link",
+      "label": "Only for category",
+      "options": "Support Category"
+    },
+    {
+      "fieldname": "targets_section",
+      "fieldtype": "Section Break",
+      "label": "Targets"
+    },
+    {
+      "fieldname": "targets",
+      "fieldtype": "Table",
+      "label": "Targets by priority",
+      "options": "SLA Priority Target",
+      "required": true
+    },
+    {
+      "fieldname": "warn_at_percent",
+      "fieldtype": "Int",
+      "label": "Warn when this much of the time has gone (%)",
+      "default": 80
+    },
+    {
+      "fieldname": "escalate_to",
+      "fieldtype": "Data",
+      "label": "Escalate a breach to (user)"
+    },
+    {
+      "fieldname": "hours_section",
+      "fieldtype": "Section Break",
+      "label": "Working hours"
+    },
+    {
+      "fieldname": "round_the_clock",
+      "fieldtype": "Check",
+      "label": "24 hours a day, 7 days a week",
+      "default": 0
+    },
+    {
+      "fieldname": "work_start",
+      "fieldtype": "Data",
+      "label": "Day starts (HH:MM)",
+      "default": "08:00",
+      "depends_on": "eval:!doc.round_the_clock",
+      "length": 5
+    },
+    {
+      "fieldname": "work_end",
+      "fieldtype": "Data",
+      "label": "Day ends (HH:MM)",
+      "default": "17:00",
+      "depends_on": "eval:!doc.round_the_clock",
+      "length": 5
+    },
+    {
+      "fieldname": "utc_offset_hours",
+      "fieldtype": "Float",
+      "label": "Hours ahead of UTC where the team works",
+      "default": 0,
+      "description": "Working-hours clock of the support team: 0 is UTC (London in winter), 1 is West Africa (Lagos) or Central Europe in winter, 3 is East Africa, -5 is New York in winter."
+    },
+    {
+      "fieldname": "column_break_days",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "monday",
+      "fieldtype": "Check",
+      "label": "Mon",
+      "default": 1,
+      "depends_on": "eval:!doc.round_the_clock"
+    },
+    {
+      "fieldname": "tuesday",
+      "fieldtype": "Check",
+      "label": "Tue",
+      "default": 1,
+      "depends_on": "eval:!doc.round_the_clock"
+    },
+    {
+      "fieldname": "wednesday",
+      "fieldtype": "Check",
+      "label": "Wed",
+      "default": 1,
+      "depends_on": "eval:!doc.round_the_clock"
+    },
+    {
+      "fieldname": "thursday",
+      "fieldtype": "Check",
+      "label": "Thu",
+      "default": 1,
+      "depends_on": "eval:!doc.round_the_clock"
+    },
+    {
+      "fieldname": "friday",
+      "fieldtype": "Check",
+      "label": "Fri",
+      "default": 1,
+      "depends_on": "eval:!doc.round_the_clock"
+    },
+    {
+      "fieldname": "saturday",
+      "fieldtype": "Check",
+      "label": "Sat",
+      "default": 0,
+      "depends_on": "eval:!doc.round_the_clock"
+    },
+    {
+      "fieldname": "sunday",
+      "fieldtype": "Check",
+      "label": "Sun",
+      "default": 0,
+      "depends_on": "eval:!doc.round_the_clock"
+    },
+    {
+      "fieldname": "holiday_list",
+      "fieldtype": "Link",
+      "label": "Holiday list",
+      "options": "Holiday List",
+      "depends_on": "eval:!doc.round_the_clock",
+      "description": "Holidays do not count as working time."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Support Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Support Agent",
+      "read": true,
+      "export": true,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ]
+}

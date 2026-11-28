@@ -1,0 +1,160 @@
+{
+  "name": "Stock Reconciliation",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Physical stock count and controlled stock adjustment. Submission creates immutable Stock Ledger Records; it does not edit historical stock.",
+  "fields": [
+    {
+      "fieldname": "posting_date",
+      "label": "Posting Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "warehouse",
+      "label": "Warehouse",
+      "fieldtype": "Link",
+      "options": "Warehouse",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "items",
+      "label": "Stock Count Lines",
+      "fieldtype": "Table",
+      "options": "Stock Reconciliation Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_quantity_difference",
+      "label": "Total Quantity Difference",
+      "fieldtype": "Float",
+      "read_only": true
+    },
+    {
+      "fieldname": "total_value_difference",
+      "label": "Total Value Difference",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "remarks",
+      "label": "Remarks",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "inventory_posting_batch",
+      "label": "Inventory Posting Batch",
+      "fieldtype": "Link",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "label": "Rejected By",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "label": "Rejected On",
+      "fieldtype": "Datetime",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "autoname": "series:STR-.########",
+  "is_submittable": true
+}

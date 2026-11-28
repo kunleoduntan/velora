@@ -1,0 +1,214 @@
+{
+ "name": "Tax Rule",
+ "module": "Tax Management",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "rule_code",
+   "fieldtype": "Data",
+   "label": "Tax code",
+   "required": true,
+   "in_list_view": true,
+   "description": "The code invoice lines carry in their Tax Code field."
+  },
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "required": true
+  },
+  {
+   "fieldname": "tax_type",
+   "fieldtype": "Select",
+   "label": "Tax type",
+   "options": [
+    "VAT",
+    "WHT",
+    "Excise",
+    "Customs",
+    "Levy",
+    "Income Tax",
+    "Other"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "jurisdiction",
+   "fieldtype": "Link",
+   "label": "Jurisdiction",
+   "options": "Tax Jurisdiction",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Tax Category"
+  },
+  {
+   "fieldname": "method",
+   "fieldtype": "Select",
+   "label": "Method",
+   "options": [
+    "Percentage",
+    "Fixed",
+    "Tiered"
+   ],
+   "default": "Percentage",
+   "required": true
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Float",
+   "label": "Rate %",
+   "mandatory_depends_on": "eval:doc.method=='Percentage'"
+  },
+  {
+   "fieldname": "fixed_amount",
+   "fieldtype": "Currency",
+   "label": "Fixed amount",
+   "depends_on": "eval:doc.method=='Fixed'"
+  },
+  {
+   "fieldname": "tiers",
+   "fieldtype": "Table",
+   "label": "Bands",
+   "options": "Tax Rule Tier",
+   "depends_on": "eval:doc.method=='Tiered'"
+  },
+  {
+   "fieldname": "inclusive",
+   "fieldtype": "Check",
+   "label": "Amounts entered include this tax"
+  },
+  {
+   "fieldname": "recoverability_percent",
+   "fieldtype": "Float",
+   "label": "Recoverable %",
+   "default": 100
+  },
+  {
+   "fieldname": "rounding_precision",
+   "fieldtype": "Int",
+   "label": "Rounding places",
+   "default": 2
+  },
+  {
+   "fieldname": "effective_from",
+   "fieldtype": "Date",
+   "label": "Effective from",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "effective_to",
+   "fieldtype": "Date",
+   "label": "Effective to"
+  },
+  {
+   "fieldname": "tax_account",
+   "fieldtype": "Link",
+   "label": "Tax account",
+   "options": "Account",
+   "description": "Output tax: a liability account. Input tax: an asset account. Used as the default on invoice lines.",
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval status",
+   "options": [
+    "Pending",
+    "Approved",
+    "Rejected"
+   ],
+   "default": "Pending",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Int",
+   "label": "Version",
+   "default": 1
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved by",
+   "read_only": true
+  },
+  {
+   "fieldname": "approval_hash",
+   "fieldtype": "Data",
+   "label": "Approval fingerprint",
+   "read_only": true,
+   "hidden": true
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Legal basis / notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "import": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  }
+ ],
+ "is_submittable": true,
+ "title_field": "rule_name",
+ "description": "An effective-dated, approved tax rate. Statutory rates are entered here, never built in."
+}

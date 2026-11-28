@@ -1,0 +1,90 @@
+{
+  "name": "Stock Reconciliation Line",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "label": "Inventory Item",
+      "fieldtype": "Link",
+      "options": "Inventory Item",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_name",
+      "label": "Item Name",
+      "fieldtype": "Data",
+      "fetch_from": "item_code.item_name",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "system_qty",
+      "label": "Current Stock Balance",
+      "fieldtype": "Float",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "physical_qty",
+      "label": "Physical Count",
+      "fieldtype": "Float",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "adjustment_qty",
+      "label": "Adjustment",
+      "fieldtype": "Float",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "current_cost",
+      "label": "Current Cost",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "proposed_rate",
+      "label": "Proposed Price / Valuation Rate",
+      "fieldtype": "Currency",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "current_stock_value",
+      "label": "Current Stock Value",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "adjustment_value",
+      "label": "Value Adjustment",
+      "fieldtype": "Currency",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "serial_number",
+      "label": "Serial Number",
+      "fieldtype": "Link",
+      "options": "Serial Number"
+    },
+    {
+      "fieldname": "batch",
+      "label": "Batch Number",
+      "fieldtype": "Link",
+      "options": "Batch"
+    }
+  ],
+  "permissions": [],
+  "istable": true
+}

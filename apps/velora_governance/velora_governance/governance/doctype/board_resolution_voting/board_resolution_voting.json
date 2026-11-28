@@ -1,0 +1,37 @@
+{
+  "name": "Board Resolution Voting",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "board_member",
+      "fieldtype": "Link",
+      "label": "Board Member",
+      "options": "Board Member",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "vote",
+      "fieldtype": "Select",
+      "label": "Vote",
+      "options": [
+        "For",
+        "Against",
+        "Abstain"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "voted_on",
+      "fieldtype": "Date",
+      "label": "Voted On"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

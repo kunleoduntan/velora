@@ -1,0 +1,301 @@
+{
+  "name": "Sales Invoice",
+  "module": "Finance",
+  "autoname": "series:SI-.########",
+  "is_submittable": true,
+  "track_changes": true,
+  "description": "Sales Invoice posts through the central Financial Posting Engine and creates immutable Account Ledger records.",
+  "fields": [
+    {
+      "fieldname": "details_section",
+      "fieldtype": "Section Break",
+      "label": "Invoice Details"
+    },
+    {
+      "fieldname": "invoice_date",
+      "fieldtype": "Date",
+      "label": "Invoice Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Link",
+      "label": "Customer",
+      "options": "Customer",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "customer_name",
+      "label": "Customer Name",
+      "fieldtype": "Data",
+      "fetch_from": "party.customer_name",
+      "read_only": true
+    },
+    {
+      "fieldname": "party_reference",
+      "fieldtype": "Data",
+      "label": "Customer Reference",
+      "length": 100
+    },
+    {
+      "fieldname": "update_stock",
+      "fieldtype": "Check",
+      "label": "Update Stock",
+      "default": 0,
+      "description": "Deliver the stock items on this invoice from the warehouse and post cost of goods sold, as ERPNext does. Leave off when a Delivery Note delivers the goods."
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Dispatch Warehouse",
+      "options": "Warehouse",
+      "depends_on": "update_stock",
+      "mandatory_depends_on": "update_stock"
+    },
+    {
+      "fieldname": "currency_section",
+      "fieldtype": "Section Break",
+      "label": "Currency"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Transaction Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate to Base Currency",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "lines_section",
+      "fieldtype": "Section Break",
+      "label": "Invoice Lines"
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Lines",
+      "options": "Sales Invoice Line",
+      "required": true
+    },
+    {
+      "fieldname": "totals_section",
+      "fieldtype": "Section Break",
+      "label": "Invoice Totals"
+    },
+    {
+      "fieldname": "net_amount",
+      "fieldtype": "Currency",
+      "label": "Net Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "tax_amount",
+      "fieldtype": "Currency",
+      "label": "Tax Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "grand_total",
+      "fieldtype": "Currency",
+      "label": "Invoice Total",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "base_net_amount",
+      "fieldtype": "Currency",
+      "label": "Net Amount (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "base_tax_amount",
+      "fieldtype": "Currency",
+      "label": "Tax (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "base_grand_total",
+      "fieldtype": "Currency",
+      "label": "Total (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "amount_settled",
+      "fieldtype": "Currency",
+      "label": "Amount Settled",
+      "read_only": true,
+      "default": 0
+    },
+    {
+      "fieldname": "payment_status",
+      "fieldtype": "Select",
+      "label": "Payment Status",
+      "read_only": true,
+      "default": "Unpaid",
+      "options": [
+        "Unpaid",
+        "Partly Paid",
+        "Paid"
+      ],
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_comments",
+      "fieldtype": "Text",
+      "label": "Approval Comments"
+    },
+    {
+      "fieldname": "narration_section",
+      "fieldtype": "Section Break",
+      "label": "Narration"
+    },
+    {
+      "fieldname": "narration",
+      "fieldtype": "Text",
+      "label": "Narration",
+      "required": true
+    },
+    {
+      "fieldname": "posting_batch",
+      "fieldtype": "Link",
+      "label": "Financial Posting Batch",
+      "options": "Financial Posting Batch",
+      "read_only": true,
+      "hidden": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "label": "Source Document Type",
+      "fieldtype": "Data",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_document",
+      "label": "Source Document",
+      "fieldtype": "Data",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

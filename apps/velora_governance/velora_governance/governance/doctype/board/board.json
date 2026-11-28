@@ -1,0 +1,169 @@
+{
+  "name": "Board",
+  "module": "Governance",
+  "autoname": "series:BRD-.####",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "board_name",
+      "fieldtype": "Data",
+      "label": "Board Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board_type",
+      "fieldtype": "Link",
+      "label": "Board Type",
+      "options": "Board Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "chair",
+      "fieldtype": "Link",
+      "label": "Chair",
+      "options": "Board Member"
+    },
+    {
+      "fieldname": "secretary",
+      "fieldtype": "Link",
+      "label": "Board Secretary",
+      "options": "Board Member"
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From"
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "board_status",
+      "fieldtype": "Select",
+      "label": "Board Status",
+      "options": [
+        "Draft",
+        "Active",
+        "Inactive",
+        "Dissolved"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board_charter",
+      "fieldtype": "Data",
+      "label": "Board Charter File Reference"
+    },
+    {
+      "fieldname": "meeting_frequency",
+      "fieldtype": "Select",
+      "label": "Meeting Frequency",
+      "options": [
+        "Monthly",
+        "Quarterly",
+        "Semi-Annual",
+        "Annual",
+        "Ad Hoc"
+      ],
+      "default": "Quarterly"
+    },
+    {
+      "fieldname": "minimum_members",
+      "fieldtype": "Int",
+      "label": "Minimum Members",
+      "default": 3
+    },
+    {
+      "fieldname": "maximum_members",
+      "fieldtype": "Int",
+      "label": "Maximum Members"
+    },
+    {
+      "fieldname": "quorum_requirement",
+      "fieldtype": "Data",
+      "label": "Quorum Requirement",
+      "description": "Configurable quorum description/threshold; structured quorum rules will be added with meetings."
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "quorum_required",
+      "fieldtype": "Int",
+      "label": "Quorum Required",
+      "default": 3
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "board_name"
+}

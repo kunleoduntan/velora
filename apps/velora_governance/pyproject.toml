@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "velora_governance"
+version = "11.12.0"
+description = "Velora Governance - board, corporate secretariat, compliance, risk and sustainability reporting for the Velora framework"
+requires-python = ">=3.10"
+dependencies = ["velora>=1.16.2,<1.20.0"]
+
+[tool.setuptools.packages.find]
+include = ["velora_governance*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.js", "*.css", "*.md", "patches.txt"]

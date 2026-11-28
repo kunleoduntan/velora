@@ -1,0 +1,135 @@
+{
+  "name": "Training Course",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Reusable internal or external learning catalogue item.",
+  "fields": [
+    {
+      "fieldname": "course_code",
+      "fieldtype": "Data",
+      "label": "Course Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "course_title",
+      "fieldtype": "Data",
+      "label": "Course Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "course_category",
+      "fieldtype": "Select",
+      "label": "Category",
+      "options": [
+        "Technical",
+        "Functional",
+        "Leadership",
+        "Behavioural",
+        "Compliance",
+        "Safety",
+        "Digital",
+        "Professional Certification",
+        "Other"
+      ],
+      "default": "Other",
+      "required": true
+    },
+    {
+      "fieldname": "delivery_method",
+      "fieldtype": "Select",
+      "label": "Delivery Method",
+      "options": [
+        "Classroom",
+        "Virtual",
+        "Self Paced",
+        "Blended",
+        "On the Job"
+      ],
+      "default": "Classroom"
+    },
+    {
+      "fieldname": "provider",
+      "fieldtype": "Data",
+      "label": "Training Provider"
+    },
+    {
+      "fieldname": "duration_hours",
+      "fieldtype": "Float",
+      "label": "Duration (Hours)"
+    },
+    {
+      "fieldname": "competency",
+      "fieldtype": "Link",
+      "label": "Related Competency",
+      "options": "Competency"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "learning_outcomes",
+      "fieldtype": "Text",
+      "label": "Learning Outcomes"
+    },
+    {
+      "fieldname": "estimated_cost",
+      "fieldtype": "Currency",
+      "label": "Estimated Cost"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "istable": false
+}

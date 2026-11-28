@@ -1,0 +1,31 @@
+{
+ "name": "Tax Obligation Calendar",
+ "module": "Tax Management",
+ "type": "script",
+ "ref_doctype": "Tax Obligation",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Filing and payment obligations by due date, with days left or days overdue.",
+ "filters": [
+  {
+   "fieldname": "from_date",
+   "label": "Due from",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "to_date",
+   "label": "Due to",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "open_only",
+   "label": "Open only",
+   "fieldtype": "Check",
+   "default": 1
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Trial Balance",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Account Ledger Record",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Accountant",
+    "Auditor"
+  ],
+  "description": "Opening balances, period movements and closing balances by account, with the Velora account-group hierarchy.",
+  "filters": [
+    {
+      "fieldname": "account_from",
+      "label": "Account From",
+      "fieldtype": "Link",
+      "options": "Account"
+    },
+    {
+      "fieldname": "account_to",
+      "label": "Account To",
+      "fieldtype": "Link",
+      "options": "Account"
+    },
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date",
+      "required": false
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date",
+      "default": "Today",
+      "required": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "label": "Cost Centre",
+      "fieldtype": "Link",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "include_zero_balances",
+      "label": "Include Zero-Balance Accounts",
+      "fieldtype": "Check",
+      "default": false
+    }
+  ]
+}

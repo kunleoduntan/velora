@@ -1,0 +1,43 @@
+{
+  "name": "Board Action Update",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "update_date",
+      "fieldtype": "Date",
+      "label": "Update Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "action_status",
+      "fieldtype": "Select",
+      "label": "Action Status",
+      "options": [
+        "Open",
+        "In Progress",
+        "Completed",
+        "Overdue",
+        "Cancelled"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "progress_percent",
+      "fieldtype": "Int",
+      "label": "Progress Percent"
+    },
+    {
+      "fieldname": "update_text",
+      "fieldtype": "Text",
+      "label": "Update",
+      "required": true
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    }
+  ]
+}

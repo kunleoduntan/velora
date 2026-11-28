@@ -1,0 +1,125 @@
+{
+  "name": "Board Committee Charter",
+  "module": "Governance",
+  "autoname": "series:BCC-.####",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "committee",
+      "fieldtype": "Link",
+      "label": "Committee",
+      "options": "Board Committee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "charter_title",
+      "fieldtype": "Data",
+      "label": "Charter Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "version_number",
+      "fieldtype": "Data",
+      "label": "Version Number",
+      "required": true
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From",
+      "required": true
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "charter_status",
+      "fieldtype": "Select",
+      "label": "Charter Status",
+      "options": [
+        "Draft",
+        "Active",
+        "Superseded",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "document_reference",
+      "fieldtype": "Data",
+      "label": "Document File Reference"
+    },
+    {
+      "fieldname": "change_summary",
+      "fieldtype": "Text",
+      "label": "Change Summary"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "charter_title"
+}

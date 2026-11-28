@@ -1,0 +1,175 @@
+{
+  "name": "Attendance Device",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Registered biometric terminal or attendance source.",
+  "fields": [
+    {
+      "fieldname": "device_code",
+      "fieldtype": "Data",
+      "label": "Device Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "device_name",
+      "fieldtype": "Data",
+      "label": "Device Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "integration",
+      "fieldtype": "Link",
+      "label": "Integration",
+      "options": "Attendance Integration",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "serial_number",
+      "fieldtype": "Data",
+      "label": "Serial Number",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "model",
+      "fieldtype": "Data",
+      "label": "Model"
+    },
+    {
+      "fieldname": "manufacturer",
+      "fieldtype": "Data",
+      "label": "Manufacturer"
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Link",
+      "label": "Work Location",
+      "options": "Work Location"
+    },
+    {
+      "fieldname": "timezone",
+      "fieldtype": "Data",
+      "label": "Timezone",
+      "required": false,
+      "description": "Leave blank to use the integration's time zone. IANA name such as Africa/Nairobi or Asia/Dubai."
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "last_seen_on",
+      "fieldtype": "Datetime",
+      "label": "Last Seen On",
+      "read_only": true
+    },
+    {
+      "fieldname": "last_sync_status",
+      "fieldtype": "Select",
+      "label": "Last Sync Status",
+      "options": [
+        "Never Synced",
+        "Connected",
+        "Warning",
+        "Failed"
+      ],
+      "default": "Never Synced"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "health_status",
+      "fieldtype": "Select",
+      "label": "Health Status",
+      "options": [
+        "Unknown",
+        "Online",
+        "Offline",
+        "Warning"
+      ],
+      "default": "Unknown",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "last_event_on",
+      "fieldtype": "Datetime",
+      "label": "Last Event Received",
+      "read_only": true
+    },
+    {
+      "fieldname": "last_health_check",
+      "fieldtype": "Datetime",
+      "label": "Last Health Check",
+      "read_only": true
+    },
+    {
+      "fieldname": "unmapped_user_count",
+      "fieldtype": "Int",
+      "label": "Unmapped User Count",
+      "default": 0,
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "device_name"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Covenant Monitor",
+ "module": "Debt and Treasury",
+ "type": "script",
+ "ref_doctype": "Financing Facility",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Every loan covenant, its latest test, headroom, status and when the next test is due.",
+ "filters": []
+}

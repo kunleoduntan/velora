@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeloraERP User Manual - Powered by Velora BiZ Solutions</title>
+<style>
+:root{--bg:#f6f7fb;--panel:#fff;--ink:#1c2033;--muted:#667085;--line:#e4e7ef;--brand:#5b5bf0;--brand2:#14b8a6;--brand-soft:#eef0ff;--ok:#12b76a;--warn:#f79009;--code:#0f172a;--codeink:#e2e8f0;--shadow:0 6px 24px rgba(28,32,51,.08)}
+:root[data-theme=dark]{--bg:#0f1220;--panel:#171b2e;--ink:#e8eaf6;--muted:#9aa3c0;--line:#272d47;--brand:#8b8bff;--brand2:#2dd4bf;--brand-soft:#1d2240;--code:#0a0d1a;--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--brand)}
+header.top{position:sticky;top:0;z-index:20;display:flex;gap:12px;align-items:center;padding:10px 18px;background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;text-decoration:none;color:var(--ink)}
+.logo svg{width:32px;height:32px}
+.top .grow{flex:1}.top input{width:min(320px,45vw);padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);font:inherit}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer;font:inherit}
+.btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0;font-weight:700}
+#menu{display:none}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;max-width:1240px;margin:0 auto;padding:0 18px}
+nav.side{position:sticky;top:64px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;padding:22px 0}
+nav.side a{display:block;padding:7px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:14.5px}
+nav.side a:hover{background:var(--brand-soft);color:var(--ink)}nav.side a.on{background:var(--brand-soft);color:var(--brand);font-weight:700}
+nav.side .grp{margin:16px 12px 4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+main{padding:26px 0 80px;min-width:0}
+.hero{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 45%,#14b8a6 100%);color:#fff;border-radius:26px;padding:42px 36px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px);line-height:1.15}.hero p{margin:0 0 18px;max-width:640px;font-size:18px;opacity:.95}
+.hero .chips span{display:inline-block;margin:0 8px 8px 0;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.18);font-size:14px}
+section{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:26px 30px;margin:22px 0;box-shadow:var(--shadow)}
+section h2{margin:0 0 4px;font-size:26px}section h2 .n{display:inline-grid;place-items:center;width:34px;height:34px;margin-right:10px;border-radius:12px;background:var(--brand-soft);color:var(--brand);font-size:16px;vertical-align:middle}
+section h3{margin:26px 0 6px;font-size:18px}.lead{color:var(--muted);margin:4px 0 16px}
+pre{position:relative;margin:12px 0;padding:16px 18px;background:var(--code);color:var(--codeink);border-radius:14px;overflow:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre .cp{position:absolute;top:8px;right:8px;padding:3px 10px;font-size:12px;border-radius:999px;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:var(--brand-soft);padding:1px 6px;border-radius:6px}pre code{background:none;padding:0;font-size:inherit}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--bg)}.card b{display:block;margin-bottom:4px}
+.tip,.warn,.ok{border-left:4px solid var(--brand);background:var(--brand-soft);padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0}.warn{border-color:var(--warn);background:color-mix(in srgb,var(--warn) 12%,var(--panel))}.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 11%,var(--panel))}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:15px}th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+.steps{counter-reset:s;list-style:none;padding:0}.steps li{counter-increment:s;position:relative;padding:4px 0 14px 50px}.steps li:before{content:counter(s);position:absolute;left:0;top:2px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;font-weight:700}
+.pill{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;background:var(--brand-soft);color:var(--brand);font-weight:700}.pill.no{background:color-mix(in srgb,var(--warn) 18%,var(--panel));color:var(--warn)}
+footer{margin:36px 0;text-align:center;color:var(--muted);font-size:14px}footer b{color:var(--ink)}
+.hide{display:none!important}mark{background:#fde68a;color:#111;border-radius:4px;padding:0 2px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}nav.side{display:none;position:fixed;inset:56px 0 0 0;z-index:15;background:var(--panel);padding:16px;max-height:none}nav.side.open{display:block}#menu{display:inline-block}section{padding:20px 18px}}
+@media print{header.top,nav.side,.cp,.hero:after{display:none}.layout{display:block}section{box-shadow:none;break-inside:avoid}body{background:#fff}}
+nav.side .grp{margin:16px 12px 4px}
+table{display:block;overflow-x:auto}
+.kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:0 6px;background:var(--bg)}
+section h4{margin:18px 0 4px;font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+code{overflow-wrap:anywhere}pre code{overflow-wrap:normal}
+@media(max-width:700px){header.top{flex-wrap:wrap;gap:8px}.top .grow{display:none}.top input{order:9;width:100%}.btn.primary{display:none}.hero{padding:28px 20px}}
+
+.welcome{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--brand);border-radius:18px;padding:22px 26px;margin:0 0 22px;box-shadow:var(--shadow)}.welcome h2{margin:0 0 8px;font-size:21px;border:0;padding:0}.welcome p{margin:8px 0;line-height:1.7}.welcome .more{font-size:14px;color:var(--muted);margin-top:14px}.welcome .more a{font-weight:600}
+</style>
+</head>
+<body>
+<header class="top">
+  <button class="btn" id="menu" aria-label="Contents">&#9776;</button>
+  <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5bf0"/><stop offset="1" stop-color="#14b8a6"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#g)"/><path d="M9 12l11 18 11-18" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Velora <span class="pill">VeloraERP</span></a>
+  <span class="grow"></span>
+  <input id="q" type="search" placeholder="Search this manual..." aria-label="Search this manual">
+  <button class="btn" id="theme" aria-label="Switch light or dark">&#9680;</button>
+  <button class="btn primary" onclick="window.print()">Print / PDF</button>
+</header>
+<div class="layout">
+<nav class="side" id="nav" aria-label="Contents"></nav>
+<main id="top">
+<div class="hero">
+  <h1>The VeloraERP user manual.</h1>
+  <p>Everything in VeloraERP (version 2.106.1 on Velora 1.19.2): setup, finance, sales and purchasing, inventory, assets, budgets, payroll and HR, investments, support, portals, controls and reporting, with ten guided, step-by-step tutorials (section 6).</p>
+  <div class="chips"><span>Tutorial</span><span>Reference</span><span>Version 2.106.1</span><span>Step-by-step tutorials</span><span>Finance</span><span>HR</span><span>Investments</span><span>Support</span></div>
+  <p style="margin:6px 0 0;font-size:14px;opacity:.9">Powered by <b>Velora BiZ Solutions</b></p>
+</div>
+<div class="welcome" id="welcome"><h2>Welcome to VeloraERP</h2><p>VeloraERP brings the whole life of a business onto <b>one ledger</b>. A sale, a purchase, a stock movement, an asset, a salary or an investment is recorded once, in the place where the work is done, and appears in the accounts as it happens. There is no month-end re-keying, and nothing for two departments to disagree about.</p>
+<p>It was built with an accountant's discipline and a Nigerian business in mind: approvals you design on screen instead of code, controls that stop a bad posting before it reaches the books, selling prices built on the cost method you choose with a profit floor under every sale, and payroll that prepares itself, with PAYE, rent relief, pension, NHF and NSITF handled for you. Every important figure can be clicked back to the documents behind it.</p>
+<p>This manual is both tutorial and reference. Read the first sections once, follow the guided tutorials with your own data, and keep the rest for the day you need it.</p><p class="more">Other guides on this server: <a href="/tutorial">Velora framework</a> · <a href="/guide/velora_erp">VeloraERP</a> · <a href="/guide/velora_projectone">ProjectOne</a> · <a href="/guide/velora_admin">Velora Admin</a>. A guide opens only if that application is installed.</p></div>
+<section id="docmap" data-g="Start here" data-t="documentation guide who reads what administrators developers users projectone project">
+<h2><span class="n">1</span>Which document is for whom</h2>
+<p class="lead">Each audience has its own guide, so nobody reads more than they need.</p>
+<table><tr><th>You are</th><th>Read</th></tr>
+<tr><td>A user of finance, sales, purchasing, stock, HR, investments or support</td><td>This manual: every section after this one, and the guided tutorials in section 6.</td></tr>
+<tr><td>Running projects</td><td>The ProjectOne guide. <b>Project</b> is a single record owned by ProjectOne; every finance, budget and HR document that names a project links to it, and ledger postings tagged with a project feed ProjectOne's cost and revenue figures. Purchase Orders, Sales Orders, Stock Entries and Fixed Assets also have a <b>Project</b> field, which ProjectOne reads for commitments, billing, materials issued and assets assigned.</td></tr>
+<tr><td>Anyone who wants dates and numbers shown differently</td><td>An administrator chooses the company's date format (for example 31/12/2026) and number format (for example 1.234,56) in <b>Settings &rarr; Date &amp; Number Format</b>; every list, report and form follows it.</td></tr>
+<tr><td>An administrator (installing, upgrading, roles, workflows, backups) or a developer</td><td>This manual's sections on install, roles and workflows, then the Velora framework manual (commands, building apps, security, operations).</td></tr>
+</table>
+</section>
+<section id="what" data-g="Start here" data-t="veloraerp overview modules finance hr inventory assets budgets investments support portals">
+<h2><span class="n">2</span>What VeloraERP is</h2>
+
+<p class="lead">VeloraERP is an app that runs on the Velora framework: one integrated core for finance, sales, purchasing, inventory, fixed assets, budgets, payroll, human resources, investments and customer support. Version 2.106.1 on Velora 1.19.2.</p>
+<div class="cards">
+<div class="card"><b>Finance</b>Posting engine and Account Ledger, chart of accounts, dimensions, sales and purchase cycles, cash and bank, bank reconciliation, accruals and recognition, party ledgers, tax, multi-currency, period and year-end close, controls check, GL Review, financial reporting.</div>
+<div class="card"><b>Operations</b>Inventory with three valuation methods, warehouses, batches and serials, landed cost, stock transfers and reconciliation, delivery notes and waybills, fixed assets with depreciation, impairment, leases and disposals.</div>
+<div class="card"><b>Planning</b>Budget planner with scenarios and allocations, budget control (Off, Warn or Block), adjustments and forecasts.</div>
+<div class="card"><b>People</b>Employees, recruitment, onboarding, leave, attendance and devices, performance, training, employee relations, separation, self-service, payroll, loans and advances.</div>
+<div class="card"><b>Investments</b>Money market, treasury bills, bonds, equities, funds, real estate, private equity with accrual, withholding tax, revaluation and disposal.</div>
+<div class="card"><b>Support</b>Tickets with service-level agreements, working-hour clocks, teams, escalation, canned replies, satisfaction; portal complaints open tickets.</div>
+</div>
+<h3>Size of the build</h3>
+<table><tr><th>Module</th><th>Record types</th></tr>
+<tr><td>Finance (including sales, purchasing, stock, assets, payroll documents)</td><td>194</td></tr>
+<tr><td>HR</td><td>88</td></tr>
+<tr><td>Investments</td><td>4</td></tr>
+<tr><td>Support</td><td>10</td></tr>
+</table>
+<h3>Design rules that run through the product</h3>
+<ul>
+<li><b>One ledger.</b> Every financial document posts through the Financial Posting Engine into the append-only Account Ledger. Documents never write ledger rows themselves.</li>
+<li><b>Approval is a workflow you draw, never code.</b> Who approves differs from one company to the next, so no document is blocked by a built-in approval. If no workflow is switched on for a document it simply saves and submits; when one is on, it alone decides who may do what (see "Roles and approval workflows").</li>
+<li><b>Cancel and amend, as in ERPNext.</b> A submitted document is never edited. To correct it you cancel it (it disappears from the ledgers) and amend it into a new draft, or duplicate it, then submit the right version. A cancel log keeps who, when, why and what was removed.</li>
+<li><b>Company-scoped.</b> Every company has its own database and its own chart, parties, stock and people.</li>
+<li><b>Simple security.</b> Roles per company; sensitive items such as employee relations are restricted to HR Manager and System Manager.</li>
+</ul>
+
+</section>
+<section id="install" data-g="Start here" data-t="install upgrade velora_erp migrate version required_velora">
+<h2><span class="n">3</span>Installing and upgrading VeloraERP</h2>
+
+<pre><code>pip install velora==1.19.2 velora_erp==2.106.1 velora_projectone==2.25.2   # or the supplied wheels
+sudo velora install-app velora_erp                    # every company
+sudo velora --company COMP-001 install-app velora_erp # one company
+sudo velora migrate                                   # after an upgrade
+sudo velora doctor</code></pre>
+<ul>
+<li>VeloraERP 2.106.1 requires Velora <code>&gt;=1.19.0,&lt;1.21.0</code> and VeloraERP's companion app ProjectOne (<code>velora_projectone</code>), which owns the one Project record. Install all three together; every build in between is included, so you can upgrade straight from any 2.8x release.</li>
+<li>Installing creates default account types (33), workspaces (Finance, Receivables &amp; Payables, HR, Investments, Support and others), naming series and settings records. Re-running is safe.</li>
+<li>For notifications and broadcasts install <code>velora_notify</code> as well: <code>velora install-app velora_notify</code>.</li>
+<li>Before upgrading: back up (<code>velora backup --all</code>), read the release notes in the project root, then <code>sudo velora update</code>.</li>
+</ul>
+<div class="warn">If the Desk shows old screens after an upgrade, hard-refresh the browser. A workspace that would exceed the framework's 30-widget limit is split automatically into "&lt;name&gt; (More)"; nothing is dropped.</div>
+
+</section>
+<section id="firstday" data-g="Start here" data-t="setup first day checklist order finance settings financial year chart of accounts cost centre bank customer supplier item warehouse opening balances">
+<h2><span class="n">4</span>First-day setup: the right order</h2>
+
+<p class="lead">Set up in this order and every later step has what it needs.</p>
+<ol class="steps">
+<li><b>Finance Settings.</b> Country, legal entity, base currency, accounting basis and framework, financial-year start month, number and decimal format, backdated posting rules, closed-period protection, exchange-rate source, tax rounding, change tracking, reasons for overrides, customer credit limit enforcement, loan deduction limits.</li>
+<li><b>Financial Year and Financial Periods.</b> Create the year and its periods. Posting to a closed period is blocked when the setting is on.</li>
+<li><b>Account Types, Account Groups and Accounts.</b> The 33 default account types are created for you (Bank, Cash, Receivable, Inventory, Fixed Asset, Payable, Tax Payable, Withholding Tax, Revenue, Investment, Accrued Income, Tax Receivable, Deferred Income and so on). Build the chart of accounts and mark control accounts. Import it with the data importer if you have it in Excel.</li>
+<li><b>Dimensions.</b> Cost Centres, Business Units, Branches, Projects and Accounting Dimensions with Dimension Values, if you analyse by them.</li>
+<li><b>Currencies and rates.</b> Currency, Currency Exchange Rate (only needed for foreign currency).</li>
+<li><b>Bank Accounts.</b> One per bank or cash account, linked to a Bank or Cash type ledger account.</li>
+<li><b>Customer Groups, Customers, Supplier Groups, Suppliers.</b> Each with its control account, credit limit and terms (Payment Terms).</li>
+<li><b>Inventory.</b> Inventory Settings (asset, COGS, GRNI, adjustment, variance accounts), Warehouses, Inventory Items (valuation method chosen <i>before</i> any movement), Opening Stock Entry.</li>
+<li><b>Fixed asset categories</b> with depreciation books, if you hold assets.</li>
+<li><b>Opening balances.</b> Opening Balance Entry, per-party opening invoices, Opening Stock Entry, asset opening balances.</li>
+<li><b>People.</b> Departments, Designations, Branches, Work Locations, Employees; then payroll tax jurisdiction and rules, salary components and structures.</li>
+<li><b>Roles and approval workflows.</b> Create roles, grant them, then draw an approval workflow for each document that needs one (next section). Skip this and documents simply post without approval.</li>
+<li><b>Naming Series Rules</b> for document prefixes if the defaults do not suit.</li>
+<li><b>Notifications.</b> Configure email (and SMS or WhatsApp if wanted) in notification settings and send a test.</li>
+</ol>
+<div class="tip">The Setup Readiness check (<code>velora readiness</code> and the ERP configuration provider) lists settings still missing.</div>
+
+</section>
+<section id="roles" data-g="Start here" data-t="roles approval workflow authority finance manager permissions builder designer maker checker">
+<h2><span class="n">5</span>Roles and approval workflows</h2>
+<p><b>Giving someone access.</b> Open <b>People &amp; Access</b>, type the email and name, tick what the person does and press <b>Add person</b>. Give them the temporary password privately; they choose their own at the first sign-in. To change what someone can do later, use <i>Change access</i>.</p>
+<p><b>Switching on an approval.</b> Open Settings &gt; Workflows, choose the document, and in <i>Quick approval</i> pick who approves (and optionally who gives the final approval). Press <i>Fill the tables</i>, look them over, tick Active and save. Sample workflows for six documents are in the starter list; installing one saves it switched off.</p>
+
+<h3>Roles that ship with the data model</h3>
+<p>System Manager, Finance Manager, Accounts User, HR Manager and the other roles named in each record type's permissions. Add roles to suit your organisation; roles are per company. Sensitive records (Employee Relations cases) are visible to HR Manager and System Manager only. Employee self-service shows a person only their own records, found from the login's linked Employee, never from an ID sent by the browser.</p>
+<h3>Approval is a workflow you draw</h3>
+<p>VeloraERP has <b>no approval rule written in code</b>. A company decides, per document, whether anything needs approving and by whom:</p>
+<ul>
+<li><b>No workflow switched on</b>: the document saves and submits straight away. Nothing is blocked. A document whose status is left at <i>Pending</i> is settled automatically.</li>
+<li><b>A workflow switched on</b>: it alone decides. It can name roles or particular people, ask for one, any, all or a number of approvers, test conditions such as the amount, run groups in parallel (Finance and Operations both sign off) and refuse the creator as approver ("the creator cannot approve").</li>
+</ul>
+<p>Build one under <b>Settings &rarr; Workflows</b>; tutorial 2 in section 6 walks through it. A company can have a different workflow for every document type.</p>
+<h3>The few powers that are not document approvals</h3>
+<p>Seven actions are not a step in any document's life, so they have their own list under <b>Finance Settings &rarr; Approvals ("Other powers")</b>: override a budget block, approve a scheduled report, submit / review / approve publication / publish a reporting case, and approve an HR policy version. Each row lists the roles that hold the power. <b>Empty means anyone whose role permissions allow the action</b>; nothing is restricted until you type roles in. The built-in Administrator always keeps every power, so a wrong setting can never lock a company out.</p>
+<div class="tip">Only fill a row when you really want to narrow a power, for example let only your Chief Accountant publish a reporting case.</div>
+
+</section>
+<section id="tutorials" data-g="Start here" data-t="tutorial guided step by step walkthrough workflow approval purchase receipt merge purchase order invoice sales delivery customize form credit exposure database tune update month end">
+<h2><span class="n">6</span>Guided tutorials</h2>
+
+<p class="lead">Ten walkthroughs, each about ten minutes. Do them in order the first time; afterwards use them as a reminder. Screen names are exactly as they appear in the Desk.</p>
+<div class="tip">Practise in a test company first. In every tutorial &ldquo;submit&rdquo; means the Submit button on the document, which posts it.</div>
+
+<h3>Tutorial 1: Set up a company in one sitting</h3>
+<ol class="steps">
+<li>Open <b>Finance Settings</b> and fill country, base currency, accounting basis, financial-year start month and number format. Save.</li>
+<li>Create the <b>Financial Year</b> with its periods.</li>
+<li>Build the chart: <b>Account Groups</b> then <b>Accounts</b>. Mark Bank, Cash, Receivable and Payable accounts with the right account type. Using Excel? Use the data importer (section 31).</li>
+<li>Create a <b>Bank Account</b> linked to a Bank or Cash ledger account.</li>
+<li>Create a <b>Customer</b> and a <b>Supplier</b>. Give each its control account and (for the customer) a credit limit.</li>
+<li>Open <b>Inventory Settings</b> and set the inventory, GRNI, cost of goods sold, stock adjustment and purchase price variance accounts. Create a <b>Warehouse</b> and one <b>Inventory Item</b> with a valuation method (this cannot be changed after the first movement).</li>
+<li>Run the <b>Setup Readiness</b> check; every item it lists is something still missing.</li>
+</ol>
+
+<h3>Tutorial 2: Draw an approval workflow (no code)</h3>
+<ol class="steps">
+<li>Go to <b>Settings &rarr; Workflows</b> and choose <b>New</b>. Pick the document, for example <b>Purchase Invoice</b>.</li>
+<li>Under <i>Start from</i> choose a preset: <b>One approver</b>, <b>Two levels</b>, <b>Parallel sign-off</b> or <b>By amount</b>. The states and the buttons appear as plain sentences: &ldquo;From Draft, action Send for approval, to Pending Approval&rdquo;.</li>
+<li>For each step choose who may act: <b>anyone</b>, one or more <b>role chips</b> (Finance Manager, Chief Accountant), or named people. Choose how many must agree (one, any, all, or a number).</li>
+<li>Optional: add a <b>condition</b> such as <i>Grand Total is more than 5,000,000</i> so only large documents need the second approver, or add parallel groups (Finance and Operations).</li>
+<li>Read the automatic diagram and the <b>problems list</b>; fix anything it flags. Switch the workflow <b>on</b> and save.</li>
+<li>Create a Purchase Invoice: the action buttons now follow your workflow. Switch the workflow off and the same document saves and submits freely again.</li>
+</ol>
+<div class="ok">Because approval is only ever a workflow, you can give two companies, or two document types, completely different rules without any programming.</div>
+
+<h3>Tutorial 3: Buy goods, from order to supplier payment, merging orders</h3>
+<ol class="steps">
+<li>Create two <b>Purchase Orders</b> to the same supplier in the same currency (say 10 and 5 units of item A) and submit both. Their <b>Received %</b> and <b>Billed %</b> are 0 and the status is <b>Open</b>.</li>
+<li>Create a new <b>Purchase Receipt</b>. Click <b>Get Items From &rarr; Purchase Order</b>. Tick <b>both</b> orders and click Add. The supplier, currency and warehouse fill in and 15 units appear, each line tagged with its order.</li>
+<li>Change a quantity if only part arrived (say 8 of the first line). Save and submit. Stock increases and GRNI is recorded.</li>
+<li>Open the first order: <b>Received %</b> is now partial and the status is <b>Partially Processed</b>. The second order shows 100% received.</li>
+<li>Create a <b>Purchase Invoice</b>. Click <b>Get Items From &rarr; Purchase Receipt</b>, tick the receipt and add. Check the tax lines and submit. GRNI clears and the supplier is credited.</li>
+<li>Receive the remaining 2 units on a second receipt (Get Items From again: the order offers exactly the open 2). Invoice it the same way. The orders now show 100% / 100% and become <b>Completed</b>.</li>
+<li>Pay: create a <b>Payment</b> with purpose <i>Supplier Payment</i> and allocate it to the invoices. Check <b>Supplier Statement</b>.</li>
+</ol>
+<div class="tip">Try to receive 20 units against the 10-unit order: the system refuses and tells you which order and item are over.</div>
+
+<h3>Tutorial 4: Buy without a receipt, or receive without an order</h3>
+<ol class="steps">
+<li><b>Services or expenses:</b> create a Purchase Invoice and use <b>Get Items From &rarr; Purchase Order</b>, or simply type the lines. No receipt is needed for non-stock items.</li>
+<li><b>Goods that arrive with no order:</b> create a Purchase Receipt directly. Pick the supplier, warehouse and items; the item description fills from the item if you leave it blank. Submit.</li>
+<li>Invoice it later from <b>Get Items From &rarr; Purchase Receipt</b>.</li>
+</ol>
+
+<h3>Tutorial 5: Sell, deliver and collect, merging orders</h3>
+<ol class="steps">
+<li>Submit two <b>Sales Orders</b> to one customer, same currency.</li>
+<li>Create a <b>Delivery Note</b>, click <b>Get Items From &rarr; Sales Order</b>, tick both, add. Adjust quantities, save and submit. Stock reduces at cost; <b>Delivered %</b> rises on each order.</li>
+<li>Create a <b>Sales Invoice</b> and choose <b>Get Items From &rarr; Delivery Note</b>. Tick the delivery; its lines come across at the order prices with the right revenue and tax accounts. Submit.</li>
+<li>Or bill several orders in one invoice with <b>Get Items From &rarr; Sales Order</b>. Stock lines can be billed only up to what has been delivered.</li>
+<li>Create a <b>Receipt</b> with purpose <i>Customer Receipt</i> and allocate it to the invoice. If the customer withheld tax add a withholding line.</li>
+<li>Open the <b>Customer Statement</b>. The orders show <b>Billed 100%</b> and are <b>Completed</b>.</li>
+</ol>
+
+<h3>Tutorial 6: Check customer credit with the Customer Credit Exposure report</h3>
+<ol class="steps">
+<li>Open <b>Reports &rarr; Customer Credit Exposure</b>. It opens already run with its default filters.</li>
+<li>Filters: <b>Customer</b> (one customer, or leave empty for all); <b>Only Over Limit</b> (a tick box, off by default; tick it to see only customers over limit or on hold); <b>Include Open Sales Orders</b> (a tick box, on by default; untick it to look at receivables alone).</li>
+<li>Press <b>Run</b> after changing a filter. Columns show receivables, open-order commitment, total exposure, credit limit, available credit and status (<i>Within Limit</i>, <i>Over Limit</i>, <i>On Hold</i> or <i>Unlimited</i>; a limit of zero means unlimited).</li>
+<li><b>Export to Excel</b> downloads exactly what is on screen. <b>Print</b> prints the report sheet without the menus.</li>
+<li>To stop an over-limit customer being invoiced, turn on <b>Enforce customer credit limit</b> in Finance Settings.</li>
+</ol>
+
+<h3>Tutorial 7: Make a form fit your business (Customize Form)</h3>
+<ol class="steps">
+<li>Open <b>Settings &rarr; Customize Form</b> (visible to administrators and designers) and choose a record type, say Customer.</li>
+<li>For any field you may change the label, make it required, hidden or read-only, and decide whether it shows in the list and in the filter bar.</li>
+<li>Click <b>Add field</b>, choose its type (Data, Select, Link, Date, Check and so on) and the field it should appear <b>after</b>. Save; the form shows it at once.</li>
+<li>Remove a custom field you added by mistake with its remove button. Fields that ship with the product can be hidden but not deleted.</li>
+</ol>
+
+<h3>Tutorial 8: Tables that work like a spreadsheet</h3>
+<ol class="steps">
+<li>Open any document with lines. A table starts with the six most useful columns (item, name, quantity, rate, amount, unit or warehouse).</li>
+<li>Click <b>Columns</b> to add a hidden column such as the source order, to reorder, or to widen a column. Your choice is remembered for you.</li>
+<li>Colours help the eye: pink cells are links (item, account), light blue cells are amounts, light yellow cells are plain data. Rows are not striped; the selected cell is outlined.</li>
+<li>Link fields search like Frappe: type any part of a name or code and the best matches come first, with a short description next to each.</li>
+</ol>
+
+<h3>Tutorial 9: Month-end in ten steps</h3>
+<ol class="steps">
+<li>Submit or deliberately leave in draft every document for the month.</li>
+<li>Reconcile each bank account in <b>Bank Reconciliation</b>.</li>
+<li>Post depreciation, accruals and recognition; run stock reconciliation if you counted.</li>
+<li>Open <b>Controls Check</b> and clear every receivable and payable finding.</li>
+<li>Review the ledger in <b>GL Review</b>.</li>
+<li>Check the order fulfilment: orders stuck at Partially Processed are goods not yet received, delivered or billed.</li>
+<li>Prepare the <b>Financial Period Close</b> checklist with evidence, approve (through your workflow, if any) and submit; the period is Closed.</li>
+<li>Print the statements from the <b>Financial Reporting Centre</b>.</li>
+</ol>
+
+<h3>Tutorial 10: Upgrade safely and keep the database fast</h3>
+<ol class="steps">
+<li>Back up: <code>velora backup --all</code>.</li>
+<li>Stop the service, install the new wheels, then run <code>velora upgrade</code> and start the service again. The upgrade patches (for example the one that fills order Received / Delivered / Billed %) run once, automatically.</li>
+<li>If the Update Centre left <b>maintenance mode</b> on, switch it off with <code>python3 -m velora --workspace /srv/velora/workspace maintenance off</code>.</li>
+<li>Open <b>Update Centre &rarr; Database speed</b>, review the preview and press <b>Tune the database now</b>. It adds missing indexes, refreshes statistics and reclaims space; it never changes your data. Do it after big imports and every few months.</li>
+<li>Hard-refresh the browser so it loads the new Desk.</li>
+</ol>
+
+</section>
+<section id="engine" data-g="Finance" data-t="posting engine account ledger idempotency cancel source document immutable batch">
+<h2><span class="n">7</span>The posting engine and the Account Ledger</h2>
+
+<p class="lead">The single most important idea in VeloraERP finance.</p>
+<table><tr><th>Part</th><th>Role</th></tr>
+<tr><td>Financial Posting Batch / Line</td><td>The engine's own working record of one posting (source document, date, period, currency, totals). Internal: it is not shown in the Desk menu.</td></tr>
+<tr><td>Account Ledger Record</td><td>The account-level record (what the ledger reports read). Created only by the engine; nobody edits it. It is removed only when the document that produced it is cancelled.</td></tr>
+</table>
+<h3>What the engine guarantees</h3>
+<ul>
+<li>Each batch balances (debits equal credits in the base currency).</li>
+<li>Each line has exactly one positive debit or credit.</li>
+<li>Control accounts carry the right party; closed periods are refused (when protected); budget control is applied to expense increases.</li>
+<li><b>Idempotency</b>: retrying the same source event returns the existing batch; the same key with different content is refused.</li>
+<li><b>Atomic</b>: batch and ledger records are written together or not at all.</li>
+<li><b>Cancel</b>: cancelling the source document removes its ledger rows in the same transaction (see below). There are no reversing entries to read around.</li>
+</ul>
+<h3>What this means for you</h3>
+<ul>
+<li>A submitted document cannot be edited. Fix it by <b>Cancel</b> and then <b>Amend</b> (a new draft copy linked to the cancelled one) or <b>Duplicate</b>.</li>
+<li>Every figure on a report traces back to a ledger record and from there to a source document.</li>
+<li>Account balances are always the sum of posted records; there is no separate balance to get out of step.</li>
+</ul>
+<h3>Cancelling a posted document</h3>
+<p>Press <b>Cancel</b> on a submitted document. You need the <b>cancel</b> right on that document type (any role that may submit it has it by default; change it under Settings &rarr; Roles). The dialog asks for a reason and shows what depends on the document.</p>
+<ul>
+<li><b>Open periods only.</b> A document posted in a closed Financial Year or Period cannot be cancelled.</li>
+<li><b>Other submitted documents that depend on it stop the cancel</b>, and the dialog names them: a Sales Order with a Delivery Note, a Delivery Note with an invoice, a Purchase Receipt with a Landed Cost Voucher. Press <b>Cancel All</b> to cancel the whole chain, newest first, in one go; if any step fails, nothing is cancelled.</li>
+<li><b>Things the document owns are cleaned up for you.</b> Cancel an invoice and the receipts or payments that settled it stay, but become unapplied money on the customer or supplier. Cancel a receipt or payment and the invoices it settled are open again. Prepayment and deferred-income schedules made from the document, intercompany allocations and fixed assets that were only just created from a purchase invoice are removed with it; assets that already have depreciation or other history refuse the cancel and say which.</li>
+<li><b>Stock.</b> Cancelling a stock document removes its stock ledger rows and recalculates the running balances after it. If later documents already used that stock (a delivery after a receipt), the cancel is refused and names them. Costs of issues already made are <i>not</i> recalculated; the stock value and the Inventory account still agree.</li>
+<li><b>Evidence.</b> The document stays on record as Cancelled. A <b>Posting Cancellation Log</b> keeps who cancelled it, when, why, what was unlinked and a copy of the ledger and stock rows that were removed (Finance Manager, Accountant and Auditor can read it).</li>
+<li><b>Amend or Duplicate</b> on the cancelled document opens a new draft with the same values; correct it and submit it. The amendment is named after the original (SI-0001 &rarr; SI-0001-1).</li>
+</ul>
+<h3>Cancelling the other families</h3>
+<p>Every document type can be cancelled with the same button and the same rules. Documents that change <i>other records</i> when they are submitted (a depreciation run changing an asset, a payroll run changing loans) save a copy of those records just before submit, and cancel puts them back exactly as they were.</p>
+<table><tr><th>Document</th><th>What cancel does</th></tr>
+<tr><td>Fixed Asset Depreciation Run, Revaluation, Impairment, Disposal, Transfer, Component Adjustment, CGU Impairment and Reversal, Lease Modification and Termination</td><td>Removes the ledger rows, deletes the asset history entries of that document and restores the asset (cost, accumulated depreciation, carrying amount, status, components, book balances, lease schedule) to its values before it. If a later event touched the same asset, the cancel is refused and names it: cancel the newest first.</td></tr>
+<tr><td>Fixed Asset Purchase, Lease</td><td>Removes the asset(s) it created, if they have had no later activity; a purchase request is open again.</td></tr>
+<tr><td>Payroll Payment</td><td>Salary slips go back to unpaid (or the earlier part-paid amount).</td></tr>
+<tr><td>Payroll Run</td><td>Its salary slips are cancelled with it (refused while a slip has been paid: cancel the payment first). Loan recoveries, advance recoveries, one-time payroll inputs and PAYE credit reviews go back to how they were.</td></tr>
+<tr><td>Employee Loan, Employee Advance</td><td>Can be cancelled while nothing has been repaid, recovered or settled; otherwise cancel the repayments or settlements first.</td></tr>
+<tr><td>Employee Loan Repayment, Advance Settlement</td><td>The loan schedule or advance balance goes back.</td></tr>
+<tr><td>Payroll masters (inputs, salary structures and assignments, loan types, tax profiles and rules)</td><td>Cancel when nothing submitted uses them yet.</td></tr>
+<tr><td>Investment and Investment Transaction</td><td>An ordinary cancel (newest transaction first); the position is rebuilt from what is still posted.</td></tr>
+<tr><td>Financial Period Close, Year End Close</td><td>The period (and, for the year end, the Financial Year) is open again and the closing journal is removed.</td></tr>
+<tr><td>Deferred Tax Posting Inbox</td><td>Its entries are removed and the assessment is back to approved.</td></tr>
+<tr><td>Inventory Valuation Closing</td><td>Its valuation adjustments are removed from the stock ledger and the books.</td></tr>
+<tr><td>Budget, Budget Adjustment, Financial Report Publication</td><td>Marked Cancelled; a cancelled budget no longer controls spending.</td></tr>
+</table>
+<p>Documents submitted before 2.89 that change other records (assets, payroll, loans) have no saved copy and refuse the cancel with a clear message; post a correcting document for those. Everything submitted from now on can be cancelled.</p>
+
+</section>
+<section id="coa" data-g="Finance" data-t="chart of accounts account types groups dimensions cost centre business unit project accounting dimension cost distribution">
+<h2><span class="n">8</span>Chart of accounts and dimensions</h2>
+
+<ul>
+<li><b>Account Type</b> decides behaviour (root type Asset, Liability, Income, Expense, Equity; normal balance; whether party tracking is needed; whether cash-like).</li>
+<li><b>Account Group</b> and <b>Account</b> build the tree. Control accounts (Receivable, Payable, Payroll Payable, Loan Receivable) require a party on every line.</li>
+<li><b>Cost Centre, Business Unit, Branch, Project</b> and user-defined <b>Accounting Dimensions</b> with <b>Dimension Values</b> tag every line for analysis and budgets.</li>
+<li><b>Cost Distribution Rule</b> and Finance Settings' cost distribution lines split shared costs across centres by percentage; <b>Intercompany Cost Allocation</b> records charges across companies.</li>
+<li><b>Account Statement Mapping</b> and <b>Financial Statement Row</b> map accounts into statement lines (see Financial reporting).</li>
+</ul>
+<div class="tip">Open <b>Account Ledger</b> and <b>Trial Balance</b> reports first after loading a chart; if the trial balance is empty, nothing has posted yet.</div>
+
+</section>
+<section id="sales" data-g="Finance" data-t="sales cycle quotation order delivery note invoice receipt return credit limit hold customer waybill get items from merge several orders fulfilment delivered billed">
+<h2><span class="n">9</span>Sales: quotation to cash</h2>
+
+<p class="lead">Quotation &rarr; Sales Order &rarr; Delivery Note (stock) &rarr; Sales Invoice &rarr; Receipt. Every step is optional, and you can start a Delivery Note or Sales Invoice with no order at all.</p>
+<table><tr><th>Document</th><th>Does</th><th>Posts?</th></tr>
+<tr><td>Sales Quotation</td><td>Price offer; has a register report</td><td>No</td></tr>
+<tr><td>Sales Order</td><td>Commitment; counts toward credit exposure when the setting says so. Shows <b>Delivered %</b> and <b>Billed %</b> and moves itself from Open to Partially Processed to Completed</td><td>No</td></tr>
+<tr><td>Delivery Note</td><td>Goods leave the warehouse; stock reduces at cost. Standalone, or built from one or several Sales Orders</td><td>Stock Ledger (see Inventory)</td></tr>
+<tr><td>Waybill</td><td>Transport document for deliveries</td><td>No</td></tr>
+<tr><td>Sales Invoice</td><td>Revenue, tax, receivable. Standalone, or built from Sales Orders and / or Delivery Notes</td><td>Yes: receivable, revenue, output tax</td></tr>
+<tr><td>Receipt</td><td>Cash in; allocates to invoices</td><td>Yes</td></tr>
+<tr><td>Sales Return</td><td>Credits goods returned; disposition <i>Restock</i> or <i>Quarantine</i></td><td>Yes</td></tr>
+<tr><td>Customer Complaint</td><td>Logged by staff or portal; also opens a Support Ticket</td><td>No</td></tr>
+</table>
+<h3>Copying and merging documents (Get Items From)</h3>
+<p>Open a draft Delivery Note or Sales Invoice and use <b>Get Items From</b>. A picker lists the submitted documents that still have something to take: Sales Orders for a Delivery Note; Sales Orders or Delivery Notes for a Sales Invoice. Tick one or <b>several</b> (the first one fixes the customer; the rest must be the same customer and currency) and the open lines are added. Quantity offered is what is still open: ordered minus what other documents already took. You can edit quantities before saving, remove lines, or type extra lines by hand.</p>
+<ul>
+<li>Every line remembers the document and line it came from, so merging three orders into one delivery still credits each order correctly.</li>
+<li>You cannot deliver or bill more than is open on a source line; the message names the order and item.</li>
+<li>Stock items are billed from a Sales Order only up to what has been delivered. Billing a Delivery Note bills exactly what it delivered.</li>
+<li>The classic <b>Create</b> button on an order or delivery still works for the single-document case.</li>
+</ul>
+<h3>Credit control</h3>
+<p>Set a credit limit on the Customer and turn on <b>Enforce customer credit limit</b> in Finance Settings. Exposure = receivables ledger balance (+ open sales orders if included). A hold or over-limit invoice is refused on the server. Report: <b>Customer Credit Exposure</b> (tutorial 6 in section 6).</p>
+<h3>Selling price rules</h3>
+<p>Inventory Settings can compute price from cost: selling cost basis, default margin percent, rounding step, block selling below cost, require cost for stock sales, and whether staff may type a price manually or the price is strict.</p>
+
+</section>
+<section id="purchase" data-g="Finance" data-t="purchase cycle order receipt invoice grni landed cost return amortisation shared cost three way match supplier payment get items from merge several orders received billed">
+<h2><span class="n">10</span>Purchasing: order to payment</h2>
+
+<p class="lead">Purchase Order &rarr; Purchase Receipt &rarr; Purchase Invoice &rarr; Payment, the way ERPNext does it. You may skip any step, start any document by hand, or merge several documents into one.</p>
+<table><tr><th>Document</th><th>Does</th></tr>
+<tr><td>Purchase Order</td><td>Commitment to a supplier. Shows <b>Received %</b> and <b>Billed %</b>; its status moves from Open to Partially Processed to Completed on its own (Closed stays closed).</td></tr>
+<tr><td>Purchase Receipt</td><td>Goods in; stock increases; liability recorded as <b>Goods Received Not Invoiced</b> (GRNI). Standalone, or built from one or several Purchase Orders. Shows <b>Billed %</b>.</td></tr>
+<tr><td>Purchase Invoice</td><td>Clears GRNI against the receipt; tax; payable. Built from Purchase Orders, from Purchase Receipts, or typed by hand. Lines can be <b>amortised</b> over a period (prepayment style) and costs can be <b>shared</b> across cost centres.</td></tr>
+<tr><td>Landed Cost Voucher</td><td>Freight, duty and handling allocated to received items by quantity, value or weight; updates stock value.</td></tr>
+<tr><td>Purchase Return</td><td>Returns goods to the supplier.</td></tr>
+<tr><td>Payment</td><td>Cash out; purposes include Supplier Payment, Expense Payment, Supplier Advance, Prepayment, Tax Payment.</td></tr>
+</table>
+<h3>Copying and merging documents (Get Items From)</h3>
+<p>On a draft Purchase Receipt or Purchase Invoice use <b>Get Items From</b>:</p>
+<ul>
+<li><b>Purchase Receipt</b> from <b>Purchase Orders</b>: tick several orders of one supplier and currency; each open line comes across with its open quantity.</li>
+<li><b>Purchase Invoice</b> from <b>Purchase Orders</b> (services, or goods not received yet; goods already received are billed from their receipt instead) or from <b>Purchase Receipts</b> (each invoice line is matched to the receipt line, so GRNI clears exactly).</li>
+</ul>
+<p>When the receipt or invoice is submitted, every source order is updated: <b>Received %</b> and <b>Billed %</b> rise, and an order that is fully received and billed becomes <b>Completed</b>. Cancel the receipt or invoice and the figures go back. Receiving or billing more than the order allows is refused, naming the order and the item. Differences between receipt and invoice price post to the <b>purchase price variance</b> account. Inventory Settings must have the GRNI account set before stock can be received.</p>
+<p>GRNI matching and the stock transfer logic are described in the v0.13 document set.</p>
+
+</section>
+<section id="cash" data-g="Finance" data-t="cash bank receipt payment voucher journal batch bank transaction processor expense batch coding rule withholding bank charges reconciliation statement import">
+<h2><span class="n">11</span>Cash, bank and reconciliation</h2>
+
+<h3>Receipts and Payments</h3>
+<p>Distinct submittable documents. The bank or cash account is debited (receipt) or credited (payment) by the <b>net</b> amount; other lines (withholding, bank charges, differences) sit on the opposite side so cash is never falsified. Cash accounts must be active Asset accounts of type BANK or CASH.</p>
+<table><tr><th>Receipt purposes</th><th>Payment purposes</th></tr>
+<tr><td>Customer Receipt, Customer Refund Recovery, Other Income, Supplier Refund, Loan Received, Capital Introduced, Tax Refund, Customer Advance, Deferred Income, Employee Repayment, Other Receipt</td><td>Supplier Payment, Expense Payment, Customer Refund, Employee Reimbursement, Employee Advance, Loan Repayment, Asset Acquisition, Prepayment, Supplier Advance, Tax Payment, Other Payment</td></tr>
+</table>
+<p>Worked example, customer owes 1,000, withholds tax 50, pays 950: Debit Bank 950, Debit WHT Receivable 50, Credit Customer Receivables 1,000. For a supplier: Debit Supplier Payables 1,000, Credit WHT Payable 50, Credit Bank 950.</p>
+<h3>Vouchers and batches</h3>
+<ul>
+<li><b>Financial Voucher</b> and <b>Journal Entry Voucher</b>: manual postings (add an approval workflow if you want sign-off).</li>
+<li><b>Expense Batch</b>: many expense payments in one document.</li>
+<li><b>Batch Bank Transaction</b>: many receipts or payments through one bank movement, importable from Excel or CSV.</li>
+<li><b>Bank Transaction Processor</b> with <b>Bank Transaction Coding Rules</b>: imported bank lines are coded to accounts automatically by rules (text, amount, direction) and posted after review.</li>
+</ul>
+<h3>Bank reconciliation centre (<code>#/bank-reconciliation</code>)</h3>
+<ol class="steps">
+<li><b>Import the statement</b> (CSV, Excel and other supported parsers; map columns once and reuse).</li>
+<li><b>Auto-match</b> statement lines to ledger records by amount, date window and reference; matches are <i>Suggested</i>.</li>
+<li><b>Review</b>: confirm or reject suggestions; unmatch; match manually many-to-many with a reason; ignore lines with a reason (and restore).</li>
+<li><b>Code and post</b> lines that have no ledger record (bank charges, interest) using coding rules.</li>
+<li><b>Compute and lock</b> the reconciliation for the period: opening, closing, cleared items, differences. A locked group cannot be changed.</li>
+</ol>
+<p>A scheduled hourly job can auto-match for banks that opt in. The reconciliation is an evidenced control in period close.</p>
+<div class="warn">Open item: folding Bank Reconciliation, Bank Statement Line and matches into one doctype; and "create" buttons on Bank Transaction Processor, Batch Bank Transaction and Expense Batch.</div>
+
+</section>
+<section id="journals" data-g="Finance" data-t="accrual recognition schedule deferred income prepayment opening balance entry year end correction party adjustment">
+<h2><span class="n">12</span>Accruals, recognition and openings</h2>
+
+<table><tr><th>Document</th><th>Use</th></tr>
+<tr><td>Accrual</td><td>Book an expense or income in this period and auto-reverse it later (daily job processes due reversals).</td></tr>
+<tr><td>Recognition Schedule / Schedule Recognition</td><td>Spread a prepayment or deferred income over months; a daily job posts the due instalments.</td></tr>
+<tr><td>Opening Balance Entry</td><td>Load starting balances at go-live (and per-party opening documents).</td></tr>
+<tr><td>Opening Stock Entry</td><td>Opening quantities and values by warehouse, batch and serial (migration document, not a stock count).</td></tr>
+<tr><td>Party Adjustment</td><td>Adjust a customer or supplier balance (write-off, discount, reclassification) with allocation and a lifecycle.</td></tr>
+<tr><td>Foreign Currency Revaluation</td><td>Period end: restates foreign-currency receivables, payables, bank, loans and accruals to the closing rate and posts the unrealised gain or loss; ticks to reverse itself on the next day. A missing exchange rate stops it; nothing is guessed. Set the unrealised gain and loss accounts in Finance Settings first.</td></tr>
+<tr><td>Expected Credit Loss Assessment</td><td>IFRS 9: you enter a loss rate for each ageing bucket (not due, 1-30, 31-60, 61-90, over 90 days); the document reads open sales invoices, works out the allowance needed and posts only the change from what the allowance account already holds (a charge, or a release). Use accounts of type Loss Allowance and an expense account.</td></tr>
+<tr><td>Provision Entry</td><td>IAS 37: recognise, increase, unwind the discount, utilise or release a provision. To recognise you must confirm a present obligation, a probable outflow and a reliable estimate. You cannot use or release more than the provision holds. Use an account of type Provision.</td></tr>
+<tr><td>Year End Close</td><td>Closes income and expense to retained earnings through a checklist (and an approval workflow if you have drawn one).</td></tr>
+</table>
+<p>To correct any of these, cancel and amend it. The Document Corrections Inbox (Desk) lists every cancelled document and deleted draft, with who, when and why.</p>
+
+</section>
+<section id="parties" data-g="Finance" data-t="customer supplier party ledger statement ageing subledger reconciliation control account advance">
+<h2><span class="n">13</span>Customers, suppliers and party ledgers</h2>
+
+<ul>
+<li>Every party has a <b>control account</b>; all postings to it carry the party, so the sub-ledger always agrees with the control account.</li>
+<li><b>Reports</b>: Customer Ledger, Customer Statement, Supplier Ledger, Supplier Statement, Employee Ledger, Customer Credit Exposure, ageing.</li>
+<li><b>Advances</b>: customer advances sit in a party-tracked liability account, supplier advances in a party-tracked asset account; they are allocated to invoices later.</li>
+<li><b>Subledger reconciliation</b> proves each control account equals the sum of party balances and lists differences.</li>
+<li>Sending statements: use the Broadcast Centre with the Customer document type as the audience.</li>
+</ul>
+
+</section>
+<section id="tax" data-g="Finance" data-t="tax vat withholding wht income tax computation deferred tax return obligation deadline penalty adviser tax centre report library certificate dividend interest multicurrency exchange rate payroll paye">
+<h2><span class="n">14</span>Tax Management and multi-currency</h2>
+
+<p class="lead">Tax Management keeps your tax rates as approved rules, reads every tax line straight from the ledger, builds returns from it, tracks filing deadlines and has an adviser that checks the books. Open it from the <b>Tax Management</b> hub in the sidebar, or the <b>Tax Centre</b> (<code>#/tax-centre</code>). <b>Payroll tax (PAYE and the like) stays in Payroll and is not touched.</b></p>
+<div class="warn">No statutory rate is built in. Enter the current rates (VAT, each withholding tax category, company income tax, levies, minimum tax) as Tax Rules and approve them. Check them against the law in force or with your tax adviser; the system applies the rules you approve, it does not decide what the law says.</div>
+
+<h3>The records</h3>
+<table><tr><th>Record</th><th>What it is for</th></tr>
+<tr><td>Tax Jurisdiction</td><td>A tax authority, with a level (Federal, State, Local). Federal and state taxes are separate jurisdictions with their own rules, obligations and returns.</td></tr>
+<tr><td>Tax Category</td><td>A grouping such as goods, services, rent, dividends.</td></tr>
+<tr><td>Tax Rule</td><td>One approved rate (flat or in bands) for a tax type (VAT, WHT, Income Tax, levy), jurisdiction and period, with the ledger account it posts to. Invoice lines follow approved rules by tax code.</td></tr>
+<tr><td>Tax Settings</td><td>Defaults: the day WHT is due and the day VAT is filed (of the following month), penalty and interest rates for the exposure estimate, whether a customer certificate number is required before a journal is submitted.</td></tr>
+<tr><td>Tax Journal</td><td>Withholding tax on customers, suppliers, dividends, interest, rent, royalties and fees (see below).</td></tr>
+<tr><td>Income Tax Computation</td><td>Company income tax for a period, built from the ledger profit.</td></tr>
+<tr><td>Tax Return and Tax Obligation</td><td>A return built from the tax ledger, approved, filed and tracked to acceptance; and each filing deadline.</td></tr>
+</table>
+
+<h3>Withholding tax: one ledger, many sources, one report</h3>
+<ul>
+<li><b>Tax Journal</b>: each row is a customer or a supplier. A customer row records tax your customer withheld from what they paid you (Dr withholding tax credit, an asset; Cr customer). A supplier row records tax you withheld from a supplier and must remit (Dr supplier; Cr withholding tax payable, a liability). A row that names an invoice settles it by the tax amount; your receipt or payment settles the net. Cancelling the journal reopens the invoice.</li>
+<li>Rows can also be <b>Income received</b> (tax withheld from your dividends, interest, rent or royalties) and <b>Payment made</b> (tax you withheld from dividends, interest, rent or fees paid to people who are not suppliers), with the nature of payment, the type of the other party (company, individual, government) and a counter account. Individual and corporate rates differ by rule.</li>
+<li>The rate comes from an approved WHT rule, or you type the amount on the certificate.</li>
+<li>Withholding tax on <b>loan interest</b> that you pay is posted by the Financing Repayment (see Debt and Treasury) and arrives in the same report.</li>
+<li><b>WHT All Sources</b> lists every line that reached a withholding tax account with a rule code, from any document (Receipt, Payment, Tax Journal, investment income, loan repayment), split into credits suffered and tax payable, with totals per source. <b>WHT Register</b> and <b>WHT Position by Party</b> show certificates and what each party owes or is owed.</li>
+</ul>
+
+<h3>Company income tax</h3>
+<ol class="steps">
+<li>On each <b>Account</b> set the <b>Tax treatment</b>: Allowable, Not tax allowed, Partly allowable (with %), Capital (use capital allowance) or Exempt income. The <b>Tax Treatment of Accounts</b> report lists them.</li>
+<li>Create an <b>Income Tax Computation</b> for the period and press <b>Calculate</b>. It reads profit from the ledger, adds back disallowed expenses, deducts exempt income, takes your manual lines (deductions, capital allowances, other), relieves losses brought forward (proposed from your last approved computation), applies the approved Income Tax rule (flat or tiered), compares with minimum tax on turnover if you set one, adds levies and subtracts withholding tax credits up to the tax charged.</li>
+<li>Submit through your approval workflow. Submitting is refused if the ledger moved after you calculated.</li>
+</ol>
+<p>Capital allowances are entered as lines; there is no asset-by-asset allowance engine. Balancing charges, group relief, transfer pricing and thin capitalisation are not computed.</p>
+
+<h3>Returns, deadlines and exposure</h3>
+<ul>
+<li>A <b>Tax Return</b> (for example VAT) is calculated from the tax ledger, approved, filed with a filing reference and its outcome recorded (accepted or rejected, with the acknowledgement).</li>
+<li>The daily job creates the monthly WHT and VAT <b>Tax Obligations</b> from the ledger using the days in Tax Settings. The <b>Tax Obligation Calendar</b> lists them.</li>
+<li>Enter the late-filing penalty, monthly penalty % and annual interest % in Tax Settings and the Tax Centre shows an estimated exposure on overdue items. It is an estimate from your rates, not an assessment.</li>
+<li>Reminders use the notification events <code>tax_obligation_due_soon</code> and <code>tax_obligation_overdue</code>. Create rules for them in notification settings; without rules nothing is sent.</li>
+</ul>
+
+<h3>Tax Centre and Tax Adviser</h3>
+<p>The <b>Tax Centre</b> shows your VAT and withholding position, open and overdue deadlines, VAT by month, the adviser's findings and shortcuts to every tax document, setting and report. The <b>Tax Adviser</b> runs fixed checks (it never posts or changes anything): missing approved rules, rules without a tax account, overdue and due-soon filings, tax posted under codes with no rule, customer withholding without a certificate, unused credits, expense accounts whose names suggest a tax decision (fines, donations, depreciation, provisions) still marked Allowable, and no computation for last year. Two AI advisors (Tax Adviser and Income Tax Computation Reviewer) answer free-form questions about the records you may see.</p>
+
+<h3>Tax Report Library</h3>
+<p>One report, <b>Tax Report Library</b>, runs <b>125 distinct tax reports</b>. Choose the report, the period (default: year to date) and, if you wish, a tax type, jurisdiction or party; the columns follow the report. The Tax Centre lists them by area with a search box. Areas: VAT and GST analysis, withholding tax, income tax, deferred tax, compliance and obligations, liabilities and credits, analytics and trends, data quality, change and approval history and an Executive Tax Report. Only reports that can run on your books are listed, so none fails to open. Reports that would need data this system does not hold (transfer pricing, audit and dispute cases, tax incentives, integrations) are deliberately not listed. Output is Excel or PDF only.</p>
+<table><tr><th>Report</th><th>Use</th></tr>
+<tr><td>Tax Ledger</td><td>Every posted tax line by document, code and rate (output and input)</td></tr>
+<tr><td>VAT Return, Tax Return Summary</td><td>The return and its lines</td></tr>
+<tr><td>Tax Obligation Calendar</td><td>Deadlines and their status</td></tr>
+<tr><td>WHT All Sources, WHT Register, WHT Position by Party</td><td>Withholding from every source, certificates, balances by party</td></tr>
+<tr><td>Income Tax Computation Summary, Tax Treatment of Accounts</td><td>Computations and account treatment</td></tr>
+</table>
+
+<h3>Printing receipts and vouchers</h3>
+<p>In the Tax Centre press <b>Install sample Receipt, Official Receipt and Payment Voucher print formats</b>. The Official Receipt shows the amount in words, the invoices settled and a withholding tax note; the Payment Voucher has signature blocks. Replace the placeholder organisation name and address at the top of each. Amount in words works in every print format (naira and kobo, dollars and cents, and a few other currencies).</p>
+
+<h3>Other tax features of the ledger</h3>
+<ul>
+<li><b>Tax engine on invoices</b>: tax codes on lines, inclusive or exclusive pricing, rounding from Finance Settings.</li>
+<li><b>Deferred tax</b>: Deferred Tax Assessment and a Deferred Tax Posting Inbox for review before posting; period close refuses to close while items remain pending. Tax refund credits are reviewed through the Tax Refund Credit Review.</li>
+<li><b>Payroll tax</b>: jurisdictions, rules with bands and the Statutory Deductions Summary report, all inside Payroll.</li>
+<li><b>Multi-currency</b>: transaction currency and exchange rate on documents; base-currency amounts on every ledger record; Currency Exchange Rate with source and rate type.</li>
+</ul>
+<div class="warn">Not built: a dedicated dividend declaration document (use Tax Journal rows), asset-by-asset capital allowances, and the reports named above that need data the system does not hold.</div>
+
+</section>
+<section id="assets" data-g="Finance" data-t="fixed assets depreciation impairment revaluation disposal lease cgu component transfer category book">
+<h2><span class="n">15</span>Fixed assets</h2>
+<p><b>Working from the asset.</b> Open the asset and use <b>Create</b>: Revalue, Dispose, Impairment Test, Transfer or Adjust Component. The document opens filled from the asset and unsaved; add what only you know (the new value and the valuer, the buyer and proceeds, the recoverable amount, the new location) and the reason, Save, and send it for approval if your company has drawn a workflow. Run depreciation up to the end of the previous month first: a disposal or revaluation is refused until you do.</p>
+
+<table><tr><th>Area</th><th>Records</th></tr>
+<tr><td>Master</td><td>Fixed Asset, Fixed Asset Category, Depreciation Book, Book Balance, Components</td></tr>
+<tr><td>Acquire</td><td>Fixed Asset Request, Fixed Asset Purchase (with lines)</td></tr>
+<tr><td>Depreciate</td><td>Fixed Asset Depreciation Run (preview, then post), component depreciation lines</td></tr>
+<tr><td>Change</td><td>Revaluation, Impairment, Component Adjustment, Transfer, Disposal</td></tr>
+<tr><td>Cash-generating units</td><td>Fixed Asset CGU with assets, impairment and impairment reversal, including other assets</td></tr>
+<tr><td>Leases</td><td>Fixed Asset Lease with payments, modification and termination</td></tr>
+<tr><td>Control</td><td>History Log, Fixed Asset Reconciliation and Book Reconciliation reports</td></tr>
+</table>
+<ol class="steps">
+<li>Create the category (accounts, method, useful life, residual rule).</li>
+<li>Acquire: request, purchase through the purchase cycle or Fixed Asset Purchase.</li>
+<li>Each month run the Depreciation Run for the period, review, post.</li>
+<li>On disposal create a Fixed Asset Disposal: gain or loss is calculated and posted.</li>
+<li>Before period close run the reconciliation reports; differences must be explained.</li>
+</ol>
+
+</section>
+<section id="inventory" data-g="Finance" data-t="inventory stock warehouse valuation fifo moving average weighted batch serial reconciliation revaluation transfer ledger">
+<h2><span class="n">16</span>Inventory and valuation</h2>
+
+<h3>Valuation per item (choose before the first movement)</h3>
+<table><tr><th>Method</th><th>How issues are costed</th></tr>
+<tr><td>Moving Average</td><td>Rate recalculated after each receipt; issues at the current average.</td></tr>
+<tr><td>FIFO</td><td>Oldest cost layers consumed first, rebuilt from immutable Stock Ledger Records.</td></tr>
+<tr><td>Weighted Average (periodic)</td><td>Provisional rate during the period; at period close an <b>Inventory Valuation Closing</b> adjusts to (opening value + receipts) / (opening qty + receipt qty).</td></tr>
+</table>
+<p>The method cannot be changed once stock movements exist. After a periodic closing, backdated movements in that period are blocked.</p>
+<h3>Documents</h3>
+<p>Purchase Receipt, Delivery Note, Stock Transfer (between warehouses, with in-transit logic), Stock Reconciliation (count against book), Stock Revaluation (change value, not quantity), Opening Stock Entry, Landed Cost Voucher. Batches and Serial Numbers track identity.</p>
+<h3>Accounts</h3>
+<p>Inventory Settings holds the accounts: inventory asset, goods received not invoiced, cost of goods sold, stock adjustment gain and loss, purchase price variance, opening balance clearing, revaluation gain and loss.</p>
+<p><b>Report</b>: Stock Balance. Use Stock Ledger Records for item history.</p>
+
+</section>
+<section id="budgets" data-g="Finance" data-t="budget planner scenario allocation control warn block override adjustment forecast variance">
+<h2><span class="n">17</span>Budgets and budget control</h2>
+
+<h3>Financial Budget (Budget Workbench, <code>#/budgets</code>)</h3>
+<p>A budget has accounts, lines by month, allocations to dimensions (cost centre, branch) by percentage or method, and <b>scenarios</b> (for example base, optimistic, pessimistic). The <b>planner</b> helps: project from last year's actuals with growth, spread annual totals over months, split by allocation table, compare scenarios.</p>
+<h3>Budget Adjustment</h3>
+<p>Approved transfers and increases are added to the effective budget without editing the original (authority: <code>budget.adjust</code>).</p>
+<h3>Budget control (company setting <code>finance.budget_control</code>)</h3>
+<pre><code>{"mode": "Off" | "Warn" | "Block",
+ "budget_name": "FY2027 Operating Budget",
+ "control_period": "Month" | "YTD" | "Year",
+ "tolerance_percent": 0,
+ "unbudgeted": "Allow" | "Warn" | "Block"}</code></pre>
+<ul>
+<li>Default is <b>Off</b>; nothing changes until you opt in.</li>
+<li>Only the <i>increase</i> of expense spend is controlled; income, balance-sheet and reversing postings are not.</li>
+<li>A Block can be overridden only explicitly, with a reason, by a user holding <code>budget.override</code>. Approving or submitting a document never overrides it by itself.</li>
+</ul>
+<h3>Tutorial: set a monthly cap</h3>
+<ol class="steps">
+<li>Create and approve the Financial Budget for the year.</li>
+<li>Set budget control to Warn first; watch for a month.</li>
+<li>Move to Block with a 5% tolerance and decide who holds the override role.</li>
+</ol>
+
+</section>
+<section id="close" data-g="Finance" data-t="period close year end checklist evidence gates reopen financial period">
+<h2><span class="n">18</span>Period close and year-end</h2>
+
+<p class="lead">Draft preparation &rarr; checklist and evidence review &rarr; approval (if you have a workflow) &rarr; submit &rarr; period Closed.</p>
+<h4>Automated gates</h4>
+<ol><li>Base-currency debits and credits posted up to the period end must agree.</li><li>No Deferred Tax Posting Inbox item dated up to the period end may be pending review or approved but unposted.</li></ol>
+<h4>Evidenced manual controls</h4>
+<p>Bank and cash reconciliation, receivables, payables, inventory valuation, fixed assets and depreciation, current and deferred tax, accruals and prepayments, suspense and clearing accounts, revenue and expense cut-off, disclosures and schedules. Evidence references are mandatory for bank, receivables, payables, inventory, fixed asset and tax items. Approved checklist content is fingerprinted; a manager must reset approval before changing it.</p>
+<ul><li>A period cannot simply be set to Closed; only a submitted Financial Period Close closes it, and that record cannot be cancelled or deleted.</li>
+<li><b>Year End Close</b> moves the year's income and expense to retained earnings through its own checklist.</li>
+<li>A period reopening workflow is not included in this release.</li></ul>
+
+</section>
+<section id="controls" data-g="Finance" data-t="controls check gl review audit analytical review suspense round journal weekend large movement duplicate">
+<h2><span class="n">19</span>Controls Check and General Ledger Review</h2>
+
+<h3>Receivables and Payables Controls Check (<code>#/controls-check</code>, <code>GET /api/controls-check</code>)</h3>
+<p>Read-only checks an auditor or financial controller would ask for. Each finding lists the documents so you can open them; nothing is changed or posted. Run it before month-end and clear the findings.</p>
+<h3>General Ledger Review (<code>#/gl-review</code>, <code>GET /api/gl-review</code>)</h3>
+<p>Period-against-period analytical review. You choose the period, a prior period that does not overlap it, a percentage threshold (default 50) and a minimum amount (default 10,000). It flags:</p>
+<ul>
+<li>Large movements against the earlier period.</li>
+<li>New accounts with significant activity, and accounts active before but silent now.</li>
+<li>Accounts with a balance in an unusual direction (for example income with a debit balance).</li>
+<li>Suspense and clearing accounts that are not empty.</li>
+<li>Journals on weekends, round-sum and unusually large journals, month-end clustering.</li>
+</ul>
+<div class="tip">Findings are prompts to ask questions, not accusations. Record your explanation in the period close checklist.</div>
+
+</section>
+<section id="reporting" data-g="Finance" data-t="financial reporting statements ias disclosure notes publication consolidation cash flow ratios regulatory data warehouse dashboard">
+<h2><span class="n">20</span>Financial reporting</h2>
+
+<p class="lead">The framework's statement designer reads the Account Ledger through the ERP's reporting provider.</p>
+<table><tr><th>Capability</th><th>What it does</th></tr>
+<tr><td>Statements</td><td>Statement of financial position, profit or loss, equity, with templates and a designer; IAS 1 presentation.</td></tr>
+<tr><td>Cash flow</td><td>IAS 7 indirect and direct method, Cash Flow Account Mapping, cash-flow intelligence.</td></tr>
+<tr><td>Disclosures</td><td>Financial Disclosure Notes, schedules, governance, a disclosure pack.</td></tr>
+<tr><td>Analysis</td><td>Advanced ratios, period analysis, management insights, dimensional reporting, budget forecast.</td></tr>
+<tr><td>Group</td><td>Consolidation accounting and group consolidation.</td></tr>
+<tr><td>Governance</td><td>Reporting Workbench, Financial Reporting Review (with items), Schedule, Publication; reviewers, approvers and publishers named under Finance Settings &rarr; Approvals (&ldquo;Other powers&rdquo;).</td></tr>
+<tr><td>Output</td><td>Publication exports, regulatory reporting, audit evidence, Excel with real formulas, data warehouse extracts, executive dashboards.</td></tr>
+</table>
+<h3>Standard reports</h3>
+<p>Trial Balance, Account Ledger, Customer / Supplier / Employee Ledger and Statement, Customer Credit Exposure, Customer Complaint Register, Sales Quotation Register, Sales Margin Analysis, Stock Balance, Fixed Asset Reconciliation, Fixed Asset Book Reconciliation, Payroll Register, Employee Advance Register, Employee Loan Register. HR reports are listed in the HR section.</p>
+
+</section>
+<section id="hr" data-g="People" data-t="hr employee recruitment onboarding leave attendance device performance training relations separation self service contract probation">
+<h2><span class="n">21</span>Human resources</h2>
+
+<p class="lead">One Employee record is the single identity for HR, payroll and finance.</p>
+<table><tr><th>Area</th><th>Records and screens</th></tr>
+<tr><td>Core</td><td>Employee, Employee HR Profile, Employment Contract, Employee Document, Qualification, Status History, Asset Assignment, Reporting Assignment, Employee Change Request. Departments, Designations, Branches, Work Locations, Job Bands and Grades. Screen: <b>Employee 360</b> (<code>#/hr/employee</code>).</td></tr>
+<tr><td>Recruitment (<code>#/recruitment</code>)</td><td>Job Requisition, Job Position, Job Posting, Candidate, Job Application, Interview, Job Offer, Recruitment Settings (pipeline stages, interview duration, optional AI helper). Recruitment advisor is read-only.</td></tr>
+<tr><td>Onboarding</td><td>Onboarding Plan and Tasks, Probation Review, handover management.</td></tr>
+<tr><td>Leave (<code>#/hr/leave</code>)</td><td>Leave Type, Leave Period, Leave Policy (eligibility rules, entitlements, selected employees), Policy Assignment, Allocation, Application, Holiday List. Leave Management Centre.</td></tr>
+<tr><td>Attendance</td><td>Attendance, Shift Type, Shift Assignment, Overtime Request, Attendance Devices, device user mapping, external punches, integration sync runs (scheduled every minute where configured).</td></tr>
+<tr><td>Performance (<code>#/hr/performance</code>, <code>#/hr/team-performance</code>)</td><td>Cycles and assignments, Goals, Check-Ins, Reviews and Templates with criteria, Feedback, rater campaigns, calibration sessions, improvement plans, development actions, workflow reminders.</td></tr>
+<tr><td>Talent</td><td>Competency frameworks and assessments, Career Development Plan, Critical Position, Succession Candidate.</td></tr>
+<tr><td>Training (<code>#/hr/training</code>)</td><td>Program, Course, Session, Enrollment.</td></tr>
+<tr><td>Employee relations</td><td>Cases (grievance, disciplinary, harassment, conflict, welfare, ethics, investigation) with actions; restricted to HR Manager and System Manager. Policy documents and acknowledgements (<code>#/hr/governance</code>).</td></tr>
+<tr><td>Separation</td><td>Employee Separation with exit clearance by department; closure needs completed Finance final settlement and its reference. HR coordinates; Finance computes and posts the settlement.</td></tr>
+<tr><td>Self-service (<code>#/hr/me</code>)</td><td>My HR Services: overview, leave, attendance, documents, HR support requests; limited to the signed-in employee.</td></tr>
+</table>
+<h3>HR reports</h3>
+<p>Attendance Summary, Contract and Probation Watch, Employee Directory, Headcount Analysis, Leave Balance, Leave Utilisation, Overtime Register, Payroll Cost Analysis, Payroll Variance, Performance Rating Distribution, Recruitment Pipeline, Separation and Attrition, Statutory Deductions Summary, Training Register.</p>
+<h3>Tutorial: hire to productive</h3>
+<ol class="steps">
+<li>Raise a Job Requisition and have it approved; create the Job Posting.</li>
+<li>Candidates apply; move Job Applications through the pipeline stages; schedule Interviews.</li>
+<li>Issue a Job Offer; on acceptance create the Employee and Employment Contract.</li>
+<li>Start an Onboarding Plan; set the probation review date.</li>
+<li>Assign Leave Policy and Shift; link the employee's login (<code>user_account</code>) for self-service.</li>
+<li>Assign the salary structure for payroll.</li>
+</ol>
+<div class="warn">Not built: <b>pension fund administration</b> and <b>HMO management</b>. Only the employee's pension PIN and PFA fields and the payroll pension deduction exist.</div>
+
+</section>
+<section id="payroll" data-g="People" data-t="payroll salary structure component slip run payment tax paye loan advance settlement input">
+<h2><span class="n">22</span>Payroll, loans and advances</h2>
+
+<table><tr><th>Record</th><th>Purpose</th></tr>
+<tr><td>Salary Component, Salary Structure, Structure Assignment</td><td>Earnings and deductions, formulas and who receives them.</td></tr>
+<tr><td>Payroll Tax Jurisdiction, Payroll Tax Rule (bands), Employee Tax Profile</td><td>Statutory tax and reliefs.</td></tr>
+<tr><td>Payroll Input</td><td>Monthly variable items (overtime, bonus, deductions).</td></tr>
+<tr><td>Payroll Run</td><td>Calculates for selected employees; generates Salary Slips; submit posts accruals.</td></tr>
+<tr><td>Salary Slip</td><td>The employee's computed pay with every line.</td></tr>
+<tr><td>Payroll Payment</td><td>Pays net salary and statutory liabilities from the bank.</td></tr>
+<tr><td>Employee Loan Type, Application, Loan, Repayment, Schedule</td><td>Staff loans with schedules; repayments are recovered through payroll within the limits in Finance Settings (maximum deduction percent of net pay, minimum net pay, allocation method, partial recovery).</td></tr>
+<tr><td>Employee Advance and Advance Settlement</td><td>Cash advance to staff and later settlement against expenses.</td></tr>
+</table>
+<ol class="steps">
+<li>Create components and a structure; assign to employees.</li>
+<li>Enter the month's Payroll Inputs.</li>
+<li>Create the Payroll Run for the period; review the Payroll Register and Payroll Variance.</li>
+<li>Submit (through your approval workflow, if any) to post.</li>
+<li>Create the Payroll Payment; reconcile the bank; file statutory remittances.</li>
+</ol>
+
+</section>
+<section id="invest" data-g="Other modules" data-t="investment portfolio treasury bill bond fixed deposit money market equity real estate accrual wht maturity rollover disposal revaluation">
+<h2><span class="n">23</span>Investment management</h2>
+
+<p class="lead">Record, accrue, receive, revalue and dispose of investments and watch the portfolio. Screen: <b>Investment Portfolio</b> (<code>#/investments</code>). Records: Investment, Investment Transaction, Investment Settings.</p>
+<h3>Classes and defaults</h3>
+<table><tr><th>Class</th><th>Group</th><th>Default method</th><th>Default measurement</th></tr>
+<tr><td>Money Market Placement</td><td>Money Market</td><td>Simple Interest, at maturity</td><td>Amortised cost</td></tr>
+<tr><td>Treasury Bill</td><td>Money Market</td><td>Discount (T-Bill)</td><td>Amortised cost</td></tr>
+<tr><td>Fixed Deposit</td><td>Money Market</td><td>Simple Interest, at maturity</td><td>Amortised cost</td></tr>
+<tr><td>Commercial Paper</td><td>Money Market</td><td>Discount</td><td>Amortised cost</td></tr>
+<tr><td>Bond</td><td>Capital Market</td><td>Coupon, periodic</td><td>Amortised cost</td></tr>
+<tr><td>Equity / Shares, Mutual Fund / Unit Trust</td><td>Capital Market</td><td>(none)</td><td>Fair value through profit or loss</td></tr>
+<tr><td>Real Estate</td><td>Real Estate</td><td>(none)</td><td>Fair value through profit or loss</td></tr>
+<tr><td>Private Equity, Other</td><td>Alternative</td><td>(none)</td><td>FVTPL / Cost</td></tr>
+</table>
+<p>Income methods: Simple, Compound, Discount (T-Bill), Coupon (Bond), Flat Rate. Day counts: Actual/365, Actual/360, 30/360. Payment: at maturity, periodic (monthly, quarterly, half-yearly, yearly) or upfront. Maturity instruction: pay out, roll over principal, or roll over principal and income. Status: Draft, Active, Part Disposed, Matured, Closed, Reversed.</p>
+<h3>Transactions</h3>
+<table><tr><th>Type</th><th>Effect</th></tr>
+<tr><td>Income Accrual</td><td>Interest or discount earned to date (accrued income)</td></tr>
+<tr><td>Upfront Income Received</td><td>Cash received before it is earned (deferred income)</td></tr>
+<tr><td>Interest / Dividend / Rental Received</td><td>Cash in, with withholding tax</td></tr>
+<tr><td>Property Expense, Fee Paid</td><td>Costs of holding</td></tr>
+<tr><td>Additional Purchase, Bonus Issue</td><td>More units or shares</td></tr>
+<tr><td>Revaluation</td><td>Fair value change to profit or loss, or to the reserve for FVOCI</td></tr>
+<tr><td>Part Disposal, Full Disposal</td><td>Proceeds, cost relieved, realised gain or loss</td></tr>
+<tr><td>Maturity</td><td>Principal returns to the bank</td></tr>
+</table>
+<h3>Settings (Investment Settings)</h3>
+<ul>
+<li><b>Require approval</b> (off or on; who approves is your workflow), <b>auto accrue</b> (off by default), <b>maturity alert days</b>.</li>
+<li><b>Withholding tax treatment</b>: a recoverable tax credit (default) or a final-tax expense; default WHT rate.</li>
+<li><b>Limits</b>: maximum percent per counterparty and per asset group, shown against actual allocation.</li>
+<li><b>Accounts</b>: bank, interest income, dividend income, rental income, accrued income, deferred income, WHT receivable, WHT expense, realised and unrealised gain or loss, fair value reserve, investment expense.</li>
+</ul>
+<h3>Tutorial: a 91-day treasury bill</h3>
+<ol class="steps">
+<li>Settings first: accounts, WHT treatment, limits, approval.</li>
+<li>New Investment: class Treasury Bill, counterparty (Government), face value, price or discount rate, start and maturity dates, day count. The schedule previews.</li>
+<li>Submit and approve; the purchase is posted (bank credit, investment debit).</li>
+<li>At month end press <b>Accrue</b> in the portfolio screen (or let the month-end job do it if auto accrue is on): accrued income is posted.</li>
+<li>Seven days before maturity the portfolio shows it in <i>Upcoming</i>, and a notification rule on event <code>investment_maturing</code> can alert the treasury team.</li>
+<li>At maturity create the Maturity transaction, or <b>Roll over</b> to open a new draft with the matured amount.</li>
+<li>If you made a mistake, <b>Cancel</b> the newest transaction first, then amend it; the position is rebuilt from what is still posted.</li>
+</ol>
+<h3>Portfolio screen</h3>
+<p>Carrying value, cost, unrealised result, income earned, tax, yield; allocation by group, type and counterparty against limits; maturity ladder; upcoming events; holdings table with drill-down. API: <code>GET /api/investments/portfolio</code>, <code>POST /api/investments/accrue</code>, <code>POST /api/investments/{name}/accrue | rollover</code>.</p>
+<div class="warn"><b>Known limits.</b> Bond premium and discount amortisation by effective interest rate is not implemented. A fair-value reserve (FVOCI) is not recycled to profit on disposal. Test results are from automated tests on SQLite; check an accrual against your own calculation on a small real position before relying on it.</div>
+
+</section>
+<section id="debt" data-g="Other modules" data-t="debt treasury loan facility lender bank drawdown repayment interest accrual covenant liquidity forecast fx exposure maturity ladder borrowing amortisation schedule withholding tax floating rate">
+<h2><span class="n">24</span>Debt and Treasury</h2>
+
+<p class="lead">Record what you borrow, repay and accrue, with every entry posted for you, withholding tax on interest handled and an adviser that watches repayments, headroom, covenants, cash and currency risk. Open the <b>Debt &amp; Treasury</b> hub in the sidebar or the <b>Treasury Centre</b> (<code>#/treasury-centre</code>). The older <b>Treasury</b> workspace (bank processing, accruals, journals) is unchanged; this area is named Debt and Treasury so the two are never confused.</p>
+
+<h3>The records</h3>
+<table><tr><th>Record</th><th>What it does</th></tr>
+<tr><td>Financial Institution</td><td>A lender. Tick <i>WHT applicable</i> if you withhold tax on interest you pay to it.</td></tr>
+<tr><td>Financing Facility</td><td>The agreement: type, currency, approved limit, availability dates, fixed or floating pricing (reference rate and spread), day count, repayment structure and frequency, default tenor and grace period, arrangement fee %, the four accounts, the withholding tax rule, security pledged and covenants. It is approved and submitted like any financial document.</td></tr>
+<tr><td>Financing Drawdown</td><td>A loan drawn on the facility. Posts Dr bank (amount less fee), Dr fee, Cr loan liability, and builds the repayment schedule. Refused if it exceeds the headroom or falls outside the facility's dates.</td></tr>
+<tr><td>Interest Accrual</td><td>One document accrues interest on all active loans to a date (Actual/365, Actual/360 or 30/360): Dr interest expense, Cr accrued interest. It will not accrue the same days twice.</td></tr>
+<tr><td>Financing Repayment</td><td>Pays an instalment. Leave the amounts blank and it proposes what is due. Posts Dr loan principal, Dr accrued interest (up to what has been accrued), Dr interest expense (the rest), Dr fees, Cr withholding tax payable, Cr bank for the net.</td></tr>
+<tr><td>Facility Amendment</td><td>Changes the rate from a date. Floating loans are repriced and their unpaid instalments rebuilt. Cancelling the amendment restores them.</td></tr>
+<tr><td>Covenant Test</td><td>Records a measured result against a covenant of the facility. Status: Compliant, Warning (inside the warning margin) or Breach.</td></tr>
+<tr><td>Treasury Settings</td><td>Warning days before repayments and expiry, the utilisation alert %, minimum cash buffer, forecast weeks, the rate shock in points, the currency shock %, the lender concentration alert and the default interest withholding rule.</td></tr>
+</table>
+
+<h3>Set up once</h3>
+<ol class="steps">
+<li>Create the accounts: a bank account (type Bank), a loan liability account (type <b>Borrowing</b>), an accrued interest liability, an interest expense account (and a fee expense account if you want fees separate), and a tax payable account for withholding tax.</li>
+<li>Create an approved WHT Tax Rule for interest (Tax Management) and point it at the tax payable account.</li>
+<li>Create the lender (Financial Institution).</li>
+<li>Create the Financing Facility. Choose the accounts, the WHT rule, add security and covenants, then approve and submit it.</li>
+</ol>
+
+<h3>Every month</h3>
+<ol class="steps">
+<li><b>Drawdown</b> when money is received: choose the facility, date, amount and bank account. The schedule appears on the document (annuity, equal principal, bullet or interest only; grace period supported).</li>
+<li><b>Interest Accrual</b> at month end: choose the date and currency; review the lines per loan; submit.</li>
+<li><b>Financing Repayment</b> when you pay: choose the drawdown, date and bank account. Principal, interest and withholding tax are computed; submit. The schedule line turns Paid or Part paid and a facility that allows redraw gets its headroom back as principal is repaid.</li>
+<li><b>Covenant Test</b> as often as each covenant says (monthly, quarterly, half-yearly, annual).</li>
+<li>If the lender changes a floating rate, enter a <b>Facility Amendment</b>.</li>
+</ol>
+<p>To correct a mistake, cancel the document (balances, schedules and headroom are put back) and amend or re-enter it. A drawdown cannot be cancelled while repayments or accruals depend on it; cancel those first.</p>
+
+<h3>Treasury Centre</h3>
+<p>KPIs: total and net debt, weighted interest rate and floating share, undrawn headroom, debt service due in 30 and 90 days, unpaid accrued interest, the extra yearly interest if rates rise by the rate-shock points, and overdue repayments. Panels: the adviser's findings, when the debt falls due (maturity ladder), facility headroom bars, cash runway by week, covenant status counts, lender concentration and currency exposure, and shortcuts to documents, setup and every report. It reads submitted documents and the ledger; it never posts or changes anything.</p>
+<p><b>The adviser</b> raises: repayments overdue or due within the warning days; facilities nearly fully used or approaching the end of their availability; breached covenants, covenants close to their limit and tests that are overdue; loans whose interest has not been accrued for over a month; and a large share of debt with one lender. Reminders go out through your notification rules for the events <code>treasury_repayment_due</code>, <code>treasury_repayment_overdue</code>, <code>treasury_facility_expiring</code> and <code>treasury_covenant_test_due</code>; create the rules in notification settings, otherwise nothing is sent. A separate AI advisor (Debt &amp; Treasury Advisor) can explain a facility's structure and risks from the fields it is allowed to see.</p>
+
+<h3>Reports (Excel and PDF)</h3>
+<table><tr><th>Report</th><th>Answers</th></tr>
+<tr><td>Debt Portfolio</td><td>Every active loan: lender, rate now, balance, accrued interest, overdue, next instalment.</td></tr>
+<tr><td>Debt Maturity Ladder</td><td>How much principal falls due in each time bucket; the refinancing wall.</td></tr>
+<tr><td>Debt Service Schedule</td><td>Every instalment still to pay, by date, in loan and base currency.</td></tr>
+<tr><td>Loan Amortisation Schedule</td><td>The full schedule of one drawdown with what has been paid.</td></tr>
+<tr><td>Interest Expense and Accrual</td><td>Interest accrued per loan and period.</td></tr>
+<tr><td>Facility Utilisation and Headroom</td><td>Limit, drawn, outstanding, available and days left.</td></tr>
+<tr><td>Liquidity Forecast</td><td>Week by week: receipts, supplier payments, debt service, closing cash against your buffer.</td></tr>
+<tr><td>FX Exposure and Sensitivity</td><td>Foreign receivables, payables and debt netted per currency, with the effect of a currency move.</td></tr>
+<tr><td>Overdue Repayments</td><td>Instalments past due, aged in bands.</td></tr>
+<tr><td>Covenant Monitor</td><td>Every covenant, latest result, headroom and next test.</td></tr>
+<tr><td>Borrowing Cost by Lender</td><td>Debt, share, weighted rate and interest paid per lender.</td></tr>
+<tr><td>Security Register</td><td>Collateral pledged, value, registration, expiry and cover over the outstanding balance.</td></tr>
+</table>
+
+<h3>What it does not do</h3>
+<ul>
+<li>The schedule is contractual: it is rebuilt on a rate change, but a part-prepayment reduces principal without re-amortising the remaining instalments.</li>
+<li>No commitment fees, hedging instruments, trade finance or bonds issued.</li>
+<li>The liquidity forecast uses open customer and supplier invoices and loan schedules; it does not forecast tax remittances or payroll, and it assumes receivables are collected on their due date.</li>
+<li>Covenant results are entered by you; the system does not compute the ratio from the ledger.</li>
+<li>Tested on SQLite; not yet looked at in a real browser.</li>
+</ul>
+
+</section>
+<section id="support" data-g="Other modules" data-t="support ticket sla service level agreement team escalation canned reply working hours pause breach satisfaction">
+<h2><span class="n">25</span>Support desk and service levels</h2>
+
+<p class="lead">Tickets with owners and clocks. Screen: <b>Support Desk</b> (<code>#/support</code>). Records: Support Ticket (with replies), Service Level Agreement (with priority targets), Support Team (with members), Support Category, Canned Reply, Support Settings.</p>
+<h3>How the clocks work</h3>
+<ul>
+<li>Each priority (Low, Medium, High, Urgent) has a <b>response</b> and a <b>resolution</b> target in hours or minutes.</li>
+<li>Targets count in <b>working time</b>: working days, working hours, holidays and time zone from the agreement, or 24x7.</li>
+<li>Agreement choice: customer-specific beats category-specific beats the default agreement.</li>
+<li>Status <b>Waiting on Customer</b> pauses the clock; the due time moves by the paused period when work resumes.</li>
+<li>SLA states: On track, At risk, Met, Breached, Paused. A job runs every minute to refresh them.</li>
+<li>One escalation per breach goes to the agreement's <i>escalate to</i> user, otherwise the Support Settings escalation user; notification events <code>support_sla_at_risk</code> and <code>support_sla_breached</code> can alert people.</li>
+<li>Resolved tickets close automatically after <i>auto close days</i> (daily job); a customer can reopen; satisfaction can be recorded.</li>
+</ul>
+<h3>Assignment</h3>
+<p>A Support Team assigns by <i>Nobody (the team picks)</i>, <i>Round robin</i> or <i>Least loaded</i>. Source of a ticket: Phone, Email, WhatsApp, Portal, Walk-in, Internal. Requester: Customer, Employee, Other.</p>
+<h3>Set it up in ten minutes</h3>
+<ol class="steps">
+<li>Support Settings: default priority, default team, auto-close days, escalation user.</li>
+<li>Create Support Categories.</li>
+<li>Create a Support Team and add members (agents) with the assignment rule.</li>
+<li>Create the default Service Level Agreement: working days and hours, holidays, time zone, targets per priority.</li>
+<li>Optionally a stricter SLA for a key customer.</li>
+<li>Add Canned Replies for common answers.</li>
+<li>Create a Notification Rule on <code>support_sla_breached</code> to SMS the team lead.</li>
+</ol>
+<h3>Daily work</h3>
+<p>The Support Desk shows KPIs (open, due soon, breached, first-response time, resolution time), the queue, workload by agent, ageing, trend and categories. On a ticket use <b>Reply</b> (<code>POST /api/support/tickets/{name}/reply</code>) and <b>Assign</b> (<code>.../assign</code>); the summary is <code>GET /api/support/summary</code>.</p>
+<div class="warn"><b>Not built:</b> portal customers can raise tickets but cannot yet reply from the portal; inbound email-to-ticket is not included.</div>
+
+</section>
+<section id="portals" data-g="Other modules" data-t="portal customer supplier access complaint invoices orders self service public">
+<h2><span class="n">26</span>Portals</h2>
+
+<p class="lead">Customers and suppliers sign in separately from staff. Admin screen: <b>Portal Access</b> (<code>#/portal-access</code>); records: Portal Account, Customer Complaint.</p>
+<ul>
+<li>Create a portal account for a customer contact; the person sets a password with throttled sign-in.</li>
+<li>A customer sees an overview, their invoices and orders, and their complaints.</li>
+<li>Raising a complaint through the portal creates a Customer Complaint <i>and</i> a Support Ticket, so the complaint has an owner and a service-level clock; the portal shows the ticket and its status.</li>
+<li>What each portal user may see is defined by providers registered by VeloraERP; administrators cannot expose more than the providers allow.</li>
+</ul>
+
+</section>
+<section id="comms" data-g="Other modules" data-t="notifications broadcast email sms whatsapp events erp alerts maturity sla statements">
+<h2><span class="n">27</span>Notifications and broadcasts in the ERP</h2>
+
+<p class="lead">Install <code>velora_notify</code> and use these ready-made hooks.</p>
+<table><tr><th>Want to</th><th>Do</th></tr>
+<tr><td>Warn when an invoice becomes overdue</td><td>Notification Rule on Sales Invoice, <i>Days after</i> due date, condition on status, channel Email and SMS with the customer phone field.</td></tr>
+<tr><td>Alert treasury before maturity</td><td>Custom-event rule <code>investment_maturing</code> to a Treasury role.</td></tr>
+<tr><td>Alert on SLA risk or breach</td><td>Custom-event rules <code>support_sla_at_risk</code> and <code>support_sla_breached</code>.</td></tr>
+<tr><td>Tell approvers a document is waiting</td><td>Rule on Submit or Value Change of the status field, recipient role Finance Manager.</td></tr>
+<tr><td>Send statements or notices to all customers</td><td>Broadcast Centre, audience: records of Customer, filter by group, email field and phone field mapped.</td></tr>
+<tr><td>Remind employees of probation end</td><td>Rule on Probation Review, N days before the review date.</td></tr>
+</table>
+<p>The full manual for rules, SMS and WhatsApp gateways, test sends and the Broadcast Centre is in the framework manual (sections Notifications and Broadcast Centre).</p>
+
+</section>
+<section id="auto" data-g="Reference" data-t="automation scheduler jobs daily hourly every minute accrual depreciation reconciliation sla maturity">
+<h2><span class="n">28</span>What runs by itself</h2>
+
+<table><tr><th>When</th><th>Task</th></tr>
+<tr><td>Every minute</td><td>Scheduled attendance device syncs; Support SLA check (states, escalation); Broadcast sending tick (notification app)</td></tr>
+<tr><td>Hourly</td><td>Scheduled bank reconciliation auto-match (banks that opted in)</td></tr>
+<tr><td>Daily</td><td>Due recognition schedule instalments; due accrual reversals; investment month-end accrual (only if auto accrue is on); investment maturity watch; support auto-close of resolved tickets; tax filing deadlines created from the ledger and reminders raised; loan positions refreshed, a draft month-end Interest Accrual prepared in the first days of each month (never posted until you submit it), and repayment, covenant and expiry reminders raised</td></tr>
+</table>
+<p>All times are UTC on the server. The worker must be running (the web server runs it unless started with <code>--no-worker</code>).</p>
+
+</section>
+<section id="screens" data-g="Reference" data-t="screens routes centres desk links urls hash">
+<h2><span class="n">29</span>Screens and centres: where things are</h2>
+
+<p>The <b>sidebar</b> has one entry per application area, each opening a hub that groups its documents, reports and setup: Finance, HR &amp; People, Projects, Administration, Business Insights, Engagement, Customer Support, Governance, <b>Tax Management</b>, <b>Debt &amp; Treasury</b> and Investments. Inside a hub, records are arranged in named sections (for example Debt &amp; Treasury: Lenders &amp; Facilities, Loans &amp; Drawdowns, Repayments &amp; Interest, Covenants &amp; Risk, Setup) and a search box finds any document, report or centre. You only see what your roles allow. The centres below are the screens that summarise an area and tell you what needs attention.</p>
+
+<table><tr><th>Screen</th><th>Route</th><th>For</th></tr>
+<tr><td>Shortcut Hub</td><td><code>#/shortcuts</code></td><td>Search every record type and screen, pin favourites</td></tr>
+<tr><td>Financial Reporting Centre</td><td><code>#/financial-centre</code></td><td>Statements, review, publication</td></tr>
+<tr><td>Bank Reconciliation</td><td><code>#/bank-reconciliation</code></td><td>Import, match, confirm, lock</td></tr>
+<tr><td>Budget Workbench</td><td><code>#/budgets</code></td><td>Plan, scenarios, allocate</td></tr>
+<tr><td>Controls Check</td><td><code>#/controls-check</code></td><td>Receivable and payable findings</td></tr>
+<tr><td>GL Review</td><td><code>#/gl-review</code></td><td>Analytical review of the ledger</td></tr>
+<tr><td>Finance Requests</td><td><code>#/finance/requests</code></td><td>Staff requests to Finance with policy and workflow</td></tr>
+<tr><td>My Finance</td><td><code>#/finance/me</code></td><td>Employee view of advances, loans, requests</td></tr>
+<tr><td>Operational Centre</td><td><code>#/operational-centre</code></td><td>Operational documents overview</td></tr>
+<tr><td>Investment Portfolio</td><td><code>#/investments</code></td><td>Holdings, allocation, maturities</td></tr>
+<tr><td>Tax Centre</td><td><code>#/tax-centre</code></td><td>Tax position, deadlines, adviser, report library</td></tr>
+<tr><td>Treasury Centre</td><td><code>#/treasury-centre</code></td><td>Debt, headroom, cash runway, covenants, currency exposure</td></tr>
+<tr><td>Support Desk</td><td><code>#/support</code></td><td>Queue, SLA, workload</td></tr>
+<tr><td>Broadcast Centre</td><td><code>#/broadcasts</code></td><td>Bulk messages</td></tr>
+<tr><td>Employee 360, Leave, Governance</td><td><code>#/hr/employee</code>, <code>#/hr/leave</code>, <code>#/hr/governance</code></td><td>HR operations</td></tr>
+<tr><td>Recruitment</td><td><code>#/recruitment</code></td><td>Pipeline</td></tr>
+<tr><td>My HR, My and Team Performance, Training</td><td><code>#/hr/me</code>, <code>#/hr/performance</code>, <code>#/hr/team-performance</code>, <code>#/hr/training</code></td><td>Self-service and managers</td></tr>
+<tr><td>Portal Access</td><td><code>#/portal-access</code></td><td>Create and manage portal users</td></tr>
+<tr><td>Corrections Inbox</td><td><code>#/corrections</code></td><td>Review document corrections</td></tr>
+<tr><td>Workflows (builder), Customize Form</td><td><code>#/settings</code> &rarr; Workflows, Customize Form</td><td>Draw approvals; change labels, required, hidden and add fields on any record type</td></tr>
+<tr><td>Update Centre (with database speed), Company Setup, Rules</td><td><code>#/updates</code>, <code>#/settings/company-setup</code>, <code>#/rules</code></td><td>Platform administration</td></tr>
+</table>
+
+</section>
+<section id="monthend" data-g="Reference" data-t="month end checklist routine daily weekly close tutorial">
+<h2><span class="n">30</span>Routine checklists</h2>
+
+<h3>Daily</h3>
+<ul><li>Support Desk: breached and at-risk tickets.</li><li>Bank reconciliation: import new statement lines, auto-match, confirm.</li><li>Notifications inbox and Dead deliveries.</li></ul>
+<h3>Weekly</h3>
+<ul><li>Controls Check findings cleared or explained.</li><li>Ageing: chase overdue customers; plan supplier payments.</li><li>Investment Portfolio: upcoming maturities.</li></ul>
+<h3>Month end</h3>
+<ol class="steps">
+<li>All documents for the month submitted (or deliberately left in draft); no pending approvals.</li>
+<li>Run depreciation; post accruals and recognition schedules; run investment accrual.</li>
+<li>Payroll posted and paid; statutory remittances prepared.</li>
+<li>Reconcile bank, receivables, payables, inventory and fixed assets.</li>
+<li>Run GL Review against the prior month or the same month last year; document answers.</li>
+<li>Review budget variances.</li>
+<li>Prepare the Financial Period Close checklist with evidence; approve and submit.</li>
+<li>Publish reports through the reporting review and publication workflow.</li>
+</ol>
+<h3>Year end</h3>
+<ol class="steps"><li>All twelve periods closed.</li><li>Disclosure notes and schedules reviewed.</li><li>Year End Close submitted.</li><li>Back up the company and run a restore rehearsal.</li></ol>
+
+</section>
+<section id="data" data-g="Reference" data-t="import migration opening data excel csv ecclesia upgrade migrate backup">
+<h2><span class="n">31</span>Loading and moving data</h2>
+
+<ul>
+<li>Use the framework importer (Excel, CSV, JSON) for the chart of accounts, customers, suppliers, items, employees and opening documents: always <b>Check file</b> first.</li>
+<li>Load <b>master data before transactions</b>; load opening balances last, then compare the trial balance with your old system's.</li>
+<li>Whole-company moves: export and import with <i>Keep the IDs</i>, or use the migration package (including attachments) from <code>#/migration</code>.</li>
+<li>Back up before large imports: <code>velora backup --all</code>.</li>
+</ul>
+
+</section>
+<section id="limits" data-g="Reference" data-t="limits not built honest verified open items known gaps tested">
+<h2><span class="n">32</span>What is verified, and what is not</h2>
+
+<div class="cards">
+<div class="card"><b>Tested</b>Automated tests on SQLite only. Framework (1.19.2): 2,396 passed, 54 skipped, 1 failed (it needs outside DNS, which this sandbox lacks). ERP: 630 passed, 1 skipped, 0 failed. Velora Admin 68 passed; Governance 203 passed; ProjectOne 276 passed; Desk 723 passed, with type-check and production build clean. New and tested in 2.106.0: People &amp; Access on a real two-company platform (one-step add and first sign-in with the temporary password, a role typo refused with a suggestion and nothing created, an existing sign-in given access without a new password, no managing another company, the last System Manager protected, role changes and removals reaching the company database); errors that help (framework rules, ERP rules over the REST API, the Desk error box and its buttons); notes that do not block (stale exchange rate); quick approval and the built-in Workflow State gating a Sales Order until it is approved. New in 1.19.2: creating a company with VeloraERP in either app order, duplicating with setup sections, a failed duplicate removed again, grant access refused as a whole when one role is wrong, the Update Centre stopping before maintenance for a bad wheel, and built wheels containing every data file. Earlier releases: rounding, asset actions, revaluation, expected credit loss, provisions, Debt and Treasury.</div>
+<div class="card"><b>Looked at in a real browser</b>Not in this release. The Tax Centre, Treasury Centre, hubs and reports are covered by component and API tests, not yet by eye. Earlier releases were looked at for Get Items From (Purchase Receipt from two Purchase Orders) and the Customer Credit Exposure Run, Export to Excel and Print buttons.</div>
+<div class="card"><b>Not tested here</b>PostgreSQL runs; live SMS, WhatsApp and SMTP gateways; delivery of tax and treasury reminders (rules must exist and the channel must be connected); a real upgrade of a production company.</div>
+<div class="card"><b>Not built yet</b>Asset-by-asset capital allowances; a dividend declaration document; transfer pricing, tax audit and dispute cases; re-amortising a loan after a part-prepayment; commitment fees, hedging, trade finance and bonds issued; computing covenant ratios from the ledger; bond effective-interest amortisation; FVOCI reserve recycling; portal ticket replies and email-to-ticket; period reopening workflow; Excel import and export of child tables alone; GitHub &ldquo;new update&rdquo; notice; Dynamic Link field; separate doctype and module permission editors; Bank Reconciliation as a single document type. Payroll tax is deliberately untouched by Tax Management. From the 2.106.0 audit: a guided inventory net-realisable-value assessment (Stock Revaluation can write stock down meanwhile); a receivable write-off document that uses the loss allowance; credit notes netted in the expected-credit-loss exposure; approval workflows for Stock Entry, Purchase Receipt, Delivery Note, Sales Order, Purchase Order and Salary Slip (they have no approval field yet, so a maker-checker workflow cannot be drawn for them); an install-time country and currency wizard.</div>
+</div>
+<p>Do a parallel run on real data before you switch over: post a month in both systems and compare the trial balance, receivables, payables, stock, loan balances and payroll.</p>
+
+</section>
+<section id="faq" data-g="Reference" data-t="faq questions glossary delivery note quality inspection correct mistake approval">
+<h2 id="payroll-automation">Payroll that sets itself up</h2>
+<ol>
+<li><b>Once:</b> open <b>Payroll Automation Settings</b>. Choose the tax jurisdiction and PAYE rule, the default salary structure, the Base Salary % of Gross Pay and the payroll payable account. Rent relief is 20% of annual rent up to 500,000 unless you change it.</li>
+<li><b>Rent relief:</b> add an <b>Employee Rent Declaration</b> (employee, tax year, annual rent, proof). Set Status to Verified. The relief goes into the employee's tax profile and PAYE at once. A Draft declaration gives no relief.</li>
+<li><b>Which cost selling prices are built on:</b> in <b>Inventory Settings</b>, <i>Cost Used for Pricing</i> chooses Last Purchase Cost, Simple Average of Last Purchases or Weighted Average of Last Purchases (the last 3 to 5 purchases; the weighted one counts quantities), , FIFO (the oldest stock still on hand), Highest of These (the dearest of all methods, the safest), or Current Inventory Valuation. An Item Group or an individual Item can choose its own; the order is Item, then Item Group, then Inventory Settings. <i>Minimum Profit (%)</i> stops any sale below cost plus that percentage, at invoice and again at dispatch; zero means only "not below cost". Press <b>Explain Pricing</b> on a Sales Order or Sales Invoice for a step-by-step story of how each price was reached: the cost method and why, every method's cost, the margin and its source, the conversion, your profit and the lowest allowed rate.</li>
+<li><b>Fixed or attendance pay:</b> in <b>Payroll Automation Settings</b> choose the company's <b>Default Pay Basis</b> (Fixed Monthly or Attendance Based). In <b>Pay Basis by Staff Category</b> add a staff category (for example Factory Workers) and its basis. An Employee's own <b>Pay Basis</b> overrides both; leave it on Follow Policy to use the policy. Attendance Based people are paid for the days credited from approved Attendance (Present, Work From Home, Outdoor Duty, Holiday, Weekly Off and On Leave count a day, Half Day counts half, Absent counts none); only salary components ticked <b>Prorate by Attendance</b> shrink. Fixed people are paid the full period. Someone with no approved attendance is left out of the run and listed, never paid zero silently.</li>
+<li><b>Each pay period:</b> open <b>Payroll Preparation</b>, choose the period and Save. Missing tax profiles and salary assignments are created and a draft Payroll Run is built. The <b>Needs Attention</b> table says who and what to fix; fix it and Save again. Then submit the Payroll Run in the usual way.</li>
+<li>NHF, NSITF and pension are components of your Salary Structure. The preparation warns when the structure lacks one.</li>
+</ol>
+<h2 id="whats-new-2106">What is new in 2.106.0: people, approvals and helpful errors</h2>
+<ul>
+<li><b>People &amp; Access</b> (sidebar, and Customers &amp; Partners hub): add a person in one step. Type the email and name, tick what they do (Accountant, Finance Manager, Auditor, Sales, Purchasing, Store and inventory, HR, Payroll, Projects, Support desk, Employee self-service), press <b>Add person</b>. A new person gets a temporary password shown once; someone who already has a Velora sign-in just gains this company. <i>Change access</i> uses tick boxes; <i>Remove</i> takes access away. Role names are checked, so a typo is caught with a suggestion. The company's only System Manager cannot be removed. A company's System Manager can do all this for their own company; nobody else's.</li>
+<li><b>Approvals in one line</b>: in Settings &gt; Workflows, the <i>Quick approval</i> row asks who approves (and, if you want, who gives the final approval), then fills the tables: Draft, Pending Approval, Approved, Rejected, with the person who raised a document never approving it. Every submittable document now has a built-in <i>Workflow State</i>, so an approval can be switched on for Sales Order, Purchase Order, Delivery Note, Purchase Receipt or Salary Slip without Customize Form.</li>
+<li><b>Errors that help</b>: when something cannot be saved or submitted, the message now says <b>How to fix it</b>, with buttons that open the screen that fixes it (Finance Settings, a new Financial Year, an exchange rate, a depreciation run) and <i>Go to the field</i>. Controls still stop what must stop (an unbalanced entry, a closed period); the difference is that you are told what to do.</li>
+<li><b>Notes that do not block</b>: some things are worth knowing but should not stop you. For example, when the exchange rate used is more than a week old, the document saves and a note appears with a link to add today's rate. A foreign document with no rate at all is refused, with a link to add one.</li>
+</ul>
+<h2 id="whats-new-2105">What is new in 2.105.0: the full review</h2>
+<ul>
+<li><b>Act from the asset</b>: an active Fixed Asset now has <b>Create</b> actions: <i>Revalue</i>, <i>Dispose</i>, <i>Impairment Test</i>, <i>Transfer</i> and <i>Adjust Component</i>. Each opens its own document new and unsaved, already filled from the asset (carrying amount, accounts, location); complete it and Save. Nothing is created if you walk away. A disposed asset offers no actions.</li>
+<li><b>Depreciation first</b> (IAS 16): a disposal or revaluation is refused until depreciation has been run to the end of the month before its date, so the gain, loss or surplus is not distorted by missing depreciation.</li>
+<li><b>Foreign-currency rounding</b>: a foreign invoice, receipt or payment with several lines could be refused because each line rounds separately (for example three lines of 10.01 USD at 1,500.5). The cent difference now goes to the <b>Exchange Rounding Account</b> in Finance Settings (or, if empty, the realised exchange gain or loss account). A difference larger than rounding is still refused.</li>
+<li><b>Time zones</b>: attendance integrations no longer assume Lagos; choose the time zone (a device may leave it blank to use its integration's). Service level agreements default to UTC.</li>
+</ul>
+<h2 id="whats-new-2104">What is new in 2.104.0: the module audit</h2>
+<ul>
+<li><b>Realised exchange differences</b>: a foreign invoice settled at another rate now clears at its booked rate; the difference goes to the realised gain or loss account in Finance Settings.</li>
+<li><b>Foreign Currency Revaluation</b>: at period end, restates foreign receivables, payables, bank, loans and accruals to the closing rate; unrealised gain or loss posted per currency; can reverse itself the next day.</li>
+<li><b>Expected Credit Loss Assessment</b> (IFRS 9) and <b>Provision Entry</b> (IAS 37): see chapter 12.</li>
+<li><b>Sample approval workflows</b>: Stock Entry, Purchase Receipt, Delivery Note, Sales Order, Purchase Order and Salary Slip each have a sample workflow named <i>SAMPLE (off) - &hellip; Approval</i> offered in the starter list in Settings &gt; Workflows. Nothing is installed by itself: a System Manager installs the ones wanted, and they are saved switched off and nothing depends on them; open one to learn the shape (Pending, Approved, Rejected, a different person approving), change the roles to suit you, and switch it on only when you want it. Stock Entry uses its existing Entry Status field; the other five need a Select field <i>Approval Status</i> added first with Customize Form.</li>
+<li><b>No assumed currency</b>: the base currency comes from your installation.</li>
+</ul>
+<h2 id="whats-new-2103">What is new in 2.103.0</h2>
+<ul>
+<li><b>Debt &amp; Treasury</b> (2.103.0): lenders, facilities, drawdowns with repayment schedules, interest accrual, repayments with withholding tax on interest, facility amendments that reprice floating loans, covenant tests, a daily watch, 12 reports, the Treasury Centre and an advisor. See section &ldquo;Debt and Treasury&rdquo;.</li>
+<li><b>Tax Report Library clean-up</b> (2.102.0): 60 duplicate or misleading report names removed (125 distinct reports remain); only reports that run are listed; a division by zero on books with no tax postings fixed.</li>
+<li><b>Tax Report Library</b> (2.101.0): one report running the tax reports by area, searchable from the Tax Centre.</li>
+<li><b>Withholding tax, company income tax and the Tax Centre</b> (2.100.0): Tax Journal (customers, suppliers, dividends, interest, rent, fees), federal and state jurisdictions, automatic WHT and VAT deadlines with penalty exposure and reminders, Income Tax Computation with account tax treatment, the Tax Adviser and two AI advisors, WHT All Sources, WHT Register, WHT Position by Party, sample Receipt, Official Receipt and Payment Voucher print formats, and amount in words in every print format.</li>
+<li><b>Tax Management</b> (2.99.0): tax jurisdictions, categories, rules with bands, settings, obligations and returns, the Tax Ledger read from the general ledger, and invoice lines that follow approved tax rules.</li>
+<li><b>Accounting fix</b> (2.98.0): Stock Received But Not Billed now clears when a receipt uses a unit-of-measure conversion factor. Existing invoices posted before the fix are not corrected automatically: cancel and amend them. <b>Preview Entry</b> button on submittable Finance documents shows the entries a draft will post or a submitted document posted.</li>
+<li><b>Group consolidation and Waybills</b> (2.97.0): Consolidation Group and Consolidation Centre (each member read with your own roles in that company; a missing exchange rate stops that company instead of being guessed; differences are reported, not forced away); a Waybill can be made from a Sales Invoice or Sales Order, with partial consignments.</li>
+<li><b>Engagement, portals, passwords and Business Insights</b> (2.96.0): birthdays, anniversaries and festive messages (held until released); employee portal; one password standard with administrator-issued temporary passwords and Forgot password; simple two-table workflow designer; 14 decision reports in the Business Insights hub.</li>
+</ul>
+<h2 id="whats-new-295">What is new in 2.95.4</h2>
+<ul>
+<li><b>App Hub</b> (sidebar): one page per application &mdash; Finance, HR &amp; People, Projects, Inventory, Administrative and so on &mdash; with every document, report and setting of that app in one place. Projects has a single sidebar entry.</li>
+<li><b>Payment and Receipt</b>: for an ordinary payment or receipt enter the party, account and amount on the form; the line table is only for splitting one payment across several lines or invoices. Debit/Credit (Entry Side) is no longer asked: a Payment debits the expense or payable, a Receipt credits the income or receivable.</li>
+<li><b>Purchase Receipt policy</b>: Inventory Settings can require a Purchase Receipt for stock purchases; each Inventory Item can override it (Follow Inventory Settings / Required / Not Required). Services, fixed assets and non-stock items never need one.</li>
+<li><b>Non-stock items</b>: untick Maintain Stock and the item shows only what applies, with its accounts and an option to spread the cost over a number of periods (recorded on the item together with the prepaid account).</li>
+<li><b>Reports from a record</b>: Reports menu on Account (Account Ledger), Inventory Item and Warehouse (stock reports), Customer, Supplier and Fixed Asset.</li>
+<li><b>Repairs and maintenance of an asset</b>: choose the asset on a Purchase Invoice line or Journal Entry line; the Fixed Asset Maintenance Cost report totals the cost per asset.</li>
+<li><b>Document signing</b>: every user sets My Signature (top bar). Tick Sign Approved Documents in Finance Settings and each approval adds the signature and time to the document; print formats can show <code>{{approval_signatures}}</code>.</li>
+<li><b>Reports</b>: search any row, columns fit their text, dates read dd/mm/yyyy; Excel export has the title, an Exported-on line with the record count and filters, a dark-blue header with filter arrows, banded rows and a Total records footer.</li>
+<li><b>Printing</b>: a printed invoice opens in a new tab with the right company (fixes &ldquo;Select a company to work in&rdquo;).</li>
+</ul>
+<h2><span class="n">33</span>Questions people ask</h2>
+
+<table><tr><th>Question</th><th>Answer</th></tr>
+<tr><td>I posted a wrong document. How do I fix it?</td><td>Cancel it (the Cancel button needs the cancel right), then Amend or Duplicate it and submit the correct version. Cancelling removes its postings from the ledgers and keeps a log of what was removed; if other submitted documents depend on it the dialog lists them and offers Cancel All.</td></tr>
+<tr><td>Who can approve?</td><td>Whoever the document's workflow names (Settings &rarr; Workflows). With no workflow switched on nothing needs approval. Tick &ldquo;the creator cannot approve&rdquo; in the workflow if you want a maker-checker rule.</td></tr>
+<tr><td>It says I can only receive goods through a Purchase Order.</td><td>That restriction is gone (2.87). A Purchase Receipt or Delivery Note can be made with no order, or filled with <b>Get Items From</b>. If you still see it, you are on an older build: upgrade to 2.89.0.</td></tr>
+<tr><td>Can I put several orders on one receipt or invoice?</td><td>Yes. In <b>Get Items From</b> tick as many open orders (or receipts) as you like, as long as they are the same supplier or customer and the same currency.</td></tr>
+<tr><td>The picker shows nothing.</td><td>Only submitted, not closed documents with open quantity of the same party and currency are offered. Check the order is submitted and not already fully received or billed.</td></tr>
+<tr><td>The first column of a table is something technical.</td><td>It should not be: tables open with at most six useful columns. Add or hide columns with the Columns button on the table.</td></tr>
+<tr><td>Can I stop overspending?</td><td>Yes: budget control mode Warn or Block, with tolerance and override authority.</td></tr>
+<tr><td>Why can't I change an item's valuation method?</td><td>Because stock movements already exist; changing it would silently rewrite history.</td></tr>
+<tr><td>Where is the Delivery Note's effect on accounts?</td><td>It issues stock from the warehouse (checked against the cost floor so you do not sell below cost when that rule is on); revenue and tax are posted by the Sales Invoice.</td></tr>
+<tr><td>A notification did not arrive.</td><td>Check Notification Delivery (Retry or Dead), the worker, and use Send test.</td></tr>
+<tr><td>How do I give a clerk access to only their own records?</td><td>Add a row-level policy with <code>equals_user</code> on owner (framework manual, Security).</td></tr>
+<tr><td>Can one company see another's data?</td><td>No. Each company has its own database.</td></tr>
+</table>
+<p>Companion document: the Velora framework tutorial and manual (installation, commands, building apps, notifications, security, operations).</p>
+
+</section>
+<footer>VeloraERP 2.106.1 on Velora 1.19.2 &middot; user manual<br>Powered by <b>Velora BiZ Solutions</b></footer>
+</main>
+</div>
+<script>
+(function(){
+  var secs=[].slice.call(document.querySelectorAll("section[id]")), nav=document.getElementById("nav");
+  var last=null;nav.innerHTML=secs.map(function(s){var h=s.querySelector("h2"),g=s.getAttribute("data-g"),pre="";if(g&&g!==last){pre='<div class="grp">'+g+'</div>';last=g}return pre+'<a href="#'+s.id+'">'+h.textContent.replace(/^(\d+)/,'$1. ')+'</a>'}).join("");
+  var links=[].slice.call(nav.querySelectorAll("a"));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id)})}})},{rootMargin:"-20% 0px -70% 0px"});
+  secs.forEach(function(s){io.observe(s)});
+  links.forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open")})});
+  document.getElementById("menu").onclick=function(){nav.classList.toggle("open")};
+  document.querySelectorAll("pre").forEach(function(p){var b=document.createElement("button");b.className="cp";b.textContent="Copy";b.onclick=function(){var t=p.querySelector("code").innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent="Copied"},function(){b.textContent="Select + copy"});setTimeout(function(){b.textContent="Copy"},1600)};p.appendChild(b)});
+  var q=document.getElementById("q");
+  q.addEventListener("input",function(){var t=q.value.trim().toLowerCase();secs.forEach(function(s){var hit=!t||(s.textContent+" "+(s.getAttribute("data-t")||"")).toLowerCase().indexOf(t)>=0;s.classList.toggle("hide",!hit)});links.forEach(function(a,i){a.classList.toggle("hide",secs[i].classList.contains("hide"))})});
+  var th=document.getElementById("theme"),root=document.documentElement,saved=null;try{saved=localStorage.getItem("veloraerp-manual-theme")}catch(e){}
+  if(saved)root.setAttribute("data-theme",saved);else if(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)root.setAttribute("data-theme","dark");
+  th.onclick=function(){var d=root.getAttribute("data-theme")==="dark"?"light":"dark";root.setAttribute("data-theme",d);try{localStorage.setItem("veloraerp-manual-theme",d)}catch(e){}};
+})();
+</script>
+</body>
+</html>

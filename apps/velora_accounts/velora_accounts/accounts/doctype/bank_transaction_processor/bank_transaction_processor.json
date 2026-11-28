@@ -1,0 +1,138 @@
+{
+  "name": "Bank Transaction Processor",
+  "module": "Accounts",
+  "autoname": "series:BTP-.#####",
+  "is_submittable": true,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "label": "Title",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank Account",
+      "options": "Account",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "statement_from",
+      "fieldtype": "Date",
+      "label": "Statement From",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "statement_to",
+      "fieldtype": "Date",
+      "label": "Statement To",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "opening_balance",
+      "fieldtype": "Currency",
+      "label": "Opening Balance"
+    },
+    {
+      "fieldname": "closing_balance",
+      "fieldtype": "Currency",
+      "label": "Closing Balance",
+      "description": "With the opening balance, proves the rows add up to the bank statement."
+    },
+    {
+      "fieldname": "statement_note",
+      "fieldtype": "Data",
+      "label": "Statement Check",
+      "read_only": true
+    },
+    {
+      "fieldname": "create_as",
+      "fieldtype": "Select",
+      "label": "Create Receipts/Payments as",
+      "options": [
+        "Draft",
+        "Submitted"
+      ],
+      "default": "Draft",
+      "description": "Draft = they wait for approval in Receipts/Payments. Submitted = posted to the ledger when this batch is submitted."
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Transactions",
+      "options": "Batch Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_inflow",
+      "fieldtype": "Currency",
+      "label": "Total Money In",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "total_outflow",
+      "fieldtype": "Currency",
+      "label": "Total Money Out",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accounts Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "submit": true,
+      "cancel": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Accounts User",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "name": "Facility Space",
+  "module": "Administration",
+  "autoname": "field:space_name",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "space_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Space Name",
+      "unique": 1,
+      "required": true
+    },
+    {
+      "default": "Room",
+      "fieldname": "space_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Space Type",
+      "options": "Building\nFloor\nRoom\nMeeting Room\nParking Area\nStorage Area\nWarehouse",
+      "required": true
+    },
+    {
+      "fieldname": "parent_facility_space",
+      "fieldtype": "Link",
+      "label": "Parent Facility Space",
+      "options": "Facility Space"
+    },
+    {
+      "default": "0",
+      "fieldname": "is_group",
+      "fieldtype": "Check",
+      "label": "Is Group"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Location",
+      "options": "Office Location",
+      "required": true
+    },
+    {
+      "fieldname": "capacity",
+      "fieldtype": "Int",
+      "label": "Capacity"
+    },
+    {
+      "default": "Active",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Active\nUnder Renovation\nOut of Service"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

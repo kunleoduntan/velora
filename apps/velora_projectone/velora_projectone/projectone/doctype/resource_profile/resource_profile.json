@@ -1,0 +1,145 @@
+{
+  "name": "Resource Profile",
+  "module": "Resources",
+  "track_changes": true,
+  "description": "Central resource pool profile for employees, contractors, consultants, equipment and facilities.",
+  "istable": false,
+  "fields": [
+    {
+      "fieldname": "resource_id",
+      "label": "Resource ID",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "display_name",
+      "label": "Display Name",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "resource_type",
+      "label": "Resource Type",
+      "fieldtype": "Select",
+      "options": [
+        "Employee",
+        "Consultant",
+        "Contractor",
+        "Equipment",
+        "Facility"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "department",
+      "label": "Department",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "job_title",
+      "label": "Job Title",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "manager",
+      "label": "Resource Manager",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "calendar_id",
+      "label": "Resource Calendar ID",
+      "fieldtype": "Link",
+      "options": "Resource Calendar"
+    },
+    {
+      "fieldname": "working_weekdays",
+      "label": "Working Weekdays",
+      "fieldtype": "Data",
+      "default": "0,1,2,3,4"
+    },
+    {
+      "fieldname": "daily_capacity_hours",
+      "label": "Daily Capacity Hours",
+      "fieldtype": "Float",
+      "default": 8
+    },
+    {
+      "fieldname": "cost_rate",
+      "label": "Cost Rate",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "billing_rate",
+      "label": "Billing Rate",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "active_from",
+      "label": "Active From",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "active_to",
+      "label": "Active To",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "active",
+      "label": "Active",
+      "fieldtype": "Check",
+      "default": true
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "resource_id"
+}

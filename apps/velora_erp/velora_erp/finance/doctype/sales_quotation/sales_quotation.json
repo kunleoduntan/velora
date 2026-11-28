@@ -1,0 +1,189 @@
+{
+  "name": "Sales Quotation",
+  "module": "Finance",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "document_date",
+      "label": "Quotation Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "valid_until",
+      "label": "Valid Until",
+      "fieldtype": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "party",
+      "label": "Customer",
+      "fieldtype": "Link",
+      "options": "Customer",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "customer_name",
+      "label": "Customer Name",
+      "fieldtype": "Data",
+      "fetch_from": "party.customer_name",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "label": "Source Document Type",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "source_document",
+      "label": "Source Document",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "length": 3,
+      "required": true,
+      "default": "@base_currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "label": "Exchange Rate",
+      "fieldtype": "Float",
+      "required": true,
+      "default": 1
+    },
+    {
+      "fieldname": "lines",
+      "label": "Order Lines",
+      "fieldtype": "Table",
+      "options": "Sales Quotation Line",
+      "required": true
+    },
+    {
+      "fieldname": "total_amount",
+      "label": "Quotation Total",
+      "fieldtype": "Currency",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "base_total_amount",
+      "fieldtype": "Currency",
+      "label": "Total (Base Currency)",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_comments",
+      "label": "Approval Comments",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "narration",
+      "label": "Narration",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "document_status",
+      "label": "Document Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Open",
+        "Expired",
+        "Partially Ordered",
+        "Ordered",
+        "Closed"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "is_submittable": true,
+  "autoname": "series:SQ-.########",
+  "description": "Non-posting customer quotation. Approved quotations can be converted to Sales Orders; prices and terms are retained."
+}

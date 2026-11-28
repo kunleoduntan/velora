@@ -1,0 +1,269 @@
+{
+  "name": "Conflict of Interest Declaration",
+  "module": "Governance",
+  "autoname": "series:COI-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board_member",
+      "fieldtype": "Link",
+      "label": "Board Member",
+      "options": "Board Member",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board"
+    },
+    {
+      "fieldname": "committee",
+      "fieldtype": "Link",
+      "label": "Committee",
+      "options": "Board Committee"
+    },
+    {
+      "fieldname": "declaration_date",
+      "fieldtype": "Date",
+      "label": "Declaration Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "declaration_period",
+      "fieldtype": "Data",
+      "label": "Declaration Period",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "conflict_category",
+      "fieldtype": "Select",
+      "label": "Conflict Category",
+      "options": [
+        "Financial",
+        "Employment",
+        "Family",
+        "Business",
+        "Professional",
+        "Political/Public",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "conflict_type",
+      "fieldtype": "Select",
+      "label": "Conflict Type",
+      "options": [
+        "Actual",
+        "Potential",
+        "Perceived"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "related_party",
+      "fieldtype": "Data",
+      "label": "Related Party",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "conflict_description",
+      "fieldtype": "Text",
+      "label": "Conflict Description",
+      "required": true,
+      "permlevel": 1
+    },
+    {
+      "fieldname": "mitigation_plan",
+      "fieldtype": "Text",
+      "label": "Mitigation Plan",
+      "permlevel": 1
+    },
+    {
+      "fieldname": "declaration_status",
+      "fieldtype": "Select",
+      "label": "Declaration Status",
+      "options": [
+        "Declared",
+        "Under Review",
+        "Mitigation Required",
+        "Cleared",
+        "Escalated",
+        "Closed"
+      ],
+      "default": "Declared",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reviewed_by",
+      "fieldtype": "Data",
+      "label": "Reviewed By"
+    },
+    {
+      "fieldname": "reviewed_on",
+      "fieldtype": "Date",
+      "label": "Reviewed On"
+    },
+    {
+      "fieldname": "resolution",
+      "fieldtype": "Link",
+      "label": "Resolution",
+      "options": "Board Resolution"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    },
+    {
+      "fieldname": "renewal_date",
+      "fieldtype": "Date",
+      "label": "Renewal Date",
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "System Manager",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Governance Administrator",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Company Secretary",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "permlevel": 1,
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "board_member"
+}

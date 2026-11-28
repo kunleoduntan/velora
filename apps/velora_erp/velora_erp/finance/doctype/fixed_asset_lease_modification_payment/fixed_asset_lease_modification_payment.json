@@ -1,0 +1,22 @@
+{
+  "name": "Fixed Asset Lease Modification Payment",
+  "module": "Finance",
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "payment_amount",
+      "fieldtype": "Currency",
+      "label": "Revised Payment",
+      "required": true,
+      "in_list_view": true
+    }
+  ],
+  "istable": true
+}

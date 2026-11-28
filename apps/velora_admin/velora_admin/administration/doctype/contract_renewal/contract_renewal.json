@@ -1,0 +1,44 @@
+{
+  "name": "Contract Renewal",
+  "module": "Administration",
+  "autoname": "hash",
+  "is_submittable": false,
+  "istable": true,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "renewal_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Renewal Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "previous_end_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Previous End Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "new_end_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "New End Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "renewed_by",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Renewed By",
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Notes"
+    }
+  ]
+}

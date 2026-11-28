@@ -1,0 +1,80 @@
+{
+  "name": "Administrative Visitor",
+  "module": "Administration",
+  "autoname": "field:title",
+  "istable": false,
+  "is_submittable": false,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Visitor Name",
+      "fieldtype": "Data",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "organization",
+      "label": "Organization",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "host",
+      "label": "Host Employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "visit_date",
+      "label": "Visit Date",
+      "fieldtype": "Date",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "arrival_time",
+      "label": "Arrival Time",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "departure_time",
+      "label": "Departure Time",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "purpose",
+      "label": "Visit Purpose",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Expected\nChecked In\nChecked Out\nCancelled",
+      "default": "Expected",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "badge_number",
+      "label": "Visitor Badge",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "share": 1
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "name": "Payroll Run Employee",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "One employee calculation line within a Payroll Run.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": false
+    },
+    {
+      "fieldname": "salary_assignment",
+      "fieldtype": "Link",
+      "label": "Salary Structure Assignment",
+      "options": "Salary Structure Assignment",
+      "required": true
+    },
+    {
+      "fieldname": "base_salary",
+      "fieldtype": "Currency",
+      "label": "Base Salary",
+      "read_only": true
+    },
+    {
+      "fieldname": "days_worked",
+      "fieldtype": "Float",
+      "label": "Days Worked"
+    },
+    {
+      "fieldname": "days_in_period",
+      "fieldtype": "Float",
+      "label": "Days in Period"
+    },
+    {
+      "fieldname": "overtime_hours",
+      "fieldtype": "Float",
+      "label": "Overtime Hours"
+    },
+    {
+      "fieldname": "input_values",
+      "fieldtype": "JSON",
+      "label": "Payroll Inputs"
+    },
+    {
+      "fieldname": "loan_recovery_allocations",
+      "fieldtype": "JSON",
+      "label": "Loan Recovery Allocations"
+    },
+    {
+      "fieldname": "loan_recovery_summary",
+      "fieldtype": "JSON",
+      "label": "Loan Recovery Protection and Allocation Summary",
+      "read_only": true
+    },
+    {
+      "fieldname": "advance_recovery_allocations",
+      "fieldtype": "JSON",
+      "label": "Advance Recovery Allocations"
+    },
+    {
+      "fieldname": "calculation_lines",
+      "fieldtype": "JSON",
+      "label": "Calculated Components",
+      "read_only": true
+    },
+    {
+      "fieldname": "gross_earnings",
+      "fieldtype": "Currency",
+      "label": "Gross Earnings",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_deductions",
+      "fieldtype": "Currency",
+      "label": "Employee Deductions",
+      "read_only": true
+    },
+    {
+      "fieldname": "loan_repayments",
+      "fieldtype": "Currency",
+      "label": "Loan Repayments",
+      "read_only": true
+    },
+    {
+      "fieldname": "advance_recoveries",
+      "fieldtype": "Currency",
+      "label": "Advance Recoveries",
+      "read_only": true
+    },
+    {
+      "fieldname": "employer_contributions",
+      "fieldtype": "Currency",
+      "label": "Employer Contributions",
+      "read_only": true
+    },
+    {
+      "fieldname": "net_pay",
+      "fieldtype": "Currency",
+      "label": "Net Pay",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "total_employer_cost",
+      "fieldtype": "Currency",
+      "label": "Total Employer Cost",
+      "read_only": true
+    },
+    {
+      "fieldname": "salary_slip",
+      "fieldtype": "Link",
+      "label": "Salary Slip",
+      "options": "Salary Slip",
+      "read_only": true
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "input_status",
+      "fieldtype": "Select",
+      "label": "Input Status",
+      "options": [
+        "Pending",
+        "Complete"
+      ],
+      "default": "Pending",
+      "read_only": true
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre Override",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "tax_credit_amount",
+      "fieldtype": "Currency",
+      "label": "Approved PAYE Refund / Credit",
+      "read_only": true,
+      "default": 0
+    },
+    {
+      "fieldname": "tax_computation",
+      "fieldtype": "JSON",
+      "label": "Tax Computation Breakdown",
+      "read_only": true
+    },
+    {
+      "fieldname": "payroll_input_refs",
+      "fieldtype": "JSON",
+      "label": "Applied Payroll Input References",
+      "read_only": true
+    }
+  ],
+  "istable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

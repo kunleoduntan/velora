@@ -1,0 +1,274 @@
+{
+  "name": "Recognition Schedule",
+  "module": "Finance",
+  "autoname": "series:RS-.########",
+  "is_submittable": true,
+  "track_changes": true,
+  "description": "Monthly recognition schedule for prepaid expenses or deferred income. Each period posts through the central Financial Posting Engine.",
+  "fields": [
+    {
+      "fieldname": "schedule_type",
+      "fieldtype": "Select",
+      "label": "Schedule Type",
+      "options": [
+        "Prepayment",
+        "Deferred Income"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "fieldtype": "Select",
+      "label": "Source Document Type",
+      "options": [
+        "Payment",
+        "Receipt",
+        "Purchase Invoice"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "source_document",
+      "fieldtype": "Data",
+      "label": "Source Payment or Receipt",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_line",
+      "fieldtype": "Data",
+      "label": "Source Invoice Line",
+      "depends_on": "eval:doc.source_doctype == \"Purchase Invoice\""
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "First Recognition Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "frequency",
+      "fieldtype": "Select",
+      "label": "Frequency",
+      "options": [
+        "Monthly",
+        "Quarterly",
+        "Half-yearly",
+        "Yearly"
+      ],
+      "default": "Monthly",
+      "required": true
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date",
+      "description": "Optional final date covered by the schedule. When supplied, Period Count is calculated from Frequency and Start Date."
+    },
+    {
+      "fieldname": "period_count",
+      "fieldtype": "Int",
+      "label": "Number of Monthly Periods",
+      "required": true,
+      "default": 12,
+      "description": "Calculated from End Date when supplied; otherwise enter a period count. Existing Payment and Receipt schedules remain supported.",
+      "read_only_depends_on": "eval:doc.end_date"
+    },
+    {
+      "fieldname": "total_amount",
+      "fieldtype": "Currency",
+      "label": "Total to Recognise",
+      "required": true
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "read_only": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Float",
+      "label": "Exchange Rate",
+      "read_only": true
+    },
+    {
+      "fieldname": "accounts_section",
+      "fieldtype": "Section Break",
+      "label": "Recognition Accounts"
+    },
+    {
+      "fieldname": "balance_account",
+      "fieldtype": "Link",
+      "label": "Prepayment / Deferred Income Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "recognition_account",
+      "fieldtype": "Link",
+      "label": "Expense / Income Recognition Account",
+      "options": "Account",
+      "required": true,
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    },
+    {
+      "fieldname": "dimensions",
+      "fieldtype": "JSON",
+      "label": "Accounting Dimensions"
+    },
+    {
+      "fieldname": "posting_information",
+      "fieldtype": "Section Break",
+      "label": "Recognition Status"
+    },
+    {
+      "fieldname": "posting_batch_reference",
+      "fieldtype": "Data",
+      "label": "Source Posting Batch",
+      "read_only": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Independent Approval"
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_by",
+      "fieldtype": "Data",
+      "label": "Rejected By",
+      "read_only": true
+    },
+    {
+      "fieldname": "rejected_on",
+      "fieldtype": "Datetime",
+      "label": "Rejected On",
+      "read_only": true
+    },
+    {
+      "fieldname": "approval_comments",
+      "fieldtype": "Text",
+      "label": "Approval Comments"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

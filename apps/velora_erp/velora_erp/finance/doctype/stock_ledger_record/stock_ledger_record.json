@@ -1,0 +1,170 @@
+{
+  "name": "Stock Ledger Record",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Immutable quantity and valuation history. Only the Inventory Engine may create records.",
+  "fields": [
+    {
+      "fieldname": "posting_date",
+      "label": "Posting Date",
+      "fieldtype": "Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_code",
+      "label": "Inventory Item",
+      "fieldtype": "Link",
+      "options": "Inventory Item",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "warehouse",
+      "label": "Warehouse",
+      "fieldtype": "Link",
+      "options": "Warehouse",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "actual_qty",
+      "label": "Quantity Change",
+      "fieldtype": "Float",
+      "required": true
+    },
+    {
+      "fieldname": "qty_after_transaction",
+      "label": "Quantity After Transaction",
+      "fieldtype": "Float",
+      "required": true
+    },
+    {
+      "fieldname": "valuation_rate",
+      "label": "Valuation Rate",
+      "fieldtype": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "stock_value_difference",
+      "label": "Stock Value Difference",
+      "fieldtype": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "stock_value_after_transaction",
+      "label": "Stock Value After Transaction",
+      "fieldtype": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "serial_number",
+      "label": "Serial Number",
+      "fieldtype": "Link",
+      "options": "Serial Number"
+    },
+    {
+      "fieldname": "batch",
+      "label": "Batch",
+      "fieldtype": "Link",
+      "options": "Batch"
+    },
+    {
+      "fieldname": "voucher_type",
+      "label": "Source Document Type",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "voucher_no",
+      "label": "Source Document",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "voucher_detail_no",
+      "label": "Source Line",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "valuation_layer_reference",
+      "label": "Valuation Layer Reference",
+      "fieldtype": "Data",
+      "read_only": true,
+      "description": "Identifies the original FIFO receipt layer affected by a landed cost or layer-specific valuation adjustment."
+    },
+    {
+      "fieldname": "remarks",
+      "label": "Remarks",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "autoname": "hash"
+}

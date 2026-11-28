@@ -1,0 +1,1 @@
+"""Fulfilment Template native DocType."""

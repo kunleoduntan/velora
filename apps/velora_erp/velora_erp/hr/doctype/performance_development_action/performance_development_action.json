@@ -1,0 +1,60 @@
+{
+  "name": "Performance Development Action",
+  "module": "HR",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "action",
+      "fieldtype": "Data",
+      "label": "Development Action",
+      "required": true
+    },
+    {
+      "fieldname": "action_type",
+      "fieldtype": "Select",
+      "label": "Action Type",
+      "options": [
+        "Training",
+        "Coaching",
+        "Mentoring",
+        "Job Rotation",
+        "Stretch Assignment",
+        "Certification",
+        "Other"
+      ],
+      "default": "Training"
+    },
+    {
+      "fieldname": "action_owner",
+      "fieldtype": "Link",
+      "label": "Owner",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Open",
+        "In Progress",
+        "Completed",
+        "Deferred",
+        "Cancelled"
+      ],
+      "default": "Open"
+    },
+    {
+      "fieldname": "completion_notes",
+      "fieldtype": "Text",
+      "label": "Completion Notes"
+    }
+  ],
+  "permissions": [],
+  "istable": true
+}

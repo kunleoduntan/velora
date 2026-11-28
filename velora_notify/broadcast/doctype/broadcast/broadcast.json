@@ -1,0 +1,302 @@
+{
+ "name": "Broadcast",
+ "module": "Notify",
+ "autoname": "series:BC-.#####",
+ "title_field": "title",
+ "track_changes": true,
+ "description": "One message to many people, by email, SMS or WhatsApp, with an audience taken from any record type, scheduling, opt-outs and delivery tracking.",
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "required": true,
+   "in_list_view": true,
+   "length": 200
+  },
+  {
+   "fieldname": "channel",
+   "fieldtype": "Select",
+   "label": "Channel",
+   "options": [
+    "Email",
+    "SMS",
+    "WhatsApp"
+   ],
+   "default": "Email",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": [
+    "Draft",
+    "Scheduled",
+    "Sending",
+    "Sent",
+    "Partly Sent",
+    "Cancelled"
+   ],
+   "default": "Draft",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "column_break_a",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Start from template",
+   "options": "Message Template",
+   "description": "Copies the template's subject and message the first time it is chosen."
+  },
+  {
+   "fieldname": "sender_name",
+   "fieldtype": "Data",
+   "label": "Signed as",
+   "description": "Shown to the reader as {{ sender_name }}.",
+   "length": 140
+  },
+  {
+   "fieldname": "scheduled_for",
+   "fieldtype": "Datetime",
+   "label": "Send at",
+   "description": "Leave empty to send when you press Send now. Time is UTC."
+  },
+  {
+   "fieldname": "message_section",
+   "fieldtype": "Section Break",
+   "label": "Message"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject",
+   "depends_on": "eval:doc.channel == 'Email'",
+   "mandatory_depends_on": "eval:doc.channel == 'Email'",
+   "length": 250
+  },
+  {
+   "fieldname": "message_is_html",
+   "fieldtype": "Check",
+   "label": "The message is HTML",
+   "default": 0,
+   "depends_on": "eval:doc.channel == 'Email'"
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Text",
+   "label": "Message",
+   "required": true
+  },
+  {
+   "fieldname": "video_url",
+   "fieldtype": "Data",
+   "label": "Video or link",
+   "depends_on": "eval:doc.channel == 'Email'",
+   "description": "Available in the message as {{ video_url }}.",
+   "length": 500
+  },
+  {
+   "fieldname": "options_section",
+   "fieldtype": "Section Break",
+   "label": "Email options",
+   "depends_on": "eval:doc.channel == 'Email'"
+  },
+  {
+   "fieldname": "reply_to",
+   "fieldtype": "Data",
+   "label": "Replies go to",
+   "length": 254
+  },
+  {
+   "fieldname": "cc",
+   "fieldtype": "Data",
+   "label": "Copy (CC) every message to",
+   "description": "Comma separated.",
+   "length": 500
+  },
+  {
+   "fieldname": "bcc",
+   "fieldtype": "Data",
+   "label": "Blind copy (BCC)",
+   "description": "Comma separated.",
+   "length": 500
+  },
+  {
+   "fieldname": "include_attachments",
+   "fieldtype": "Check",
+   "label": "Send attached files with each message",
+   "default": 1,
+   "description": "Pictures are shown inside the message; other files go as attachments. Attach files to this broadcast first."
+  },
+  {
+   "fieldname": "audience_tab",
+   "fieldtype": "Tab Break",
+   "label": "Audience"
+  },
+  {
+   "fieldname": "audience_source",
+   "fieldtype": "Select",
+   "label": "Who receives it",
+   "options": [
+    "Records of a document type",
+    "A typed list",
+    "Both"
+   ],
+   "default": "A typed list",
+   "required": true
+  },
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Data",
+   "label": "Document type",
+   "depends_on": "eval:doc.audience_source != 'A typed list'",
+   "mandatory_depends_on": "eval:doc.audience_source != 'A typed list'",
+   "length": 140,
+   "description": "For example Customer, Employee, Lead or Member."
+  },
+  {
+   "fieldname": "source_filters",
+   "fieldtype": "JSON",
+   "label": "Only records where",
+   "depends_on": "eval:doc.audience_source != 'A typed list'",
+   "description": "A list such as [[\"status\",\"=\",\"Active\"],[\"city\",\"=\",\"Lagos\"]]."
+  },
+  {
+   "fieldname": "name_field",
+   "fieldtype": "Data",
+   "label": "Name field",
+   "depends_on": "eval:doc.audience_source != 'A typed list'",
+   "length": 140
+  },
+  {
+   "fieldname": "email_field",
+   "fieldtype": "Data",
+   "label": "Email field",
+   "depends_on": "eval:doc.audience_source != 'A typed list' && doc.channel == 'Email'",
+   "length": 140
+  },
+  {
+   "fieldname": "phone_field",
+   "fieldtype": "Data",
+   "label": "Phone field",
+   "depends_on": "eval:doc.audience_source != 'A typed list' && doc.channel != 'Email'",
+   "length": 140
+  },
+  {
+   "fieldname": "salutation_field",
+   "fieldtype": "Data",
+   "label": "Salutation field",
+   "depends_on": "eval:doc.audience_source != 'A typed list'",
+   "length": 140
+  },
+  {
+   "fieldname": "recipients",
+   "fieldtype": "Table",
+   "label": "Recipients",
+   "options": "Broadcast Recipient",
+   "description": "Typed recipients are used as entered. 'Build recipients' adds the people found in the document type."
+  },
+  {
+   "fieldname": "results_tab",
+   "fieldtype": "Tab Break",
+   "label": "Results"
+  },
+  {
+   "fieldname": "total_recipients",
+   "fieldtype": "Int",
+   "label": "People",
+   "read_only": true
+  },
+  {
+   "fieldname": "queued_count",
+   "fieldtype": "Int",
+   "label": "Waiting to send",
+   "read_only": true
+  },
+  {
+   "fieldname": "sent_count",
+   "fieldtype": "Int",
+   "label": "Sent",
+   "read_only": true
+  },
+  {
+   "fieldname": "failed_count",
+   "fieldtype": "Int",
+   "label": "Failed",
+   "read_only": true
+  },
+  {
+   "fieldname": "skipped_count",
+   "fieldtype": "Int",
+   "label": "Skipped",
+   "read_only": true
+  },
+  {
+   "fieldname": "opted_out_count",
+   "fieldtype": "Int",
+   "label": "Opted out",
+   "read_only": true
+  },
+  {
+   "fieldname": "column_break_b",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "send_rate_per_minute",
+   "fieldtype": "Int",
+   "label": "Messages per minute",
+   "default": 120,
+   "description": "Spreads a large broadcast out so the mail server or gateway is not overloaded."
+  },
+  {
+   "fieldname": "started_on",
+   "fieldtype": "Datetime",
+   "label": "Started",
+   "read_only": true
+  },
+  {
+   "fieldname": "finished_on",
+   "fieldtype": "Datetime",
+   "label": "Finished",
+   "read_only": true
+  },
+  {
+   "fieldname": "test_to",
+   "fieldtype": "Data",
+   "label": "Send a test to",
+   "description": "An email address or phone number. Test messages are not counted.",
+   "length": 254
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Broadcast Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true
+  }
+ ]
+}

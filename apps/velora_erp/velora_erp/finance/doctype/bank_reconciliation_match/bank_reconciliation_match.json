@@ -1,0 +1,142 @@
+{
+  "name": "Bank Reconciliation Match",
+  "module": "Finance",
+  "autoname": "series:BRM-.########",
+  "track_changes": true,
+  "description": "Links bank statement lines and ledger records into balanced match groups. A group is reconciled when its statement side equals its ledger side.",
+  "fields": [
+    {
+      "fieldname": "bank_account",
+      "fieldtype": "Link",
+      "label": "Bank Account",
+      "options": "Bank Account",
+      "required": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "match_group",
+      "fieldtype": "Data",
+      "label": "Match Group",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "statement_line",
+      "fieldtype": "Link",
+      "label": "Statement Line",
+      "options": "Bank Statement Line",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "ledger_record",
+      "fieldtype": "Link",
+      "label": "Ledger Record",
+      "options": "Account Ledger Record",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "signed_amount",
+      "fieldtype": "Currency",
+      "label": "Amount (+ in / - out)",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Suggested",
+        "Confirmed",
+        "Rejected"
+      ],
+      "default": "Suggested",
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "method",
+      "fieldtype": "Select",
+      "label": "Method",
+      "options": [
+        "Reference",
+        "Exact Amount",
+        "Scored",
+        "Split / Combined",
+        "Reversal Pair",
+        "Statement Reversal",
+        "Manual",
+        "Posted from Statement"
+      ],
+      "in_list_view": true
+    },
+    {
+      "fieldname": "confidence",
+      "fieldtype": "Float",
+      "label": "Confidence",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Reason",
+      "description": "Plain-language explanation of why these were matched."
+    },
+    {
+      "fieldname": "reconciliation",
+      "fieldtype": "Link",
+      "label": "Reconciliation",
+      "options": "Bank Reconciliation",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "submit": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "report": true
+    }
+  ]
+}

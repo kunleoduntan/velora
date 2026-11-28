@@ -1,0 +1,180 @@
+{
+  "name": "Project Budget Change",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Governed request to transfer, increase or decrease approved project budget authority.",
+  "fields": [
+    {
+      "fieldname": "change_id",
+      "label": "Change ID",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "budget",
+      "label": "Approved Budget",
+      "fieldtype": "Link",
+      "options": "Project Budget",
+      "required": true
+    },
+    {
+      "fieldname": "change_type",
+      "label": "Change Type",
+      "fieldtype": "Select",
+      "options": [
+        "Transfer",
+        "Increase",
+        "Decrease"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "from_cost_category",
+      "label": "From Cost Category",
+      "fieldtype": "Link",
+      "options": "Project Cost Category"
+    },
+    {
+      "fieldname": "to_cost_category",
+      "label": "To Cost Category",
+      "fieldtype": "Link",
+      "options": "Project Cost Category"
+    },
+    {
+      "fieldname": "amount",
+      "label": "Change Amount",
+      "fieldtype": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "options": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "reason_code",
+      "label": "Reason Code",
+      "fieldtype": "Select",
+      "options": [
+        "Scope Change",
+        "Risk Response",
+        "Estimate Correction",
+        "Management Reserve",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "justification",
+      "label": "Justification",
+      "fieldtype": "Text",
+      "required": true
+    },
+    {
+      "fieldname": "effective_date",
+      "label": "Effective Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "created_by",
+      "label": "Created By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "submitted_on",
+      "label": "Submitted On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "approval_reference",
+      "label": "Approval Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "rejection_reason",
+      "label": "Rejection Reason",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "change_id"
+}

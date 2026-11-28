@@ -1,0 +1,60 @@
+{
+  "name": "Service Form Field",
+  "module": "Administration",
+  "istable": true,
+  "is_submittable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "field_label",
+      "fieldtype": "Data",
+      "label": "Field Label",
+      "required": true
+    },
+    {
+      "fieldname": "fieldname",
+      "fieldtype": "Data",
+      "label": "Field Name",
+      "required": true
+    },
+    {
+      "fieldname": "fieldtype",
+      "fieldtype": "Select",
+      "label": "Field Type",
+      "required": true,
+      "options": "Data\nText\nSmall Text\nInt\nFloat\nCurrency\nDate\nDatetime\nCheck\nSelect\nLink"
+    },
+    {
+      "fieldname": "options",
+      "fieldtype": "Text",
+      "label": "Options / Link Target"
+    },
+    {
+      "fieldname": "required",
+      "fieldtype": "Check",
+      "label": "Required",
+      "default": "0"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Help Text"
+    },
+    {
+      "fieldname": "validation_rule",
+      "fieldtype": "Text",
+      "label": "Validation Rule"
+    },
+    {
+      "fieldname": "default_value",
+      "fieldtype": "Data",
+      "label": "Default Value"
+    },
+    {
+      "fieldname": "sort_order",
+      "fieldtype": "Int",
+      "label": "Sort Order",
+      "default": "10"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "name": "Board Meeting",
+  "module": "Governance",
+  "autoname": "series:BMT-.####",
+  "track_changes": true,
+  "description": "Board and committee meeting scheduling, agenda, papers, attendance and quorum tracking.",
+  "fields": [
+    {
+      "fieldname": "meeting_title",
+      "fieldtype": "Data",
+      "label": "Meeting Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "committee",
+      "fieldtype": "Link",
+      "label": "Committee",
+      "options": "Board Committee",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "meeting_type",
+      "fieldtype": "Link",
+      "label": "Meeting Type",
+      "options": "Governance Meeting Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "scheduled_start",
+      "fieldtype": "Datetime",
+      "label": "Scheduled Start",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "scheduled_end",
+      "fieldtype": "Datetime",
+      "label": "Scheduled End",
+      "required": true
+    },
+    {
+      "fieldname": "timezone",
+      "fieldtype": "Data",
+      "label": "Timezone",
+      "default": "Africa/Lagos"
+    },
+    {
+      "fieldname": "meeting_mode",
+      "fieldtype": "Select",
+      "label": "Meeting Mode",
+      "options": [
+        "In Person",
+        "Virtual",
+        "Hybrid"
+      ],
+      "default": "In Person",
+      "required": true
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Data",
+      "label": "Location"
+    },
+    {
+      "fieldname": "virtual_link",
+      "fieldtype": "Data",
+      "label": "Virtual Meeting Link"
+    },
+    {
+      "fieldname": "chair",
+      "fieldtype": "Link",
+      "label": "Chair",
+      "options": "Board Member"
+    },
+    {
+      "fieldname": "secretary",
+      "fieldtype": "Link",
+      "label": "Secretary",
+      "options": "Board Member"
+    },
+    {
+      "fieldname": "meeting_status",
+      "fieldtype": "Select",
+      "label": "Meeting Status",
+      "options": [
+        "Draft",
+        "Scheduled",
+        "In Progress",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "quorum_required",
+      "fieldtype": "Int",
+      "label": "Quorum Required"
+    },
+    {
+      "fieldname": "quorum_met",
+      "fieldtype": "Check",
+      "label": "Quorum Met",
+      "read_only": true
+    },
+    {
+      "fieldname": "agenda_items",
+      "fieldtype": "Table",
+      "label": "Agenda",
+      "options": "Board Meeting Agenda Item"
+    },
+    {
+      "fieldname": "attendance",
+      "fieldtype": "Table",
+      "label": "Attendance",
+      "options": "Board Meeting Attendance"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Governance Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "minutes",
+      "fieldtype": "Link",
+      "label": "Latest Minutes",
+      "options": "Board Meeting Minutes",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "meeting_title"
+}

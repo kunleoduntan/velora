@@ -1,0 +1,22 @@
+{
+ "name": "Emission Factor Gas",
+ "module": "Governance",
+ "track_changes": false,
+ "fields": [
+  {
+   "fieldname": "gas",
+   "fieldtype": "Data",
+   "label": "Gas",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "kg_per_unit",
+   "fieldtype": "Float",
+   "label": "kg of gas per unit",
+   "required": true,
+   "in_list_view": true
+  }
+ ],
+ "istable": true
+}

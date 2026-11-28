@@ -1,0 +1,57 @@
+{
+  "name": "Fixed Asset CGU Other Asset Impairment Line",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "reference_code",
+      "fieldtype": "Data",
+      "label": "Asset Reference",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "asset_type",
+      "fieldtype": "Data",
+      "label": "Asset Type",
+      "read_only": true
+    },
+    {
+      "fieldname": "carrying_amount_before",
+      "fieldtype": "Currency",
+      "label": "Carrying Amount Before",
+      "read_only": true
+    },
+    {
+      "fieldname": "recoverable_floor",
+      "fieldtype": "Currency",
+      "label": "Individual Recoverable Floor",
+      "read_only": true
+    },
+    {
+      "fieldname": "allocated_impairment",
+      "fieldtype": "Currency",
+      "label": "Allocated Impairment",
+      "read_only": true
+    },
+    {
+      "fieldname": "post_impairment_amount",
+      "fieldtype": "Currency",
+      "label": "Post-impairment Carrying Amount",
+      "read_only": true
+    },
+    {
+      "fieldname": "revaluation_surplus_release",
+      "fieldtype": "Currency",
+      "label": "Revaluation Surplus Release",
+      "read_only": true
+    },
+    {
+      "fieldname": "impairment_expense_amount",
+      "fieldtype": "Currency",
+      "label": "Impairment Expense",
+      "read_only": true
+    }
+  ],
+  "permissions": []
+}

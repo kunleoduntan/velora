@@ -1,0 +1,106 @@
+{
+  "name": "Item Group",
+  "module": "Finance",
+  "autoname": "field:group_name",
+  "description": "Classification tree for items (raw material, finished goods, spares).",
+  "fields": [
+    {
+      "fieldname": "group_name",
+      "fieldtype": "Data",
+      "label": "Group Name",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "parent_item_group",
+      "fieldtype": "Link",
+      "label": "Parent Item Group",
+      "options": "Item Group"
+    },
+    {
+      "fieldname": "is_group",
+      "fieldtype": "Check",
+      "label": "Is Group"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled"
+    },
+    {
+      "fieldname": "selling_cost_basis",
+      "label": "Cost Used for Pricing",
+      "fieldtype": "Select",
+      "options": [
+        "Follow Settings",
+        "Last Purchase Cost",
+        "Simple Average of Last Purchases",
+        "Weighted Average of Last Purchases",
+        "FIFO (Oldest Stock on Hand)",
+        "Highest of These (Safest)",
+        "Current Inventory Valuation"
+      ],
+      "default": "Follow Settings",
+      "description": "Items in this group (and its sub-groups) use this unless they choose their own."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": 1,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Accountant",
+      "read": 1,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": 1,
+      "export": 1,
+      "print": 1,
+      "report": true,
+      "email": true
+    }
+  ]
+}

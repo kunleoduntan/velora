@@ -1,0 +1,15 @@
+{
+  "name": "Credit Exposure by Group",
+  "module": "Demo",
+  "type": "summary",
+  "ref_doctype": "Customer",
+  "description": "Customers and credit limits by group and status - a declarative report: no code.",
+  "group_by": ["customer_group", "status"],
+  "measures": [
+    {"fn": "count", "label": "Customers"},
+    {"fn": "sum", "field": "credit_limit", "label": "Credit Limit"}
+  ],
+  "filters": [
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": ["Active", "Inactive", "Blocked"]}
+  ]
+}

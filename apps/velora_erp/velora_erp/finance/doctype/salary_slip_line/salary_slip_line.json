@@ -1,0 +1,138 @@
+{
+  "name": "Salary Slip Line",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Immutable calculated salary slip component snapshot.",
+  "fields": [
+    {
+      "fieldname": "component_code",
+      "fieldtype": "Data",
+      "label": "Component Code",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "component_name",
+      "fieldtype": "Data",
+      "label": "Component Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "component_type",
+      "fieldtype": "Data",
+      "label": "Component Type",
+      "required": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "taxable",
+      "fieldtype": "Check",
+      "label": "Taxable",
+      "default": 0
+    },
+    {
+      "fieldname": "pensionable",
+      "fieldtype": "Check",
+      "label": "Pensionable",
+      "default": 0
+    },
+    {
+      "fieldname": "hide_on_payslip",
+      "fieldtype": "Check",
+      "label": "Hide on Payslip",
+      "default": 0,
+      "description": "Keep the amount in the calculation and the ledger but do not show it to the employee on the payslip, e.g. employer pension expense and its liability."
+    },
+    {
+      "fieldname": "debit_account",
+      "fieldtype": "Link",
+      "label": "Debit Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "credit_account",
+      "fieldtype": "Link",
+      "label": "Credit Account",
+      "options": "Account",
+      "link_filters": [
+        [
+          "is_group",
+          "=",
+          0
+        ],
+        [
+          "disabled",
+          "=",
+          0
+        ]
+      ]
+    },
+    {
+      "fieldname": "cost_centre",
+      "fieldtype": "Link",
+      "label": "Cost Centre",
+      "options": "Cost Centre"
+    },
+    {
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+    }
+  ],
+  "istable": true,
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ]
+}

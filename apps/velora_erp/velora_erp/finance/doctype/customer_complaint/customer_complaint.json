@@ -1,0 +1,174 @@
+{
+  "name": "Customer Complaint",
+  "module": "Finance",
+  "autoname": "series:CC-.########",
+  "track_changes": true,
+  "description": "Auditable customer complaint register linked to commercial source documents. Complaint resolution does not automatically create a credit note or return.",
+  "fields": [
+    {
+      "fieldname": "complaint_date",
+      "label": "Complaint Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "customer",
+      "label": "Customer",
+      "fieldtype": "Link",
+      "options": "Customer",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "sales_invoice",
+      "label": "Sales Invoice",
+      "fieldtype": "Link",
+      "options": "Sales Invoice"
+    },
+    {
+      "fieldname": "delivery_note",
+      "label": "Delivery Note",
+      "fieldtype": "Link",
+      "options": "Delivery Note"
+    },
+    {
+      "fieldname": "category",
+      "label": "Complaint Category",
+      "fieldtype": "Select",
+      "options": [
+        "Product Quality",
+        "Wrong Item",
+        "Short Delivery",
+        "Late Delivery",
+        "Pricing or Billing",
+        "Service",
+        "Warranty",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "severity",
+      "label": "Severity",
+      "fieldtype": "Select",
+      "options": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "default": "Medium",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Complaint Description",
+      "fieldtype": "Text",
+      "required": true
+    },
+    {
+      "fieldname": "assigned_to",
+      "label": "Assigned To",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "resolution_status",
+      "label": "Resolution Status",
+      "fieldtype": "Select",
+      "options": [
+        "Open",
+        "Under Investigation",
+        "Awaiting Customer",
+        "Resolved",
+        "Closed",
+        "Rejected"
+      ],
+      "default": "Open",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "root_cause",
+      "label": "Root Cause",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "resolution",
+      "label": "Resolution",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "resolved_on",
+      "label": "Resolved On",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "related_return",
+      "label": "Related Sales Return",
+      "fieldtype": "Link",
+      "options": "Sales Return"
+    },
+    {
+      "fieldname": "related_replacement_order",
+      "label": "Replacement Sales Order",
+      "fieldtype": "Link",
+      "options": "Sales Order"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Sales Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Sales User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

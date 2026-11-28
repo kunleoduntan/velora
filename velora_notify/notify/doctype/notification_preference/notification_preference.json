@@ -1,0 +1,65 @@
+{
+  "name": "Notification Preference",
+  "module": "Notify",
+  "autoname": "field:user",
+  "fields": [
+    {
+      "fieldname": "user",
+      "fieldtype": "Data",
+      "label": "User",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "email_enabled",
+      "fieldtype": "Check",
+      "label": "Send me email",
+      "default": 1
+    },
+    {
+      "fieldname": "quiet_start",
+      "fieldtype": "Data",
+      "label": "Quiet hours start (HH:MM)"
+    },
+    {
+      "fieldname": "quiet_end",
+      "fieldtype": "Data",
+      "label": "Quiet hours end (HH:MM)"
+    },
+    {
+      "fieldname": "digest",
+      "fieldtype": "Select",
+      "label": "Email me",
+      "options": [
+        "Immediately",
+        "Hourly digest",
+        "Daily digest"
+      ],
+      "default": "Immediately"
+    },
+    {
+      "fieldname": "muted_rules",
+      "fieldtype": "Text",
+      "label": "Muted rules (one per line)"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true
+    },
+    {
+      "role": "Notification Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true
+    }
+  ]
+}

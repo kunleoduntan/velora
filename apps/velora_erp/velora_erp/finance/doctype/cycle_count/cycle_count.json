@@ -1,0 +1,115 @@
+{
+  "name": "Cycle Count",
+  "module": "Finance",
+  "track_changes": true,
+  "autoname": "series:CC-.######",
+  "description": "A counting round for one warehouse. Generate the sheet of items that are due, enter what was counted and post it: differences go to a Stock Reconciliation for approval.",
+  "fields": [
+    {
+      "fieldname": "count_date",
+      "fieldtype": "Date",
+      "label": "Count Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Warehouse",
+      "options": "Warehouse",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Counting",
+        "Posted"
+      ],
+      "default": "Draft",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "lines",
+      "fieldtype": "Table",
+      "label": "Items to Count",
+      "options": "Cycle Count Line"
+    },
+    {
+      "fieldname": "stock_reconciliation",
+      "fieldtype": "Link",
+      "label": "Stock Reconciliation",
+      "options": "Stock Reconciliation",
+      "read_only": true
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Accountant",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ]
+}

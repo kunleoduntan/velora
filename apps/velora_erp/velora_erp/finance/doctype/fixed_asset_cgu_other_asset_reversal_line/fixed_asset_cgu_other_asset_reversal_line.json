@@ -1,0 +1,45 @@
+{
+  "name": "Fixed Asset CGU Other Asset Reversal Line",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "reference_code",
+      "fieldtype": "Data",
+      "label": "Asset Reference",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Reversal Amount",
+      "required": true
+    },
+    {
+      "fieldname": "carrying_amount_before",
+      "fieldtype": "Currency",
+      "label": "Carrying Amount Before",
+      "read_only": true
+    },
+    {
+      "fieldname": "maximum_reversal",
+      "fieldtype": "Currency",
+      "label": "Maximum Permitted Reversal",
+      "read_only": true
+    },
+    {
+      "fieldname": "reversal_to_profit_or_loss",
+      "fieldtype": "Currency",
+      "label": "P&L Reversal",
+      "read_only": true
+    },
+    {
+      "fieldname": "reversal_to_revaluation_surplus",
+      "fieldtype": "Currency",
+      "label": "Revaluation Surplus Reversal",
+      "read_only": true
+    }
+  ],
+  "permissions": []
+}

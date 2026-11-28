@@ -1,0 +1,92 @@
+{
+  "name": "Administrative Travel Request",
+  "module": "Administration",
+  "autoname": "field:title",
+  "istable": false,
+  "is_submittable": false,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Travel Request",
+      "fieldtype": "Data",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "requester",
+      "label": "Requester",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "destination",
+      "label": "Destination",
+      "fieldtype": "Data",
+      "required": 1
+    },
+    {
+      "fieldname": "purpose",
+      "label": "Purpose",
+      "fieldtype": "Text",
+      "required": 1
+    },
+    {
+      "fieldname": "departure_date",
+      "label": "Departure Date",
+      "fieldtype": "Date",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "return_date",
+      "label": "Return Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "transport",
+      "label": "Transport",
+      "fieldtype": "Select",
+      "options": "Air\nRoad\nRail\nOther"
+    },
+    {
+      "fieldname": "accommodation_required",
+      "label": "Accommodation Required",
+      "fieldtype": "Check"
+    },
+    {
+      "fieldname": "estimated_cost",
+      "label": "Estimated Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Draft\nRequested\nApproved\nBooked\nIn Progress\nCompleted\nCancelled",
+      "default": "Draft",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "booking_reference",
+      "label": "Booking Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "share": 1
+    }
+  ]
+}

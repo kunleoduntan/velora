@@ -1,0 +1,136 @@
+{
+ "name": "Covenant Test",
+ "module": "Debt and Treasury",
+ "autoname": "series:COV-.######",
+ "track_changes": true,
+ "title_field": "covenant_name",
+ "description": "The result of testing one covenant on one date. The result is worked out from the measured value and the facility's covenant.",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "report": true,
+   "export": true,
+   "print": true
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "label": "Facility",
+   "options": "Financing Facility",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true,
+   "link_filters": [
+    [
+     "docstatus",
+     "=",
+     1
+    ]
+   ]
+  },
+  {
+   "fieldname": "covenant_name",
+   "fieldtype": "Data",
+   "label": "Covenant",
+   "required": true,
+   "in_list_view": true,
+   "description": "Exactly as named on the facility's covenant table."
+  },
+  {
+   "fieldname": "tested_on",
+   "fieldtype": "Date",
+   "label": "Tested on",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "actual_value",
+   "fieldtype": "Float",
+   "label": "Measured value",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "operator",
+   "fieldtype": "Data",
+   "label": "Must be",
+   "read_only": true
+  },
+  {
+   "fieldname": "threshold",
+   "fieldtype": "Float",
+   "label": "Limit",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "warning_margin",
+   "fieldtype": "Float",
+   "label": "Warn within",
+   "read_only": true
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Result",
+   "options": [
+    "Compliant",
+    "Warning",
+    "Breach"
+   ],
+   "in_list_view": true,
+   "in_standard_filter": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "headroom",
+   "fieldtype": "Float",
+   "label": "Headroom to the limit",
+   "read_only": true
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Text",
+   "label": "How it was measured / evidence"
+  },
+  {
+   "fieldname": "action_taken",
+   "fieldtype": "Text",
+   "label": "Action taken or waiver obtained"
+  }
+ ]
+}

@@ -1,0 +1,152 @@
+{
+  "name": "Maintenance Request",
+  "module": "Administration",
+  "autoname": "series:MREQ-.YYYY.-.####",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "MREQ-.YYYY.-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "facility_asset",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Facility Asset",
+      "options": "Facility Asset",
+      "required": true
+    },
+    {
+      "fieldname": "issue_description",
+      "fieldtype": "Text",
+      "label": "Issue Description",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Open",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Open\nAssigned\nIn Progress\nCompleted\nCancelled",
+      "read_only": 1
+    },
+    {
+      "default": "Medium",
+      "fieldname": "priority",
+      "fieldtype": "Select",
+      "label": "Priority",
+      "options": "Low\nMedium\nHigh\nUrgent"
+    },
+    {
+      "default": "0",
+      "fieldname": "auto_generated",
+      "fieldtype": "Check",
+      "label": "Auto-generated (Scheduled Maintenance)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_people",
+      "fieldtype": "Section Break",
+      "label": "People"
+    },
+    {
+      "fieldname": "reported_by",
+      "fieldtype": "Link",
+      "label": "Reported By",
+      "options": "Person"
+    },
+    {
+      "fieldname": "column_break_people",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Link",
+      "label": "Assigned To (Internal)",
+      "options": "Person"
+    },
+    {
+      "fieldname": "vendor",
+      "fieldtype": "Link",
+      "label": "Vendor",
+      "options": "Vendor Administration Profile"
+    },
+    {
+      "description": "Use only if the servicing party is not yet a registered Vendor",
+      "fieldname": "external_vendor_name",
+      "fieldtype": "Data",
+      "label": "External Vendor (unregistered)"
+    },
+    {
+      "fieldname": "section_break_dates",
+      "fieldtype": "Section Break",
+      "label": "Dates"
+    },
+    {
+      "default": "Today",
+      "fieldname": "reported_on",
+      "fieldtype": "Date",
+      "label": "Reported On",
+      "required": true
+    },
+    {
+      "fieldname": "scheduled_date",
+      "fieldtype": "Date",
+      "label": "Scheduled Date"
+    },
+    {
+      "fieldname": "column_break_dates",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "completed_on",
+      "fieldtype": "Date",
+      "label": "Completed On",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_resolution",
+      "fieldtype": "Section Break",
+      "label": "Resolution"
+    },
+    {
+      "fieldname": "resolution_notes",
+      "fieldtype": "Text",
+      "label": "Resolution Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

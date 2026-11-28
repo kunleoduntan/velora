@@ -1,0 +1,141 @@
+{
+  "name": "Vehicle",
+  "module": "Administration",
+  "autoname": "field:registration_number",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "registration_number",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Registration Number",
+      "unique": 1,
+      "required": true
+    },
+    {
+      "fieldname": "make",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Make",
+      "required": true
+    },
+    {
+      "fieldname": "model",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Model"
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Available",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Available\nIn Use\nUnder Maintenance\nDecommissioned",
+      "read_only": 1
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Link",
+      "label": "Location",
+      "options": "Office Location"
+    },
+    {
+      "fieldname": "section_break_driver",
+      "fieldtype": "Section Break",
+      "label": "Details"
+    },
+    {
+      "fieldname": "assigned_driver",
+      "fieldtype": "Link",
+      "label": "Assigned Driver",
+      "options": "Person"
+    },
+    {
+      "fieldname": "year",
+      "fieldtype": "Data",
+      "label": "Year"
+    },
+    {
+      "fieldname": "column_break_driver",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "vin",
+      "fieldtype": "Data",
+      "label": "VIN / Chassis No."
+    },
+    {
+      "fieldname": "section_break_compliance",
+      "fieldtype": "Section Break",
+      "label": "Compliance & Service"
+    },
+    {
+      "fieldname": "insurance_expiry",
+      "fieldtype": "Date",
+      "label": "Insurance Expiry"
+    },
+    {
+      "fieldname": "roadworthiness_expiry",
+      "fieldtype": "Date",
+      "label": "Roadworthiness / Inspection Expiry"
+    },
+    {
+      "fieldname": "column_break_compliance",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "last_service_date",
+      "fieldtype": "Date",
+      "label": "Last Service Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "next_service_date",
+      "fieldtype": "Date",
+      "label": "Next Service Due",
+      "read_only": 1
+    },
+    {
+      "default": "90",
+      "fieldname": "service_frequency_days",
+      "fieldtype": "Int",
+      "label": "Service Frequency (Days)"
+    },
+    {
+      "fieldname": "section_break_notes",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

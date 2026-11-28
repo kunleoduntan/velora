@@ -1,0 +1,39 @@
+{
+  "name": "Board Member Skill",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "skill",
+      "fieldtype": "Link",
+      "label": "Skill",
+      "options": "Governance Skill",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "skill_level",
+      "fieldtype": "Link",
+      "label": "Skill Level",
+      "options": "Governance Skill Level",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "years_experience",
+      "fieldtype": "Int",
+      "label": "Years Experience"
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "verified",
+      "fieldtype": "Check",
+      "label": "Verified",
+      "default": 0
+    }
+  ]
+}

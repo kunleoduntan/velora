@@ -1,0 +1,27 @@
+{
+ "name": "GWP Value",
+ "module": "Governance",
+ "track_changes": false,
+ "fields": [
+  {
+   "fieldname": "gas",
+   "fieldtype": "Data",
+   "label": "Gas",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "gwp",
+   "fieldtype": "Float",
+   "label": "GWP (100-year)",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Data",
+   "label": "Note"
+  }
+ ],
+ "istable": true
+}

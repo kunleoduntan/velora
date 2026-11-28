@@ -1,0 +1,153 @@
+{
+  "name": "Board Committee",
+  "module": "Governance",
+  "autoname": "series:BCTM-.####",
+  "track_changes": true,
+  "description": "Board committees, membership, tenure and terms of reference.",
+  "fields": [
+    {
+      "fieldname": "committee_name",
+      "fieldtype": "Data",
+      "label": "Committee Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Parent Board",
+      "options": "Board",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "committee_type",
+      "fieldtype": "Link",
+      "label": "Committee Type",
+      "options": "Board Committee Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "chair",
+      "fieldtype": "Link",
+      "label": "Chair",
+      "options": "Board Member"
+    },
+    {
+      "fieldname": "secretary",
+      "fieldtype": "Link",
+      "label": "Secretary",
+      "options": "Board Member"
+    },
+    {
+      "fieldname": "effective_from",
+      "fieldtype": "Date",
+      "label": "Effective From"
+    },
+    {
+      "fieldname": "effective_to",
+      "fieldtype": "Date",
+      "label": "Effective To"
+    },
+    {
+      "fieldname": "committee_status",
+      "fieldtype": "Select",
+      "label": "Committee Status",
+      "options": [
+        "Draft",
+        "Active",
+        "Inactive",
+        "Dissolved"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "quorum_required",
+      "fieldtype": "Int",
+      "label": "Quorum Required",
+      "default": 2
+    },
+    {
+      "fieldname": "terms_of_reference",
+      "fieldtype": "Data",
+      "label": "Terms of Reference File Reference"
+    },
+    {
+      "fieldname": "members",
+      "fieldtype": "Table",
+      "label": "Committee Members",
+      "options": "Board Committee Member"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "committee_name"
+}

@@ -1,0 +1,186 @@
+{
+  "name": "Board Action",
+  "module": "Governance",
+  "autoname": "series:BDA-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "action_title",
+      "fieldtype": "Data",
+      "label": "Action Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "committee",
+      "fieldtype": "Link",
+      "label": "Committee",
+      "options": "Board Committee"
+    },
+    {
+      "fieldname": "meeting",
+      "fieldtype": "Link",
+      "label": "Meeting",
+      "options": "Board Meeting"
+    },
+    {
+      "fieldname": "minutes",
+      "fieldtype": "Link",
+      "label": "Minutes",
+      "options": "Board Meeting Minutes"
+    },
+    {
+      "fieldname": "decision_sequence",
+      "fieldtype": "Int",
+      "label": "Decision Sequence"
+    },
+    {
+      "fieldname": "action_type",
+      "fieldtype": "Link",
+      "label": "Action Type",
+      "options": "Board Action Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_owner",
+      "fieldtype": "Data",
+      "label": "Assigned Owner",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "priority",
+      "fieldtype": "Select",
+      "label": "Priority",
+      "options": [
+        "Low",
+        "Normal",
+        "High",
+        "Critical"
+      ],
+      "default": "Normal",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "action_status",
+      "fieldtype": "Select",
+      "label": "Action Status",
+      "options": [
+        "Open",
+        "In Progress",
+        "Completed",
+        "Overdue",
+        "Cancelled"
+      ],
+      "default": "Open",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "progress_percent",
+      "fieldtype": "Int",
+      "label": "Progress Percent",
+      "default": 0
+    },
+    {
+      "fieldname": "completion_date",
+      "fieldtype": "Date",
+      "label": "Completion Date"
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "updates",
+      "fieldtype": "Table",
+      "label": "Updates",
+      "options": "Board Action Update"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "action_title"
+}

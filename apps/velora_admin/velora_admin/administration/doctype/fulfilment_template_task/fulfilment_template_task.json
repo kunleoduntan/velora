@@ -1,0 +1,60 @@
+{
+  "name": "Fulfilment Template Task",
+  "module": "Administration",
+  "istable": true,
+  "is_submittable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "task_title",
+      "fieldtype": "Data",
+      "label": "Task Title",
+      "required": true
+    },
+    {
+      "fieldname": "task_description",
+      "fieldtype": "Text",
+      "label": "Task Description"
+    },
+    {
+      "fieldname": "default_assignee",
+      "fieldtype": "Data",
+      "label": "Default Assignee"
+    },
+    {
+      "fieldname": "default_team",
+      "fieldtype": "Link",
+      "label": "Default Team",
+      "options": "Department"
+    },
+    {
+      "fieldname": "offset_days",
+      "fieldtype": "Int",
+      "label": "Due Offset Days",
+      "default": "0"
+    },
+    {
+      "fieldname": "sequence",
+      "fieldtype": "Int",
+      "label": "Sequence",
+      "default": "10"
+    },
+    {
+      "fieldname": "depends_on_sequence",
+      "fieldtype": "Int",
+      "label": "Depends on Sequence"
+    },
+    {
+      "fieldname": "evidence_required",
+      "fieldtype": "Check",
+      "label": "Evidence Required",
+      "default": "0"
+    },
+    {
+      "fieldname": "is_required",
+      "fieldtype": "Check",
+      "label": "Required Task",
+      "default": "1"
+    }
+  ]
+}

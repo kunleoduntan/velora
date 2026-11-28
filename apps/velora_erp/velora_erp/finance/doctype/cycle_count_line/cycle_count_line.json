@@ -1,0 +1,61 @@
+{
+  "name": "Cycle Count Line",
+  "module": "Finance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "fieldtype": "Link",
+      "label": "Item",
+      "options": "Inventory Item",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_name",
+      "label": "Item Name",
+      "fieldtype": "Data",
+      "fetch_from": "item_code.item_name",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "batch",
+      "fieldtype": "Link",
+      "label": "Batch",
+      "options": "Batch"
+    },
+    {
+      "fieldname": "abc_class",
+      "fieldtype": "Data",
+      "label": "Class",
+      "read_only": true
+    },
+    {
+      "fieldname": "system_qty",
+      "fieldtype": "Float",
+      "label": "In the Books",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "counted_qty",
+      "fieldtype": "Float",
+      "label": "Counted",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "variance",
+      "fieldtype": "Float",
+      "label": "Difference",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Data",
+      "label": "Reason for difference",
+      "length": 200
+    }
+  ]
+}

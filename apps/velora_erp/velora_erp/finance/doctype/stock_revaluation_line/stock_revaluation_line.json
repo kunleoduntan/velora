@@ -1,0 +1,128 @@
+{
+  "name": "Stock Revaluation Line",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "label": "Inventory Item",
+      "fieldtype": "Link",
+      "options": "Inventory Item",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "item_name",
+      "label": "Item Name",
+      "fieldtype": "Data",
+      "fetch_from": "item_code.item_name",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "warehouse",
+      "label": "Warehouse",
+      "fieldtype": "Link",
+      "options": "Warehouse",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "batch",
+      "label": "Batch",
+      "fieldtype": "Link",
+      "options": "Batch"
+    },
+    {
+      "fieldname": "serial_number",
+      "label": "Serial Number",
+      "fieldtype": "Link",
+      "options": "Serial Number"
+    },
+    {
+      "fieldname": "current_qty",
+      "label": "Current Quantity",
+      "fieldtype": "Float",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "current_rate",
+      "label": "Current Valuation Rate",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "current_value",
+      "label": "Current Stock Value",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "proposed_rate",
+      "label": "Proposed Valuation Rate",
+      "fieldtype": "Currency",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "proposed_value",
+      "label": "Proposed Stock Value",
+      "fieldtype": "Currency",
+      "read_only": true
+    },
+    {
+      "fieldname": "value_difference",
+      "label": "Value Adjustment",
+      "fieldtype": "Currency",
+      "read_only": true,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "write": true,
+      "create": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "autoname": "hash",
+  "istable": true
+}

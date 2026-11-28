@@ -1,0 +1,220 @@
+{
+  "name": "Attendance Integration",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Provider-neutral attendance integration endpoint and credential reference.",
+  "fields": [
+    {
+      "fieldname": "integration_code",
+      "fieldtype": "Data",
+      "label": "Integration Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "integration_name",
+      "fieldtype": "Data",
+      "label": "Integration Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "provider",
+      "fieldtype": "Select",
+      "label": "Provider",
+      "required": true,
+      "options": [
+        "ZKTeco BioTime",
+        "ZKTeco ADMS Gateway",
+        "eSSL",
+        "Hikvision",
+        "Suprema",
+        "Anviz",
+        "Matrix",
+        "Dahua",
+        "Generic REST API",
+        "CSV Import",
+        "SFTP Gateway"
+      ],
+      "in_list_view": true
+    },
+    {
+      "fieldname": "transport",
+      "fieldtype": "Select",
+      "label": "Transport",
+      "required": true,
+      "options": [
+        "REST API Pull",
+        "Normalised Event Push",
+        "CSV Import",
+        "SFTP Staging"
+      ],
+      "default": "REST API Pull"
+    },
+    {
+      "fieldname": "api_base_url",
+      "fieldtype": "Data",
+      "label": "API Base URL"
+    },
+    {
+      "fieldname": "attendance_endpoint",
+      "fieldtype": "Data",
+      "label": "Attendance Endpoint",
+      "default": "/att/api/firstLastReport/"
+    },
+    {
+      "fieldname": "credential_env",
+      "fieldtype": "Data",
+      "label": "Credential Environment Variable",
+      "description": "Name of server environment variable containing the API token; never store the token here."
+    },
+    {
+      "fieldname": "auth_scheme",
+      "fieldtype": "Select",
+      "label": "Authentication Scheme",
+      "options": [
+        "JWT",
+        "Bearer"
+      ],
+      "default": "JWT"
+    },
+    {
+      "fieldname": "timezone",
+      "fieldtype": "Data",
+      "label": "Timezone",
+      "required": true,
+      "description": "Time zone the punch clocks record in, as an IANA name such as Africa/Lagos, Europe/London or America/New_York."
+    },
+    {
+      "fieldname": "page_size",
+      "fieldtype": "Int",
+      "label": "Page Size",
+      "default": 100
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "last_sync_on",
+      "fieldtype": "Datetime",
+      "label": "Last Sync On",
+      "read_only": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "auto_sync_enabled",
+      "fieldtype": "Check",
+      "label": "Enable Scheduled Synchronisation",
+      "default": 0
+    },
+    {
+      "fieldname": "sync_frequency",
+      "fieldtype": "Select",
+      "label": "Synchronisation Frequency",
+      "options": [
+        "Every 15 Minutes",
+        "Hourly",
+        "Daily"
+      ],
+      "default": "Hourly"
+    },
+    {
+      "fieldname": "lookback_days",
+      "fieldtype": "Int",
+      "label": "Incremental Sync Lookback Days",
+      "default": 2
+    },
+    {
+      "fieldname": "health_status",
+      "fieldtype": "Select",
+      "label": "Connection Health",
+      "options": [
+        "Unknown",
+        "Healthy",
+        "Warning",
+        "Failed"
+      ],
+      "default": "Unknown",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "last_health_check",
+      "fieldtype": "Datetime",
+      "label": "Last Health Check",
+      "read_only": true
+    },
+    {
+      "fieldname": "consecutive_failures",
+      "fieldtype": "Int",
+      "label": "Consecutive Sync Failures",
+      "default": 0,
+      "read_only": true
+    },
+    {
+      "fieldname": "last_successful_sync_on",
+      "fieldtype": "Datetime",
+      "label": "Last Successful Sync",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "integration_name"
+}

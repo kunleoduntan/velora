@@ -1,0 +1,134 @@
+{
+  "name": "Board Succession Plan",
+  "module": "Governance",
+  "autoname": "series:BSP-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "planning_period",
+      "fieldtype": "Data",
+      "label": "Planning Period",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "plan_date",
+      "fieldtype": "Date",
+      "label": "Plan Date",
+      "required": true
+    },
+    {
+      "fieldname": "plan_status",
+      "fieldtype": "Select",
+      "label": "Plan Status",
+      "options": [
+        "Draft",
+        "In Review",
+        "Active",
+        "Completed",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "summary",
+      "fieldtype": "Text",
+      "label": "Summary"
+    },
+    {
+      "fieldname": "candidates",
+      "fieldtype": "Table",
+      "label": "Succession Candidates",
+      "options": "Board Succession Candidate"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "planning_period"
+}

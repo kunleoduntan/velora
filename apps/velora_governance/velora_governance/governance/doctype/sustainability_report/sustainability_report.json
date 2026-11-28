@@ -1,0 +1,197 @@
+{
+  "name": "Sustainability Report",
+  "module": "Governance",
+  "autoname": "series:SRP-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reporting_period",
+      "fieldtype": "Data",
+      "label": "Reporting Period",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "frameworks",
+      "fieldtype": "Table",
+      "label": "Frameworks",
+      "options": "Sustainability Report Framework"
+    },
+    {
+      "fieldname": "report_status",
+      "fieldtype": "Select",
+      "label": "Report Status",
+      "options": [
+        "Draft",
+        "In Progress",
+        "In Review",
+        "Finalized",
+        "Published",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "report_owner",
+      "fieldtype": "Data",
+      "label": "Report Owner"
+    },
+    {
+      "fieldname": "prepared_date",
+      "fieldtype": "Date",
+      "label": "Prepared Date"
+    },
+    {
+      "fieldname": "published_date",
+      "fieldtype": "Date",
+      "label": "Published Date"
+    },
+    {
+      "fieldname": "file_reference",
+      "fieldtype": "Data",
+      "label": "Report File Reference"
+    },
+    {
+      "fieldname": "sections",
+      "fieldtype": "Table",
+      "label": "Sections",
+      "options": "Sustainability Report Section"
+    },
+    {
+      "fieldname": "readiness_percent",
+      "fieldtype": "Float",
+      "label": "Readiness Percent",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "missing_sections",
+      "fieldtype": "Int",
+      "label": "Missing Sections",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assurance",
+      "fieldtype": "Link",
+      "label": "Assurance",
+      "options": "Sustainability Assurance"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "current_revision",
+      "fieldtype": "Int",
+      "label": "Current Revision",
+      "default": 1,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "finalized_at",
+      "fieldtype": "Datetime",
+      "label": "Finalized At",
+      "read_only": true
+    },
+    {
+      "fieldname": "published_at",
+      "fieldtype": "Datetime",
+      "label": "Published At",
+      "read_only": true
+    },
+    {
+      "fieldname": "finalization_notes",
+      "fieldtype": "Text",
+      "label": "Finalization Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "reporting_period"
+}

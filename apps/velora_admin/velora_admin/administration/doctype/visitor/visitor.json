@@ -1,0 +1,164 @@
+{
+  "name": "Visitor",
+  "module": "Administration",
+  "autoname": "series:VISITOR-.YYYY.-.####",
+  "title_field": "visitor_name",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "VISITOR-.YYYY.-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "visitor_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Visitor Name",
+      "required": true
+    },
+    {
+      "fieldname": "visitor_organisation",
+      "fieldtype": "Data",
+      "label": "Organisation"
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Pre-Registered",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Pre-Registered\nChecked In\nChecked Out\nNo Show",
+      "read_only": 1
+    },
+    {
+      "fieldname": "badge_number",
+      "fieldtype": "Data",
+      "label": "Badge Number"
+    },
+    {
+      "fieldname": "section_break_visit",
+      "fieldtype": "Section Break",
+      "label": "Visit Details"
+    },
+    {
+      "fieldname": "host",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Host",
+      "options": "Person",
+      "required": true
+    },
+    {
+      "fieldname": "purpose_of_visit",
+      "fieldtype": "Text",
+      "label": "Purpose of Visit"
+    },
+    {
+      "default": "Today",
+      "fieldname": "expected_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Expected Date",
+      "required": true
+    },
+    {
+      "fieldname": "column_break_visit",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Link",
+      "label": "Location",
+      "options": "Office Location"
+    },
+    {
+      "fieldname": "vehicle_number",
+      "fieldtype": "Data",
+      "label": "Vehicle Number"
+    },
+    {
+      "fieldname": "section_break_id",
+      "fieldtype": "Section Break",
+      "label": "Identification"
+    },
+    {
+      "fieldname": "id_type",
+      "fieldtype": "Select",
+      "label": "ID Type",
+      "options": "National ID\nDriver's License\nInternational Passport\nVoter's Card\nStaff ID (Other Company)\nOther"
+    },
+    {
+      "fieldname": "id_number",
+      "fieldtype": "Data",
+      "label": "ID Number"
+    },
+    {
+      "fieldname": "column_break_id",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "photo",
+      "fieldtype": "Data",
+      "label": "Photo"
+    },
+    {
+      "fieldname": "section_break_timing",
+      "fieldtype": "Section Break",
+      "label": "Check-in / Check-out"
+    },
+    {
+      "fieldname": "check_in_datetime",
+      "fieldtype": "Datetime",
+      "label": "Check-in Time",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_timing",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "check_out_datetime",
+      "fieldtype": "Datetime",
+      "label": "Check-out Time",
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

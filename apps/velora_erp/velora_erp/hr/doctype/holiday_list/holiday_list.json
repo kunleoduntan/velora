@@ -1,0 +1,96 @@
+{
+  "name": "Holiday List",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Company or location holiday calendar used for leave calculation and workforce scheduling.",
+  "fields": [
+    {
+      "fieldname": "holiday_list_name",
+      "fieldtype": "Data",
+      "label": "Holiday List Name",
+      "required": true,
+      "in_list_view": true,
+      "unique": true
+    },
+    {
+      "fieldname": "year",
+      "fieldtype": "Int",
+      "label": "Calendar Year",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "work_location",
+      "fieldtype": "Link",
+      "label": "Work Location",
+      "options": "Work Location"
+    },
+    {
+      "fieldname": "holiday_dates",
+      "fieldtype": "JSON",
+      "label": "Holiday Dates",
+      "default": "[]"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "holiday_list_name"
+}

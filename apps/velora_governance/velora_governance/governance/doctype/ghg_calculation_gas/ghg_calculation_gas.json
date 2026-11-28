@@ -1,0 +1,36 @@
+{
+ "name": "GHG Calculation Gas",
+ "module": "Governance",
+ "track_changes": false,
+ "fields": [
+  {
+   "fieldname": "gas",
+   "fieldtype": "Data",
+   "label": "Gas",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "quantity_kg",
+   "fieldtype": "Float",
+   "label": "Quantity (kg)",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "gwp",
+   "fieldtype": "Float",
+   "label": "GWP",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "kgco2e",
+   "fieldtype": "Float",
+   "label": "kg CO2e",
+   "in_list_view": true,
+   "read_only": true
+  }
+ ],
+ "istable": true
+}

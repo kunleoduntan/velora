@@ -1,0 +1,22 @@
+{
+  "name": "Collections Priority",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Sales Manager",
+    "Accounts Manager",
+    "General Manager"
+  ],
+  "description": "Overdue customer invoices ranked by who to call first (amount times days late), with a suggested action.",
+  "filters": [
+    {
+      "fieldname": "min_days",
+      "label": "At least days overdue",
+      "fieldtype": "Int",
+      "default": 1
+    }
+  ]
+}

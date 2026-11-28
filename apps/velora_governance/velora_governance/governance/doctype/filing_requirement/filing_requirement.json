@@ -1,0 +1,136 @@
+{
+  "name": "Filing Requirement",
+  "module": "Governance",
+  "autoname": "series:FGR-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "filing_requirement_name",
+      "fieldtype": "Data",
+      "label": "Filing Requirement Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "authority",
+      "fieldtype": "Link",
+      "label": "Regulatory Authority",
+      "options": "Regulatory Authority",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "jurisdiction",
+      "fieldtype": "Data",
+      "label": "Jurisdiction",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "entity_type",
+      "fieldtype": "Link",
+      "label": "Entity Type",
+      "options": "Governance Entity Type"
+    },
+    {
+      "fieldname": "frequency",
+      "fieldtype": "Select",
+      "label": "Frequency",
+      "options": [
+        "Annual",
+        "Semi-Annual",
+        "Quarterly",
+        "Monthly",
+        "Event-Based",
+        "One-Time",
+        "Other"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "default_lead_days",
+      "fieldtype": "Int",
+      "label": "Default Lead Days",
+      "default": 30
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1,
+      "in_list_view": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "filing_requirement_name"
+}

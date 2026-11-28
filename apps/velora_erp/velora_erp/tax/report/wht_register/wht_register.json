@@ -1,0 +1,43 @@
+{
+ "name": "WHT Register",
+ "module": "Tax Management",
+ "type": "script",
+ "ref_doctype": "Tax Journal",
+ "roles": [
+  "System Manager",
+  "Finance Manager",
+  "Accountant",
+  "Auditor"
+ ],
+ "description": "Every withholding tax row of submitted Tax Journals: tax customers withheld from us (credit) and tax we withheld from suppliers (payable), with certificates.",
+ "filters": [
+  {
+   "fieldname": "from_date",
+   "label": "From Date",
+   "fieldtype": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "label": "To Date",
+   "fieldtype": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party_type",
+   "label": "Party Type",
+   "fieldtype": "Select",
+   "options": "\nCustomer\nSupplier"
+  },
+  {
+   "fieldname": "party",
+   "label": "Party",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "missing_certificate",
+   "label": "Only rows without a certificate",
+   "fieldtype": "Check"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Pending Approvals Ageing",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Sales Manager",
+    "Accounts Manager",
+    "General Manager"
+  ],
+  "description": "Invoices waiting for approval, oldest first. Long waits slow suppliers' payments and customers' billing.",
+  "filters": []
+}

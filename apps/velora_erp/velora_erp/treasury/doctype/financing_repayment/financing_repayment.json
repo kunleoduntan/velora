@@ -1,0 +1,268 @@
+{
+ "name": "Financing Repayment",
+ "module": "Debt and Treasury",
+ "autoname": "series:FRP-.######",
+ "track_changes": true,
+ "title_field": "title",
+ "description": "A payment to the lender against a loan: principal, interest and fees. Interest already accrued is cleared against the accrual; tax withheld on interest goes to the tax ledger.",
+ "is_submittable": true,
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "report": true,
+   "export": true,
+   "print": true,
+   "share": true,
+   "submit": true,
+   "cancel": true,
+   "amend": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "report": true,
+   "export": true,
+   "print": true,
+   "submit": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "report": true,
+   "export": true,
+   "print": true
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "details",
+   "fieldtype": "Section Break",
+   "label": "Repayment"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "read_only": true,
+   "hidden": true
+  },
+  {
+   "fieldname": "drawdown",
+   "fieldtype": "Link",
+   "label": "Drawdown (loan)",
+   "options": "Financing Drawdown",
+   "required": true,
+   "in_list_view": true,
+   "in_standard_filter": true,
+   "link_filters": [
+    [
+     "docstatus",
+     "=",
+     1
+    ]
+   ]
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "label": "Facility",
+   "options": "Financing Facility",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "repayment_date",
+   "fieldtype": "Date",
+   "label": "Payment date",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": true
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange rate",
+   "default": 1
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank account paid from",
+   "options": "Account",
+   "required": true,
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "amounts",
+   "fieldtype": "Section Break",
+   "label": "Amounts"
+  },
+  {
+   "fieldname": "principal_amount",
+   "fieldtype": "Currency",
+   "label": "Principal",
+   "in_list_view": true,
+   "description": "Leave principal and interest at zero to use what the schedule says is due on or before the payment date."
+  },
+  {
+   "fieldname": "interest_amount",
+   "fieldtype": "Currency",
+   "label": "Interest (gross)",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "fees_amount",
+   "fieldtype": "Currency",
+   "label": "Fees and charges"
+  },
+  {
+   "fieldname": "wht_exempt",
+   "fieldtype": "Check",
+   "label": "No tax is withheld on this payment",
+   "description": "Tick when the lender is exempt or has issued an exemption."
+  },
+  {
+   "fieldname": "interest_wht_rule",
+   "fieldtype": "Data",
+   "label": "Withholding tax rule on the interest",
+   "description": "Defaults from the facility or Treasury Settings when the lender is subject to withholding tax."
+  },
+  {
+   "fieldname": "wht_amount",
+   "fieldtype": "Currency",
+   "label": "Tax withheld from the interest",
+   "read_only": true
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total cost of the payment",
+   "read_only": true
+  },
+  {
+   "fieldname": "net_paid",
+   "fieldtype": "Currency",
+   "label": "Cash paid to the lender",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "accrued_interest_cleared",
+   "fieldtype": "Currency",
+   "label": "Accrued interest cleared",
+   "read_only": true
+  },
+  {
+   "fieldname": "tax_account",
+   "fieldtype": "Link",
+   "label": "Tax payable account",
+   "options": "Account",
+   "read_only": true,
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "label": "Bank reference"
+  },
+  {
+   "fieldname": "narration",
+   "fieldtype": "Text",
+   "label": "Narration"
+  },
+  {
+   "fieldname": "approval",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval status",
+   "options": [
+    "Pending",
+    "Approved",
+    "Rejected"
+   ],
+   "required": true,
+   "default": "Pending",
+   "in_list_view": true,
+   "in_standard_filter": true
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved by",
+   "read_only": true
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved on",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_by",
+   "fieldtype": "Data",
+   "label": "Rejected by",
+   "read_only": true
+  },
+  {
+   "fieldname": "rejected_on",
+   "fieldtype": "Datetime",
+   "label": "Rejected on",
+   "read_only": true
+  },
+  {
+   "fieldname": "approval_comments",
+   "fieldtype": "Text",
+   "label": "Approval comments"
+  },
+  {
+   "fieldname": "posting_batch",
+   "fieldtype": "Link",
+   "label": "Financial Posting Batch",
+   "options": "Financial Posting Batch",
+   "read_only": true,
+   "hidden": true
+  }
+ ]
+}

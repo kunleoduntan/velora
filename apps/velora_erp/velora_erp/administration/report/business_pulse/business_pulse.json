@@ -1,0 +1,15 @@
+{
+  "name": "Business Pulse",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Sales Manager",
+    "Accounts Manager",
+    "General Manager"
+  ],
+  "description": "The one-page health check: this month against last month for sales, buying, money owed, approvals and people, each with a signal and a next step.",
+  "filters": []
+}

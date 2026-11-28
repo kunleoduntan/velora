@@ -1,0 +1,9 @@
+recursive-include velora_projectone *.json *.py *.md *.txt
+recursive-include velora_projectone/frontend *.js *.css
+recursive-include docs *.html *.md
+include RELEASE-NOTES-v2.8.0.md
+include VALIDATION-v2.8.0.md
+include RELEASE-NOTES-v2.10.0.md
+include VALIDATION-v2.10.0.md
+include LIVE-WORKBENCH-GOVERNANCE-v2.10.0.md
+recursive-include velora_projectone/docs *.html

@@ -1,0 +1,96 @@
+{
+  "name": "Resource Calendar",
+  "module": "Resources",
+  "track_changes": true,
+  "description": "Working-day pattern and holiday calendar for resource availability.",
+  "istable": false,
+  "fields": [
+    {
+      "fieldname": "calendar_name",
+      "label": "Calendar Name",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "working_weekdays",
+      "label": "Working Weekdays",
+      "fieldtype": "Data",
+      "default": "0,1,2,3,4"
+    },
+    {
+      "fieldname": "hours_per_day",
+      "label": "Hours Per Day",
+      "fieldtype": "Float",
+      "default": 8
+    },
+    {
+      "fieldname": "holiday_dates",
+      "label": "Holiday Dates (ISO, one per line or JSON array)",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "timezone",
+      "label": "Time Zone",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "is_default",
+      "label": "Default Calendar",
+      "fieldtype": "Check",
+      "default": false
+    },
+    {
+      "fieldname": "active",
+      "label": "Active",
+      "fieldtype": "Check",
+      "default": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "calendar_name"
+}

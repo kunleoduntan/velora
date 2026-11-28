@@ -1,0 +1,125 @@
+{
+  "name": "Board Pack",
+  "module": "Governance",
+  "autoname": "series:BPK-.####",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "meeting",
+      "fieldtype": "Link",
+      "label": "Meeting",
+      "options": "Board Meeting",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "pack_version",
+      "fieldtype": "Data",
+      "label": "Pack Version",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "pack_title",
+      "fieldtype": "Data",
+      "label": "Pack Title",
+      "required": true
+    },
+    {
+      "fieldname": "pack_status",
+      "fieldtype": "Select",
+      "label": "Pack Status",
+      "options": [
+        "Draft",
+        "Generated",
+        "Circulated",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "generated_on",
+      "fieldtype": "Datetime",
+      "label": "Generated On"
+    },
+    {
+      "fieldname": "file_reference",
+      "fieldtype": "Data",
+      "label": "Pack File Reference"
+    },
+    {
+      "fieldname": "circulated_on",
+      "fieldtype": "Datetime",
+      "label": "Circulated On"
+    },
+    {
+      "fieldname": "papers",
+      "fieldtype": "Table",
+      "label": "Included Papers",
+      "options": "Board Pack Paper"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "pack_title"
+}

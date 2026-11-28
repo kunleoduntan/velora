@@ -1,0 +1,168 @@
+{
+ "name": "Emission Factor",
+ "module": "Governance",
+ "autoname": "series:EMF-.####",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "factor_name",
+   "fieldtype": "Data",
+   "label": "Factor Name",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Activity Unit",
+   "options": "Sustainability Unit",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "kgco2e_per_unit",
+   "fieldtype": "Float",
+   "label": "kg CO2e per Unit",
+   "required": true,
+   "description": "Combined factor in kg CO2e per unit. Leave at 0 and fill the gas table below to convert gas by gas with a GWP set."
+  },
+  {
+   "fieldname": "gases",
+   "fieldtype": "Table",
+   "label": "Gas-by-gas factors",
+   "options": "Emission Factor Gas"
+  },
+  {
+   "fieldname": "biogenic_co2_kg_per_unit",
+   "fieldtype": "Float",
+   "label": "Biogenic CO2 (kg per unit)",
+   "description": "Reported separately; never added to the total."
+  },
+  {
+   "fieldname": "scope2_method",
+   "fieldtype": "Select",
+   "label": "Scope 2 basis",
+   "options": [
+    "Location-based",
+    "Market-based"
+   ],
+   "description": "Grid-average factors are location-based; supplier- or contract-specific factors are market-based."
+  },
+  {
+   "fieldname": "geography",
+   "fieldtype": "Data",
+   "label": "Geography"
+  },
+  {
+   "fieldname": "factor_year",
+   "fieldtype": "Int",
+   "label": "Factor Year",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Data",
+   "label": "Version"
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "label": "Reference"
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ],
+ "title_field": "factor_name"
+}

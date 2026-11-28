@@ -1,0 +1,217 @@
+{
+  "name": "Service",
+  "module": "Administration",
+  "autoname": "field:service_name",
+  "istable": false,
+  "is_submittable": false,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "service_name",
+      "fieldtype": "Data",
+      "label": "Service Name",
+      "required": true,
+      "in_list_view": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "service_code",
+      "fieldtype": "Data",
+      "label": "Service Code",
+      "required": true,
+      "unique": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Select",
+      "label": "Category",
+      "required": true,
+      "options": "IT\nHR\nFacilities\nProcurement\nAdministration\nFinance\nTravel\nSecurity\nFleet\nOther",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "request_type",
+      "fieldtype": "Link",
+      "label": "Request Type",
+      "options": "Request Type",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "default_department",
+      "fieldtype": "Link",
+      "label": "Default Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "default_team",
+      "fieldtype": "Link",
+      "label": "Default Fulfilment Team",
+      "options": "Department"
+    },
+    {
+      "fieldname": "sla_hours",
+      "fieldtype": "Int",
+      "label": "SLA Hours",
+      "default": "48",
+      "required": true
+    },
+    {
+      "fieldname": "priority_default",
+      "fieldtype": "Select",
+      "label": "Default Priority",
+      "options": "Low\nMedium\nHigh\nUrgent",
+      "default": "Medium"
+    },
+    {
+      "fieldname": "requires_evidence",
+      "fieldtype": "Check",
+      "label": "Requires Completion Evidence",
+      "default": "0"
+    },
+    {
+      "fieldname": "allow_attachments",
+      "fieldtype": "Check",
+      "label": "Allow Attachments",
+      "default": "1"
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": "1",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Service Description"
+    },
+    {
+      "fieldname": "instructions",
+      "fieldtype": "Text",
+      "label": "Requester Instructions"
+    },
+    {
+      "fieldname": "approval_matrix_override",
+      "fieldtype": "Link",
+      "label": "Service Approval Matrix Override",
+      "options": "Approval Matrix"
+    },
+    {
+      "fieldname": "business_calendar",
+      "fieldtype": "Link",
+      "label": "Business Calendar",
+      "options": "Business Calendar"
+    },
+    {
+      "fieldname": "sla_warning_percent",
+      "fieldtype": "Int",
+      "label": "SLA Warning Threshold (%)",
+      "default": "80"
+    },
+    {
+      "fieldname": "escalation_rule",
+      "fieldtype": "Link",
+      "label": "Escalation Rule",
+      "options": "Approval Escalation Rule"
+    },
+    {
+      "fieldname": "requester_can_cancel",
+      "fieldtype": "Check",
+      "label": "Requester Can Cancel Before Approval",
+      "default": "1"
+    },
+    {
+      "fieldname": "sla_pause_allowed",
+      "fieldtype": "Check",
+      "label": "Allow SLA Pause",
+      "default": "1"
+    },
+    {
+      "fieldname": "sla_pause_reason_required",
+      "fieldtype": "Check",
+      "label": "Pause Reason Required",
+      "default": "1"
+    },
+    {
+      "fieldname": "fields",
+      "fieldtype": "Table",
+      "label": "Request Form Fields",
+      "options": "Service Form Field"
+    },
+    {
+      "fieldname": "service_owner",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "label": "Service Owner",
+      "description": "Accountable owner for service performance and governance."
+    },
+    {
+      "fieldname": "service_status",
+      "fieldtype": "Select",
+      "label": "Governance Status",
+      "options": "Draft\nActive\nUnder Review\nSuspended\nRetired",
+      "default": "Draft"
+    },
+    {
+      "fieldname": "review_frequency_months",
+      "fieldtype": "Int",
+      "label": "Review Frequency (Months)",
+      "default": 12
+    },
+    {
+      "fieldname": "last_reviewed_on",
+      "fieldtype": "Date",
+      "label": "Last Reviewed On"
+    },
+    {
+      "fieldname": "next_review_date",
+      "fieldtype": "Date",
+      "label": "Next Review Date"
+    },
+    {
+      "fieldname": "governance_notes",
+      "fieldtype": "Text",
+      "label": "Governance Notes"
+    },
+    {
+      "fieldname": "quality_rating_enabled",
+      "fieldtype": "Check",
+      "label": "Enable Requester Feedback",
+      "default": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "Administration Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "Administrative Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true
+    },
+    {
+      "role": "All",
+      "read": true
+    }
+  ]
+}

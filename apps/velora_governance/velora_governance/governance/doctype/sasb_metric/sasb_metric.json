@@ -1,0 +1,143 @@
+{
+ "name": "SASB Metric",
+ "module": "Governance",
+ "track_changes": true,
+ "autoname": "series:SASBM-.####",
+ "title_field": "metric_code",
+ "fields": [
+  {
+   "fieldname": "metric_code",
+   "fieldtype": "Data",
+   "label": "Metric code",
+   "required": true,
+   "unique": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Link",
+   "label": "Industry",
+   "options": "SASB Industry",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "topic",
+   "fieldtype": "Data",
+   "label": "Disclosure topic",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "metric_name",
+   "fieldtype": "Text",
+   "label": "Metric",
+   "required": true
+  },
+  {
+   "fieldname": "metric_category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": [
+    "Quantitative",
+    "Discussion and analysis",
+    "Activity metric"
+   ],
+   "default": "Quantitative",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "unit_of_measure",
+   "fieldtype": "Data",
+   "label": "Unit of measure"
+  },
+  {
+   "fieldname": "source_metric",
+   "fieldtype": "Link",
+   "label": "Linked Sustainability Metric",
+   "options": "Sustainability Metric",
+   "description": "When set, the entity's data point for this metric fills the response."
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

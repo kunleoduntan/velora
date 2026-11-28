@@ -1,0 +1,146 @@
+{
+  "name": "Compliance Requirement",
+  "module": "Administration",
+  "autoname": "series:COMP-.####",
+  "title_field": "requirement_name",
+  "is_submittable": false,
+  "istable": false,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "COMP-.#####",
+      "required": true
+    },
+    {
+      "fieldname": "requirement_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Requirement",
+      "required": true
+    },
+    {
+      "fieldname": "regulatory_body",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Regulatory Body"
+    },
+    {
+      "fieldname": "column_break_top",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Compliant",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Status",
+      "options": "Compliant\nDue Soon\nOverdue\nNon-Compliant",
+      "read_only": 1
+    },
+    {
+      "default": "Annual",
+      "fieldname": "frequency",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Frequency",
+      "options": "One-time\nMonthly\nQuarterly\nSemi-Annual\nAnnual\nBiennial",
+      "required": true
+    },
+    {
+      "fieldname": "section_break_scope",
+      "fieldtype": "Section Break",
+      "label": "Scope"
+    },
+    {
+      "fieldname": "jurisdiction",
+      "fieldtype": "Data",
+      "label": "Jurisdiction"
+    },
+    {
+      "fieldname": "column_break_scope",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "department",
+      "fieldtype": "Link",
+      "label": "Department",
+      "options": "Department"
+    },
+    {
+      "fieldname": "responsible_person",
+      "fieldtype": "Link",
+      "label": "Responsible Person",
+      "options": "Person",
+      "required": true
+    },
+    {
+      "fieldname": "section_break_dates",
+      "fieldtype": "Section Break",
+      "label": "Filing"
+    },
+    {
+      "fieldname": "next_due_date",
+      "fieldtype": "Date",
+      "label": "Next Due Date",
+      "required": true
+    },
+    {
+      "fieldname": "last_filed_date",
+      "fieldtype": "Date",
+      "label": "Last Filed Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_dates",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "filing_reference",
+      "fieldtype": "Data",
+      "label": "Last Filing Reference"
+    },
+    {
+      "fieldname": "evidence_document",
+      "fieldtype": "Link",
+      "label": "Evidence Document",
+      "options": "Document Register"
+    },
+    {
+      "fieldname": "section_break_desc",
+      "fieldtype": "Section Break",
+      "label": "Description"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "share": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "All",
+      "read": true,
+      "write": true,
+      "create": true,
+      "share": true,
+      "print": true,
+      "email": true
+    }
+  ]
+}

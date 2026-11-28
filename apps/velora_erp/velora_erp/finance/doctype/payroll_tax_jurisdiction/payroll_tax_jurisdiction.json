@@ -1,0 +1,109 @@
+{
+  "name": "Payroll Tax Jurisdiction",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Country-neutral jurisdiction and tax-year definition for localisation packs.",
+  "fields": [
+    {
+      "fieldname": "jurisdiction_code",
+      "fieldtype": "Data",
+      "label": "Jurisdiction Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true,
+      "length": 16
+    },
+    {
+      "fieldname": "jurisdiction_name",
+      "fieldtype": "Data",
+      "label": "Jurisdiction Name",
+      "required": true
+    },
+    {
+      "fieldname": "country_code",
+      "fieldtype": "Data",
+      "label": "Country Code",
+      "required": true,
+      "length": 2
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "length": 3,
+      "required": true,
+      "options": "Currency"
+    },
+    {
+      "fieldname": "tax_year_start_month",
+      "fieldtype": "Int",
+      "label": "Tax Year Start Month",
+      "default": 1
+    },
+    {
+      "fieldname": "tax_year_start_day",
+      "fieldtype": "Int",
+      "label": "Tax Year Start Day",
+      "default": 1
+    },
+    {
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enabled",
+      "default": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": true,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Payroll Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "delete": false,
+      "report": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "Payroll Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "submit": false,
+      "delete": false,
+      "report": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "jurisdiction_name"
+}

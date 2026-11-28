@@ -1,0 +1,22 @@
+{
+  "name": "Supplier Dependency",
+  "module": "Administration",
+  "type": "script",
+  "ref_doctype": "Customer",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Sales Manager",
+    "Accounts Manager",
+    "General Manager"
+  ],
+  "description": "How much of your buying rests on a few suppliers. A very large share is a supply risk and a negotiating weakness.",
+  "filters": [
+    {
+      "fieldname": "days",
+      "label": "Days back",
+      "fieldtype": "Int",
+      "default": 365
+    }
+  ]
+}

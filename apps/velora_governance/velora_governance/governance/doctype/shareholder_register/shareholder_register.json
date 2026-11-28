@@ -1,0 +1,125 @@
+{
+  "name": "Shareholder Register",
+  "module": "Governance",
+  "autoname": "series:SHR-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "register_title",
+      "fieldtype": "Data",
+      "label": "Register Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "register_status",
+      "fieldtype": "Select",
+      "label": "Register Status",
+      "options": [
+        "Active",
+        "Under Review",
+        "Inactive",
+        "Archived"
+      ],
+      "default": "Active",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "share_capital",
+      "fieldtype": "Float",
+      "label": "Share Capital"
+    },
+    {
+      "fieldname": "currency_code",
+      "fieldtype": "Data",
+      "label": "Currency Code",
+      "default": "NGN"
+    },
+    {
+      "fieldname": "entries",
+      "fieldtype": "Table",
+      "label": "Shareholdings",
+      "options": "Shareholding Entry"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "register_title"
+}

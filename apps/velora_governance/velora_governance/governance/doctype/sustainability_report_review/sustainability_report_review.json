@@ -1,0 +1,151 @@
+{
+  "name": "Sustainability Report Review",
+  "module": "Governance",
+  "autoname": "series:SRR-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "report",
+      "fieldtype": "Link",
+      "label": "Report",
+      "options": "Sustainability Report",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reporting_period",
+      "fieldtype": "Link",
+      "label": "Reporting Period",
+      "options": "Sustainability Reporting Period"
+    },
+    {
+      "fieldname": "review_round",
+      "fieldtype": "Int",
+      "label": "Review Round",
+      "default": 1,
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reviewer",
+      "fieldtype": "Data",
+      "label": "Reviewer",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "review_role",
+      "fieldtype": "Select",
+      "label": "Review Role",
+      "options": [
+        "Sustainability",
+        "Finance",
+        "Risk",
+        "Company Secretary",
+        "Executive",
+        "Board",
+        "External Assurance"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "review_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Pending",
+        "In Progress",
+        "Completed",
+        "Rejected",
+        "Returned for Changes"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "review_date",
+      "fieldtype": "Date",
+      "label": "Review Date"
+    },
+    {
+      "fieldname": "comments",
+      "fieldtype": "Text",
+      "label": "Comments"
+    },
+    {
+      "fieldname": "issues_identified",
+      "fieldtype": "Text",
+      "label": "Issues Identified"
+    },
+    {
+      "fieldname": "resolution_reference",
+      "fieldtype": "Data",
+      "label": "Resolution Reference"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "report"
+}

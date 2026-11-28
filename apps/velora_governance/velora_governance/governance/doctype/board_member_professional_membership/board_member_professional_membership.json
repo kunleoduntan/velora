@@ -1,0 +1,53 @@
+{
+  "name": "Board Member Professional Membership",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "professional_body",
+      "fieldtype": "Data",
+      "label": "Professional Body",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "membership_number",
+      "fieldtype": "Data",
+      "label": "Membership Number"
+    },
+    {
+      "fieldname": "membership_grade",
+      "fieldtype": "Data",
+      "label": "Membership Grade"
+    },
+    {
+      "fieldname": "date_joined",
+      "fieldtype": "Date",
+      "label": "Date Joined"
+    },
+    {
+      "fieldname": "expiry_date",
+      "fieldtype": "Date",
+      "label": "Expiry Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "membership_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Active",
+        "Expired",
+        "Suspended",
+        "Lapsed"
+      ],
+      "default": "Active",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    }
+  ]
+}

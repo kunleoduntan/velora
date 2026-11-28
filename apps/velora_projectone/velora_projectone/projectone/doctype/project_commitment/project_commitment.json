@@ -1,0 +1,150 @@
+{
+  "name": "Project Commitment",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Operational commitment mirror; must reconcile to source documents and never double count actuals.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_doctype",
+      "label": "Source Document Type",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "source_name",
+      "label": "Source Document",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "source_line",
+      "label": "Source Line",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "supplier",
+      "label": "Supplier",
+      "fieldtype": "Link",
+      "options": "Supplier"
+    },
+    {
+      "fieldname": "commitment_date",
+      "label": "Commitment Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "original_amount",
+      "label": "Original Amount",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "invoiced_amount",
+      "label": "Invoiced Amount",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "released_amount",
+      "label": "Released Amount",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "open_amount",
+      "label": "Open Commitment",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "commitment_status",
+      "label": "Commitment Status",
+      "fieldtype": "Select",
+      "options": [
+        "Open",
+        "Partially Invoiced",
+        "Fully Invoiced",
+        "Released",
+        "Cancelled"
+      ],
+      "default": "Open"
+    },
+    {
+      "fieldname": "source_posting_reference",
+      "label": "Source Posting Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "source_updated_at",
+      "label": "Source Updated At",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "last_reconciled_at",
+      "label": "Last Reconciled At",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "is_cancelled",
+      "label": "Cancelled",
+      "fieldtype": "Check",
+      "default": false
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    }
+  ],
+  "title_field": "project"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Compliance Evidence",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "evidence_type",
+      "fieldtype": "Data",
+      "label": "Evidence Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "document_reference",
+      "fieldtype": "Data",
+      "label": "Document Reference",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "evidence_date",
+      "fieldtype": "Date",
+      "label": "Evidence Date"
+    },
+    {
+      "fieldname": "source",
+      "fieldtype": "Data",
+      "label": "Source"
+    },
+    {
+      "fieldname": "verified",
+      "fieldtype": "Check",
+      "label": "Verified",
+      "default": 0
+    }
+  ]
+}

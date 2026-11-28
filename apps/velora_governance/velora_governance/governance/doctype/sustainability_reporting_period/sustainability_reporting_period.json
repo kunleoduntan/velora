@@ -1,0 +1,154 @@
+{
+  "name": "Sustainability Reporting Period",
+  "module": "Governance",
+  "autoname": "series:SRD-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "period_name",
+      "fieldtype": "Data",
+      "label": "Period Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "period_start",
+      "fieldtype": "Date",
+      "label": "Period Start",
+      "required": true
+    },
+    {
+      "fieldname": "period_end",
+      "fieldtype": "Date",
+      "label": "Period End",
+      "required": true
+    },
+    {
+      "fieldname": "period_type",
+      "fieldtype": "Select",
+      "label": "Period Type",
+      "options": [
+        "Annual",
+        "Half Year",
+        "Quarterly",
+        "Monthly",
+        "Custom"
+      ],
+      "default": "Annual",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "frameworks",
+      "fieldtype": "Table",
+      "label": "Frameworks",
+      "options": "Sustainability Report Framework"
+    },
+    {
+      "fieldname": "period_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Planning",
+        "Data Collection",
+        "Assessment",
+        "Reporting",
+        "Review",
+        "Approved",
+        "Published",
+        "Closed"
+      ],
+      "default": "Planning",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "report",
+      "fieldtype": "Link",
+      "label": "Sustainability Report",
+      "options": "Sustainability Report"
+    },
+    {
+      "fieldname": "period_owner",
+      "fieldtype": "Data",
+      "label": "Period Owner"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "period_name"
+}

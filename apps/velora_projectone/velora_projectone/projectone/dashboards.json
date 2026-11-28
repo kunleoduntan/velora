@@ -1,0 +1,64 @@
+{
+  "name": "ProjectOne Enterprise Dashboard Suite",
+  "version": "1.0",
+  "permission_model": "host-filtered row scope",
+  "dashboards": [
+    {
+      "id": "portfolio",
+      "label": "Portfolio Executive",
+      "purpose": "Portfolio health, investment, budget exposure and strategic exceptions"
+    },
+    {
+      "id": "delivery",
+      "label": "Project Delivery",
+      "purpose": "Task completion, milestone performance, blockers and overdue work"
+    },
+    {
+      "id": "schedule",
+      "label": "Schedule and Critical Path",
+      "purpose": "Critical activities, float, late work and baseline variance"
+    },
+    {
+      "id": "resources",
+      "label": "Resource and Capacity",
+      "purpose": "Resource capacity, utilisation, allocation conflicts and timesheets"
+    },
+    {
+      "id": "financial",
+      "label": "Project Financial Control",
+      "purpose": "Budget, actuals, commitments, estimate at completion and forecast variance"
+    },
+    {
+      "id": "commercial",
+      "label": "Commercial and Contracts",
+      "purpose": "Contract values, variations, claims, retention, advances and billing milestones"
+    },
+    {
+      "id": "risk",
+      "label": "Risk and Governance",
+      "purpose": "Risk exposure, open issues, overdue actions and pending changes"
+    },
+    {
+      "id": "agile",
+      "label": "Agile Delivery",
+      "purpose": "Sprint status, backlog, story points and blocked work"
+    },
+    {
+      "id": "quality",
+      "label": "Quality and Deliverables",
+      "purpose": "Inspections, defects, severity and deliverable acceptance"
+    },
+    {
+      "id": "programme",
+      "label": "Programme Performance",
+      "purpose": "Programme governance, programme status, project alignment and exceptions"
+    },
+    {
+      "id": "benefits",
+      "label": "Benefits Realisation",
+      "purpose": "Benefits baselines, targets, actual outcomes and realisation exceptions"
+    }
+  ],
+  "currency_policy": "Never aggregate mixed currencies without an approved FX conversion read model.",
+  "source_policy": "Read-only projections; source applications remain authoritative for transactions and accounting."
+}

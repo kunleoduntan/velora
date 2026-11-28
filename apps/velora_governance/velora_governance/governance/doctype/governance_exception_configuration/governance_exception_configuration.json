@@ -1,0 +1,143 @@
+{
+  "name": "Governance Exception Configuration",
+  "module": "Governance",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "overdue_thresholds",
+      "fieldtype": "Section Break",
+      "label": "Overdue Severity Thresholds"
+    },
+    {
+      "fieldname": "low_days",
+      "fieldtype": "Int",
+      "label": "Low From Days Overdue",
+      "default": 1,
+      "required": true
+    },
+    {
+      "fieldname": "medium_days",
+      "fieldtype": "Int",
+      "label": "Medium From Days Overdue",
+      "default": 7,
+      "required": true
+    },
+    {
+      "fieldname": "high_days",
+      "fieldtype": "Int",
+      "label": "High From Days Overdue",
+      "default": 14,
+      "required": true
+    },
+    {
+      "fieldname": "critical_days",
+      "fieldtype": "Int",
+      "label": "Critical From Days Overdue",
+      "default": 30,
+      "required": true
+    },
+    {
+      "fieldname": "risk_score_thresholds",
+      "fieldtype": "Section Break",
+      "label": "Risk Score Thresholds"
+    },
+    {
+      "fieldname": "low_score",
+      "fieldtype": "Int",
+      "label": "Low From Score",
+      "default": 0,
+      "required": true
+    },
+    {
+      "fieldname": "medium_score",
+      "fieldtype": "Int",
+      "label": "Medium From Score",
+      "default": 40,
+      "required": true
+    },
+    {
+      "fieldname": "high_score",
+      "fieldtype": "Int",
+      "label": "High From Score",
+      "default": 65,
+      "required": true
+    },
+    {
+      "fieldname": "critical_score",
+      "fieldtype": "Int",
+      "label": "Critical From Score",
+      "default": 85,
+      "required": true
+    },
+    {
+      "fieldname": "routing",
+      "fieldtype": "Section Break",
+      "label": "Severity Routing"
+    },
+    {
+      "fieldname": "route_low",
+      "fieldtype": "Data",
+      "label": "Low Severity Route"
+    },
+    {
+      "fieldname": "route_medium",
+      "fieldtype": "Data",
+      "label": "Medium Severity Route"
+    },
+    {
+      "fieldname": "route_high",
+      "fieldtype": "Data",
+      "label": "High Severity Route"
+    },
+    {
+      "fieldname": "route_critical",
+      "fieldtype": "Data",
+      "label": "Critical Severity Route"
+    },
+    {
+      "fieldname": "escalation",
+      "fieldtype": "Section Break",
+      "label": "Escalation Policy"
+    },
+    {
+      "fieldname": "escalation_after_hours",
+      "fieldtype": "Data",
+      "label": "Escalation Intervals (Hours)",
+      "default": "24,72,168",
+      "description": "Comma-separated elapsed hours; must increase."
+    },
+    {
+      "fieldname": "escalation_targets",
+      "fieldtype": "Text",
+      "label": "Escalation Recipients by Stage (JSON)",
+      "description": "JSON object: stage number to list of User IDs. Only enabled Users are notified."
+    },
+    {
+      "fieldname": "resolution",
+      "fieldtype": "Section Break",
+      "label": "Resolution Controls"
+    },
+    {
+      "fieldname": "evidence_required",
+      "fieldtype": "Check",
+      "label": "Require Resolution Evidence",
+      "default": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "Governance Administrator",
+      "read": 1,
+      "write": 1
+    },
+    {
+      "role": "Company Secretary",
+      "read": 1
+    },
+    {
+      "role": "Governance Officer",
+      "read": 1
+    }
+  ],
+  "autoname": "prompt"
+}

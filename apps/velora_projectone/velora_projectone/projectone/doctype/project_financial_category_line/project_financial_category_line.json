@@ -1,0 +1,47 @@
+{
+  "name": "Project Financial Category Line",
+  "module": "Finance",
+  "track_changes": true,
+  "istable": true,
+  "description": "Cost category detail in a project financial snapshot.",
+  "fields": [
+    {
+      "fieldname": "cost_category",
+      "label": "Cost Category",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "budget",
+      "label": "Budget",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "actual",
+      "label": "Actual",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "open_commitments",
+      "label": "Open Commitments",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "estimate_to_complete",
+      "label": "Estimate to Complete",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "estimate_at_completion",
+      "label": "Estimate at Completion",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "variance_at_completion",
+      "label": "Variance at Completion",
+      "fieldtype": "Currency"
+    }
+  ],
+  "permissions": []
+}

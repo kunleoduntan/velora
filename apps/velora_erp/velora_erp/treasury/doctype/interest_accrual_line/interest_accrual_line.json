@@ -1,0 +1,66 @@
+{
+ "name": "Interest Accrual Line",
+ "module": "Debt and Treasury",
+ "istable": true,
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "drawdown",
+   "fieldtype": "Link",
+   "label": "Drawdown",
+   "options": "Financing Drawdown",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "facility",
+   "fieldtype": "Link",
+   "label": "Facility",
+   "options": "Financing Facility",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To (exclusive)",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Int",
+   "label": "Days",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "principal_balance",
+   "fieldtype": "Currency",
+   "label": "Balance",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Float",
+   "label": "Rate %",
+   "in_list_view": true,
+   "read_only": true
+  },
+  {
+   "fieldname": "interest",
+   "fieldtype": "Currency",
+   "label": "Interest",
+   "in_list_view": true,
+   "read_only": true
+  }
+ ]
+}

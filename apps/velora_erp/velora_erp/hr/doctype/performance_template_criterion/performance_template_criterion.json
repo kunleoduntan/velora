@@ -1,0 +1,70 @@
+{
+  "name": "Performance Template Criterion",
+  "module": "HR",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "criterion_code",
+      "fieldtype": "Data",
+      "label": "Criterion Code",
+      "required": true
+    },
+    {
+      "fieldname": "criterion_name",
+      "fieldtype": "Data",
+      "label": "Criterion",
+      "required": true
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Select",
+      "label": "Category",
+      "options": [
+        "Goals",
+        "Competency",
+        "Values",
+        "Leadership",
+        "Delivery"
+      ],
+      "default": "Goals"
+    },
+    {
+      "fieldname": "weight",
+      "fieldtype": "Float",
+      "label": "Weight (%)",
+      "required": true,
+      "default": 0
+    },
+    {
+      "fieldname": "rating_scale",
+      "fieldtype": "Select",
+      "label": "Rating Scale",
+      "options": [
+        "1 to 5",
+        "1 to 4",
+        "Pass / Fail"
+      ],
+      "default": "1 to 5"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Guidance"
+    },
+    {
+      "fieldname": "mandatory",
+      "fieldtype": "Check",
+      "label": "Mandatory",
+      "default": 1
+    },
+    {
+      "fieldname": "evidence_required",
+      "fieldtype": "Check",
+      "label": "Evidence Required",
+      "default": 0
+    }
+  ],
+  "permissions": [],
+  "istable": true
+}

@@ -1,0 +1,75 @@
+{
+ "name": "Message Template",
+ "module": "Notify",
+ "autoname": "field:template_name",
+ "title_field": "template_name",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "label": "Template",
+   "required": true,
+   "unique": true,
+   "in_list_view": true,
+   "length": 140
+  },
+  {
+   "fieldname": "channel",
+   "fieldtype": "Select",
+   "label": "Channel",
+   "options": [
+    "Email",
+    "SMS",
+    "WhatsApp"
+   ],
+   "default": "Email",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject",
+   "depends_on": "eval:doc.channel == 'Email'",
+   "length": 250
+  },
+  {
+   "fieldname": "body",
+   "fieldtype": "Text",
+   "label": "Message",
+   "required": true,
+   "description": "Use {{ full_name }}, {{ salutation }}, {{ sender_name }}, {{ video_url }} and {{ unsubscribe_url }}. Email can be HTML."
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "What it is for"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Broadcast Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "print": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true
+  }
+ ]
+}

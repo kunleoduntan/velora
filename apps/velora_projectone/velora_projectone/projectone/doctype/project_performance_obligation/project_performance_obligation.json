@@ -1,0 +1,163 @@
+{
+  "name": "Project Performance Obligation",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Contract performance obligation and approved project revenue recognition policy. Contract and accounting evidence are references; Finance remains posting authority.",
+  "fields": [
+    {
+      "fieldname": "project",
+      "label": "Project",
+      "fieldtype": "Link",
+      "options": "Project",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "customer",
+      "label": "Customer",
+      "fieldtype": "Link",
+      "options": "Customer"
+    },
+    {
+      "fieldname": "contract_reference",
+      "label": "Contract Reference",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "obligation_code",
+      "label": "Obligation Code",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "description",
+      "label": "Performance Obligation",
+      "fieldtype": "Text",
+      "required": true
+    },
+    {
+      "fieldname": "allocated_transaction_price",
+      "label": "Allocated Transaction Price",
+      "fieldtype": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "options": "Currency",
+      "required": true
+    },
+    {
+      "fieldname": "recognition_method",
+      "label": "Recognition Method",
+      "fieldtype": "Select",
+      "options": "Cost To Cost\nOutput\nMilestone\nTime Elapsed\nPoint In Time",
+      "required": true
+    },
+    {
+      "fieldname": "recognition_over_time",
+      "label": "Recognise Over Time",
+      "fieldtype": "Check",
+      "default": 1
+    },
+    {
+      "fieldname": "accounting_conclusion_reference",
+      "label": "Accounting Conclusion Reference",
+      "fieldtype": "Data",
+      "required": true
+    },
+    {
+      "fieldname": "variable_consideration_constrained",
+      "label": "Variable Consideration Constrained",
+      "fieldtype": "Check",
+      "default": 1
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Draft\nPending Approval\nApproved\nSuspended\nCompleted",
+      "default": "Draft",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "approval_reference",
+      "label": "Approval Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "effective_from",
+      "label": "Effective From",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "effective_to",
+      "label": "Effective To",
+      "fieldtype": "Date"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "import": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Project User",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "report": true,
+      "export": true,
+      "print": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "report": true,
+      "export": true,
+      "print": true,
+      "email": true
+    }
+  ],
+  "title_field": "obligation_code"
+}

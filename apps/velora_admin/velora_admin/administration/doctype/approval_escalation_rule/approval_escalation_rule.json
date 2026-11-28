@@ -1,0 +1,70 @@
+{
+  "name": "Approval Escalation Rule",
+  "module": "Administration",
+  "istable": false,
+  "fields": [
+    {
+      "fieldname": "rule_name",
+      "fieldtype": "Data",
+      "label": "Rule Name",
+      "required": true,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "scope",
+      "fieldtype": "Select",
+      "label": "Scope",
+      "options": "Request\\nAll Approvals",
+      "default": "Request",
+      "required": true
+    },
+    {
+      "fieldname": "sla_hours",
+      "fieldtype": "Int",
+      "label": "SLA Hours",
+      "default": 48,
+      "required": true
+    },
+    {
+      "fieldname": "escalate_to_user",
+      "fieldtype": "Data",
+      "label": "Escalate To User"
+    },
+    {
+      "fieldname": "escalate_to_role",
+      "fieldtype": "Data",
+      "label": "Escalate To Role"
+    },
+    {
+      "fieldname": "notify_on_due",
+      "fieldtype": "Check",
+      "label": "Notify on Due",
+      "default": 1
+    },
+    {
+      "fieldname": "notify_on_overdue",
+      "fieldtype": "Check",
+      "label": "Notify on Overdue",
+      "default": 1
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "report": true,
+      "export": true,
+      "submit": true,
+      "cancel": true
+    }
+  ]
+}

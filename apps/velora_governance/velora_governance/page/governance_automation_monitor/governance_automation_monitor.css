@@ -1,0 +1,21 @@
+.governance-automation-monitor { padding: 12px; }
+.gae-toolbar { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:16px; }
+.gae-kpis { display:flex; gap:10px; flex-wrap:wrap; }
+.gae-kpi { min-width:110px; border:1px solid var(--border-color); border-radius:8px; padding:12px 16px; background:var(--card-bg); display:flex; flex-direction:column; gap:4px; }
+.gae-kpi span { color:var(--text-muted); font-size:12px; }
+.gae-kpi strong { font-size:24px; }
+.gae-alert { border-color:#e5a4a4; }
+.gae-warning { border-color:#e4c88b; }
+.gae-controls { display:flex; gap:8px; align-items:center; min-width:230px; }
+.gae-table-wrap { overflow:auto; }
+.gae-error { max-width:300px; overflow-wrap:anywhere; }
+.gae-status { display:inline-block; border-radius:12px; padding:3px 8px; font-size:11px; font-weight:600; }
+.gae-blue { background:#e5efff; color:#215ba5; }
+.gae-orange { background:#fff0dc; color:#995900; }
+.gae-green { background:#e5f5e8; color:#237a36; }
+.gae-red { background:#fde7e7; color:#a52727; }
+.gae-yellow { background:#fff7d6; color:#8a6800; }
+.gae-grey { background:#ececec; color:#555; }
+
+.gae-pagination { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:12px 0; }
+.gae-pagination button { min-width:90px; }

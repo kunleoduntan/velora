@@ -1,0 +1,64 @@
+{
+  "name": "Person Checklist Task",
+  "module": "Administration",
+  "autoname": "hash",
+  "is_submittable": false,
+  "istable": true,
+  "track_changes": false,
+  "fields": [
+    {
+      "fieldname": "task_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Task",
+      "read_only": 1
+    },
+    {
+      "fieldname": "responsible_role",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Responsible Role",
+      "read_only": 1
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Due Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "is_mandatory",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Mandatory",
+      "read_only": 1
+    },
+    {
+      "default": "Pending",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Pending\nDone\nSkipped"
+    },
+    {
+      "fieldname": "completed_by",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Completed By",
+      "read_only": 1
+    },
+    {
+      "fieldname": "completed_on",
+      "fieldtype": "Datetime",
+      "label": "Completed On",
+      "read_only": 1
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "name": "Consolidation Member",
+  "module": "Finance",
+  "istable": true,
+  "description": "A company that belongs to a consolidation group, with its ownership share and optional fixed translation rates.",
+  "grid_columns": [
+    {
+      "field": "company_id",
+      "width": 2
+    },
+    {
+      "field": "ownership_percent",
+      "width": 1
+    },
+    {
+      "field": "method",
+      "width": 1
+    },
+    {
+      "field": "include",
+      "width": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "company_id",
+      "fieldtype": "Data",
+      "label": "Company",
+      "required": true,
+      "in_list_view": true,
+      "description": "The company's ID in the platform. Pick it from the list on the Consolidation Centre."
+    },
+    {
+      "fieldname": "include",
+      "fieldtype": "Check",
+      "label": "Include",
+      "default": 1,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "ownership_percent",
+      "fieldtype": "Float",
+      "label": "Ownership %",
+      "default": 100,
+      "in_list_view": true,
+      "description": "The group's share of this company."
+    },
+    {
+      "fieldname": "method",
+      "fieldtype": "Select",
+      "label": "Method",
+      "options": [
+        "Full",
+        "Proportionate"
+      ],
+      "default": "Full",
+      "in_list_view": true,
+      "description": "Full: every figure at 100% with the outside share shown separately. Proportionate: every figure at the ownership share."
+    },
+    {
+      "fieldname": "closing_rate",
+      "fieldtype": "Float",
+      "label": "Closing rate",
+      "description": "Leave 0 to use the company's own exchange-rate table at the end date."
+    },
+    {
+      "fieldname": "average_rate",
+      "fieldtype": "Float",
+      "label": "Average rate",
+      "description": "For income and expenses. Leave 0 to use the average of the opening and closing rates."
+    },
+    {
+      "fieldname": "equity_rate",
+      "fieldtype": "Float",
+      "label": "Equity rate",
+      "description": "For share capital and reserves. Leave 0 to use the closing rate."
+    },
+    {
+      "fieldname": "opening_rate",
+      "fieldtype": "Float",
+      "label": "Opening rate",
+      "description": "For results of earlier, not yet closed periods. Leave 0 to use the rate at the start date."
+    }
+  ]
+}

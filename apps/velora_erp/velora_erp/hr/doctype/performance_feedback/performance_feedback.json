@@ -1,0 +1,165 @@
+{
+  "name": "Performance Feedback",
+  "module": "HR",
+  "track_changes": true,
+  "description": "Structured peer and 360-degree feedback with confidentiality and anonymity controls.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cycle",
+      "fieldtype": "Link",
+      "label": "Performance Cycle",
+      "options": "Performance Cycle",
+      "required": true
+    },
+    {
+      "fieldname": "review",
+      "fieldtype": "Link",
+      "label": "Performance Review",
+      "options": "Performance Review"
+    },
+    {
+      "fieldname": "campaign",
+      "fieldtype": "Link",
+      "label": "Rater Campaign",
+      "options": "Performance Rater Campaign"
+    },
+    {
+      "fieldname": "provider",
+      "fieldtype": "Link",
+      "label": "Feedback Provider",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "relationship",
+      "fieldtype": "Select",
+      "label": "Relationship",
+      "options": [
+        "Manager",
+        "Peer",
+        "Direct Report",
+        "Internal Customer",
+        "External Customer",
+        "Project Lead",
+        "Other"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "feedback_type",
+      "fieldtype": "Select",
+      "label": "Feedback Type",
+      "options": [
+        "Peer",
+        "360 Degree",
+        "Recognition",
+        "Coaching",
+        "Development"
+      ],
+      "default": "Peer"
+    },
+    {
+      "fieldname": "is_anonymous",
+      "fieldtype": "Check",
+      "label": "Anonymous Feedback",
+      "default": 0
+    },
+    {
+      "fieldname": "confidentiality",
+      "fieldtype": "Select",
+      "label": "Confidentiality",
+      "options": [
+        "Share with Employee",
+        "Manager and HR",
+        "HR Only"
+      ],
+      "default": "Manager and HR"
+    },
+    {
+      "fieldname": "strengths",
+      "fieldtype": "Text",
+      "label": "Observed Strengths"
+    },
+    {
+      "fieldname": "development_opportunities",
+      "fieldtype": "Text",
+      "label": "Development Opportunities"
+    },
+    {
+      "fieldname": "examples",
+      "fieldtype": "Text",
+      "label": "Specific Examples"
+    },
+    {
+      "fieldname": "submitted_on",
+      "fieldtype": "Datetime",
+      "label": "Submitted On"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "Draft",
+        "Submitted",
+        "Reviewed",
+        "Withdrawn"
+      ],
+      "default": "Draft"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "istable": false,
+  "title_field": "employee_name"
+}

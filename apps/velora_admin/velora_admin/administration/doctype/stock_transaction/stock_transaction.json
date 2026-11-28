@@ -1,0 +1,77 @@
+{
+  "name": "Stock Transaction",
+  "module": "Administration",
+  "autoname": "field:title",
+  "istable": false,
+  "is_submittable": false,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Transaction Reference",
+      "fieldtype": "Data",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "item",
+      "label": "Supply Item",
+      "fieldtype": "Link",
+      "options": "Supply Item",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "transaction_type",
+      "label": "Transaction Type",
+      "fieldtype": "Select",
+      "options": "Receipt\nIssue\nReturn\nAdjustment",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "quantity",
+      "label": "Quantity",
+      "fieldtype": "Float",
+      "required": 1
+    },
+    {
+      "fieldname": "transaction_date",
+      "label": "Transaction Date",
+      "fieldtype": "Date",
+      "required": 1
+    },
+    {
+      "fieldname": "requester",
+      "label": "Requester",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "issued_to",
+      "label": "Issued To",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "source_reference",
+      "label": "Source Reference",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "share": 1
+    }
+  ]
+}

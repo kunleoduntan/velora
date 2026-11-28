@@ -1,0 +1,178 @@
+{
+  "name": "Overtime Request",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Pre-approved or retrospectively approved overtime request. Does not post payroll automatically.",
+  "fields": [
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "overtime_date",
+      "fieldtype": "Date",
+      "label": "Overtime Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "start_time",
+      "fieldtype": "Datetime",
+      "label": "Start Time",
+      "required": true
+    },
+    {
+      "fieldname": "end_time",
+      "fieldtype": "Datetime",
+      "label": "End Time",
+      "required": true
+    },
+    {
+      "fieldname": "hours",
+      "fieldtype": "Float",
+      "label": "Overtime Hours",
+      "read_only": true
+    },
+    {
+      "fieldname": "overtime_type",
+      "fieldtype": "Select",
+      "label": "Overtime Type",
+      "options": [
+        "Weekday",
+        "Weekend",
+        "Public Holiday",
+        "Night",
+        "Emergency"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Text",
+      "label": "Business Justification",
+      "required": true
+    },
+    {
+      "fieldname": "approval_status",
+      "fieldtype": "Select",
+      "label": "Approval Status",
+      "options": [
+        "Draft",
+        "Pending Approval",
+        "Approved",
+        "Rejected",
+        "Cancelled"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "payroll_review_status",
+      "fieldtype": "Select",
+      "label": "Payroll Review Status",
+      "options": [
+        "Not Submitted",
+        "Pending Review",
+        "Accepted as Payroll Input",
+        "Not Payable",
+        "Rejected"
+      ],
+      "default": "Not Submitted",
+      "read_only": true
+    },
+    {
+      "fieldname": "payroll_input",
+      "fieldtype": "Link",
+      "label": "Payroll Input",
+      "options": "Payroll Input",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Department Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "Employee",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

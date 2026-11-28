@@ -1,0 +1,34 @@
+{
+  "name": "Payroll Register",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Salary Slip",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Payroll Manager",
+    "Auditor"
+  ],
+  "description": "Payroll batch results, employee earnings, deductions, employer contributions, net pay and outstanding salary liabilities.",
+  "filters": [
+    {
+      "fieldname": "from_date",
+      "label": "From Date",
+      "fieldtype": "Date",
+      "required": false
+    },
+    {
+      "fieldname": "to_date",
+      "label": "To Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today"
+    },
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee"
+    }
+  ]
+}

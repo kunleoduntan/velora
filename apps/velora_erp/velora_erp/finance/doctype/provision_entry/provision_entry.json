@@ -1,0 +1,205 @@
+{
+ "name": "Provision Entry",
+ "module": "Finance",
+ "track_changes": true,
+ "description": "IAS 37 provisions: recognise, increase, unwind the discount, utilise or release, with the recognition criteria confirmed on the document.",
+ "autoname": "series:PRV-.########",
+ "is_submittable": true,
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "submit": true,
+   "cancel": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true,
+   "share": true,
+   "import": true,
+   "amend": true
+  },
+  {
+   "role": "Finance Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "submit": true,
+   "export": true,
+   "print": true,
+   "cancel": true,
+   "report": true,
+   "email": true,
+   "share": true,
+   "import": true,
+   "amend": true
+  },
+  {
+   "role": "Accountant",
+   "read": true,
+   "write": true,
+   "create": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  },
+  {
+   "role": "Auditor",
+   "read": true,
+   "export": true,
+   "print": true,
+   "report": true,
+   "email": true
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "entry_date",
+   "fieldtype": "Date",
+   "required": true,
+   "default": "Today",
+   "in_list_view": true,
+   "label": "Entry date"
+  },
+  {
+   "fieldname": "entry_type",
+   "fieldtype": "Select",
+   "options": [
+    "Recognise",
+    "Increase",
+    "Unwind discount",
+    "Utilise",
+    "Release"
+   ],
+   "required": true,
+   "in_list_view": true,
+   "label": "Entry type"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "required": true,
+   "label": "Description"
+  },
+  {
+   "fieldname": "narration",
+   "fieldtype": "Text",
+   "label": "Narration"
+  },
+  {
+   "fieldname": "criteria_section",
+   "fieldtype": "Section Break",
+   "label": "IAS 37.14 recognition criteria"
+  },
+  {
+   "fieldname": "present_obligation",
+   "fieldtype": "Check",
+   "label": "Present obligation from a past event"
+  },
+  {
+   "fieldname": "probable_outflow",
+   "fieldtype": "Check",
+   "label": "Outflow of resources is probable"
+  },
+  {
+   "fieldname": "reliable_estimate",
+   "fieldtype": "Check",
+   "label": "Reliable estimate of the amount"
+  },
+  {
+   "fieldname": "accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "provision_account",
+   "fieldtype": "Link",
+   "label": "Provision (liability) account",
+   "options": "Account",
+   "required": true,
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "counter_account",
+   "fieldtype": "Link",
+   "label": "Expense / settlement account",
+   "options": "Account",
+   "required": true,
+   "link_filters": [
+    [
+     "is_group",
+     "=",
+     0
+    ]
+   ]
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "required": true,
+   "in_list_view": true,
+   "label": "Amount"
+  },
+  {
+   "fieldname": "provision_balance",
+   "fieldtype": "Currency",
+   "label": "Provision balance before this entry",
+   "read_only": true
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "options": [
+    "Pending",
+    "Approved",
+    "Rejected"
+   ],
+   "label": "Approval status"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "read_only": true,
+   "label": "Approved by"
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "read_only": true,
+   "label": "Approved on"
+  },
+  {
+   "fieldname": "posting_batch",
+   "fieldtype": "Data",
+   "read_only": true,
+   "label": "Posting batch"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "options": [
+    "Draft",
+    "Posted",
+    "Cancelled"
+   ],
+   "read_only": true,
+   "in_list_view": true,
+   "default": "Draft",
+   "label": "Status"
+  }
+ ]
+}

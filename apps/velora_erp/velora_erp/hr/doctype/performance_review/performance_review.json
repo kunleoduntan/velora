@@ -1,0 +1,215 @@
+{
+  "name": "Performance Review",
+  "module": "HR",
+  "track_changes": true,
+  "description": "End-to-end performance assessment with self and manager input, evidence, weighted ratings, calibration and sign-off.",
+  "fields": [
+    {
+      "fieldname": "review_code",
+      "fieldtype": "Data",
+      "label": "Review Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "label": "Employee",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "cycle",
+      "fieldtype": "Link",
+      "label": "Performance Cycle",
+      "options": "Performance Cycle",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "reviewer",
+      "fieldtype": "Link",
+      "label": "Reviewer",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "review_type",
+      "fieldtype": "Select",
+      "label": "Review Type",
+      "options": [
+        "Annual",
+        "Mid Year",
+        "Quarterly",
+        "Probation",
+        "Project",
+        "360 Degree",
+        "Other"
+      ],
+      "default": "Annual"
+    },
+    {
+      "fieldname": "review_status",
+      "fieldtype": "Select",
+      "label": "Review Status",
+      "options": [
+        "Draft",
+        "Employee Input",
+        "Manager Review",
+        "Peer Feedback",
+        "HR Review",
+        "Pending Calibration",
+        "Pending Approval",
+        "Approved",
+        "Acknowledged",
+        "Closed",
+        "Returned"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "self_assessment",
+      "fieldtype": "Text",
+      "label": "Employee Self Assessment"
+    },
+    {
+      "fieldname": "manager_summary",
+      "fieldtype": "Text",
+      "label": "Manager Summary"
+    },
+    {
+      "fieldname": "strengths",
+      "fieldtype": "Text",
+      "label": "Key Strengths"
+    },
+    {
+      "fieldname": "improvement_areas",
+      "fieldtype": "Text",
+      "label": "Improvement Areas"
+    },
+    {
+      "fieldname": "career_aspirations",
+      "fieldtype": "Text",
+      "label": "Career Aspirations"
+    },
+    {
+      "fieldname": "ratings",
+      "fieldtype": "Table",
+      "label": "Assessment Ratings",
+      "options": "Performance Review Rating"
+    },
+    {
+      "fieldname": "overall_score",
+      "fieldtype": "Float",
+      "label": "Overall Score",
+      "read_only": true
+    },
+    {
+      "fieldname": "overall_rating",
+      "fieldtype": "Select",
+      "label": "Overall Rating",
+      "options": [
+        "Exceptional",
+        "Exceeds Expectations",
+        "Meets Expectations",
+        "Partially Meets",
+        "Does Not Meet"
+      ]
+    },
+    {
+      "fieldname": "calibrated_score",
+      "fieldtype": "Float",
+      "label": "Calibrated Score"
+    },
+    {
+      "fieldname": "calibration_notes",
+      "fieldtype": "Text",
+      "label": "Calibration Notes"
+    },
+    {
+      "fieldname": "development_actions",
+      "fieldtype": "Table",
+      "label": "Development Actions",
+      "options": "Performance Development Action"
+    },
+    {
+      "fieldname": "employee_acknowledged",
+      "fieldtype": "Check",
+      "label": "Employee Acknowledged",
+      "default": 0
+    },
+    {
+      "fieldname": "employee_comments",
+      "fieldtype": "Text",
+      "label": "Employee Comments"
+    },
+    {
+      "fieldname": "submitted_on",
+      "fieldtype": "Datetime",
+      "label": "Submitted On"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Data",
+      "label": "Approved By"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "label": "Approved On"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "istable": false,
+  "autoname": "field:review_code",
+  "title_field": "employee_name"
+}

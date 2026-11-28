@@ -1,0 +1,81 @@
+{
+  "name": "Employee Classification Value",
+  "module": "HR",
+  "autoname": "field:value_code",
+  "track_changes": true,
+  "description": "Controlled value within an employee classification category.",
+  "fields": [
+    {
+      "fieldname": "value_code",
+      "fieldtype": "Data",
+      "label": "Value Code",
+      "required": true,
+      "unique": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "value_name",
+      "fieldtype": "Data",
+      "label": "Value Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Link",
+      "label": "Classification Category",
+      "options": "Employee Classification Category",
+      "required": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled",
+      "default": 0
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "value_name"
+}

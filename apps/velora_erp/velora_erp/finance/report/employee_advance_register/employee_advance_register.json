@@ -1,0 +1,31 @@
+{
+  "name": "Employee Advance Register",
+  "module": "Finance",
+  "type": "script",
+  "ref_doctype": "Employee Advance",
+  "roles": [
+    "System Manager",
+    "Finance Manager",
+    "Payroll Manager",
+    "Auditor"
+  ],
+  "description": "Employee advance disbursements, purpose, expected settlement and outstanding employee receivables.",
+  "filters": [
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Disbursed",
+        "Partially Settled",
+        "Settled"
+      ]
+    }
+  ]
+}

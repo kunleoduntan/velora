@@ -1,0 +1,138 @@
+{
+ "name": "Governance Code",
+ "module": "Governance",
+ "fields": [
+  {
+   "fieldname": "code_name",
+   "fieldtype": "Data",
+   "label": "Code",
+   "required": true,
+   "unique": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "issuer",
+   "fieldtype": "Data",
+   "label": "Issued by",
+   "in_list_view": true
+  },
+  {
+   "fieldname": "edition_year",
+   "fieldtype": "Int",
+   "label": "Year"
+  },
+  {
+   "fieldname": "approach",
+   "fieldtype": "Select",
+   "label": "Approach",
+   "options": [
+    "Apply and explain",
+    "Comply or explain",
+    "Mandatory"
+   ],
+   "default": "Apply and explain"
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1
+  },
+  {
+   "fieldname": "principles",
+   "fieldtype": "Table",
+   "label": "Principles",
+   "options": "Governance Code Principle"
+  },
+  {
+   "fieldname": "practices",
+   "fieldtype": "Table",
+   "label": "Recommended practices",
+   "options": "Governance Code Practice"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "autoname": "series:GCD-.####",
+ "title_field": "code_name",
+ "track_changes": true,
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

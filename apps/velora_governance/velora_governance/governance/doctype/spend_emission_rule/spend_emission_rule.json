@@ -1,0 +1,187 @@
+{
+ "name": "Spend Emission Rule",
+ "module": "Governance",
+ "track_changes": true,
+ "autoname": "series:SER-.####",
+ "title_field": "rule_name",
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "label": "Rule name",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority (lower runs first)",
+   "default": 100
+  },
+  {
+   "fieldname": "match_account",
+   "fieldtype": "Data",
+   "label": "Match expense account"
+  },
+  {
+   "fieldname": "match_item_group",
+   "fieldtype": "Data",
+   "label": "Match item group"
+  },
+  {
+   "fieldname": "match_item",
+   "fieldtype": "Data",
+   "label": "Match item code"
+  },
+  {
+   "fieldname": "match_supplier",
+   "fieldtype": "Data",
+   "label": "Match supplier"
+  },
+  {
+   "fieldname": "fixed_assets",
+   "fieldtype": "Select",
+   "label": "Fixed-asset lines",
+   "options": [
+    "Any",
+    "Fixed assets only",
+    "Exclude fixed assets"
+   ],
+   "default": "Any"
+  },
+  {
+   "fieldname": "treatment",
+   "fieldtype": "Select",
+   "label": "Treatment",
+   "options": [
+    "Estimate emissions",
+    "Exclude from inventory"
+   ],
+   "default": "Estimate emissions",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "emission_source",
+   "fieldtype": "Link",
+   "label": "Emission Source",
+   "options": "Emission Source",
+   "depends_on": "eval:doc.treatment=='Estimate emissions'"
+  },
+  {
+   "fieldname": "emission_factor",
+   "fieldtype": "Link",
+   "label": "Spend-based Emission Factor",
+   "options": "Emission Factor",
+   "depends_on": "eval:doc.treatment=='Estimate emissions'"
+  },
+  {
+   "fieldname": "spend_per_factor_unit",
+   "fieldtype": "Float",
+   "label": "Books currency per factor unit",
+   "default": 1,
+   "description": "Factor unit is e.g. USD but the books are in NGN: enter the rate (1500). Spend is divided by this."
+  },
+  {
+   "fieldname": "exclusion_reason",
+   "fieldtype": "Text",
+   "label": "Reason for exclusion",
+   "depends_on": "eval:doc.treatment=='Exclude from inventory'"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ]
+}

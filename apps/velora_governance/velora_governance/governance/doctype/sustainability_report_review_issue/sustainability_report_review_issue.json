@@ -1,0 +1,126 @@
+{
+  "name": "Sustainability Report Review Issue",
+  "module": "Governance",
+  "autoname": "series:SRI-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "report",
+      "fieldtype": "Link",
+      "label": "Report",
+      "options": "Sustainability Report",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "review",
+      "fieldtype": "Link",
+      "label": "Review",
+      "options": "Sustainability Report Review"
+    },
+    {
+      "fieldname": "reporting_period",
+      "fieldtype": "Link",
+      "label": "Reporting Period",
+      "options": "Sustainability Reporting Period"
+    },
+    {
+      "fieldname": "issue_title",
+      "fieldtype": "Data",
+      "label": "Issue Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "details",
+      "fieldtype": "Text",
+      "label": "Details"
+    },
+    {
+      "fieldname": "severity",
+      "fieldtype": "Select",
+      "label": "Severity",
+      "options": "Low\nMedium\nHigh\nCritical",
+      "default": "Medium",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "issue_status",
+      "fieldtype": "Select",
+      "label": "Issue Status",
+      "options": "Open\nIn Progress\nResolved\nClosed",
+      "default": "Open",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Data",
+      "label": "Assigned To"
+    },
+    {
+      "fieldname": "resolution",
+      "fieldtype": "Text",
+      "label": "Resolution"
+    },
+    {
+      "fieldname": "resolved_date",
+      "fieldtype": "Date",
+      "label": "Resolved Date"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "issue_title"
+}

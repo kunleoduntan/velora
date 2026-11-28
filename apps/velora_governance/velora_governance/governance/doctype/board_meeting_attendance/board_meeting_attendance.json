@@ -1,0 +1,74 @@
+{
+  "name": "Board Meeting Attendance",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "board_member",
+      "fieldtype": "Link",
+      "label": "Board Member",
+      "options": "Board Member",
+      "required": false,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "attendee_type",
+      "fieldtype": "Select",
+      "label": "Attendee Type",
+      "options": [
+        "Member",
+        "Guest"
+      ],
+      "default": "Member",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "guest_name",
+      "fieldtype": "Data",
+      "label": "Guest Name",
+      "depends_on": "eval:doc.attendee_type == 'Guest'"
+    },
+    {
+      "fieldname": "attendance_status",
+      "fieldtype": "Select",
+      "label": "Attendance Status",
+      "options": [
+        "Present",
+        "Absent",
+        "Apology",
+        "Excused"
+      ],
+      "default": "Present",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "attendance_mode",
+      "fieldtype": "Select",
+      "label": "Attendance Mode",
+      "options": [
+        "In Person",
+        "Virtual",
+        "Hybrid"
+      ],
+      "default": "In Person",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "join_time",
+      "fieldtype": "Datetime",
+      "label": "Join Time"
+    },
+    {
+      "fieldname": "leave_time",
+      "fieldtype": "Datetime",
+      "label": "Leave Time"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

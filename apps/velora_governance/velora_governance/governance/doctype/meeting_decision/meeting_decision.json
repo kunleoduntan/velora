@@ -1,0 +1,86 @@
+{
+  "name": "Meeting Decision",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "decision_sequence",
+      "fieldtype": "Int",
+      "label": "Decision Sequence",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "agenda_sequence",
+      "fieldtype": "Int",
+      "label": "Agenda Sequence"
+    },
+    {
+      "fieldname": "decision_type",
+      "fieldtype": "Link",
+      "label": "Decision Type",
+      "options": "Meeting Decision Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "decision_title",
+      "fieldtype": "Data",
+      "label": "Decision Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "decision_text",
+      "fieldtype": "Text",
+      "label": "Decision Text",
+      "required": true
+    },
+    {
+      "fieldname": "resolution",
+      "fieldtype": "Link",
+      "label": "Resolution",
+      "options": "Board Resolution"
+    },
+    {
+      "fieldname": "action_required",
+      "fieldtype": "Check",
+      "label": "Action Required",
+      "default": 0
+    },
+    {
+      "fieldname": "action_title",
+      "fieldtype": "Data",
+      "label": "Action Title",
+      "depends_on": "eval:doc.action_required == 1"
+    },
+    {
+      "fieldname": "action_type",
+      "fieldtype": "Link",
+      "label": "Action Type",
+      "options": "Board Action Type"
+    },
+    {
+      "fieldname": "action_owner",
+      "fieldtype": "Data",
+      "label": "Action Owner"
+    },
+    {
+      "fieldname": "action_due_date",
+      "fieldtype": "Date",
+      "label": "Action Due Date"
+    },
+    {
+      "fieldname": "action_link",
+      "fieldtype": "Link",
+      "label": "Action Register Entry",
+      "options": "Board Action",
+      "read_only": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

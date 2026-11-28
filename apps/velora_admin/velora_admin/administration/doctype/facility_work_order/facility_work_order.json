@@ -1,0 +1,106 @@
+{
+  "name": "Facility Work Order",
+  "module": "Administration",
+  "autoname": "field:title",
+  "istable": false,
+  "is_submittable": false,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Work Order Title",
+      "fieldtype": "Data",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "facility",
+      "label": "Facility",
+      "fieldtype": "Link",
+      "options": "Facility",
+      "required": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "work_type",
+      "label": "Work Type",
+      "fieldtype": "Select",
+      "options": "Corrective\nPreventive\nInspection\nCleaning\nSecurity\nUtility",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Open\nAssigned\nIn Progress\nOn Hold\nCompleted\nCancelled",
+      "default": "Open",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "priority",
+      "label": "Priority",
+      "fieldtype": "Select",
+      "options": "Low\nNormal\nHigh\nUrgent",
+      "default": "Normal",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "assigned_to",
+      "label": "Assigned To",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "vendor",
+      "label": "Vendor",
+      "fieldtype": "Link",
+      "options": "Vendor"
+    },
+    {
+      "fieldname": "scheduled_date",
+      "label": "Scheduled Date",
+      "fieldtype": "Date",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "completed_date",
+      "label": "Completed Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "cost_estimate",
+      "label": "Estimated Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "actual_cost",
+      "label": "Actual Cost",
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "recurrence",
+      "label": "Preventive Recurrence",
+      "fieldtype": "Select",
+      "options": "None\nWeekly\nMonthly\nQuarterly\nSemi-Annual\nAnnual"
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "share": 1
+    }
+  ]
+}

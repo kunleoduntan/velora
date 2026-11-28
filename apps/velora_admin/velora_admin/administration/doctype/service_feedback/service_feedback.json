@@ -1,0 +1,81 @@
+{
+ "name": "Service Feedback",
+ "module": "Administration",
+ "autoname": "hash",
+ "istable": false,
+ "is_submittable": false,
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "request",
+   "fieldtype": "Link",
+   "options": "Request",
+   "label": "Request",
+   "required": true,
+   "unique": true
+  },
+  {
+   "fieldname": "service",
+   "fieldtype": "Link",
+   "options": "Service",
+   "label": "Service",
+   "required": true
+  },
+  {
+   "fieldname": "requester",
+   "fieldtype": "Link",
+   "options": "Person",
+   "label": "Requester",
+   "required": true
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Int",
+   "label": "Rating",
+   "required": true,
+   "description": "1 to 5"
+  },
+  {
+   "fieldname": "feedback",
+   "fieldtype": "Text",
+   "label": "Feedback"
+  },
+  {
+   "fieldname": "submitted_on",
+   "fieldtype": "Datetime",
+   "label": "Submitted On"
+  },
+  {
+   "fieldname": "service_quality_flag",
+   "fieldtype": "Select",
+   "label": "Quality Flag",
+   "options": "Positive\nNeutral\nNeeds Improvement",
+   "default": "Neutral"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Administration Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "Administrative Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ]
+}

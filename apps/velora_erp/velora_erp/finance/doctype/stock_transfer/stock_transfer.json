@@ -1,0 +1,170 @@
+{
+  "name": "Stock Transfer",
+  "module": "Finance",
+  "track_changes": true,
+  "description": "Controlled warehouse-to-warehouse stock movement. Paired stock ledger records preserve carrying value without creating financial income or expense.",
+  "fields": [
+    {
+      "fieldname": "posting_date",
+      "label": "Posting Date",
+      "fieldtype": "Date",
+      "required": true,
+      "default": "Today",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "source_warehouse",
+      "label": "Source Warehouse",
+      "fieldtype": "Link",
+      "options": "Warehouse",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "target_warehouse",
+      "label": "Destination Warehouse",
+      "fieldtype": "Link",
+      "options": "Warehouse",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "transit_warehouse",
+      "fieldtype": "Link",
+      "label": "Send via transit warehouse",
+      "options": "Warehouse",
+      "description": "Optional. Choose a transit warehouse to make this a two-step transfer: stock leaves the source now and reaches the destination when it is received."
+    },
+    {
+      "fieldname": "transit_status",
+      "fieldtype": "Select",
+      "label": "Transfer Status",
+      "options": [
+        "Draft",
+        "Direct",
+        "In Transit",
+        "Partially Received",
+        "Received"
+      ],
+      "default": "Draft",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "lines",
+      "label": "Transfer Lines",
+      "fieldtype": "Table",
+      "options": "Stock Transfer Line",
+      "required": true
+    },
+    {
+      "fieldname": "remarks",
+      "label": "Remarks",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": [
+        "Pending",
+        "Approved",
+        "Rejected"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "approved_by",
+      "label": "Approved By",
+      "fieldtype": "Data",
+      "read_only": true
+    },
+    {
+      "fieldname": "approved_on",
+      "label": "Approved On",
+      "fieldtype": "Datetime",
+      "read_only": true
+    },
+    {
+      "fieldname": "material_request",
+      "fieldtype": "Link",
+      "label": "Material Request",
+      "options": "Material Request",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "export": true,
+      "print": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Finance Manager",
+      "read": true,
+      "export": true,
+      "print": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Inventory Manager",
+      "read": true,
+      "export": true,
+      "print": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Storekeeper",
+      "read": true,
+      "export": true,
+      "print": true,
+      "write": true,
+      "create": true,
+      "submit": true,
+      "cancel": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true,
+      "amend": true
+    },
+    {
+      "role": "Auditor",
+      "read": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "is_submittable": true,
+  "autoname": "series:STKTR-.########"
+}

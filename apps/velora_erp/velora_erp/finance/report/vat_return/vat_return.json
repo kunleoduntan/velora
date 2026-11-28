@@ -1,0 +1,6 @@
+{"name": "VAT Return", "module": "Finance", "type": "script", "ref_doctype": "Sales Invoice",
+ "roles": ["System Manager", "Finance Manager", "Accountant", "Auditor"],
+ "description": "Output tax on sales and input tax on purchases for a period, by tax code and rate, net of returns, with the amount payable to (or refundable from) the tax authority. Amounts are in the base currency.",
+ "filters": [
+  {"fieldname": "from_date", "label": "From Date", "fieldtype": "Date", "reqd": 1},
+  {"fieldname": "to_date", "label": "To Date", "fieldtype": "Date", "reqd": 1}]}

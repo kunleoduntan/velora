@@ -1,0 +1,188 @@
+{
+ "name": "Materiality Assessment",
+ "module": "Governance",
+ "autoname": "series:MAT-.####",
+ "track_changes": true,
+ "fields": [
+  {
+   "fieldname": "governance_entity",
+   "fieldtype": "Link",
+   "label": "Governance Entity",
+   "options": "Governance Entity",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "reporting_period",
+   "fieldtype": "Data",
+   "label": "Reporting Period",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "methodology",
+   "fieldtype": "Select",
+   "label": "Methodology",
+   "options": [
+    "Impact",
+    "Financial",
+    "Double Materiality"
+   ],
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "assessment_status",
+   "fieldtype": "Select",
+   "label": "Assessment Status",
+   "options": [
+    "Draft",
+    "In Progress",
+    "Completed",
+    "Archived"
+   ],
+   "default": "Draft",
+   "required": true,
+   "in_list_view": true
+  },
+  {
+   "fieldname": "impact_threshold",
+   "fieldtype": "Int",
+   "label": "Impact Threshold (1-5)"
+  },
+  {
+   "fieldname": "financial_threshold",
+   "fieldtype": "Int",
+   "label": "Financial Threshold (1-5)"
+  },
+  {
+   "fieldname": "topics",
+   "fieldtype": "Table",
+   "label": "Topics",
+   "options": "Materiality Topic"
+  },
+  {
+   "fieldname": "overall_summary",
+   "fieldtype": "Text",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Date",
+   "label": "Completed On"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "stakeholder_engagement",
+   "fieldtype": "Text",
+   "label": "Stakeholder engagement (who, how, when)"
+  },
+  {
+   "fieldname": "value_chain_scope",
+   "fieldtype": "Text",
+   "label": "Value-chain boundary of the assessment"
+  },
+  {
+   "fieldname": "likelihood_threshold",
+   "fieldtype": "Int",
+   "label": "Likelihood threshold for potential impacts (1-5)",
+   "default": 3
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved by (board or committee)"
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Date",
+   "label": "Approved on"
+  },
+  {
+   "fieldname": "approval_notes",
+   "fieldtype": "Text",
+   "label": "Approval notes"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Administrator",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": true,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Company Secretary",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": true,
+   "report": true,
+   "print": true,
+   "email": true,
+   "share": true
+  },
+  {
+   "role": "Governance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true,
+   "email": false,
+   "share": false
+  },
+  {
+   "role": "Compliance Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  },
+  {
+   "role": "Sustainability Officer",
+   "read": true,
+   "write": true,
+   "create": true,
+   "delete": false,
+   "export": true,
+   "import": false,
+   "report": true,
+   "print": true
+  }
+ ],
+ "title_field": "reporting_period"
+}

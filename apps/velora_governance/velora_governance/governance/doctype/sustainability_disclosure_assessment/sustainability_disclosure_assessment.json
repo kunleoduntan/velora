@@ -1,0 +1,197 @@
+{
+  "name": "Sustainability Disclosure Assessment",
+  "module": "Governance",
+  "autoname": "series:SDA-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reporting_period",
+      "fieldtype": "Link",
+      "label": "Reporting Period",
+      "options": "Sustainability Reporting Period",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "disclosure",
+      "fieldtype": "Link",
+      "label": "Disclosure",
+      "options": "Sustainability Disclosure",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "applicable",
+      "fieldtype": "Check",
+      "label": "Applicable",
+      "default": 1,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assessment_status",
+      "fieldtype": "Select",
+      "label": "Assessment Status",
+      "options": [
+        "Not Started",
+        "Data Required",
+        "In Progress",
+        "Ready",
+        "Reviewed",
+        "Not Applicable"
+      ],
+      "default": "Not Started",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "readiness_percent",
+      "fieldtype": "Float",
+      "label": "Readiness Percent",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "data_points_required",
+      "fieldtype": "Int",
+      "label": "Required Data Points",
+      "default": 0
+    },
+    {
+      "fieldname": "data_points_complete",
+      "fieldtype": "Int",
+      "label": "Complete Data Points",
+      "default": 0
+    },
+    {
+      "fieldname": "evidence_required",
+      "fieldtype": "Check",
+      "label": "Evidence Required",
+      "default": 1
+    },
+    {
+      "fieldname": "evidence_complete",
+      "fieldtype": "Check",
+      "label": "Evidence Complete",
+      "default": 0
+    },
+    {
+      "fieldname": "narrative_required",
+      "fieldtype": "Check",
+      "label": "Narrative Required",
+      "default": 1
+    },
+    {
+      "fieldname": "narrative_complete",
+      "fieldtype": "Check",
+      "label": "Narrative Complete",
+      "default": 0
+    },
+    {
+      "fieldname": "disclosure_owner",
+      "fieldtype": "Data",
+      "label": "Disclosure Owner"
+    },
+    {
+      "fieldname": "due_date",
+      "fieldtype": "Date",
+      "label": "Due Date"
+    },
+    {
+      "fieldname": "reviewer",
+      "fieldtype": "Data",
+      "label": "Reviewer"
+    },
+    {
+      "fieldname": "review_date",
+      "fieldtype": "Date",
+      "label": "Review Date"
+    },
+    {
+      "fieldname": "gap_summary",
+      "fieldtype": "Text",
+      "label": "Gap Summary"
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "disclosure"
+}

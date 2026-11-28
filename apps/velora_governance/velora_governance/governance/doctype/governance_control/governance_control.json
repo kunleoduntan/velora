@@ -1,0 +1,195 @@
+{
+  "name": "Governance Control",
+  "module": "Governance",
+  "autoname": "series:GCT-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "control_name",
+      "fieldtype": "Data",
+      "label": "Control Name",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "risk",
+      "fieldtype": "Link",
+      "label": "Governance Risk",
+      "options": "Governance Risk"
+    },
+    {
+      "fieldname": "control_type",
+      "fieldtype": "Select",
+      "label": "Control Type",
+      "options": [
+        "Preventive",
+        "Detective",
+        "Corrective",
+        "Directive"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "frequency",
+      "fieldtype": "Select",
+      "label": "Frequency",
+      "options": [
+        "Daily",
+        "Weekly",
+        "Monthly",
+        "Quarterly",
+        "Semi-Annual",
+        "Annual",
+        "Event-Based"
+      ],
+      "required": true
+    },
+    {
+      "fieldname": "control_owner",
+      "fieldtype": "Data",
+      "label": "Control Owner",
+      "required": true
+    },
+    {
+      "fieldname": "design_effectiveness",
+      "fieldtype": "Select",
+      "label": "Design Effectiveness",
+      "options": [
+        "Effective",
+        "Partially Effective",
+        "Ineffective",
+        "Not Assessed"
+      ],
+      "default": "Not Assessed"
+    },
+    {
+      "fieldname": "operating_effectiveness",
+      "fieldtype": "Select",
+      "label": "Operating Effectiveness",
+      "options": [
+        "Effective",
+        "Partially Effective",
+        "Ineffective",
+        "Not Assessed"
+      ],
+      "default": "Not Assessed"
+    },
+    {
+      "fieldname": "last_tested",
+      "fieldtype": "Date",
+      "label": "Last Tested"
+    },
+    {
+      "fieldname": "next_test_date",
+      "fieldtype": "Date",
+      "label": "Next Test Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "control_status",
+      "fieldtype": "Select",
+      "label": "Control Status",
+      "options": [
+        "Active",
+        "Inactive",
+        "Review Due",
+        "Under Remediation"
+      ],
+      "default": "Active",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "calendar_event",
+      "fieldtype": "Link",
+      "label": "Calendar Event",
+      "options": "Governance Calendar Event",
+      "read_only": true
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    },
+    {
+      "role": "Compliance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "control_name"
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Sustainability Target Progress",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "progress_date",
+      "fieldtype": "Date",
+      "label": "Progress Date",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "actual_value",
+      "fieldtype": "Float",
+      "label": "Actual Value",
+      "required": true
+    },
+    {
+      "fieldname": "progress_percent",
+      "fieldtype": "Float",
+      "label": "Progress Percent",
+      "read_only": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": [
+        "On Track",
+        "At Risk",
+        "Behind",
+        "Achieved"
+      ],
+      "default": "On Track",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}

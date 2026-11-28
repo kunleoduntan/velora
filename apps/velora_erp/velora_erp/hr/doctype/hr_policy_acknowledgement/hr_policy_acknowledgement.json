@@ -1,0 +1,132 @@
+{
+  "name": "HR Policy Acknowledgement",
+  "module": "HR",
+  "autoname": "hash",
+  "track_changes": true,
+  "description": "Employee acknowledgement against an exact published HR policy version, preserving proof of which version was acknowledged.",
+  "fields": [
+    {
+      "fieldname": "policy_document",
+      "label": "Policy",
+      "fieldtype": "Link",
+      "options": "HR Policy Document",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "policy_version",
+      "label": "Policy Version",
+      "fieldtype": "Data",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": true,
+      "fetch_from": "employee.employee_name",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "assigned_on",
+      "label": "Assigned On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "due_date",
+      "label": "Due Date",
+      "fieldtype": "Date",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "acknowledgement_status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": [
+        "Pending",
+        "Acknowledged",
+        "Declined",
+        "Waived",
+        "Overdue"
+      ],
+      "default": "Pending",
+      "required": true,
+      "in_list_view": true,
+      "in_standard_filter": true
+    },
+    {
+      "fieldname": "acknowledged_on",
+      "label": "Acknowledged On",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "acknowledgement_method",
+      "label": "Method",
+      "fieldtype": "Select",
+      "options": [
+        "Employee Portal",
+        "HR Recorded",
+        "Digital Signature",
+        "Other"
+      ]
+    },
+    {
+      "fieldname": "employee_comment",
+      "label": "Employee Comment",
+      "fieldtype": "Text"
+    },
+    {
+      "fieldname": "recorded_by",
+      "label": "Recorded By",
+      "fieldtype": "Data"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true,
+      "share": true,
+      "import": true
+    },
+    {
+      "role": "HR Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "print": true,
+      "report": true,
+      "email": true
+    },
+    {
+      "role": "HR Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": false,
+      "print": true,
+      "report": true,
+      "email": true
+    }
+  ],
+  "title_field": "employee_name"
+}

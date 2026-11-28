@@ -1,0 +1,99 @@
+{
+  "name": "Administrative Vehicle",
+  "module": "Administration",
+  "autoname": "field:title",
+  "istable": false,
+  "is_submittable": false,
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Vehicle Registration / ID",
+      "fieldtype": "Data",
+      "required": 1,
+      "unique": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "vehicle_type",
+      "label": "Vehicle Type",
+      "fieldtype": "Data",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "make",
+      "label": "Make",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "model",
+      "label": "Model",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "year",
+      "label": "Year",
+      "fieldtype": "Int"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Available\nAssigned\nIn Service\nUnder Maintenance\nRetired",
+      "default": "Available",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "assigned_to",
+      "label": "Assigned Employee",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "driver",
+      "label": "Primary Driver",
+      "fieldtype": "Link",
+      "options": "Employee"
+    },
+    {
+      "fieldname": "current_odometer",
+      "label": "Current Odometer",
+      "fieldtype": "Float"
+    },
+    {
+      "fieldname": "fuel_type",
+      "label": "Fuel Type",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "insurance_expiry",
+      "label": "Insurance Expiry",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "registration_expiry",
+      "label": "Registration Expiry",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "service_due_date",
+      "label": "Next Service Due",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "share": 1
+    }
+  ]
+}

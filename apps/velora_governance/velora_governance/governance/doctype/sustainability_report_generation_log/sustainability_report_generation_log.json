@@ -1,0 +1,151 @@
+{
+  "name": "Sustainability Report Generation Log",
+  "module": "Governance",
+  "autoname": "series:SRG-.####",
+  "track_changes": true,
+  "fields": [
+    {
+      "fieldname": "report",
+      "fieldtype": "Link",
+      "label": "Report",
+      "options": "Sustainability Report",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "reporting_period",
+      "fieldtype": "Link",
+      "label": "Reporting Period",
+      "options": "Sustainability Reporting Period"
+    },
+    {
+      "fieldname": "generation_type",
+      "fieldtype": "Select",
+      "label": "Generation Type",
+      "options": [
+        "Readiness Assessment",
+        "Disclosure Assessment",
+        "Content Generation",
+        "Full Report Refresh"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "started_at",
+      "fieldtype": "Datetime",
+      "label": "Started At"
+    },
+    {
+      "fieldname": "completed_at",
+      "fieldtype": "Datetime",
+      "label": "Completed At"
+    },
+    {
+      "fieldname": "result",
+      "fieldtype": "Select",
+      "label": "Result",
+      "options": [
+        "Success",
+        "Partial",
+        "Failed"
+      ],
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "disclosures_assessed",
+      "fieldtype": "Int",
+      "label": "Disclosures Assessed"
+    },
+    {
+      "fieldname": "disclosures_ready",
+      "fieldtype": "Int",
+      "label": "Disclosures Ready"
+    },
+    {
+      "fieldname": "gaps_found",
+      "fieldtype": "Int",
+      "label": "Gaps Found"
+    },
+    {
+      "fieldname": "generated_blocks",
+      "fieldtype": "Int",
+      "label": "Generated Blocks"
+    },
+    {
+      "fieldname": "summary",
+      "fieldtype": "Text",
+      "label": "Summary"
+    },
+    {
+      "fieldname": "error_details",
+      "fieldtype": "Text",
+      "label": "Error Details"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    },
+    {
+      "role": "Sustainability Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true
+    }
+  ],
+  "title_field": "report"
+}

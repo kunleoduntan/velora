@@ -1,0 +1,180 @@
+{
+  "name": "Board Paper",
+  "module": "Governance",
+  "autoname": "series:BDP-.####",
+  "track_changes": true,
+  "description": "",
+  "fields": [
+    {
+      "fieldname": "meeting",
+      "fieldtype": "Link",
+      "label": "Meeting",
+      "options": "Board Meeting",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "governance_entity",
+      "fieldtype": "Link",
+      "label": "Governance Entity",
+      "options": "Governance Entity",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "board",
+      "fieldtype": "Link",
+      "label": "Board",
+      "options": "Board",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "committee",
+      "fieldtype": "Link",
+      "label": "Committee",
+      "options": "Board Committee"
+    },
+    {
+      "fieldname": "agenda_sequence",
+      "fieldtype": "Int",
+      "label": "Agenda Sequence"
+    },
+    {
+      "fieldname": "paper_title",
+      "fieldtype": "Data",
+      "label": "Paper Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "paper_type",
+      "fieldtype": "Link",
+      "label": "Paper Type",
+      "options": "Board Paper Type",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "author",
+      "fieldtype": "Data",
+      "label": "Author"
+    },
+    {
+      "fieldname": "submission_date",
+      "fieldtype": "Date",
+      "label": "Submission Date"
+    },
+    {
+      "fieldname": "circulation_deadline",
+      "fieldtype": "Date",
+      "label": "Circulation Deadline"
+    },
+    {
+      "fieldname": "document_reference",
+      "fieldtype": "Data",
+      "label": "Document File Reference",
+      "required": true
+    },
+    {
+      "fieldname": "confidentiality",
+      "fieldtype": "Select",
+      "label": "Confidentiality",
+      "options": [
+        "Board",
+        "Committee",
+        "Restricted",
+        "Highly Confidential"
+      ],
+      "default": "Board",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "paper_status",
+      "fieldtype": "Select",
+      "label": "Paper Status",
+      "options": [
+        "Draft",
+        "Submitted",
+        "Circulated",
+        "Withdrawn",
+        "Archived"
+      ],
+      "default": "Draft",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "review_status",
+      "fieldtype": "Select",
+      "label": "Review Status",
+      "options": [
+        "Not Reviewed",
+        "Reviewed",
+        "Comments Received"
+      ],
+      "default": "Not Reviewed",
+      "in_list_view": true
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Administrator",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": true,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Company Secretary",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": true,
+      "report": true,
+      "print": true,
+      "email": true,
+      "share": true
+    },
+    {
+      "role": "Governance Officer",
+      "read": true,
+      "write": true,
+      "create": true,
+      "delete": false,
+      "export": true,
+      "import": false,
+      "report": true,
+      "print": true,
+      "email": false,
+      "share": false
+    }
+  ],
+  "title_field": "paper_title"
+}

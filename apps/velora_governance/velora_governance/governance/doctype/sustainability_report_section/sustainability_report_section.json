@@ -1,0 +1,74 @@
+{
+  "name": "Sustainability Report Section",
+  "module": "Governance",
+  "istable": true,
+  "fields": [
+    {
+      "fieldname": "sequence",
+      "fieldtype": "Int",
+      "label": "Sequence",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "section_title",
+      "fieldtype": "Data",
+      "label": "Section Title",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "framework",
+      "fieldtype": "Link",
+      "label": "Framework",
+      "options": "Sustainability Framework"
+    },
+    {
+      "fieldname": "standard",
+      "fieldtype": "Link",
+      "label": "Standard",
+      "options": "Sustainability Standard"
+    },
+    {
+      "fieldname": "disclosure",
+      "fieldtype": "Link",
+      "label": "Disclosure",
+      "options": "Sustainability Disclosure"
+    },
+    {
+      "fieldname": "content",
+      "fieldtype": "Text",
+      "label": "Content"
+    },
+    {
+      "fieldname": "data_point",
+      "fieldtype": "Link",
+      "label": "Data Point",
+      "options": "Sustainability Data Point"
+    },
+    {
+      "fieldname": "section_status",
+      "fieldtype": "Select",
+      "label": "Section Status",
+      "options": [
+        "Not Started",
+        "In Progress",
+        "Completed",
+        "Not Applicable"
+      ],
+      "default": "Not Started",
+      "required": true,
+      "in_list_view": true
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Evidence Reference"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ]
+}
